@@ -1,0 +1,6 @@
+auto pin1, pin2
+auto id
+auto konts
+auto kash balance (default 0)
+
+name - Monolith, Zephyr

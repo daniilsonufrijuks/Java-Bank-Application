@@ -1,4 +1,4 @@
-static class REGEXManager {
+public class REGEXManager {
 
     // regex for name/last name
     public boolean NameRegex(String name) {

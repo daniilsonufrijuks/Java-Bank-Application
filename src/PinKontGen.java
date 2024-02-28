@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.UUID;
 
-static class PinKontGen {
+public class PinKontGen {
 
     // method to gen account number
     public String GenKontnum() {
@@ -13,8 +13,8 @@ static class PinKontGen {
         String pin = "";
         Random rand = new Random();
         for (int i = 0; i < 7; i++) {
-            pin += Integer.toString(rand.nextInt(0, 9));
+            pin += Integer.toString(rand.nextInt(9-0) + 0);
         }
-        return String.valueOf(pin);
+        return Integer.parseInt(pin);
     }
 }

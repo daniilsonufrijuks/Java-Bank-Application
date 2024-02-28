@@ -11,7 +11,7 @@ import java.util.Scanner;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class CSVMAnager {
+public class CSVManager {
 
     void show() { // metode lai radīt registretos studentus
          try {

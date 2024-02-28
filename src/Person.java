@@ -1,7 +1,7 @@
-public class Student {
+public class Person {
     private String name;
     private String lastname;
-    private String pesoncode;
+    private String personcode;
     private String email;
     private String nickname;
 
@@ -16,7 +16,7 @@ public class Student {
     }
 
     public void SetPersonCode(String Newpersoncode) {
-        this.pesoncode = Newpersoncode;
+        this.personcode = Newpersoncode;
     }
 
     public void SetEmail(String Newemail) {

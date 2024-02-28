@@ -3,6 +3,7 @@ public class Student {
     private String lastname;
     private String pesoncode;
     private String email;
+    private String nickname;
 
 
     // setters 
@@ -22,6 +23,10 @@ public class Student {
         this.email = Newemail;
     }
 
+    public void SetNickName(String Newnickname) {
+        this.nickname = Newnickname;
+    }
+
     // getters
     public String GetName() {
         return this.name;
@@ -37,5 +42,9 @@ public class Student {
 
     public String GetEmail() {
         return this.email;
+    }
+
+    public String GetNickName() {
+        return this.nickname;
     }
 }

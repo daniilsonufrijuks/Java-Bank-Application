@@ -5,7 +5,7 @@ static class REGEXManager {
         return name.matches(expression);
     }
 
-    public boolean PersoncodeRegex(int pcode) {
+    public boolean PersoncodeRegex(String pcode) {
 
     }
 

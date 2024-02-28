@@ -1,7 +1,7 @@
 public class Student {
     private String name;
     private String lastname;
-    private int pesoncode;
+    private String pesoncode;
     private String email;
 
 
@@ -14,7 +14,7 @@ public class Student {
         this.lastname = Newlastname;
     }
 
-    public void SetPersonCode(int Newpersoncode) {
+    public void SetPersonCode(String Newpersoncode) {
         this.pesoncode = Newpersoncode;
     }
 
@@ -31,7 +31,7 @@ public class Student {
         return this.lastname;
     }
 
-    public int GetPersonCode() {
+    public String GetPersonCode() {
         return this.personcode;
     }
 

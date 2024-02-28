@@ -7,5 +7,5 @@ public class GUILogReg {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Test Frame");
         frame.setVisible(true); 
-    }  
+    }   
 }  

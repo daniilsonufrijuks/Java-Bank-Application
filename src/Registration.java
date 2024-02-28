@@ -27,6 +27,8 @@ public class Registration{      // Registration static class
     }
 }
 
+// IM TRYING TO PUUL MF
+
     // try {
     //         File myObj = new File("person.csv");
     //         Scanner myReader = new Scanner(myObj);

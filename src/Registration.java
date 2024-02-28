@@ -1,5 +1,3 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;   // Import the FileWriter class
@@ -12,14 +10,22 @@ public class Registration{      // Registration static class
         try{
             String pin1Str = String.valueOf(pin1);
             String pin2Str = String.valueOf(pin2);
+            File csvObj = new File("person.csv");
+            Scanner regReader = new Scanner(csvObj);
+            int line_id = 1;
+            while (regReader.hasNextLine()) {
+                String data = regReader.nextLine();
+                System.out.println(line_id + " " + data);
+                line_id++;
+            }
             FileWriter regWriter = new FileWriter("person.csv");
-            regWriter.write(/*id??*/personToWriteIn.GetName(), personToWriteIn.GetLastName(), personToWriteIn.GetPersonCode(), accountID, personToWriteIn.GetEmail(), pin1Str, pin2Str, "0");
+            regWriter.write(String.valueOf(line_id) + personToWriteIn.GetName() + personToWriteIn.GetLastName() + personToWriteIn.GetPersonCode() + accountID + personToWriteIn.GetEmail() + pin1Str + pin2Str + "0");
             regWriter.close();
         } catch (IOException e) {
-            // Registration error
+            e.printStackTrace();
         }
-        // i made some code
     }
+}
 
     // try {
     //         File myObj = new File("person.csv");
@@ -61,4 +67,3 @@ public class Registration{      // Registration static class
     //         ex.printStackTrace();
     //     }
 
-}

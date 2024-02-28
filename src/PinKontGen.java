@@ -2,10 +2,13 @@ import java.util.Random;
 import java.util.UUID;
 
 static class PinKontGen {
+
+    // method to gen account number
     public String GenKontnum() {
         return UUID.randomUUID().toString().replace("-", "");
     }
 
+    // method to generate pins
     public int GenPinS() {
         String pin = "";
         Random rand = new Random();

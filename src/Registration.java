@@ -13,6 +13,7 @@ static class Registration{      // Registration static class
         } catch (IOException e) {
             ... // Registration error
         }
+        // i made some code
     }
 
 }

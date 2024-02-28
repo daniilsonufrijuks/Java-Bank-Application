@@ -8,4 +8,4 @@ public class GUILogReg {
         frame.setTitle("Test Frame");
         frame.setVisible(true); 
     }   
-}  
+}  // +

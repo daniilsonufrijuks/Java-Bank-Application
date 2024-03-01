@@ -87,7 +87,11 @@ public class GUILogReg extends JFrame implements ActionListener {
             userpcodetText = userpcodetField.getText();
             useremailText = useremailField.getText();
             userlabelText = userLabelField.getText();
-            
+
+            Person person = new Person(userText, userlnameText, userpcodetText, useremailText, userlabelText);
+            Registration reg = new Registration();
+            reg.WriteToAFile(person);
+
             // if (userText.equalsIgnoreCase("mehtab") && pwdText.equalsIgnoreCase("12345")) {
             //     JOptionPane.showMessageDialog(this, "Login Successful");
             // } else {

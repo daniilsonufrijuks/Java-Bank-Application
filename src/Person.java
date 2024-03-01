@@ -5,6 +5,13 @@ public class Person {
     private String email;
     private String nickname;
 
+    public Person(String Newname, String Newlastname, String Newpersoncode, String Newemail, String Newnickname) {
+        this.name = Newname;
+        this.lastname = Newlastname;
+        this.personcode = Newpersoncode;
+        this.email = Newemail;
+        this.nickname = Newnickname;
+    }
 
     // setters 
     public void SetName(String Newname) {

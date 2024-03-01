@@ -18,7 +18,7 @@ public class GUILogReg extends JFrame implements ActionListener {
     JTextField userLabelField = new JTextField();
     JButton loginButton = new JButton("LOGIN");
     JButton regButton = new JButton("REGISTER");
-    JCheckBox showPassword = new JCheckBox("Show Password");
+    JCheckBox showPCode = new JCheckBox("Show PCode");
 
 
     GUILogReg() {
@@ -44,7 +44,7 @@ public class GUILogReg extends JFrame implements ActionListener {
         userpcodetField.setBounds(610, 100, 100, 30);
         useremailField.setBounds(610, 140, 100, 30);
         userLabelField.setBounds(610, 180, 100, 30);
-        showPassword.setBounds(500, 250, 150, 30);
+        showPCode.setBounds(500, 250, 150, 30);
         loginButton.setBounds(450, 300, 100, 30);
         regButton.setBounds(600, 300, 100, 30);
 
@@ -62,7 +62,7 @@ public class GUILogReg extends JFrame implements ActionListener {
         container.add(userpcodetField);
         container.add(useremailField);
         container.add(userLabelField);
-        container.add(showPassword);
+        container.add(showPCode);
         container.add(loginButton);
         container.add(regButton);
     }
@@ -70,25 +70,32 @@ public class GUILogReg extends JFrame implements ActionListener {
     public void addActionEvent() {
         loginButton.addActionListener(this);
         regButton.addActionListener(this);
-        showPassword.addActionListener(this);
+        showPCode.addActionListener(this);
     }
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == loginButton) {
+        if (e.getSource() == regButton) {
             String userText;
-            String pwdText;
+            String userlnameText;
+            String userpcodetText;
+            String useremailText;
+            String userlabelText;
             userText = usernameField.getText();
-            pwdText = userlastnameField.getText();
-            if (userText.equalsIgnoreCase("mehtab") && pwdText.equalsIgnoreCase("12345")) {
-                JOptionPane.showMessageDialog(this, "Login Successful");
-            } else {
-                JOptionPane.showMessageDialog(this, "Invalid Username or Password");
-            }
+            userlnameText = userlastnameField.getText();
+            userpcodetText = userpcodetField.getText();
+            useremailText = useremailField.getText();
+            userlabelText = userLabelField.getText();
+            
+            // if (userText.equalsIgnoreCase("mehtab") && pwdText.equalsIgnoreCase("12345")) {
+            //     JOptionPane.showMessageDialog(this, "Login Successful");
+            // } else {
+            //     JOptionPane.showMessageDialog(this, "Invalid Username or Password");
+            // }
 
         }
-        if (e.getSource() == regButton) {
+        if (e.getSource() == loginButton) {
             usernameField.setText("");
             userlastnameField.setText("");
         }
@@ -98,15 +105,6 @@ public class GUILogReg extends JFrame implements ActionListener {
         //     } else {
         //         userlastnameField.setEchoChar('*');
         //     }
-
-
         // }
-    }
-    // public static void main(String s[]) {  
-    //     JFrame frame = new JFrame();
-    //     frame.setSize(150,150);
-    //     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    //     frame.setTitle("Test Frame");
-    //     frame.setVisible(true); 
-    // }   
+    }  
 }  // +

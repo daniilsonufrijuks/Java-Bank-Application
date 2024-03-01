@@ -4,12 +4,14 @@ import java.io.FileWriter;   // Import the FileWriter class
 import java.io.IOException;  // Import the IOException class to handle errors
 import java.util.Scanner;
 
-public class Registration{      // Registration static class
+public class Registration{      // Registration lass
 
-    static void WriteToAFile(Person personToWriteIn, String accountID, int pin1, int pin2){
+    static void WriteToAFile(Person personToWriteIn){
         try{
-            String pin1Str = String.valueOf(pin1);
-            String pin2Str = String.valueOf(pin2);
+            PinKontGen gen = new PinKontGen();
+            String pin1Str = String.valueOf(gen.GenPinS());
+            String pin2Str = String.valueOf(gen.GenPinS());
+            String accountID = gen.GenKontnum();
             File csvObj = new File("person.csv");
             Scanner regReader = new Scanner(csvObj);
             int line_id = 1;

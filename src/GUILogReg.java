@@ -2,7 +2,8 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;   
+import java.awt.event.ActionListener;
+import java.io.Console;   
 
 public class GUILogReg extends JFrame implements ActionListener {  
     Container container = getContentPane();
@@ -100,8 +101,19 @@ public class GUILogReg extends JFrame implements ActionListener {
 
         }
         if (e.getSource() == loginButton) {
-            usernameField.setText("");
-            userlastnameField.setText("");
+            String userText;
+            String userlnameText;
+            String userpcodetText;
+            String useremailText;
+            String userlabelText;
+            userText = usernameField.getText();
+            userlnameText = userlastnameField.getText();
+            userpcodetText = userpcodetField.getText();
+            useremailText = useremailField.getText();
+            userlabelText = userLabelField.getText();
+            Login login = new Login();
+            System.out.println(login.login(userlnameText, userlnameText, userpcodetText, useremailText, userlabelText));
+            
         }
         // if (e.getSource() == showPassword) {
         //     if (showPassword.isSelected()) {

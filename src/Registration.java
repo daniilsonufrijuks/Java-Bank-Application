@@ -21,7 +21,7 @@ public class Registration{      // Registration lass
                 line_id++;
             }
             FileWriter regWriter = new FileWriter("data/person.csv");
-            regWriter.write(String.valueOf(line_id) + ", " +  personToWriteIn.GetName() + ", " +  personToWriteIn.GetLastName() + ", " + personToWriteIn.GetPersonCode() + ", " +  accountID + ", " + personToWriteIn.GetEmail() + ", " + pin1Str + ", " +  pin2Str + ", " + "0");
+            regWriter.write(String.valueOf(line_id) + ", " +  personToWriteIn.GetName() + ", " +  personToWriteIn.GetLastName() + ", " + personToWriteIn.GetPersonCode() + ", " +  accountID + ", " + personToWriteIn.GetEmail() + ", " + personToWriteIn.GetNickName() + ", " + pin1Str + ", " +  pin2Str + ", " + "0");
             regWriter.close();
         } catch (IOException e) {
             e.printStackTrace();

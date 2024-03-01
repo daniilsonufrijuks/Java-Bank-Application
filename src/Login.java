@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Login {
+    // method which checks if the given fileds are in the file
     boolean login(String name, String lastname, String personcode, String email, String nickname) {
         // Person person = new Person();
         // try {

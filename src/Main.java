@@ -2,6 +2,7 @@ import javax.swing.JFrame;
 
 public class Main {
     public static void main(String[] args) {
+        // gui start
         GUILogReg frame = new GUILogReg();
         frame.setTitle("MONOLIT Bank");
         frame.setVisible(true);

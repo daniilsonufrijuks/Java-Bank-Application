@@ -77,7 +77,7 @@ public class GUILogReg extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == regButton) {
+        if (e.getSource() == regButton) { // to registrate person
             String userText;
             String userlnameText;
             String userpcodetText;
@@ -100,7 +100,7 @@ public class GUILogReg extends JFrame implements ActionListener {
             // }
 
         }
-        if (e.getSource() == loginButton) {
+        if (e.getSource() == loginButton) { // to login person
             String userText;
             String userlnameText;
             String userpcodetText;
@@ -112,11 +112,11 @@ public class GUILogReg extends JFrame implements ActionListener {
             useremailText = useremailField.getText();
             userlabelText = userLabelField.getText();
             Login login = new Login();
-            System.out.println(login.login(userlnameText, userlnameText, userpcodetText, useremailText, userlabelText));
+            System.out.println(login.login(userText, userlnameText, userpcodetText, useremailText, userlabelText));
             
         }
-        // if (e.getSource() == showPassword) {
-        //     if (showPassword.isSelected()) {
+        // if (e.getSource() == userpcodetText) {
+        //     if (userpcodetText.isSelected()) {
         //         userlastnameField.setEchoChar((char) 0);
         //     } else {
         //         userlastnameField.setEchoChar('*');

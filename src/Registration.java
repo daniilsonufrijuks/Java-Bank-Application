@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Registration{      // Registration lass
 
+    // method writes to file given fields through person 
     static void WriteToAFile(Person personToWriteIn){
         try{
             PinKontGen gen = new PinKontGen();

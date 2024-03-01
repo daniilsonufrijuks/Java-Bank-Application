@@ -17,7 +17,7 @@ public class GUILogReg extends JFrame implements ActionListener {
     JTextField useremailField = new JTextField();
     JTextField userLabelField = new JTextField();
     JButton loginButton = new JButton("LOGIN");
-    JButton resetButton = new JButton("RESET");
+    JButton regButton = new JButton("REGISTER");
     JCheckBox showPassword = new JCheckBox("Show Password");
 
 
@@ -34,19 +34,19 @@ public class GUILogReg extends JFrame implements ActionListener {
     }
 
     public void setLocationAndSize() {
-        usernameLabel.setBounds(50, 20, 100, 30);
-        userlastnameLabel.setBounds(50, 60, 100, 30);
-        userpcodeLabel.setBounds(50, 100, 100, 30);
-        useremailLabel.setBounds(50, 140, 100, 30);
-        userLabel.setBounds(50, 180, 100, 30);
-        usernameField.setBounds(90, 20, 100, 30);
-        userlastnameField.setBounds(90, 20, 100, 30);
-        usernameField.setBounds(90, 20, 100, 30);
-        usernameField.setBounds(90, 20, 100, 30);
-        usernameField.setBounds(90, 20, 100, 30);
-        showPassword.setBounds(150, 250, 150, 30);
-        loginButton.setBounds(50, 300, 100, 30);
-        resetButton.setBounds(200, 300, 100, 30);
+        usernameLabel.setBounds(450, 20, 100, 30);
+        userlastnameLabel.setBounds(450, 60, 100, 30);
+        userpcodeLabel.setBounds(450, 100, 100, 30);
+        useremailLabel.setBounds(450, 140, 100, 30);
+        userLabel.setBounds(450, 180, 100, 30);
+        usernameField.setBounds(610, 20, 100, 30);
+        userlastnameField.setBounds(610, 60, 100, 30);
+        userpcodetField.setBounds(610, 100, 100, 30);
+        useremailField.setBounds(610, 140, 100, 30);
+        userLabelField.setBounds(610, 180, 100, 30);
+        showPassword.setBounds(500, 250, 150, 30);
+        loginButton.setBounds(450, 300, 100, 30);
+        regButton.setBounds(600, 300, 100, 30);
 
 
     }
@@ -58,14 +58,18 @@ public class GUILogReg extends JFrame implements ActionListener {
         container.add(useremailLabel);
         container.add(userLabel);
         container.add(usernameField);
+        container.add(userlastnameField);
+        container.add(userpcodetField);
+        container.add(useremailField);
+        container.add(userLabelField);
         container.add(showPassword);
         container.add(loginButton);
-        container.add(resetButton);
+        container.add(regButton);
     }
 
     public void addActionEvent() {
         loginButton.addActionListener(this);
-        resetButton.addActionListener(this);
+        regButton.addActionListener(this);
         showPassword.addActionListener(this);
     }
 
@@ -84,7 +88,7 @@ public class GUILogReg extends JFrame implements ActionListener {
             }
 
         }
-        if (e.getSource() == resetButton) {
+        if (e.getSource() == regButton) {
             usernameField.setText("");
             userlastnameField.setText("");
         }

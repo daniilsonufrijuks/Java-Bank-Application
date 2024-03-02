@@ -30,6 +30,7 @@ public class Login {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(", ");
+                System.out.println(parts);
                 
                 if (parts.length == 9 && parts[1].equals(name) && parts[2].equals(lastname) &&
                     parts[3].equals(personcode) && parts[5].equals(email) && parts[6].equals(nickname)) {

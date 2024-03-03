@@ -112,7 +112,18 @@ public class GUILogReg extends JFrame implements ActionListener {
             useremailText = useremailField.getText();
             userlabelText = userLabelField.getText();
             Login login = new Login();
-            System.out.println(login.login(userText, userlnameText, userpcodetText, useremailText, userlabelText));
+            boolean logb = login.login(userText, userlnameText, userpcodetText, useremailText, userlabelText);
+            System.out.println(logb);
+            if (logb == true) {
+                GUIMainProgram frame2 = new GUIMainProgram();
+                frame2.setTitle("MONOLIT Bank");
+                // ImageIcon icon = new ImageIcon("icon.png"); // Путь к вашей иконке
+                // setIconImage(icon.getImage());
+                frame2.setVisible(true);
+                frame2.setBounds(10, 10, 1200, 750);
+                frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame2.setResizable(false);
+            }
             
         }
         // if (e.getSource() == userpcodetText) {

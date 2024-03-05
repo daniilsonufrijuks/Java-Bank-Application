@@ -89,9 +89,19 @@ public class GUILogReg extends JFrame implements ActionListener {
             useremailText = useremailField.getText();
             userlabelText = userLabelField.getText();
 
-            Person person = new Person(userText, userlnameText, userpcodetText, useremailText, userlabelText);
-            Registration reg = new Registration();
-            reg.WriteToAFile(person);
+            REGEXManager regMan = new REGEXManager();
+            if (regMan.NameRegex(userText)) {
+                Person person = new Person(userText, userlnameText, userpcodetText, useremailText, userlabelText);
+                Registration reg = new Registration();
+                reg.WriteToAFile(person);
+                JOptionPane.showMessageDialog(this, "Login Successful");
+            } else {
+                JOptionPane.showMessageDialog(this, "Invalid Data");
+            }
+
+            // Person person = new Person(userText, userlnameText, userpcodetText, useremailText, userlabelText);
+            // Registration reg = new Registration();
+            // reg.WriteToAFile(person);
 
             // if (userText.equalsIgnoreCase("mehtab") && pwdText.equalsIgnoreCase("12345")) {
             //     JOptionPane.showMessageDialog(this, "Login Successful");

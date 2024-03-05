@@ -89,19 +89,9 @@ public class GUILogReg extends JFrame implements ActionListener {
             useremailText = useremailField.getText();
             userlabelText = userLabelField.getText();
 
-            REGEXManager regMan = new REGEXManager();
-            if (regMan.NameRegex(userText)) {
-                Person person = new Person(userText, userlnameText, userpcodetText, useremailText, userlabelText);
-                Registration reg = new Registration();
-                reg.WriteToAFile(person);
-                JOptionPane.showMessageDialog(this, "Login Successful");
-            } else {
-                JOptionPane.showMessageDialog(this, "Invalid Data");
-            }
-
-            // Person person = new Person(userText, userlnameText, userpcodetText, useremailText, userlabelText);
-            // Registration reg = new Registration();
-            // reg.WriteToAFile(person);
+            Person person = new Person(userText, userlnameText, userpcodetText, useremailText, userlabelText);
+            Registration reg = new Registration();
+            reg.WriteToAFile(person);
 
             // if (userText.equalsIgnoreCase("mehtab") && pwdText.equalsIgnoreCase("12345")) {
             //     JOptionPane.showMessageDialog(this, "Login Successful");
@@ -121,9 +111,17 @@ public class GUILogReg extends JFrame implements ActionListener {
             userpcodetText = userpcodetField.getText();
             useremailText = useremailField.getText();
             userlabelText = userLabelField.getText();
-            Login login = new Login();
-            boolean logb = login.login(userText, userlnameText, userpcodetText, useremailText, userlabelText);
-            System.out.println(logb);
+
+            boolean logb = false;;
+            REGEXManager regMan = new REGEXManager();
+            if (regMan.NameRegex(userText) && regMan.NameRegex(userlnameText) && regMan.PersoncodeRegex(userpcodetText) && regMan.EmailRegex(useremailText)) {
+                Login login = new Login();
+                logb = login.login(userText, userlnameText, userpcodetText, useremailText, userlabelText);
+                System.out.println(logb);
+                JOptionPane.showMessageDialog(this, "Login Successful");
+            } else {
+                JOptionPane.showMessageDialog(this, "Invalid Data");
+            }
             if (logb == true) {
                 GUIMainProgram frame2 = new GUIMainProgram();
                 frame2.setTitle("MONOLIT Bank");

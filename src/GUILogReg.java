@@ -143,4 +143,3 @@ public class GUILogReg extends JFrame implements ActionListener {
         // }
     }  
 }  // +
-// PUSH Blyat

@@ -1,5 +1,6 @@
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 import view.GUILogReg;
 
@@ -14,6 +15,8 @@ public class Main {
         Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
         JFrame stw = new JFrame();  
         stw.setTitle("MONOLITH Bank");
+        JLabel label = new JLabel(new ImageIcon("resources/monolithbg.jpg"));
+        stw.getContentPane().add(label);
         // ImageIcon icon = new ImageIcon("icon.png");
         // setIconImage(icon.getImage());
         
@@ -26,6 +29,7 @@ public class Main {
         // -------------------------------------------------------------------------------------
 
         Thread.sleep(3000);
+        stw.dispose();
         // log window
         GUILogReg frame = new GUILogReg();
         frame.setTitle("MONOLITH Bank");

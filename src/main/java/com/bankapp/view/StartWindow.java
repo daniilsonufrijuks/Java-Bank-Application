@@ -15,20 +15,20 @@ public class StartWindow extends Canvas {
     //     addComponentsToContainer();
     // }
 
-    // // public void setLayoutManager() {
-    // //     container.setLayout(null);
-    // // }
+    public void setLayoutManager() {
+        //container.setLayout(null);
+    }
 
-    // public void addComponentsToContainer() {
-    //     container.add(new JLabel("download.jpg"));
-    // }
+    public void addComponentsToContainer() {
+        //container.add(new JLabel("download.jpg"));
+    }
 
-    public void paint(Graphics g) {  
+    // public void paint(Graphics g) {  
   
-        Toolkit t = Toolkit.getDefaultToolkit();  
-        Image i = t.getImage("monolithbg.jpg");  
-        g.drawImage(i, 400,550,this);  
+    //     Toolkit t = Toolkit.getDefaultToolkit();  
+    //     Image i = t.getImage("resources/monolithbg.jpg");  
+    //     g.drawImage(i, 400,550,this);  
           
-    }  
+    // }  
 
 }  

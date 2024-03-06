@@ -18,7 +18,7 @@ public class Registration{      // Registration lass
             String pin1Str = String.valueOf(gen.GenPinS());
             String pin2Str = String.valueOf(gen.GenPinS());
             String accountID = gen.GenKontnum();
-            File csvObj = new File("data/person.csv");
+            File csvObj = new File("resources/person.csv");
             Scanner regReader = new Scanner(csvObj);
             int line_id = 1;
             while (regReader.hasNextLine()) {
@@ -26,7 +26,7 @@ public class Registration{      // Registration lass
                 System.out.println(line_id + " " + data);
                 line_id++;
             }
-            FileWriter regWriter = new FileWriter("data/person.csv", true);
+            FileWriter regWriter = new FileWriter("resources/person.csv", true);
             regWriter.write(String.valueOf(line_id) + ", " +  personToWriteIn.GetName() + ", " +  personToWriteIn.GetLastName() + ", " + personToWriteIn.GetPersonCode() + ", " +  accountID + ", " + personToWriteIn.GetEmail() + ", " + personToWriteIn.GetNickName() + ", " + pin1Str + ", " +  pin2Str + ", " + "0" + "\n");
             regWriter.close();
         } catch (IOException e) {

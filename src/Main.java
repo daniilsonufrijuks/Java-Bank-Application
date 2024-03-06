@@ -1,10 +1,13 @@
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import java.awt.Point;
+import java.awt.GraphicsEnvironment;
 
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         // gui start
+        Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
         StartWindow stw = new StartWindow();
         stw.setTitle("MONOLITH Bank");
         // ImageIcon icon = new ImageIcon("icon.png");
@@ -14,9 +17,12 @@ public class Main {
         // int y = (screenSize.height - frame.getHeight()) / 2;  
         // //Set the new frame location  
         // stw.setLocation(x, y);  
-        stw.setBounds(10, 10, 400, 550);
+        //stw.setBounds(10, 10, 400, 550);
+        stw.setBounds(center.x - 400 / 2, center.y - 550 / 2, 400, 550);
         stw.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         stw.setResizable(false);
+
+        // -------------------------------------------------------------------------------------
 
         Thread.sleep(3000);
         // log window

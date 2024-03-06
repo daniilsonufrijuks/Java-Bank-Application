@@ -6,7 +6,7 @@ import java.io.Console;
 
 public class StartWindow extends Canvas {  
     //Container container = getContentPane();
-    ImageIcon icon = new ImageIcon("download.jpg");
+    //ImageIcon icon = new ImageIcon("download.jpg");
 
     // StartWindow() {
     //     //setLayoutManager();
@@ -24,8 +24,8 @@ public class StartWindow extends Canvas {
     public void paint(Graphics g) {  
   
         Toolkit t = Toolkit.getDefaultToolkit();  
-        Image i = t.getImage("download.jpg");  
-        g.drawImage(i, 120,100,this);  
+        Image i = t.getImage("monolithbg.jpg");  
+        g.drawImage(i, 400,550,this);  
           
     }  
 

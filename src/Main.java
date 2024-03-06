@@ -7,15 +7,16 @@ import java.awt.GraphicsEnvironment;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         // gui start
+        //StartWindow m = new StartWindow();
         Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
-        StartWindow m = new StartWindow();
         JFrame stw = new JFrame();  
         stw.setTitle("MONOLITH Bank");
         // ImageIcon icon = new ImageIcon("icon.png");
         // setIconImage(icon.getImage());
+        
+        //stw.add(m);
         stw.setVisible(true);
         stw.setBounds(center.x - 400 / 2, center.y - 550 / 2, 400, 550);
-        stw.add(m);
         stw.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         stw.setResizable(false);
 

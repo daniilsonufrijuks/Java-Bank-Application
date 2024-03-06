@@ -28,7 +28,7 @@ public class Login {
 
         boolean found = false;
 
-        try (BufferedReader br = new BufferedReader(new FileReader("data/person.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(", ");

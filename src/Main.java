@@ -31,7 +31,8 @@ public class Main {
         // ImageIcon icon = new ImageIcon("icon.png"); 
         // setIconImage(icon.getImage());
         frame.setVisible(true);
-        frame.setBounds(10, 10, 1200, 750);
+        //frame.setBounds(10, 10, 1200, 750);
+        frame.setBounds(center.x - 1200 / 2, center.y - 750 / 2, 1200, 750);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
     }

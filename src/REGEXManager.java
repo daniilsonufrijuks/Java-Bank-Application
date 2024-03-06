@@ -1,3 +1,4 @@
+
 public class REGEXManager {
 
     // regex for name/last name
@@ -8,7 +9,7 @@ public class REGEXManager {
 
     // regex for personal code
     public boolean PersoncodeRegex(String pcode) {
-        String expression = "[1,9]{6}-\\d{1,9}{6}";
+        String expression = "^\\d{6}-\\d{6}$";
         return pcode.matches(expression);
     }
 

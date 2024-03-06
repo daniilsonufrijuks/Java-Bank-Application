@@ -8,17 +8,14 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         // gui start
         Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
-        StartWindow stw = new StartWindow();
+        StartWindow m = new StartWindow();
+        JFrame stw = new JFrame();  
         stw.setTitle("MONOLITH Bank");
         // ImageIcon icon = new ImageIcon("icon.png");
         // setIconImage(icon.getImage());
         stw.setVisible(true);
-        // int x = (screenSize.width - frame.getWidth()) / 2;  
-        // int y = (screenSize.height - frame.getHeight()) / 2;  
-        // //Set the new frame location  
-        // stw.setLocation(x, y);  
-        //stw.setBounds(10, 10, 400, 550);
         stw.setBounds(center.x - 400 / 2, center.y - 550 / 2, 400, 550);
+        stw.add(m);
         stw.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         stw.setResizable(false);
 

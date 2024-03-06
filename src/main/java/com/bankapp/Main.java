@@ -14,30 +14,28 @@ public class Main {
         //StartWindow m = new StartWindow();
         Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
         JFrame stw = new JFrame();  
-        stw.setTitle("MONOLITH Bank");
-        JLabel label = new JLabel(new ImageIcon("resources/monolithbg.jpg"));
-        stw.getContentPane().add(label);
+        stw.setTitle("MONOLITH Bank"); // set title
+        JLabel label = new JLabel(new ImageIcon("resources/monolithbg.jpg")); // set background image
+        stw.getContentPane().add(label); // add label to the frame
         // ImageIcon icon = new ImageIcon("icon.png");
         // setIconImage(icon.getImage());
         
         //stw.add(m);
         stw.setVisible(true);
-        stw.setBounds(center.x - 400 / 2, center.y - 550 / 2, 400, 550);
+        stw.setBounds(center.x - 400 / 2, center.y - 550 / 2, 400, 550); // to centre window
         stw.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         stw.setResizable(false);
 
         // -------------------------------------------------------------------------------------
 
-        Thread.sleep(3000);
-        stw.dispose();
+        Thread.sleep(3000); // time sleep for 3 seconds
+        stw.dispose(); // close the start window
         // log window
-        GUILogReg frame = new GUILogReg();
+        GUILogReg frame = new GUILogReg(); // create a new frame
         frame.setTitle("MONOLITH Bank");
-        // ImageIcon icon = new ImageIcon("icon.png"); 
-        // setIconImage(icon.getImage());
         frame.setVisible(true);
         //frame.setBounds(10, 10, 1200, 750);
-        frame.setBounds(center.x - 1200 / 2, center.y - 750 / 2, 1200, 750);
+        frame.setBounds(center.x - 1200 / 2, center.y - 750 / 2, 1200, 750); // to centre window
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
     }

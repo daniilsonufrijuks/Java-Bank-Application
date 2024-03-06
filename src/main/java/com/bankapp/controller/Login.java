@@ -28,16 +28,16 @@ public class Login {
 
         boolean found = false;
 
-        try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object
             String line;
-            while ((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null) { // while there is a next line
                 String[] parts = line.split(", ");
                 for (String string : parts) {
                     System.out.println(string);
                 }
                 
                 if (parts.length == 10 && parts[1].equals(name) && parts[2].equals(lastname) &&
-                    parts[3].equals(personcode) && parts[5].equals(email) && parts[6].equals(nickname)) {
+                    parts[3].equals(personcode) && parts[5].equals(email) && parts[6].equals(nickname)) { // if the length of the parts is 10 and the parts are equal to the given fields
                     found = true;
                     break;
                 }

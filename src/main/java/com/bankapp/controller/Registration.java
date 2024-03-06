@@ -14,19 +14,19 @@ public class Registration{      // Registration lass
     // method writes to file given fields through person 
     public void WriteToAFile(Person personToWriteIn){
         try{
-            PinKontGen gen = new PinKontGen();
-            String pin1Str = String.valueOf(gen.GenPinS());
+            PinKontGen gen = new PinKontGen(); // create a new object of PinKontGen
+            String pin1Str = String.valueOf(gen.GenPinS()); // convert pin1 to string
             String pin2Str = String.valueOf(gen.GenPinS());
             String accountID = gen.GenKontnum();
-            File csvObj = new File("resources/person.csv");
+            File csvObj = new File("resources/person.csv"); // create a new file object
             Scanner regReader = new Scanner(csvObj);
             int line_id = 1;
-            while (regReader.hasNextLine()) {
+            while (regReader.hasNextLine()) { // while there is a next line
                 String data = regReader.nextLine();
                 System.out.println(line_id + " " + data);
                 line_id++;
             }
-            FileWriter regWriter = new FileWriter("resources/person.csv", true);
+            FileWriter regWriter = new FileWriter("resources/person.csv", true); // create a new file writer object
             regWriter.write(String.valueOf(line_id) + ", " +  personToWriteIn.GetName() + ", " +  personToWriteIn.GetLastName() + ", " + personToWriteIn.GetPersonCode() + ", " +  accountID + ", " + personToWriteIn.GetEmail() + ", " + personToWriteIn.GetNickName() + ", " + pin1Str + ", " +  pin2Str + ", " + "0" + "\n");
             regWriter.close();
         } catch (IOException e) {

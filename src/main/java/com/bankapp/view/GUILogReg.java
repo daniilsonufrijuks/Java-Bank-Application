@@ -133,8 +133,6 @@ public class GUILogReg extends JFrame implements ActionListener {
             if (logb == true) {
                 GUIMainProgram frame2 = new GUIMainProgram();
                 frame2.setTitle("MONOLITH Bank");
-                // ImageIcon icon = new ImageIcon("icon.png"); // Путь к вашей иконке
-                // setIconImage(icon.getImage());
                 frame2.setVisible(true);
                 frame2.setBounds(center.x - 1200 / 2, center.y - 750 / 2, 1200, 750); // to centre window
                 //frame2.setBounds(10, 10, 1200, 750);

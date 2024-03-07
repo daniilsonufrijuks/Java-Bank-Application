@@ -107,6 +107,7 @@ public class GUILogReg extends JFrame implements ActionListener {
             // }
 
         }
+        Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
         if (e.getSource() == loginButton) { // to login person
             String userText;
             String userlnameText;
@@ -135,7 +136,8 @@ public class GUILogReg extends JFrame implements ActionListener {
                 // ImageIcon icon = new ImageIcon("icon.png"); // Путь к вашей иконке
                 // setIconImage(icon.getImage());
                 frame2.setVisible(true);
-                frame2.setBounds(10, 10, 1200, 750);
+                frame2.setBounds(center.x - 1200 / 2, center.y - 750 / 2, 1200, 750); // to centre window
+                //frame2.setBounds(10, 10, 1200, 750);
                 frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame2.setResizable(false);
             }

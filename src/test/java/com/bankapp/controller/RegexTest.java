@@ -1,9 +1,10 @@
 package test.java.com.bankapp.controller;
 
+import controller.REGEXManager;
 
-import src.REGEXManager;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

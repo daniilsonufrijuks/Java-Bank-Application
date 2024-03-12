@@ -32,8 +32,8 @@ public class GUIMainProgram extends JFrame {
     }
 
     public void setLocationAndSize() {
-        usernameLabel.setBounds(450, 20, 100, 30);
-        userlastnameLabel.setBounds(450, 60, 100, 30); 
+        usernameLabel.setBounds(1000, 20, 100, 30);
+        userlastnameLabel.setBounds(1050, 20, 100, 30); 
     }
 
     public void addComponentsToContainer() {

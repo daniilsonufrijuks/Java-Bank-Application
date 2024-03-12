@@ -13,12 +13,13 @@ import java.io.Console;
 // import view.GUILogReg.person;
 
 
-public class GUIMainProgram extends JFrame {  
+public class GUIMainProgram extends JFrame implements ActionListener{  
     Container container = getContentPane();
     JLabel usernameLabel;
     JLabel userlastnameLabel;
+    JButton addmButton = new JButton("ADD MONEY");
 
-    GUIMainProgram(String userText, String userlnameText) {
+    public GUIMainProgram(String userText, String userlnameText) {
         usernameLabel = new JLabel(userText);
         userlastnameLabel = new JLabel(userlnameText);
         setLayoutManager();
@@ -32,17 +33,32 @@ public class GUIMainProgram extends JFrame {
     }
 
     public void setLocationAndSize() {
-        usernameLabel.setBounds(450, 20, 100, 30);
-        userlastnameLabel.setBounds(450, 60, 100, 30); 
+        usernameLabel.setBounds(1000, 20, 100, 30);
+        userlastnameLabel.setBounds(1050, 20, 100, 30); 
+        addmButton.setBounds(0, 0, 70, 20);
     }
 
     public void addComponentsToContainer() {
         container.add(usernameLabel);
         container.add(userlastnameLabel);
+        container.add(addmButton);
     }
 
     public void addActionEvent() {
+        addmButton.addActionListener(this);
+    }
 
+    //@Override
+    public void ActionPerformed(ActionEvent e) {
+        if (e.getSource() == addmButton) {
+
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
 
 }  

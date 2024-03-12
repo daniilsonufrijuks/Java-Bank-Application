@@ -6,3 +6,9 @@ auto kash balance (default 0)
 name - Monolith, Zephyr
 
 https://www.tutorialsfield.com/login-form-in-java-swing-with-source-code/#Login_Form_in_Java_Swing_With_Source_Code_Download
+
+http://www.java2s.com/Tutorial/Java/0240__Swing/Catalog0240__Swing.htm
+https://www.youtube.com/watch?v=lbirAW1jDN4
+
+
+have to write email check, nickname, personal code 

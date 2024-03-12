@@ -10,15 +10,15 @@ import java.awt.GraphicsEnvironment;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        // gui start
+        // gui start -----------------------
         //StartWindow m = new StartWindow();
         Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
         JFrame stw = new JFrame();  
         stw.setTitle("MONOLITH Bank"); // set title
         JLabel label = new JLabel(new ImageIcon("resources/monolithbg.jpg")); // set background image
         stw.getContentPane().add(label); // add label to the frame
-        // ImageIcon icon = new ImageIcon("icon.png");
-        // setIconImage(icon.getImage());
+        // gui start -----------------------
+
         
         //stw.add(m);
         stw.setVisible(true);

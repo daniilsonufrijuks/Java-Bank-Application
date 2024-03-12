@@ -5,7 +5,9 @@ import javax.swing.*;
 import controller.Login;
 import controller.REGEXManager;
 import controller.Registration;
+
 import model.Person;
+import controller.PersCode_Email_Controller;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -97,8 +99,15 @@ public class GUILogReg extends JFrame implements ActionListener {
             userlabelText = userLabelField.getText();
 
             Person person = new Person(userText, userlnameText, userpcodetText, useremailText, userlabelText);
-            Registration reg = new Registration();
-            reg.WriteToAFile(person);
+
+            if (PersCode_Email_Controller.PersCodeCheckIfInCSVFile(person) == false){   // if check for personal code didn't pass (pc already exists in csv file)
+                JOptionPane.showMessageDialog(this, "This personal code already exists.");
+            } else if (PersCode_Email_Controller.EmailCheckIfInCSVFile(person) == false){
+                JOptionPane.showMessageDialog(this, "This email already exists.");  // if check for email didn' pass (email already exists in csv file)
+            } else {
+                Registration reg = new Registration();
+                reg.WriteToAFile(person);
+            }
 
             // if (userText.equalsIgnoreCase("mehtab") && pwdText.equalsIgnoreCase("12345")) {
             //     JOptionPane.showMessageDialog(this, "Login Successful");

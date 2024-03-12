@@ -12,6 +12,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class RegexTest {
+    
     @Test
     public void RegexNamePCodeEmailTest() {
         String name = "Vasya";

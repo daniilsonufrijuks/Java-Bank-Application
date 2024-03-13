@@ -32,15 +32,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         // panel1.add(new JLabel("Content for Tab 1"));
         // panel2.add(new JLabel("Content for Tab 2"));
         // panel3.add(new JLabel("Content for Tab 3"));
-        panel1.add(usernameLabel);
-        panel1.add(userlastnameLabel);
-        //ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); // replace with your image file path
-        //JLabel imageLabel = new JLabel(imageIcon);
-        //panel1.setLayout(null);
-        panel1.add(imageLabel);
-        tabPanel.addTab("Main", panel1); 
-        tabPanel.addTab("Add", panel2); 
-        tabPanel.addTab("Send", panel3); 
+        // panel1.add(usernameLabel);
+        // panel1.add(userlastnameLabel);
+        // //ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); // replace with your image file path
+        // //JLabel imageLabel = new JLabel(imageIcon);
+        // //panel1.setLayout(null);
+        // panel1.add(imageLabel);
+        // tabPanel.addTab("Main", panel1); 
+        // tabPanel.addTab("Add", panel2); 
+        // tabPanel.addTab("Send", panel3); 
         addComponentsToContainer();
         addActionEvent();
 
@@ -64,6 +64,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         //container.add(userlastnameLabel);
         // Add components to the panels
         container.add(tabPanel);
+        panel1.add(usernameLabel);
+        panel1.add(userlastnameLabel);
+        //ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); // replace with your image file path
+        //JLabel imageLabel = new JLabel(imageIcon);
+        //panel1.setLayout(null);
+        panel1.add(imageLabel);
+        tabPanel.addTab("Main", panel1); 
+        tabPanel.addTab("Add", panel2); 
+        tabPanel.addTab("Send", panel3); 
         //container.add(addmButton);
     }
 

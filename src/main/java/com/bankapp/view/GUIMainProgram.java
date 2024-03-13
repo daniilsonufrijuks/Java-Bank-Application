@@ -15,6 +15,10 @@ import java.io.Console;
 
 public class GUIMainProgram extends JFrame implements ActionListener{  
     Container container = getContentPane();
+    JTabbedPane tabPanel = new JTabbedPane(); 
+    JPanel panel1 = new JPanel();
+    JPanel panel2 = new JPanel();
+    JPanel panel3 = new JPanel();
     JLabel usernameLabel;
     JLabel userlastnameLabel;
     //JButton addmButton = new JButton("ADD MONEY");
@@ -26,6 +30,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         setLocationAndSize();
         addComponentsToContainer();
         addActionEvent();
+
     }
 
     public void setLayoutManager() {
@@ -35,12 +40,24 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     public void setLocationAndSize() {
         usernameLabel.setBounds(1000, 20, 100, 30);
         userlastnameLabel.setBounds(1050, 20, 100, 30); 
+        tabPanel.setBounds(50, 50, 200, 200);
         //addmButton.setBounds(0, 0, 70, 20);
     }
 
     public void addComponentsToContainer() {
         container.add(usernameLabel);
         container.add(userlastnameLabel);
+        // Add components to the panels
+        panel1.add(new JLabel("Content for Tab 1"));
+        panel2.add(new JLabel("Content for Tab 2"));
+        panel3.add(new JLabel("Content for Tab 3"));
+        tabPanel.addTab("Tab 1", panel1); 
+        tabPanel.addTab("Tab 2", panel2); 
+        tabPanel.addTab("Tab 3", panel3); 
+        container.add(tabPanel);
+        // container.add(page1);
+        // container.add(page2);
+        // container.add(page3);
         //container.add(addmButton);
     }
 
@@ -54,5 +71,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         // }
     }
+
+
 
 }  

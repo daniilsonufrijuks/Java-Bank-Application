@@ -142,11 +142,37 @@ public class GUILogReg extends JFrame implements ActionListener {
             if (logb == true) {
                 GUIMainProgram frame2 = new GUIMainProgram(userText, userlnameText);
                 frame2.setTitle("MONOLITH Bank");
-                frame2.setVisible(true);
                 frame2.setBounds(center.x - 1200 / 2, center.y - 750 / 2, 1200, 750); // to centre window
                 //frame2.setBounds(10, 10, 1200, 750);
                 frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame2.setResizable(false);
+
+                // JTabbedPane tabPanel = new JTabbedPane(); 
+  
+                // // Create the first tab (page1) and add a JLabel to it 
+                // JPanel page1 = new JPanel(); 
+                // page1.add(new JLabel("This is Tab 1")); 
+  
+                // // Create the second tab (page2) and add a JLabel to it 
+                // JPanel page2 = new JPanel(); 
+                // page2.add(new JLabel("This is Tab 2")); 
+  
+                // // Create the third tab (page3) and add a JLabel to it 
+                // JPanel page3 = new JPanel(); 
+                // page3.add(new JLabel("This is Tab 3")); 
+  
+                // Add the three tabs to the JTabbedPane 
+                // tabPanel.addTab("Tab 1", page1); 
+                // tabPanel.addTab("Tab 2", page2); 
+                // tabPanel.addTab("Tab 3", page3); 
+  
+                // Add the JTabbedPane to the JFrame's content 
+                //frame2.add(tabPanel); 
+  
+                // Make the JFrame visible 
+                frame2.setVisible(true); 
+
+
             }
             
         }

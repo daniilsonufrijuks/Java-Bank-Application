@@ -48,17 +48,11 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         addmButton.addActionListener(this);
     }
 
-    //@Override
-    public void ActionPerformed(ActionEvent e) {
-        if (e.getSource() == addmButton) {
-
-        }
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+        if (e.getSource() == addmButton) {
+            
+        }
     }
 
 }  

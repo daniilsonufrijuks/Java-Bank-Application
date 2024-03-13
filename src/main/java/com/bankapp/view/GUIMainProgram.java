@@ -16,6 +16,8 @@ import java.io.Console;
 public class GUIMainProgram extends JFrame implements ActionListener{  
     Container container = getContentPane();
     JTabbedPane tabPanel = new JTabbedPane(); 
+    ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); // replace with your image file path
+    JLabel imageLabel = new JLabel(imageIcon);
     JPanel panel1 = new JPanel();
     JPanel panel2 = new JPanel();
     JPanel panel3 = new JPanel();
@@ -32,6 +34,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         // panel3.add(new JLabel("Content for Tab 3"));
         panel1.add(usernameLabel);
         panel1.add(userlastnameLabel);
+        //ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); // replace with your image file path
+        //JLabel imageLabel = new JLabel(imageIcon);
+        //panel1.setLayout(null);
+        panel1.add(imageLabel);
         tabPanel.addTab("Main", panel1); 
         tabPanel.addTab("Add", panel2); 
         tabPanel.addTab("Send", panel3); 
@@ -41,13 +47,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     }
 
     public void setLayoutManager() {
-        container.setLayout(null);
+        //container.setLayout(null);
+        panel1.setLayout(null);
     }
 
     public void setLocationAndSize() {
         usernameLabel.setBounds(1000, 20, 100, 30);
         userlastnameLabel.setBounds(1050, 20, 100, 30); 
         tabPanel.setBounds(0, 0, 1200, 750);
+        imageLabel.setBounds(1100, 30, 50, 50);
         //addmButton.setBounds(0, 0, 70, 20);
     }
 

@@ -17,7 +17,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     Container container = getContentPane();
     JLabel usernameLabel;
     JLabel userlastnameLabel;
-    JButton addmButton = new JButton("ADD MONEY");
+    //JButton addmButton = new JButton("ADD MONEY");
 
     public GUIMainProgram(String userText, String userlnameText) {
         usernameLabel = new JLabel(userText);
@@ -35,24 +35,24 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     public void setLocationAndSize() {
         usernameLabel.setBounds(1000, 20, 100, 30);
         userlastnameLabel.setBounds(1050, 20, 100, 30); 
-        addmButton.setBounds(0, 0, 70, 20);
+        //addmButton.setBounds(0, 0, 70, 20);
     }
 
     public void addComponentsToContainer() {
         container.add(usernameLabel);
         container.add(userlastnameLabel);
-        container.add(addmButton);
+        //container.add(addmButton);
     }
 
     public void addActionEvent() {
-        addmButton.addActionListener(this);
+        //addmButton.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == addmButton) {
-            
-        }
+        // if (e.getSource() == addmButton) {
+
+        // }
     }
 
 }  

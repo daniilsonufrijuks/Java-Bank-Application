@@ -28,8 +28,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         userlastnameLabel = new JLabel(userlnameText);
         setLayoutManager();
         setLocationAndSize();
+        panel1.add(new JLabel("Content for Tab 1"));
+        panel2.add(new JLabel("Content for Tab 2"));
+        panel3.add(new JLabel("Content for Tab 3"));
+        tabPanel.addTab("Tab 1", panel1); 
+        tabPanel.addTab("Tab 2", panel2); 
+        tabPanel.addTab("Tab 3", panel3); 
         addComponentsToContainer();
         addActionEvent();
+
 
     }
 
@@ -40,7 +47,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     public void setLocationAndSize() {
         usernameLabel.setBounds(1000, 20, 100, 30);
         userlastnameLabel.setBounds(1050, 20, 100, 30); 
-        tabPanel.setBounds(50, 50, 200, 200);
+        tabPanel.setBounds(0, 0, 1200, 750);
         //addmButton.setBounds(0, 0, 70, 20);
     }
 
@@ -48,12 +55,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         container.add(usernameLabel);
         container.add(userlastnameLabel);
         // Add components to the panels
-        panel1.add(new JLabel("Content for Tab 1"));
-        panel2.add(new JLabel("Content for Tab 2"));
-        panel3.add(new JLabel("Content for Tab 3"));
-        tabPanel.addTab("Tab 1", panel1); 
-        tabPanel.addTab("Tab 2", panel2); 
-        tabPanel.addTab("Tab 3", panel3); 
         container.add(tabPanel);
         // container.add(page1);
         // container.add(page2);

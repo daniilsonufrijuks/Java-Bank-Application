@@ -22,6 +22,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JPanel panel1 = new JPanel();
     JPanel panel2 = new JPanel();
     JPanel panel3 = new JPanel();
+    JPanel panel4 = new JPanel();
     JLabel usernameLabel;
     JLabel userlastnameLabel;
     JLabel userbalanceLabel;
@@ -80,6 +81,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         tabPanel.addTab("Main", panel1); 
         tabPanel.addTab("Add", panel2); 
         tabPanel.addTab("Send", panel3); 
+        tabPanel.addTab("About us", panel4);
         //container.add(addmButton);
     }
 

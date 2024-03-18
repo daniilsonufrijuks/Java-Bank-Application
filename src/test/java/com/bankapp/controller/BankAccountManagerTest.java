@@ -15,4 +15,9 @@ public class BankAccountManagerTest {
         BankAccountManager.SendMoney(lineToUpdParsed, money);       // it works!!!
     }
 
+    @Test
+    public void GetBalanceTest(){
+        BankAccountManager.GetBalance();        // it works!!!
+    }
+
 }

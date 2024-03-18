@@ -50,7 +50,7 @@ public class BankAccountManager {       // Class for monetary transactions (send
         return result;
     }
 
-    public static int GetBalance() {
+    public static int GetBalance(String PersonalID, String Username) {
         int balance = 0;
         try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object
             String line;
@@ -59,8 +59,9 @@ public class BankAccountManager {       // Class for monetary transactions (send
                 // for (String string : parts) {
                 //     System.out.println("GetBalance results parts: " + string);
                 // }
-                if (parts.length == 10) {                              // if the length of the parts is 10
-                    balance = Integer.parseInt(parts[9]);              // balance is the 10th part of the csv line
+                if (parts.length == 10) {
+                    if (parts[3].equals(PersonalID) && parts[6].equals(Username))                              // if the length of the parts is 10
+                        balance = Integer.parseInt(parts[9]);              // balance is the 10th part of the csv line
                 }
             }
 

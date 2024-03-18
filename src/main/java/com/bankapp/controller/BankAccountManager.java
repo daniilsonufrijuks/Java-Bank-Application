@@ -50,6 +50,7 @@ public class BankAccountManager {       // Class for monetary transactions (send
         return result;
     }
 
+    // to get balance of the user
     public static int GetBalance(String PersonalID, String Username) {
         int balance = 0;
         try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object

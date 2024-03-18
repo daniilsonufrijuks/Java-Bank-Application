@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.*;
 
+import controller.BankAccountManager;
 import model.Person;
 
 import java.awt.*;
@@ -23,10 +24,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JPanel panel3 = new JPanel();
     JLabel usernameLabel;
     JLabel userlastnameLabel;
+    JLabel userbalanceLabel;
+
+    BankAccountManager bankAccountManager = new BankAccountManager();
 
     public GUIMainProgram(String userText, String userlnameText) {
         usernameLabel = new JLabel(userText);
         userlastnameLabel = new JLabel(userlnameText);
+        userbalanceLabel = new JLabel(String.valueOf(bankAccountManager.GetBalance(userText, userlnameText)));
         setLayoutManager();
         setLocationAndSize();
         // panel1.add(new JLabel("Content for Tab 1"));
@@ -54,6 +59,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     public void setLocationAndSize() {
         usernameLabel.setBounds(1000, 20, 100, 30);
         userlastnameLabel.setBounds(1050, 20, 100, 30); 
+        userbalanceLabel.setBounds(30, 20, 100, 30);
         tabPanel.setBounds(0, 0, 1200, 750);
         imageLabel.setBounds(1100, 30, 50, 50);
         //addmButton.setBounds(0, 0, 70, 20);
@@ -66,6 +72,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         container.add(tabPanel);
         panel1.add(usernameLabel);
         panel1.add(userlastnameLabel);
+        panel1.add(userbalanceLabel);
         //ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); // replace with your image file path
         //JLabel imageLabel = new JLabel(imageIcon);
         //panel1.setLayout(null);

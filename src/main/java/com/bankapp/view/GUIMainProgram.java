@@ -28,9 +28,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel userlastnameLabel;
     JLabel userbalanceLabel;
 
+    // For Panel Send
+
     JTextField recUsernameField;
     JTextField recBankAccountFIeld;
     JTextField moneyToSendField;
+    JLabel recUsernameLabel = new JLabel("Receiver username");
+    JLabel recBankAccountLabel = new JLabel("Receiver bank account");
+    JLabel moneyToSendLabel = new JLabel("Money");
 
     JButton sendButton = new JButton("SUBMIT");
 
@@ -60,7 +65,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         // tabPanel.addTab("Send", panel3); 
         addComponentsToContainer();
         addActionEvent();
-
     }
 
     public void setLayoutManager() {
@@ -82,9 +86,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         //For panel Send
         recUsernameField.setBounds(70, 40, 100, 30);
+<<<<<<< HEAD
         recBankAccountFIeld.setBounds(70, 90, 100, 30);
         moneyToSendField.setBounds(70, 140, 100, 30);
         sendButton.setBounds(70, 190, 100, 30);
+=======
+        recBankAccountFIeld.setBounds(70, 70, 100, 30);
+        moneyToSendField.setBounds(70, 130, 100, 30);
+>>>>>>> d4991e07cd19344fd207ab882ea144697b7841d9
     }
 
     public void addComponentsToContainer() {

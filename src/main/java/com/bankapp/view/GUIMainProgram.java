@@ -23,16 +23,25 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JPanel panel2 = new JPanel();
     JPanel panel3 = new JPanel();
     JPanel panel4 = new JPanel();
+    JPanel panel5 = new JPanel();
     JLabel usernameLabel;
     JLabel userlastnameLabel;
     JLabel userbalanceLabel;
 
-    BankAccountManager bankAccountManager = new BankAccountManager();
+    JTextField recUsernameField;
+    JTextField recBankAccountFIeld;
+    JTextField moneyToSendField;
 
     public GUIMainProgram(String userText, String userlnameText) {
         usernameLabel = new JLabel(userText);
         userlastnameLabel = new JLabel(userlnameText);
-        userbalanceLabel = new JLabel(String.valueOf(bankAccountManager.GetBalance(userText, userlnameText)));
+
+        // For panel Send
+        recUsernameField = new JTextField();
+        recBankAccountFIeld = new JTextField();
+        moneyToSendField = new JTextField();
+
+        userbalanceLabel = new JLabel(String.valueOf(BankAccountManager.GetBalance(userText, userlnameText)));
         setLayoutManager();
         setLocationAndSize();
         // panel1.add(new JLabel("Content for Tab 1"));
@@ -64,6 +73,11 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         tabPanel.setBounds(0, 0, 1200, 750);
         imageLabel.setBounds(1100, 30, 50, 50);
         //addmButton.setBounds(0, 0, 70, 20);
+
+        //For panel Send
+        recUsernameField.setBounds(70, 40, 100, 30);
+        recBankAccountFIeld.setBounds(70, 70, 100, 30);
+        moneyToSendField.setBounds(70, 130, 100, 30);
     }
 
     public void addComponentsToContainer() {
@@ -77,12 +91,20 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         //ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); // replace with your image file path
         //JLabel imageLabel = new JLabel(imageIcon);
         //panel1.setLayout(null);
+
+        // For panel Send
+        panel2.add(recUsernameField);
+        panel2.add(recBankAccountFIeld);
+        panel2.add(moneyToSendField);
+
         panel1.add(imageLabel);
         tabPanel.addTab("Main", panel1); 
-        tabPanel.addTab("Add", panel2); 
-        tabPanel.addTab("Send", panel3); 
-        tabPanel.addTab("About us", panel4);
+        tabPanel.addTab("Send", panel2); 
+        tabPanel.addTab("Credits", panel3); 
+        tabPanel.addTab("Stock exchange", panel4);
+        tabPanel.addTab("About us", panel5);
         //container.add(addmButton);
+
     }
 
     public void addActionEvent() {

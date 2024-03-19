@@ -138,7 +138,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             String recUsername = recUsernameField.getText();
             String recBankAccount = recBankAccountFIeld.getText();
             String moneyToSend = moneyToSendField.getText();
-            BankAccountManager.SendMoney(usernameLabel.getText(), recBankAccountFIeld.getText());
+            float moneyToSendFl = Float.parseFloat(moneyToSend);
+            BankAccountManager.SendMoney(recUsername, recBankAccount, moneyToSendFl);
             userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(usernameLabel.getText(), userlastnameLabel.getText())));
         }
     }

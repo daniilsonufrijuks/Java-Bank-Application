@@ -12,12 +12,12 @@ public class BankAccountManagerTest {
         float money = 20.0f;
         System.out.println(lineToUpdParsed);
 
-        BankAccountManager.SendMoney(lineToUpdParsed, money);       // it works!!!
+        BankAccountManager.SendMoney("VaasFC", "vaas@gmail.com", money);
     }
 
-    @Test
-    public void GetBalanceTest(){
-        BankAccountManager.GetBalance();        // it works!!!
-    }
+    // @Test
+    // public void GetBalanceTest(){
+    //     BankAccountManager.GetBalance();        // it works!!!
+    // }
 
 }

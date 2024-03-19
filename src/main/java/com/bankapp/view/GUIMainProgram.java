@@ -32,6 +32,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JTextField recBankAccountFIeld;
     JTextField moneyToSendField;
 
+    JButton sendButton = new JButton("SUBMIT");
+
     public GUIMainProgram(String userText, String userlnameText) {
         usernameLabel = new JLabel(userText);
         userlastnameLabel = new JLabel(userlnameText);
@@ -82,6 +84,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         recUsernameField.setBounds(70, 40, 100, 30);
         recBankAccountFIeld.setBounds(70, 90, 100, 30);
         moneyToSendField.setBounds(70, 140, 100, 30);
+        sendButton.setBounds(70, 190, 100, 30);
     }
 
     public void addComponentsToContainer() {
@@ -100,6 +103,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel2.add(recUsernameField);
         panel2.add(recBankAccountFIeld);
         panel2.add(moneyToSendField);
+
+        panel2.add(sendButton);
 
         panel1.add(imageLabel);
         tabPanel.addTab("Main", panel1); 

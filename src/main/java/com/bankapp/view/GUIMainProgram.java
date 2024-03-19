@@ -64,6 +64,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     public void setLayoutManager() {
         //container.setLayout(null);
         panel1.setLayout(null);
+        panel2.setLayout(null);
+        panel3.setLayout(null);
+        panel4.setLayout(null);
+        panel5.setLayout(null);
     }
 
     public void setLocationAndSize() {

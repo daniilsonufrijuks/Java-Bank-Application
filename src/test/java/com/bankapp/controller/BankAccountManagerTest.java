@@ -12,7 +12,11 @@ public class BankAccountManagerTest {
         float money = 20.0f;
         System.out.println(lineToUpdParsed);
 
-        BankAccountManager.SendMoney("VaasFC", "vaas@gmail.com", money);
+        BankAccountManager.SendMoney("VaasFC", "65f644d5dfd77654334d5f677df76554", money);
+        money = 20.42f;
+        BankAccountManager.SendMoney("VaasFC", "65f644d5dfd77654334d5f677df76554", money);
+        money = 20.55f;
+        BankAccountManager.SendMoney("VaasFC", "65f644d5dfd77654334d5f677df76554", money);
     }
 
     // @Test

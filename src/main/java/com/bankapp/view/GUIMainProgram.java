@@ -33,7 +33,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     // For Panel Send
 
     JTextField recUsernameField;
-    JTextField recBankAccountFIeld;
+    JTextField recBankAccountField;
     JTextField moneyToSendField;
     JLabel recUsernameLabel = new JLabel("Receiver username");
     JLabel recBankAccountLabel = new JLabel("Receiver bank account");
@@ -47,7 +47,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         // For panel Send
         recUsernameField = new JTextField();
-        recBankAccountFIeld = new JTextField();
+        recBankAccountField = new JTextField();
         moneyToSendField = new JTextField();
 
         userbalanceLabel = new JLabel(String.valueOf(BankAccountManager.GetBalance(userText, userlnameText)));
@@ -89,7 +89,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         //For panel Send
         recUsernameField.setBounds(100, 40, 100, 30);
-        recBankAccountFIeld.setBounds(100, 90, 100, 30);
+        recBankAccountField.setBounds(100, 90, 100, 30);
         moneyToSendField.setBounds(100, 140, 100, 30);
         sendButton.setBounds(110, 190, 100, 30);
 
@@ -112,7 +112,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         // For panel Send
         panel2.add(recUsernameField);
-        panel2.add(recBankAccountFIeld);
+        panel2.add(recBankAccountField);
         panel2.add(moneyToSendField);
         panel2.add(recUsernameLabel);
         panel2.add(recBankAccountLabel);
@@ -140,14 +140,11 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == sendButton) {
             String recUsername = recUsernameField.getText();
-            String recBankAccount = recBankAccountFIeld.getText();
-            String moneyToSend = moneyToSendField.getText();
-            float moneyToSendFl = Float.parseFloat(moneyToSend);
-            BankAccountManager.SendMoney(recUsername, recBankAccount, moneyToSendFl);
+            String recBankAccount = recBankAccountField.getText();
+            float moneyToSend = Float.valueOf(moneyToSendField.getText());
+            BankAccountManager.SendMoney(recUsername, recBankAccount, moneyToSend);
             userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(usernameLabel.getText(), userlastnameLabel.getText())));
         }
     }
-
-
-
-}  
+    
+}

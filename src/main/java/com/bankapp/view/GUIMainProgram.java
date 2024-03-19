@@ -86,10 +86,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         recUsernameField.setBounds(70, 40, 100, 30);
         recBankAccountFIeld.setBounds(70, 70, 100, 30);
         moneyToSendField.setBounds(70, 130, 100, 30);
-
-        recUsernameLabel.setBounds(50, 40, 100, 30);
-        recBankAccountLabel.setBounds(50, 70, 100, 30);
-        moneyToSendLabel.setBounds(50, 130, 100, 30);
     }
 
     public void addComponentsToContainer() {

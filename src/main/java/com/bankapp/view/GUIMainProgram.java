@@ -17,8 +17,10 @@ import java.io.Console;
 public class GUIMainProgram extends JFrame implements ActionListener{  
     Container container = getContentPane();
     JTabbedPane tabPanel = new JTabbedPane(); 
-    ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); // replace with your image file path
+    ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); 
+    ImageIcon imageIcon2 = new ImageIcon("resources/monolithad.jpg"); 
     JLabel imageLabel = new JLabel(imageIcon);
+    JLabel imageLabel2 = new JLabel(imageIcon2);
     JPanel panel1 = new JPanel();
     JPanel panel2 = new JPanel();
     JPanel panel3 = new JPanel();
@@ -81,7 +83,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         userlastnameLabel.setBounds(1050, 20, 100, 30); 
         userbalanceLabel.setBounds(30, 20, 100, 30);
         tabPanel.setBounds(0, 0, 1200, 750);
-        imageLabel.setBounds(1100, 30, 50, 50);
+        imageLabel.setBounds(100, 30, 50, 50);
+        imageLabel2.setBounds(0, 0, 1200, 750);
         //addmButton.setBounds(0, 0, 70, 20);
 
         //For panel Send
@@ -114,6 +117,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel2.add(recUsernameLabel);
         panel2.add(recBankAccountLabel);
         panel2.add(moneyToSendLabel);
+        panel5.add(imageLabel2);
 
         panel2.add(sendButton);
 

@@ -122,13 +122,18 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
     public void addActionEvent() {
         //addmButton.addActionListener(this);
+        sendButton.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // if (e.getSource() == addmButton) {
-
-        // }
+        if (e.getSource() == sendButton) {
+            String recUsername = recUsernameField.getText();
+            String recBankAccount = recBankAccountFIeld.getText();
+            String moneyToSend = moneyToSendField.getText();
+            BankAccountManager.SendMoney(usernameLabel.getText(), recBankAccountFIeld.getText());
+            userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(usernameLabel.getText(), userlastnameLabel.getText())));
+        }
     }
 
 

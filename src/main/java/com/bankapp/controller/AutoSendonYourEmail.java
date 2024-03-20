@@ -10,17 +10,15 @@ import javax.mail.internet.*;
 public class AutoSendonYourEmail {
     public static void SendEmail() {
 
-        String host = "smtp.elasticemail.com"; // укажите ваш SMTP сервер
-        String port = "25"; // порт для отправки почты (обычно 25)
-        String fromAddress = "your-email@example.com"; // ваш адрес электронной почты
-        String toAddress = "recipient@example.com"; // адрес получателя
+        String host = "smtp.elasticemail.com";
+        String port = "25"; 
+        String fromAddress = "freemen1094@gmail.com"; 
+        String toAddress = "kroshthebestfriend@gmail.com";
 
-        // Настройка свойств
         Properties props = new Properties();
         props.put("mail.smtp.host", host);
         props.put("mail.smtp.port", port);
 
-        // Создание сессии
         Session session = Session.getInstance(props, null);
 
         try {
@@ -28,16 +26,16 @@ public class AutoSendonYourEmail {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(fromAddress));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toAddress));
-            message.setSubject("Тестовое письмо без аутентификации");
-            message.setText("Привет,\n\nЭто тестовое письмо без аутентификации из Java.");
+            message.setSubject("Message");
+            message.setText("Hello, we are MONOLITH");
 
             // Отправка сообщения
             Transport.send(message);
 
-            System.out.println("Письмо успешно отправлено.");
+            System.out.println("Succes.");
 
         } catch (MessagingException e) {
-            System.out.println("Ошибка при отправке письма: " + e.getMessage());
+            System.out.println("Error " + e.getMessage());
             e.printStackTrace();
         }
     }

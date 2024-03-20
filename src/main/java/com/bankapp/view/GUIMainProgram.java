@@ -38,6 +38,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel recUsernameLabel = new JLabel("Receiver username");
     JLabel recBankAccountLabel = new JLabel("Receiver bank account");
     JLabel moneyToSendLabel = new JLabel("Money");
+    String textaboutus = "Finanšu pasaules miglainajās vietās pastāv banka, kas pazīstama kā Monolīts. " +
+    "Tās dīvainības un mistikas reputācija piesaista uzmanību. Daži saka, ka šai bankai " +
+    "ir tiesības parastos ieguldījumus pārveidot par kaut ko vērtīgāku, piemēram, " +
+    "artefaktus no citas dimensijas. Ne visi uzdrošinās ienākt tās durvīm, baidoties " +
+    "no negaidītiem pārbaudījumiem un sarežģītiem apstākļiem. Tomēr tie, kas ir drosmīgi " +
+    "iegājuši iekšā, saka, ka atlīdzība par risku var būt ievērojama. Nav skaidrs, " +
+    "vai Monolīts ir mīts vai realitāte, taču daudzi finanšu piedzīvojumu meklētāji " +
+    "turpina pētīt tā noslēpumainās iespējas.";
 
     JButton sendButton = new JButton("SUBMIT");
 

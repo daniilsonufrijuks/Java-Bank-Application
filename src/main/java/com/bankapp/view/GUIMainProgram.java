@@ -80,10 +80,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
     public void setLocationAndSize() {
         usernameLabel.setBounds(1000, 20, 100, 30);
-        userlastnameLabel.setBounds(1050, 20, 100, 30); 
+        userlastnameLabel.setBounds(1030, 20, 100, 30); 
         userbalanceLabel.setBounds(30, 20, 100, 30);
         tabPanel.setBounds(0, 0, 1200, 750);
-        imageLabel.setBounds(100, 30, 50, 50);
+        imageLabel.setBounds(900, 20, 50, 50);
         imageLabel2.setBounds(0, 0, 1200, 750);
         //addmButton.setBounds(0, 0, 70, 20);
 

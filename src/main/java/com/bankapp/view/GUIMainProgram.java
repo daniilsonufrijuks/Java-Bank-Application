@@ -39,9 +39,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JTextField recUsernameField;
     JTextField recBankAccountField;
     JTextField moneyToSendField;
+
+    // For Panel Send lables
     JLabel recUsernameLabel = new JLabel("Receiver username");
     JLabel recBankAccountLabel = new JLabel("Receiver bank account");
     JLabel moneyToSendLabel = new JLabel("Money");
+    JLabel moneyLabel = new JLabel("Your balance:");
+
+    // For Panel about us
     String textaboutus = "Finanšu pasaules miglainajās vietās pastāv banka, kas pazīstama kā Monolīts. \n" +
     "Tās dīvainības un mistikas reputācija piesaista uzmanību. Daži saka, ka šai bankai \n" +
     "ir tiesības parastos ieguldījumus pārveidot par kaut ko vērtīgāku, piemēram, \n" +
@@ -101,7 +106,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         // Setting location and Size of each components using setBounds() method.
         usernameLabel.setBounds(1000, 20, 100, 30);
         userlastnameLabel.setBounds(1030, 20, 100, 30); 
-        userbalanceLabel.setBounds(30, 20, 100, 30);
+        moneyLabel.setBounds(20, 20, 100, 30);
+        userbalanceLabel.setBounds(100, 20, 100, 30);
+        userbalanceLabel.setFont(newFont);
+        moneyLabel.setFont(newFont);
 
         tabPanel.setBounds(0, 0, 1200, 750); // tab position
 

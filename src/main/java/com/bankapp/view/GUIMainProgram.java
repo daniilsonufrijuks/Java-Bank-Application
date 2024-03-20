@@ -31,6 +31,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel usernameLabel;
     JLabel userlastnameLabel;
     JLabel userbalanceLabel;
+    JLabel textaboutusB;
 
     // For Panel Send
 
@@ -40,13 +41,13 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel recUsernameLabel = new JLabel("Receiver username");
     JLabel recBankAccountLabel = new JLabel("Receiver bank account");
     JLabel moneyToSendLabel = new JLabel("Money");
-    String textaboutus = "Finanšu pasaules miglainajās vietās pastāv banka, kas pazīstama kā Monolīts. " +
-    "Tās dīvainības un mistikas reputācija piesaista uzmanību. Daži saka, ka šai bankai " +
-    "ir tiesības parastos ieguldījumus pārveidot par kaut ko vērtīgāku, piemēram, " +
-    "artefaktus no citas dimensijas. Ne visi uzdrošinās ienākt tās durvīm, baidoties " +
-    "no negaidītiem pārbaudījumiem un sarežģītiem apstākļiem. Tomēr tie, kas ir drosmīgi " +
-    "iegājuši iekšā, saka, ka atlīdzība par risku var būt ievērojama. Nav skaidrs, " +
-    "vai Monolīts ir mīts vai realitāte, taču daudzi finanšu piedzīvojumu meklētāji " +
+    String textaboutus = "Finanšu pasaules miglainajās vietās pastāv banka, kas pazīstama kā Monolīts. \n" +
+    "Tās dīvainības un mistikas reputācija piesaista uzmanību. Daži saka, ka šai bankai \n" +
+    "ir tiesības parastos ieguldījumus pārveidot par kaut ko vērtīgāku, piemēram, \n" +
+    "artefaktus no citas dimensijas. Ne visi uzdrošinās ienākt tās durvīm, baidoties \n" +
+    "no negaidītiem pārbaudījumiem un sarežģītiem apstākļiem. Tomēr tie, kas ir drosmīgi \n" +
+    "iegājuši iekšā, saka, ka atlīdzība par risku var būt ievērojama. Nav skaidrs, \n" +
+    "vai Monolīts ir mīts vai realitāte, taču daudzi finanšu piedzīvojumu meklētāji \n" +
     "turpina pētīt tā noslēpumainās iespējas.";
 
     JButton sendButton = new JButton("SUBMIT");
@@ -54,6 +55,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     public GUIMainProgram(String userText, String userlnameText) {
         usernameLabel = new JLabel(userText);
         userlastnameLabel = new JLabel(userlnameText);
+        textaboutusB = new JLabel(textaboutus);
 
         // For panel Send
         recUsernameField = new JTextField();
@@ -94,7 +96,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         userbalanceLabel.setBounds(30, 20, 100, 30);
         tabPanel.setBounds(0, 0, 1200, 750);
         imageLabel.setBounds(900, 20, 50, 50);
-        imageLabel2.setBounds(0, 0, 400, 250);
+        imageLabel2.setBounds(350, 10, 400, 250);
+        textaboutusB.setBounds(300, 300, 500, 400);
         //addmButton.setBounds(0, 0, 70, 20);
 
         //For panel Send
@@ -131,7 +134,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         panel2.add(sendButton);
 
-        panel5.add(new JLabel(textaboutus));
+        panel5.add(textaboutusB);
 
         panel1.add(imageLabel);
         tabPanel.addTab("Main", panel1); 

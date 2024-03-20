@@ -12,7 +12,7 @@ public class AutoSendonYourEmail {
 
         String host = "smtp.elasticemail.com";
         String port = "25"; 
-        String fromAddress = "daniils.onufrijuksdp11@inbox.lv"; 
+        String fromAddress = "monolithabout@gmail.com"; 
         String toAddress = "kroshthebestfriend@gmail.com";
 
         Properties props = new Properties();
@@ -20,8 +20,8 @@ public class AutoSendonYourEmail {
         props.put("mail.smtp.port", port);
         props.put("mail.smtp.auth", "true"); // Enable authentication
 
-        String username = "daniils.onufrijuksdp11";
-        String password = "";
+        String username = "Mark";
+        String password = "1Aa2Bb3Cc456Yjkp0=";
 
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {

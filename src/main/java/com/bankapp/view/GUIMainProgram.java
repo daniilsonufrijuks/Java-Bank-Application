@@ -96,21 +96,25 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     }
 
     public void setLocationAndSize() {
+        // Setting location and Size of each components using setBounds() method.
         usernameLabel.setBounds(1000, 20, 100, 30);
         userlastnameLabel.setBounds(1030, 20, 100, 30); 
         userbalanceLabel.setBounds(30, 20, 100, 30);
-        tabPanel.setBounds(0, 0, 1200, 750);
-        imageLabel.setBounds(900, 20, 50, 50);
-        imageLabel2.setBounds(350, 10, 400, 250);
-        textaboutusB.setBounds(300, 300, 500, 400);
-        //addmButton.setBounds(0, 0, 70, 20);
 
-        //For panel Send
+        tabPanel.setBounds(0, 0, 1200, 750); // tab position
+
+        imageLabel.setBounds(900, 20, 50, 50); // image position
+        imageLabel2.setBounds(30, 10, 400, 250);
+
+        textaboutusB.setBounds(30, 250, 500, 300); // text area position
+
+        //For panel Send text fields
         recUsernameField.setBounds(140, 40, 200, 30);
         recBankAccountField.setBounds(140, 90, 200, 30);
         moneyToSendField.setBounds(140, 140, 200, 30);
         sendButton.setBounds(180, 190, 100, 30);
 
+        // For panel Send lables
         recUsernameLabel.setBounds(5, 40, 100, 30);
         recBankAccountLabel.setBounds(5, 90, 100, 30);
         moneyToSendLabel.setBounds(5, 140, 100, 30);

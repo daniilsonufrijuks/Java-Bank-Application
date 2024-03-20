@@ -21,4 +21,8 @@ public class REGEXManager {
         + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
         return email.matches(expression); // return if the email matches the expression
     } 
+
+    public static boolean isValidFloat(String input) {
+        return input.matches("^\\d+(\\.\\d{1,2})?$");
+    }
 }

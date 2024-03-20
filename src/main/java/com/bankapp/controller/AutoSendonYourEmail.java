@@ -1,25 +1,33 @@
 package controller;
 
 import java.net.Authenticator;
-import java.net.PasswordAuthentication;
+//import java.net.PasswordAuthentication;
 import java.util.Properties;
 
 import javax.mail.*;
 import javax.mail.internet.*;
 
 public class AutoSendonYourEmail {
-    public static void SendEmail() {
+    public static void main(String[] args) throws InterruptedException {
 
         String host = "smtp.elasticemail.com";
         String port = "25"; 
-        String fromAddress = "freemen1094@gmail.com"; 
+        String fromAddress = "daniils.onufrijuksdp11@inbox.lv"; 
         String toAddress = "kroshthebestfriend@gmail.com";
 
         Properties props = new Properties();
         props.put("mail.smtp.host", host);
         props.put("mail.smtp.port", port);
+        props.put("mail.smtp.auth", "true"); // Enable authentication
 
-        Session session = Session.getInstance(props, null);
+        String username = "daniils.onufrijuksdp11";
+        String password = "";
+
+        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
 
         try {
             // Создание сообщения
@@ -33,10 +41,10 @@ public class AutoSendonYourEmail {
             Transport.send(message);
 
             System.out.println("Succes.");
-
+        } catch (AuthenticationFailedException e) {
+            System.out.println("Authentication failed: " + e.getMessage());
         } catch (MessagingException e) {
-            System.out.println("Error " + e.getMessage());
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 }

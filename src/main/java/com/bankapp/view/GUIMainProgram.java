@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.*;
 
+import controller.AutoSendonYourEmail;
 import controller.BankAccountManager;
 import controller.Login;
 import controller.REGEXManager;
@@ -165,6 +166,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == sendButton) {
+            //AutoSendonYourEmail.SendEmail();
             String recUsername = recUsernameField.getText();
             String recBankAccount = recBankAccountField.getText();
             float moneyToSend = Float.valueOf(moneyToSendField.getText());

@@ -50,7 +50,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     "vai Monolīts ir mīts vai realitāte, taču daudzi finanšu piedzīvojumu meklētāji \n" +
     "turpina pētīt tā noslēpumainās iespējas.";
 
-    JButton sendButton = new JButton("SUBMIT");
+    JButton sendButton = new JButton("SUBMIT"); // button for send panel
+    Font newFont = new Font("default", Font.PLAIN, 17); // set font for text area
 
     public GUIMainProgram(String userText, String userlnameText) {
         usernameLabel = new JLabel(userText);
@@ -106,7 +107,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         imageLabel.setBounds(900, 20, 50, 50); // image position
         imageLabel2.setBounds(30, 10, 400, 250);
 
-        textaboutusB.setBounds(30, 250, 500, 300); // text area position
+        textaboutusB.setBounds(30, 250, 500, 450); // text area position
+        textaboutusB.setFont(newFont);
 
         //For panel Send text fields
         recUsernameField.setBounds(140, 40, 200, 30);

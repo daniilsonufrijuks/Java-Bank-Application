@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import controller.BankAccountManager;
 import controller.Login;
+import controller.REGEXManager;
 import model.Person;
 
 import java.awt.*;
@@ -153,7 +154,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             String recUsername = recUsernameField.getText();
             String recBankAccount = recBankAccountField.getText();
             float moneyToSend = Float.valueOf(moneyToSendField.getText());
-            if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend)){
+            if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend) && REGEXManager.isValidFloat(String.valueOf(moneyToSend))){
                 BankAccountManager.SendMoney(recUsername, recBankAccount, moneyToSend);
                 JOptionPane.showMessageDialog(this, "Success transaction!");
             } else {

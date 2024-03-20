@@ -44,7 +44,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel recUsernameLabel = new JLabel("Receiver username");
     JLabel recBankAccountLabel = new JLabel("Receiver bank account");
     JLabel moneyToSendLabel = new JLabel("Money");
-    JLabel moneyLabel = new JLabel("Your balance:");
+    JLabel moneyLabel = new JLabel("YOUR BALANCE: ");
 
     // For Panel about us
     String textaboutus = "Finanšu pasaules miglainajās vietās pastāv banka, kas pazīstama kā Monolīts. \n" +
@@ -106,17 +106,18 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         // Setting location and Size of each components using setBounds() method.
         usernameLabel.setBounds(1000, 20, 100, 30);
         userlastnameLabel.setBounds(1030, 20, 100, 30); 
-        moneyLabel.setBounds(20, 20, 100, 30);
-        userbalanceLabel.setBounds(100, 20, 100, 30);
+        moneyLabel.setBounds(10, 20, 100, 30);
+        userbalanceLabel.setBounds(110, 20, 100, 30);
+        // Set font for the labels
         userbalanceLabel.setFont(newFont);
         moneyLabel.setFont(newFont);
 
         tabPanel.setBounds(0, 0, 1200, 750); // tab position
 
         imageLabel.setBounds(900, 20, 50, 50); // image position
-        imageLabel2.setBounds(30, 10, 400, 250);
+        imageLabel2.setBounds(30, 5, 400, 250);
 
-        textaboutusB.setBounds(30, 250, 500, 450); // text area position
+        textaboutusB.setBounds(30, 290, 600, 450); // text area position
         textaboutusB.setFont(newFont);
 
         //For panel Send text fields
@@ -139,6 +140,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel1.add(usernameLabel);
         panel1.add(userlastnameLabel);
         panel1.add(userbalanceLabel);
+        panel1.add(moneyLabel);
         //ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); // replace with your image file path
         //JLabel imageLabel = new JLabel(imageIcon);
         //panel1.setLayout(null);

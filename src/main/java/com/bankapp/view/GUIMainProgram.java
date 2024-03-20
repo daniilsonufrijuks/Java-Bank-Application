@@ -88,10 +88,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         //addmButton.setBounds(0, 0, 70, 20);
 
         //For panel Send
-        recUsernameField.setBounds(100, 40, 100, 30);
-        recBankAccountField.setBounds(100, 90, 100, 30);
-        moneyToSendField.setBounds(100, 140, 100, 30);
-        sendButton.setBounds(110, 190, 100, 30);
+        recUsernameField.setBounds(140, 40, 200, 30);
+        recBankAccountField.setBounds(140, 90, 200, 30);
+        moneyToSendField.setBounds(140, 140, 200, 30);
+        sendButton.setBounds(180, 190, 100, 30);
 
         recUsernameLabel.setBounds(5, 40, 100, 30);
         recBankAccountLabel.setBounds(5, 90, 100, 30);

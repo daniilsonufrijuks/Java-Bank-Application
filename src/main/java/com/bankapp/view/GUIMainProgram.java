@@ -31,7 +31,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel usernameLabel;
     JLabel userlastnameLabel;
     JLabel userbalanceLabel;
-    JLabel textaboutusB;
+    JTextArea textaboutusB;
 
     // For Panel Send
 
@@ -55,7 +55,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     public GUIMainProgram(String userText, String userlnameText) {
         usernameLabel = new JLabel(userText);
         userlastnameLabel = new JLabel(userlnameText);
-        textaboutusB = new JLabel(textaboutus);
+        //textaboutusB = new JLabel(textaboutus);
+
+        textaboutusB = new JTextArea(textaboutus); // added textaboutus to text area
+        textaboutusB.setLineWrap(true);
+        textaboutusB.setWrapStyleWord(true);
+        textaboutusB.setEditable(false);
 
         // For panel Send
         recUsernameField = new JTextField();
@@ -77,8 +82,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         // tabPanel.addTab("Main", panel1); 
         // tabPanel.addTab("Add", panel2); 
         // tabPanel.addTab("Send", panel3); 
-        addComponentsToContainer();
-        addActionEvent();
+        addComponentsToContainer(); // add components to the container
+        addActionEvent(); // add action event
     }
 
     public void setLayoutManager() {

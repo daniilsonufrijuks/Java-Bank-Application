@@ -3,6 +3,7 @@ package view;
 import javax.swing.*;
 
 import controller.BankAccountManager;
+import controller.Login;
 import model.Person;
 
 import java.awt.*;
@@ -92,7 +93,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         userbalanceLabel.setBounds(30, 20, 100, 30);
         tabPanel.setBounds(0, 0, 1200, 750);
         imageLabel.setBounds(900, 20, 50, 50);
-        imageLabel2.setBounds(0, 0, 1200, 750);
+        imageLabel2.setBounds(0, 0, 400, 250);
         //addmButton.setBounds(0, 0, 70, 20);
 
         //For panel Send
@@ -129,6 +130,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         panel2.add(sendButton);
 
+        panel5.add(new JLabel(textaboutus));
+
         panel1.add(imageLabel);
         tabPanel.addTab("Main", panel1); 
         tabPanel.addTab("Send", panel2); 
@@ -150,7 +153,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             String recUsername = recUsernameField.getText();
             String recBankAccount = recBankAccountField.getText();
             float moneyToSend = Float.valueOf(moneyToSendField.getText());
-            BankAccountManager.SendMoney(recUsername, recBankAccount, moneyToSend);
+            if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend)){
+                BankAccountManager.SendMoney(recUsername, recBankAccount, moneyToSend);
+                JOptionPane.showMessageDialog(this, "Success transaction!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Invalid Data");
+            }
             userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(usernameLabel.getText(), userlastnameLabel.getText())));
         }
     }

@@ -69,5 +69,21 @@ public class BankAccountManager {       // Class for monetary transactions (send
         return balance;
     } 
 
-    
+    public static boolean CheckSendData(String recUsername, String recBankAcc, float moneyToSend) {
+        boolean result = false;
+        try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object
+            String line;
+            while ((line = br.readLine()) != null) { // while there is a next line
+                String[] parts = line.split(", ");      // current line from csv file
+                if (parts.length == 10 && parts[6].equals(recUsername) && parts[4].equals(recBankAcc) && Float.parseFloat(parts[9]) < moneyToSend) {
+                    result = true;
+                    break;
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

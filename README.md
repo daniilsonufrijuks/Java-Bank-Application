@@ -3,3 +3,5 @@
 
 *Sistēmas: Java Swing*
 
+
+https://daniilsonufrijuks.github.io/MONOLITH.github.io/

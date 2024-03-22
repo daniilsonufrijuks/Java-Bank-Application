@@ -105,16 +105,18 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     public void setLocationAndSize() {
         // Setting location and Size of each components using setBounds() method.
         usernameLabel.setBounds(1000, 20, 100, 30);
-        userlastnameLabel.setBounds(1030, 20, 100, 30); 
-        moneyLabel.setBounds(10, 20, 100, 30);
-        userbalanceLabel.setBounds(110, 20, 100, 30);
+        userlastnameLabel.setBounds(1050, 20, 100, 30); 
+        moneyLabel.setBounds(10, 20, 150, 30);
+        userbalanceLabel.setBounds(150, 20, 100, 30);
         // Set font for the labels
         userbalanceLabel.setFont(newFont);
         moneyLabel.setFont(newFont);
+        usernameLabel.setFont(newFont);
+        userlastnameLabel.setFont(newFont);
 
         tabPanel.setBounds(0, 0, 1200, 750); // tab position
 
-        imageLabel.setBounds(900, 20, 50, 50); // image position
+        imageLabel.setBounds(920, 17, 50, 50); // image position
         imageLabel2.setBounds(30, 5, 400, 250);
 
         textaboutusB.setBounds(30, 290, 600, 450); // text area position

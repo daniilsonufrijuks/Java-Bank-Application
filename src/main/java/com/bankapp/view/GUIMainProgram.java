@@ -22,8 +22,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JTabbedPane tabPanel = new JTabbedPane(); 
     ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); 
     ImageIcon imageIcon2 = new ImageIcon("resources/monolithad.jpg"); 
+    ImageIcon imageIcon3 = new ImageIcon("resources/monolithenjoyer.jpg");
     JLabel imageLabel = new JLabel(imageIcon);
     JLabel imageLabel2 = new JLabel(imageIcon2);
+    JLabel imageLabel3 = new JLabel(imageIcon3);
     JPanel panel1 = new JPanel();
     JPanel panel2 = new JPanel();
     JPanel panel3 = new JPanel();
@@ -118,6 +120,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         imageLabel.setBounds(920, 17, 50, 50); // image position
         imageLabel2.setBounds(30, 5, 400, 250);
+        imageLabel3.setBounds(500, 5, 400, 250);
 
         textaboutusB.setBounds(30, 290, 600, 450); // text area position
         textaboutusB.setFont(newFont);
@@ -154,7 +157,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel2.add(recUsernameLabel);
         panel2.add(recBankAccountLabel);
         panel2.add(moneyToSendLabel);
+
         panel5.add(imageLabel2);
+        panel5.add(imageLabel3);
 
         panel2.add(sendButton);
 

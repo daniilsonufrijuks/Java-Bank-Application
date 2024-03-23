@@ -48,6 +48,13 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel moneyToSendLabel = new JLabel("Money");
     JLabel moneyLabel = new JLabel("YOUR BALANCE: ");
 
+    JLabel credit = new JLabel("CREDIT OPTION 1");
+    JLabel credit2 = new JLabel("CREDIT OPTION 2");
+    JLabel credit3 = new JLabel("CREDIT OPTION 3");
+    JLabel credit4 = new JLabel("CREDIT OPTION 4");
+    JLabel credit5 = new JLabel("CREDIT OPTION 5");
+
+
     // For Panel about us
     String textaboutus = "Finanšu pasaules miglainajās vietās pastāv banka, kas pazīstama kā Monolīts. \n" +
     "Tās dīvainības un mistikas reputācija piesaista uzmanību. Daži saka, ka šai bankai \n" +
@@ -146,6 +153,13 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         TAKE4Button.setBounds(50, 200, 100, 30);
         TAKE5Button.setBounds(50, 250, 100, 30);
 
+        // For panel Credits lables
+        credit.setBounds(120, 50, 200, 30);
+        credit2.setBounds(120, 100, 200, 30);
+        credit3.setBounds(120, 150, 200, 30);
+        credit4.setBounds(120, 200, 200, 30);
+        credit5.setBounds(120, 250, 200, 30);
+
 
         // For panel Send lables
         recUsernameLabel.setBounds(5, 40, 150, 30);
@@ -192,6 +206,13 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.add(TAKE2Button);
         panel3.add(TAKE3Button);
         panel3.add(TAKE4Button);
+
+        // For panel Credits lables
+        panel3.add(credit);
+        panel3.add(credit2);
+        panel3.add(credit3);
+        panel3.add(credit4);
+        panel3.add(credit5);
 
         // Panels   
         tabPanel.addTab("Main", panel1); 

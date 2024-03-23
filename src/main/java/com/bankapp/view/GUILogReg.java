@@ -15,6 +15,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Console;   
+//import main.java.com.bankapp.Main;
 
 public class GUILogReg extends JFrame implements ActionListener {  
     Container container = getContentPane();
@@ -142,7 +143,7 @@ public class GUILogReg extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
             }
             if (logb == true) {
-                //Main.frame.dispose();
+                Main.frame.dispose();
                 //Point center2 = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
                 JFrame stwm = new JFrame();  
                 stwm.setTitle("MONOLITH Bank"); // set title

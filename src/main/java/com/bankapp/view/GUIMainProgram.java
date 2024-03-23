@@ -126,15 +126,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         textaboutusB.setFont(newFont);
 
         //For panel Send text fields
-        recUsernameField.setBounds(140, 40, 200, 30);
-        recBankAccountField.setBounds(140, 90, 200, 30);
-        moneyToSendField.setBounds(140, 140, 200, 30);
-        sendButton.setBounds(180, 190, 100, 30);
+        recUsernameField.setBounds(180, 40, 200, 30);
+        recBankAccountField.setBounds(180, 90, 200, 30);
+        moneyToSendField.setBounds(180, 140, 200, 30);
+        sendButton.setBounds(215, 190, 100, 30);
 
         // For panel Send lables
-        recUsernameLabel.setBounds(5, 40, 120, 30);
-        recBankAccountLabel.setBounds(5, 90, 120, 30);
-        moneyToSendLabel.setBounds(5, 140, 120, 30);
+        recUsernameLabel.setBounds(5, 40, 150, 30);
+        recBankAccountLabel.setBounds(5, 90, 150, 30);
+        moneyToSendLabel.setBounds(5, 140, 150, 30);
         // Set font for the labels
         recUsernameLabel.setFont(newFont);
         recBankAccountLabel.setFont(newFont);

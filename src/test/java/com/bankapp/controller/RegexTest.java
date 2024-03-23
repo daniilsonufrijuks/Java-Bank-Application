@@ -25,4 +25,21 @@ public class RegexTest {
         assertEquals(true, REGEXManager.PersoncodeRegex(pscode));
         assertEquals(true, REGEXManager.EmailRegex(email));
     }
+
+    @Test
+    public void RegexIsValidFloat(){
+        assertEquals(true, REGEXManager.isValidFloat("20"));
+        assertEquals(true, REGEXManager.isValidFloat("20.00"));
+        assertEquals(true, REGEXManager.isValidFloat("20.01"));
+        assertEquals(true, REGEXManager.isValidFloat("20.10"));
+        assertEquals(true, REGEXManager.isValidFloat("20.1"));
+        assertEquals(true, REGEXManager.isValidFloat("20.22"));
+        assertEquals(false, REGEXManager.isValidFloat("20.222"));
+        assertEquals(true, REGEXManager.isValidFloat("0"));
+        assertEquals(true, REGEXManager.isValidFloat("0.00"));
+        assertEquals(true, REGEXManager.isValidFloat("0.0"));
+        assertEquals(true, REGEXManager.isValidFloat("-2"));
+        assertEquals(true, REGEXManager.isValidFloat("-2.02"));
+        assertEquals(true, REGEXManager.isValidFloat("-2.22"));
+    }
 }

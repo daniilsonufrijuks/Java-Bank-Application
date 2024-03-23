@@ -23,6 +23,6 @@ public class REGEXManager {
     } 
 
     public static boolean isValidFloat(String input) {
-        return input.matches("^\\d+(\\.\\d{1,2})?$");
+        return input.matches("^\\\\d+(\\\\.\\\\d{1,2})?$");
     }
 }

@@ -75,8 +75,49 @@ public class BankAccountManager {       // Class for monetary transactions (send
             String line;
             while ((line = br.readLine()) != null) { // while there is a next line
                 String[] parts = line.split(", ");      // current line from csv file
-                if (parts.length == 10 && parts[6].equals(recUsername) && parts[4].equals(recBankAcc) && Float.parseFloat(parts[9]) < moneyToSend) {
-                    result = true;
+
+                // ?????
+                if (parts.length == 10 && parts[6].equals(recUsername) && parts[4].equals(recBankAcc)) {    // find the needed account
+                    if (Float.parseFloat(parts[9]) >= moneyToSend){     // if money on account is enough to send
+                        result = true;
+                        break;
+                    } else {
+                        System.out.println("Not enough money!");
+                    }
+                } else {
+                    System.out.println("Invalid username or bank account!");
+                }
+            }
+
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static boolean RemoveMoneyFromSenderInCSVAfterSendMoney(String Pcode, String email, float sentMoney){
+        boolean remMoneyResult = false;
+        try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object
+            String line;
+            while ((line = br.readLine()) != null) { // while there is a next line
+                String[] parts = line.split(", ");      // current line from csv file
+                for (String string : parts) {
+                    System.out.println("RemoveMoneyFromSenderAfterSendMoney results parts: " + string);
+                }
+                
+                if (parts.length == 10 && parts[3].equals(Pcode) && parts[5].equals(email)) {
+                    String[] duplParts = parts;           // csv line duplicate to use in Update method    
+                    String duplPartsStr = String.join(", ", duplParts);
+                    BigDecimal sentMoneyBD = new BigDecimal(sentMoney);               // sent money (aka money that have to be taken) convert to BigDecimal
+                    BigDecimal receiverCurrentCapital = new BigDecimal(parts[9]);           // current receiver's capital convert to BigDecimal
+                    receiverCurrentCapital = receiverCurrentCapital.subtract(sentMoneyBD).setScale(2, RoundingMode.DOWN);     // new receiver's capital rounded down to 2 decimal places
+                    parts[9] = receiverCurrentCapital.toString();                           // new capital value for receiver
+                    String partsStr = String.join(", ", parts);
+
+                    CSVManager.UpdateCSVFile(duplPartsStr, partsStr);
+                    remMoneyResult = true;
                     break;
                 }
             }
@@ -84,6 +125,8 @@ public class BankAccountManager {       // Class for monetary transactions (send
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return result;
+
+        return remMoneyResult;
     }
+
 }

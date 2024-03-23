@@ -130,8 +130,7 @@ public class GUILogReg extends JFrame implements ActionListener {
             userlabelText = userLabelField.getText();
 
             boolean logb = false;
-            REGEXManager regMan = new REGEXManager();
-            if (regMan.NameRegex(userText) && regMan.NameRegex(userlnameText) && regMan.PersoncodeRegex(userpcodetText) && regMan.EmailRegex(useremailText)) {
+            if (REGEXManager.NameRegex(userText) && REGEXManager.NameRegex(userlnameText) && REGEXManager.PersoncodeRegex(userpcodetText) && REGEXManager.EmailRegex(useremailText)) {
                 Login login = new Login();
                 logb = login.login(userText, userlnameText, userpcodetText, useremailText, userlabelText);
                 System.out.println(logb);
@@ -140,7 +139,7 @@ public class GUILogReg extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
             }
             if (logb == true) {
-                GUIMainProgram frame2 = new GUIMainProgram(userText, userlnameText);
+                GUIMainProgram frame2 = new GUIMainProgram(userText, userlnameText, userpcodetText, useremailText);
                 frame2.setTitle("MONOLITH Bank");
                 frame2.setBounds(center.x - 1200 / 2, center.y - 750 / 2, 1200, 750); // to centre window
                 //frame2.setBounds(10, 10, 1200, 750);

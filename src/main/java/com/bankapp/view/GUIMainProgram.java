@@ -33,6 +33,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JPanel panel5 = new JPanel();
     JLabel usernameLabel;
     JLabel userlastnameLabel;
+    // for SendMoney
+    JLabel userPCodeLabel;
+    JLabel userEmailLabel;
+    //
     JLabel userbalanceLabel;
     JTextArea textaboutusB;
 
@@ -61,9 +65,11 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JButton sendButton = new JButton("SUBMIT"); // button for send panel
     Font newFont = new Font("default", Font.PLAIN, 17); // set font for text area
 
-    public GUIMainProgram(String userText, String userlnameText) {
+    public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail) {
         usernameLabel = new JLabel(userText);
         userlastnameLabel = new JLabel(userlnameText);
+        userPCodeLabel = new JLabel(userPCode);     // for SendMoney, doesnt show up on screen
+        userEmailLabel = new JLabel(userEmail);     // for SendMoney, doesnt show up on screen
         //textaboutusB = new JLabel(textaboutus);
 
         textaboutusB = new JTextArea(textaboutus); // added textaboutus to text area
@@ -191,9 +197,21 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             String recUsername = recUsernameField.getText();
             String recBankAccount = recBankAccountField.getText();
             float moneyToSend = Float.valueOf(moneyToSendField.getText());
-            if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend) && REGEXManager.isValidFloat(String.valueOf(moneyToSend))){
-                BankAccountManager.SendMoney(recUsername, recBankAccount, moneyToSend);
-                JOptionPane.showMessageDialog(this, "Success transaction!");
+
+            //if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend) && REGEXManager.isValidFloat(String.valueOf(moneyToSend))){
+            if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend)){
+                if (REGEXManager.isValidFloat(String.valueOf(moneyToSend))){
+                    BankAccountManager.SendMoney(recUsername, recBankAccount, moneyToSend);
+                    BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userPCodeLabel.getText(), userEmailLabel.getText(), moneyToSend);   // take money from sender account after sending money
+                    JOptionPane.showMessageDialog(this, "Success transaction!");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Invalid money input!");
+                }
+                // BankAccountManager.SendMoney(recUsername, recBankAccount, moneyToSend);
+                // BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userPCodeLabel.getText(), userEmailLabel.getText(), moneyToSend);   // take money from sender account after sending money
+                // JOptionPane.showMessageDialog(this, "Success transaction!");
+
+
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
             }

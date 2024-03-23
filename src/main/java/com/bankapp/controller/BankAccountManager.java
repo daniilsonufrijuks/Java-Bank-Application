@@ -75,15 +75,17 @@ public class BankAccountManager {       // Class for monetary transactions (send
             String line;
             while ((line = br.readLine()) != null) { // while there is a next line
                 String[] parts = line.split(", ");      // current line from csv file
-
+                for (String string : parts) {
+                    System.out.println("CheckSendData results parts: " + string);
+                }
                 // ?????
-                if (parts.length == 10 && parts[6].equals(recUsername) && parts[4].equals(recBankAcc)) {    // find the needed account
-                    if (Float.parseFloat(parts[9]) >= moneyToSend){     // if money on account is enough to send
-                        result = true;
-                        break;
-                    } else {
-                        System.out.println("Not enough money!");
-                    }
+                if (parts.length == 10 && parts[4].equals(recBankAcc) && parts[6].equals(recUsername) && Float.parseFloat(parts[9]) < moneyToSend) {    // find the needed account
+                    //if (Float.parseFloat(parts[9]) >= moneyToSend){     // if money on account is enough to send
+                    result = true;
+                    break;
+                    //} else {
+                    //    System.out.println("Not enough money!");
+                    //}
                 } else {
                     System.out.println("Invalid username or bank account!");
                 }

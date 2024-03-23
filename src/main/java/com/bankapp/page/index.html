@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bank "MONOLITH"</title>
+    <title>Monolith Bank</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,13 +29,22 @@
             height: auto;
             display: block;
             margin: 20px auto;
+            border: 2px solid #007bff; /* добавляем рамку вокруг изображения */
+            padding: 5px; /* добавляем отступ внутри рамки */
+        }
+        .text-box {
+            border: 2px solid #007bff; /* добавляем рамку вокруг текста */
+            padding: 20px; /* добавляем отступ внутри рамки */
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Welcome to Monolith Bank!</h1>
-        <p>We are a bank that stands as solid as a monolith but works as swiftly as a gentle breeze!</p>
+        <div class="text-box">
+            <p>We are a bank that stands as solid as a monolith but works as swiftly as a gentle breeze!</p>
+        </div>
         <img src="monolithad.jpg" alt="Monolith Bank Logo">
         <h2>Our Advantages:</h2>
         <ul>
@@ -43,8 +52,10 @@
             <li>Special offers: deposits for mere mortals and for vampires too (they get blood interest rates)</li>
             <li>24/7 support: our consultants don't even sleep during a zombie apocalypse!</li>
         </ul>
-        <p>And remember, every client is not just a number to us but a hero of their banking epic!</p>
-        <p>Come join us and become part of the legend!</p>
+        <div class="text-box">
+            <p>And remember, every client is not just a number to us but a hero of their banking epic!</p>
+            <p>Come join us and become part of the legend!</p>
+        </div>
         <footer>
             <p>© 2024 Monolith Bank. All rights preserved. Better not try to break our roof, it's truly monolithic!</p>
         </footer>

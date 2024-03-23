@@ -57,8 +57,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     "iegājuši iekšā, saka, ka atlīdzība par risku var būt ievērojama. Nav skaidrs, \n" +
     "vai Monolīts ir mīts vai realitāte, taču daudzi finanšu piedzīvojumu meklētāji \n" +
     "turpina pētīt tā noslēpumainās iespējas.";
-
+    // For Panel Credits
     JButton sendButton = new JButton("SUBMIT"); // button for send panel
+    JButton TAKEButton = new JButton("TAKE"); // button for take panel
+    JButton TAKE2Button = new JButton("TAKE"); // button for take panel
+    JButton TAKE3Button = new JButton("TAKE"); // button for take panel
+    JButton TAKE4Button = new JButton("TAKE"); // button for take panel
+    JButton TAKE5Button = new JButton("TAKE"); // button for take panel
+
     Font newFont = new Font("default", Font.PLAIN, 17); // set font for text area
 
     public GUIMainProgram(String userText, String userlnameText) {

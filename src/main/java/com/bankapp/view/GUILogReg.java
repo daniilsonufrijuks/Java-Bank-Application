@@ -162,6 +162,15 @@ public class GUILogReg extends JFrame implements ActionListener {
                 } catch (InterruptedException e1) {
                     e1.printStackTrace();
                 } // time sleep for 3 seconds
+
+                // Timer timer = new Timer(3000, new ActionListener() {
+                //     @Override
+                //     public void actionPerformed(ActionEvent e) {
+                //         stwm.setVisible(true);
+                //     }
+                // });
+                // timer.setRepeats(false);
+                // timer.start();
                 stwm.dispose(); // close the start window
 
                 GUIMainProgram frame2 = new GUIMainProgram(userText, userlnameText);

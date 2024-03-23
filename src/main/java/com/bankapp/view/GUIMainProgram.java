@@ -160,6 +160,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         credit4.setBounds(120, 200, 200, 30);
         credit5.setBounds(120, 250, 200, 30);
 
+        // Set font for the labels
+        credit.setFont(newFont);
+        credit2.setFont(newFont);
+        credit3.setFont(newFont);
+        credit4.setFont(newFont);
+        credit5.setFont(newFont);
+
+
 
         // For panel Send lables
         recUsernameLabel.setBounds(5, 40, 150, 30);

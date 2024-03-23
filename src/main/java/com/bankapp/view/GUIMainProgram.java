@@ -57,8 +57,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     "iegājuši iekšā, saka, ka atlīdzība par risku var būt ievērojama. Nav skaidrs, \n" +
     "vai Monolīts ir mīts vai realitāte, taču daudzi finanšu piedzīvojumu meklētāji \n" +
     "turpina pētīt tā noslēpumainās iespējas.";
-    // For Panel Credits
+    
     JButton sendButton = new JButton("SUBMIT"); // button for send panel
+    // For Panel Credits
     JButton TAKEButton = new JButton("TAKE"); // button for take panel
     JButton TAKE2Button = new JButton("TAKE"); // button for take panel
     JButton TAKE3Button = new JButton("TAKE"); // button for take panel
@@ -135,7 +136,16 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         recUsernameField.setBounds(180, 40, 200, 30);
         recBankAccountField.setBounds(180, 90, 200, 30);
         moneyToSendField.setBounds(180, 140, 200, 30);
+
+        // Buttons   
         sendButton.setBounds(215, 190, 100, 30);
+
+        TAKEButton.setBounds(50, 50, 100, 30);
+        TAKE2Button.setBounds(50, 100, 100, 30);
+        TAKE3Button.setBounds(50, 150, 100, 30);
+        TAKE4Button.setBounds(50, 200, 100, 30);
+        TAKE5Button.setBounds(50, 250, 100, 30);
+
 
         // For panel Send lables
         recUsernameLabel.setBounds(5, 40, 150, 30);
@@ -175,7 +185,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         panel5.add(textaboutusB);
 
-        panel1.add(imageLabel);
+        panel1.add(imageLabel); // add image to the panel
+
+        // For panel Credits
+        panel3.add(TAKEButton);
+        panel3.add(TAKE2Button);
+        panel3.add(TAKE3Button);
+        panel3.add(TAKE4Button);
+
+        // Panels   
         tabPanel.addTab("Main", panel1); 
         tabPanel.addTab("Send", panel2); 
         tabPanel.addTab("Credits", panel3); 

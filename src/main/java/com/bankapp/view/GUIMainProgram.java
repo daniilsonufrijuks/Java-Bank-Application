@@ -132,9 +132,13 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         sendButton.setBounds(180, 190, 100, 30);
 
         // For panel Send lables
-        recUsernameLabel.setBounds(5, 40, 100, 30);
-        recBankAccountLabel.setBounds(5, 90, 100, 30);
-        moneyToSendLabel.setBounds(5, 140, 100, 30);
+        recUsernameLabel.setBounds(5, 40, 120, 30);
+        recBankAccountLabel.setBounds(5, 90, 120, 30);
+        moneyToSendLabel.setBounds(5, 140, 120, 30);
+        // Set font for the labels
+        recUsernameLabel.setFont(newFont);
+        recBankAccountLabel.setFont(newFont);
+        moneyToSendLabel.setFont(newFont); // set font 
     }
 
     public void addComponentsToContainer() {

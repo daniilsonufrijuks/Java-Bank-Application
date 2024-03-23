@@ -52,6 +52,13 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel moneyToSendLabel = new JLabel("Money");
     JLabel moneyLabel = new JLabel("YOUR BALANCE: ");
 
+    JLabel credit = new JLabel("CREDIT OPTION 1");
+    JLabel credit2 = new JLabel("CREDIT OPTION 2");
+    JLabel credit3 = new JLabel("CREDIT OPTION 3");
+    JLabel credit4 = new JLabel("CREDIT OPTION 4");
+    JLabel credit5 = new JLabel("CREDIT OPTION 5");
+
+
     // For Panel about us
     String textaboutus = "Finanšu pasaules miglainajās vietās pastāv banka, kas pazīstama kā Monolīts. \n" +
     "Tās dīvainības un mistikas reputācija piesaista uzmanību. Daži saka, ka šai bankai \n" +
@@ -61,8 +68,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     "iegājuši iekšā, saka, ka atlīdzība par risku var būt ievērojama. Nav skaidrs, \n" +
     "vai Monolīts ir mīts vai realitāte, taču daudzi finanšu piedzīvojumu meklētāji \n" +
     "turpina pētīt tā noslēpumainās iespējas.";
-
+    
     JButton sendButton = new JButton("SUBMIT"); // button for send panel
+    // For Panel Credits
+    JButton TAKEButton = new JButton("TAKE"); // button for take panel
+    JButton TAKE2Button = new JButton("TAKE"); // button for take panel
+    JButton TAKE3Button = new JButton("TAKE"); // button for take panel
+    JButton TAKE4Button = new JButton("TAKE"); // button for take panel
+    JButton TAKE5Button = new JButton("TAKE"); // button for take panel
+
     Font newFont = new Font("default", Font.PLAIN, 17); // set font for text area
 
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail) {
@@ -125,7 +139,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         tabPanel.setBounds(0, 0, 1200, 750); // tab position
 
         imageLabel.setBounds(920, 17, 50, 50); // image position
-        imageLabel2.setBounds(310, 5, 400, 250);
+        imageLabel2.setBounds(389, 5, 400, 250);
         //imageLabel3.setBounds(500, 5, 400, 250);
 
         textaboutusB.setBounds(290, 290, 600, 450); // text area position
@@ -135,7 +149,31 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         recUsernameField.setBounds(180, 40, 200, 30);
         recBankAccountField.setBounds(180, 90, 200, 30);
         moneyToSendField.setBounds(180, 140, 200, 30);
+
+        // Buttons   
         sendButton.setBounds(215, 190, 100, 30);
+
+        TAKEButton.setBounds(50, 50, 100, 30);
+        TAKE2Button.setBounds(50, 100, 100, 30);
+        TAKE3Button.setBounds(50, 150, 100, 30);
+        TAKE4Button.setBounds(50, 200, 100, 30);
+        TAKE5Button.setBounds(50, 250, 100, 30);
+
+        // For panel Credits lables
+        credit.setBounds(120, 50, 200, 30);
+        credit2.setBounds(120, 100, 200, 30);
+        credit3.setBounds(120, 150, 200, 30);
+        credit4.setBounds(120, 200, 200, 30);
+        credit5.setBounds(120, 250, 200, 30);
+
+        // Set font for the labels
+        credit.setFont(newFont);
+        credit2.setFont(newFont);
+        credit3.setFont(newFont);
+        credit4.setFont(newFont);
+        credit5.setFont(newFont);
+
+
 
         // For panel Send lables
         recUsernameLabel.setBounds(5, 40, 150, 30);
@@ -175,7 +213,22 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         panel5.add(textaboutusB);
 
-        panel1.add(imageLabel);
+        panel1.add(imageLabel); // add image to the panel
+
+        // For panel Credits
+        panel3.add(TAKEButton);
+        panel3.add(TAKE2Button);
+        panel3.add(TAKE3Button);
+        panel3.add(TAKE4Button);
+
+        // For panel Credits lables
+        panel3.add(credit);
+        panel3.add(credit2);
+        panel3.add(credit3);
+        panel3.add(credit4);
+        panel3.add(credit5);
+
+        // Panels   
         tabPanel.addTab("Main", panel1); 
         tabPanel.addTab("Send", panel2); 
         tabPanel.addTab("Credits", panel3); 

@@ -7,12 +7,15 @@ import controller.REGEXManager;
 import controller.Registration;
 
 import model.Person;
+// Remove the unnecessary import statement
+// import Main;
 import controller.PersCode_Email_Controller;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Console;   
+//import main.java.com.bankapp.Main;
 
 public class GUILogReg extends JFrame implements ActionListener {  
     Container container = getContentPane();
@@ -140,6 +143,37 @@ public class GUILogReg extends JFrame implements ActionListener {
             }
             if (logb == true) {
                 GUIMainProgram frame2 = new GUIMainProgram(userText, userlnameText, userpcodetText, useremailText);
+                Main.frame.dispose();
+                //Point center2 = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
+                JFrame stwm = new JFrame();  
+                stwm.setTitle("MONOLITH Bank"); // set title
+                JLabel label = new JLabel(new ImageIcon("resources/hamster.jpg")); // set background image
+                stwm.getContentPane().add(label); // add label to the frame
+                // gui start -----------------------
+                //stw.add(m);
+                stwm.setVisible(true);
+                stwm.setBounds(center.x - 400 / 2, center.y - 550 / 2, 400, 550); // to centre window
+                stwm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                stwm.setResizable(false);
+                // -------------------------------------------------------------------------------------
+
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                } // time sleep for 3 seconds
+
+                // Timer timer = new Timer(3000, new ActionListener() {
+                //     @Override
+                //     public void actionPerformed(ActionEvent e) {
+                //         stwm.setVisible(true);
+                //     }
+                // });
+                // timer.setRepeats(false);
+                // timer.start();
+                stwm.dispose(); // close the start window
+
+                GUIMainProgram frame2 = new GUIMainProgram(userText, userlnameText);
                 frame2.setTitle("MONOLITH Bank");
                 frame2.setBounds(center.x - 1200 / 2, center.y - 750 / 2, 1200, 750); // to centre window
                 //frame2.setBounds(10, 10, 1200, 750);

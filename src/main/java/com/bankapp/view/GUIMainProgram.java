@@ -255,7 +255,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend)){
                 if (REGEXManager.isValidFloat(String.valueOf(moneyToSend))){
                     BankAccountManager.SendMoney(recUsername, recBankAccount, moneyToSend);
-                    //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userPCodeLabel.getText(), userEmailLabel.getText(), moneyToSend);   // take money from sender account after sending money
+                    BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userPCodeLabel.getText(), userEmailLabel.getText(), moneyToSend);   // take money from sender account after sending money
                     JOptionPane.showMessageDialog(this, "Success transaction!");
                 } else {
                     JOptionPane.showMessageDialog(this, "Invalid money input!");

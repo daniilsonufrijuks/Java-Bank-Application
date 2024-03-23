@@ -119,7 +119,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         tabPanel.setBounds(0, 0, 1200, 750); // tab position
 
         imageLabel.setBounds(920, 17, 50, 50); // image position
-        imageLabel2.setBounds(310, 5, 400, 250);
+        imageLabel2.setBounds(330, 5, 400, 250);
         //imageLabel3.setBounds(500, 5, 400, 250);
 
         textaboutusB.setBounds(290, 290, 600, 450); // text area position

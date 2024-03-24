@@ -100,7 +100,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         recBankAccountField = new JTextField();
         moneyToSendField = new JTextField();
 
-        userbalanceLabel = new JLabel(String.valueOf(BankAccountManager.GetBalance(userText, userlnameText)));
+        userbalanceLabel = new JLabel(String.valueOf(BankAccountManager.GetBalance(userPCode, userlnameText)));
         setLayoutManager();
         setLocationAndSize();
         // panel1.add(new JLabel("Content for Tab 1"));
@@ -164,11 +164,11 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         TAKE5Button.setBounds(50, 250, 100, 30);
 
         // For panel Credits lables
-        credit.setBounds(120, 50, 200, 30);
-        credit2.setBounds(120, 100, 200, 30);
-        credit3.setBounds(120, 150, 200, 30);
-        credit4.setBounds(120, 200, 200, 30);
-        credit5.setBounds(120, 250, 200, 30);
+        credit.setBounds(160, 50, 200, 30);
+        credit2.setBounds(160, 100, 200, 30);
+        credit3.setBounds(160, 150, 200, 30);
+        credit4.setBounds(160, 200, 200, 30);
+        credit5.setBounds(160, 250, 200, 30);
 
         // Set font for the labels
         credit.setFont(newFont);
@@ -224,6 +224,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.add(TAKE2Button);
         panel3.add(TAKE3Button);
         panel3.add(TAKE4Button);
+        panel3.add(TAKE5Button);
 
         // For panel Credits lables
         panel3.add(credit);

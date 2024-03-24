@@ -58,6 +58,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel credit4 = new JLabel("CREDIT OPTION 4");
     JLabel credit5 = new JLabel("CREDIT OPTION 5");
 
+    String userpCode;
+
 
     // For Panel about us
     String textaboutus = "Finanšu pasaules miglainajās vietās pastāv banka, kas pazīstama kā Monolīts. \n" +
@@ -85,6 +87,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         userPCodeLabel = new JLabel(userPCode);     // for SendMoney, doesnt show up on screen
         userEmailLabel = new JLabel(userEmail);     // for SendMoney, doesnt show up on screen
         //textaboutusB = new JLabel(textaboutus);
+
+        userpCode = userPCode;
 
         textaboutusB = new JTextArea(textaboutus); // added textaboutus to text area
         textaboutusB.setLineWrap(true);
@@ -252,7 +256,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             float moneyToSend = Float.valueOf(moneyToSendField.getText());
 
             //if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend) && REGEXManager.isValidFloat(String.valueOf(moneyToSend))){
-            if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend)){
+            if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend, userpCode)){
                 if (REGEXManager.isValidFloat(String.valueOf(moneyToSend))){
                     BankAccountManager.SendMoney(recUsername, recBankAccount, moneyToSend);
                     BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userPCodeLabel.getText(), userEmailLabel.getText(), moneyToSend);   // take money from sender account after sending money

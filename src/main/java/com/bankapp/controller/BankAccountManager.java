@@ -67,19 +67,40 @@ public class BankAccountManager {       // Class for monetary transactions (send
             e.printStackTrace();
         }
         return balance;
-    } 
+    }   
 
-    public static boolean CheckSendData(String recUsername, String recBankAcc, float moneyToSend) {
+    public static boolean CheckSendData(String recUsername, String recBankAcc, float moneyToSend, String userpCode) {
         boolean result = false;
+        Float money = 0.0f;
         try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object
             String line;
+            while ((line = br.readLine()) != null) { // while there is a next line
+                String[] parts = line.split(", ");      // current line from csv file
+                
+                if (parts.length == 10 && parts[3].equals(userpCode)) {    // find the needed account
+                    money = Float.parseFloat(parts[9]);
+                    //System.out.println(moneyToSend);
+                    System.out.println(money);
+                    System.out.println(userpCode);
+                    break;
+                }
+            }
+            // ---------------------------------------------------------------------
             while ((line = br.readLine()) != null) { // while there is a next line
                 String[] parts = line.split(", ");      // current line from csv file
                 for (String string : parts) {
                     System.out.println("CheckSendData results parts: " + string);
                 }
                 // ?????
-                if (parts.length == 10 && parts[4].equals(recBankAcc) && parts[6].equals(recUsername) && Float.parseFloat(parts[9]) >= moneyToSend) {    // find the needed account
+                //Float money = 0.0f;
+                // if (parts.length == 10 && parts[3].equals(userpCode)) {    // find the needed account
+                //     money = Float.parseFloat(parts[9]);
+                //     //System.out.println(moneyToSend);
+                //     System.out.println(money);
+                //     System.out.println(userpCode);
+                // }
+                if (parts.length == 10 && parts[4].equals(recBankAcc) && parts[6].equals(recUsername) && money >= moneyToSend) {    // find the needed account
+                    System.out.println(Float.parseFloat(parts[9]) + " >= " + moneyToSend);
                     result = true;
                     break;
                 } else {

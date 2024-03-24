@@ -79,13 +79,9 @@ public class BankAccountManager {       // Class for monetary transactions (send
                     System.out.println("CheckSendData results parts: " + string);
                 }
                 // ?????
-                if (parts.length == 10 && parts[4].equals(recBankAcc) && parts[6].equals(recUsername) && Float.parseFloat(parts[9]) < moneyToSend) {    // find the needed account
-                    //if (Float.parseFloat(parts[9]) >= moneyToSend){     // if money on account is enough to send
+                if (parts.length == 10 && parts[4].equals(recBankAcc) && parts[6].equals(recUsername) && Float.parseFloat(parts[9]) >= moneyToSend) {    // find the needed account
                     result = true;
                     break;
-                    //} else {
-                    //    System.out.println("Not enough money!");
-                    //}
                 } else {
                     System.out.println("Invalid username or bank account!");
                 }

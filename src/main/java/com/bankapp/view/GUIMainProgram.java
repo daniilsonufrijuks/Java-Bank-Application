@@ -100,7 +100,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         recBankAccountField = new JTextField();
         moneyToSendField = new JTextField();
 
-        userbalanceLabel = new JLabel(String.valueOf(BankAccountManager.GetBalance(userPCode, userlnameText)));
+        userbalanceLabel = new JLabel(String.valueOf(BankAccountManager.GetBalance(userPCode)));
         setLayoutManager();
         setLocationAndSize();
         // panel1.add(new JLabel("Content for Tab 1"));
@@ -273,7 +273,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
             }
-            userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(usernameLabel.getText(), userlastnameLabel.getText()))); // update balance
+            userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
         }
     }
     

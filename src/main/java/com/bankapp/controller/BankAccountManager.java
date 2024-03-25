@@ -48,7 +48,7 @@ public class BankAccountManager {       // Class for monetary transactions (send
     }
 
     // to get balance of the user
-    public static int GetBalance(String PersonalID, String Username) {
+    public static int GetBalance(String PersonalID) {
         int balance = 0;
         try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object
             String line;
@@ -58,7 +58,7 @@ public class BankAccountManager {       // Class for monetary transactions (send
                 //     System.out.println("GetBalance results parts: " + string);
                 // }
                 if (parts.length == 10) {
-                    if (parts[3].equals(PersonalID) && parts[6].equals(Username)) {                             // if the length of the parts is 10
+                    if (parts[3].equals(PersonalID)) {                             // if the length of the parts is 10
                         return balance = Integer.parseInt(parts[9]);           
                     }   // balance is the 10th part of the csv line
                 }

@@ -113,12 +113,6 @@ public class GUILogReg extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "Registration Successful");
             }
 
-            // if (userText.equalsIgnoreCase("mehtab") && pwdText.equalsIgnoreCase("12345")) {
-            //     JOptionPane.showMessageDialog(this, "Login Successful");
-            // } else {
-            //     JOptionPane.showMessageDialog(this, "Invalid Username or Password");
-            // }
-
         }
         Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
         if (e.getSource() == loginButton) { // to login person

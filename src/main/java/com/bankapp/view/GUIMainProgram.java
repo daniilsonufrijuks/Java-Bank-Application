@@ -235,6 +235,19 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         credit4.setFont(newFont);
         credit5.setFont(newFont);
 
+        credityear.setFont(newFont);
+        credityear2.setFont(newFont);
+        credityear3.setFont(newFont);
+        credityear4.setFont(newFont);
+        credityear5.setFont(newFont);
+
+        percentsy.setFont(newFont);
+        percentsy2.setFont(newFont);
+        percentsy3.setFont(newFont);
+        percentsy4.setFont(newFont);
+        percentsy5.setFont(newFont);
+        
+
 
 
         // For panel Send lables

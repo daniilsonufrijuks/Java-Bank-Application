@@ -65,11 +65,11 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel credityear4 = new JLabel("4 YEAR");
     JLabel credityear5 = new JLabel("5 YEAR");
 
-    JLabel percentsy = new JLabel("25");
-    JLabel percentsy2 = new JLabel("20");
-    JLabel percentsy3 = new JLabel("15");
-    JLabel percentsy4 = new JLabel("14");
-    JLabel percentsy5 = new JLabel("5");
+    JLabel percentsy = new JLabel("25%");
+    JLabel percentsy2 = new JLabel("20%");
+    JLabel percentsy3 = new JLabel("15%");
+    JLabel percentsy4 = new JLabel("14%");
+    JLabel percentsy5 = new JLabel("5%");
 
     String userpCode;
 
@@ -216,18 +216,18 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         credit5.setBounds(160, 250, 200, 30);
 
         // for credit
-        credityear.setBounds(220, 50, 200, 30);
-        credityear.setBounds(220, 100, 200, 30);
-        credityear.setBounds(220, 150, 200, 30);
-        credityear.setBounds(220, 200, 200, 30);
-        credityear.setBounds(220, 250, 200, 30);
+        credityear.setBounds(350, 50, 200, 30);
+        credityear2.setBounds(350, 100, 200, 30);
+        credityear3.setBounds(350, 150, 200, 30);
+        credityear4.setBounds(350, 200, 200, 30);
+        credityear5.setBounds(350, 250, 200, 30);
 
 
-        percentsy.setBounds(280, 50, 200, 30);
-        percentsy.setBounds(280, 100, 200, 30);
-        percentsy.setBounds(280, 150, 200, 30);
-        percentsy.setBounds(280, 200, 200, 30);
-        percentsy.setBounds(280, 250, 200, 30);
+        percentsy.setBounds(430, 50, 200, 30);
+        percentsy2.setBounds(430, 100, 200, 30);
+        percentsy3.setBounds(430, 150, 200, 30);
+        percentsy4.setBounds(430, 200, 200, 30);
+        percentsy5.setBounds(430, 250, 200, 30);
         // Set font for the labels
         credit.setFont(newFont);
         credit2.setFont(newFont);

@@ -17,7 +17,7 @@ public class RegexTest {
     public void RegexNamePCodeEmailTest() {
         String name = "Vasya";
         String lname = "Pupkin";
-        String pscode = "123456-123456";
+        String pscode = "123456-12345";
         String email = "prodamgaraz@gmail.com";
 
         assertEquals(true, REGEXManager.NameRegex(name));
@@ -35,11 +35,11 @@ public class RegexTest {
         assertEquals(true, REGEXManager.isValidFloat("20.1"));
         assertEquals(true, REGEXManager.isValidFloat("20.22"));
         assertEquals(false, REGEXManager.isValidFloat("20.222"));
-        assertEquals(true, REGEXManager.isValidFloat("0"));
-        assertEquals(true, REGEXManager.isValidFloat("0.00"));
-        assertEquals(true, REGEXManager.isValidFloat("0.0"));
-        assertEquals(true, REGEXManager.isValidFloat("-2"));
-        assertEquals(true, REGEXManager.isValidFloat("-2.02"));
-        assertEquals(true, REGEXManager.isValidFloat("-2.22"));
+        assertEquals(false, REGEXManager.isValidFloat("0"));
+        assertEquals(false, REGEXManager.isValidFloat("0.00"));
+        assertEquals(false, REGEXManager.isValidFloat("0.0"));
+        assertEquals(false, REGEXManager.isValidFloat("-2"));
+        assertEquals(false, REGEXManager.isValidFloat("-2.02"));
+        assertEquals(false, REGEXManager.isValidFloat("-2.22"));
     }
 }

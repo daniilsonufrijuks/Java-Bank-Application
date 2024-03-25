@@ -94,14 +94,14 @@ public class GUILogReg extends JFrame implements ActionListener {
             String userlnameText;
             String userpcodetText;
             String useremailText;
-            String userlabelText;
+            String usernicknameText;
             userText = usernameField.getText();
             userlnameText = userlastnameField.getText();
             userpcodetText = userpcodetField.getText();
             useremailText = useremailField.getText();
-            userlabelText = userLabelField.getText();
+            usernicknameText = userLabelField.getText();
 
-            Person person = new Person(userText, userlnameText, userpcodetText, useremailText, userlabelText);
+            Person person = new Person(userText, userlnameText, userpcodetText, useremailText, usernicknameText);
 
             if (PersCode_Email_Controller.PersCodeCheckIfInCSVFile(person) == false){   // if check for personal code didn't pass (pc already exists in csv file)
                 JOptionPane.showMessageDialog(this, "This personal code already exists.");

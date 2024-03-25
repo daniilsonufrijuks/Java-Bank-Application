@@ -1,6 +1,7 @@
 package view;
 
 import javax.swing.*;
+import javax.swing.event.HyperlinkEvent;
 
 import controller.AutoSendonYourEmail;
 import controller.BankAccountManager;
@@ -61,7 +62,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     String userpCode;
 
 
-    // For Panel about us
+    //For Panel about us
     String textaboutus = "Finanšu pasaules miglainajās vietās pastāv banka, kas pazīstama kā Monolīts. \n" +
     "Tās dīvainības un mistikas reputācija piesaista uzmanību. Daži saka, ka šai bankai \n" +
     "ir tiesības parastos ieguldījumus pārveidot par kaut ko vērtīgāku, piemēram, \n" +
@@ -69,8 +70,37 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     "no negaidītiem pārbaudījumiem un sarežģītiem apstākļiem. Tomēr tie, kas ir drosmīgi \n" +
     "iegājuši iekšā, saka, ka atlīdzība par risku var būt ievērojama. Nav skaidrs, \n" +
     "vai Monolīts ir mīts vai realitāte, taču daudzi finanšu piedzīvojumu meklētāji \n" +
-    "turpina pētīt tā noslēpumainās iespējas. \n" +
+    "turpina pētīt tā noslēpumainās iespējas. \n\n" +
     "Link to us - https://daniilsonufrijuks.github.io/MONOLITH.github.io/";
+
+
+    // JEditorPane textaboutus = new JEditorPane();
+    // textaboutus.setContentType("text/html");
+    // textaboutus.setEditable(false);
+    // textaboutus.setOpaque(false);
+    // textaboutus.setText("<html>" +
+    //     "Finanšu pasaules miglainajās vietās pastāv banka, kas pazīstama kā Monolīts. <br>" +
+    //     "Tās dīvainības un mistikas reputācija piesaista uzmanību. Daži saka, ka šai bankai <br>" +
+    //     "ir tiesības parastos ieguldījumus pārveidot par kaut ko vērtīgāku, piemēram, <br>" +
+    //     "artefaktus no citas dimensijas. Ne visi uzdrošinās ienākt tās durvīm, baidoties <br>" +
+    //     "no negaidītiem pārbaudījumiem un sarežģītiem apstākļiem. Tomēr tie, kas ir drosmīgi <br>" +
+    //     "iegājuši iekšā, saka, ka atlīdzība par risku var būt ievērojama. Nav skaidrs, <br>" +
+    //     "vai Monolīts ir mīts vai realitāte, taču daudzi finanšu piedzīvojumu meklētāji <br>" +
+    //     "turpina pētīt tā noslēpumainās iespējas. <br><br>" +
+    //     "<a href='https://daniilsonufrijuks.github.io/MONOLITH.github.io/'>Link to us</a>" +
+    //     "</html>");
+    // textaboutus.addHyperlinkListener(new HyperlinkListener() {
+    //     public void hyperlinkUpdate(HyperlinkEvent hle) {
+    //         if (HyperlinkEvent.EventType.ACTIVATED.equals(hle.getEventType())) {
+    //             Desktop desktop = Desktop.getDesktop();
+    //             try {
+    //                 desktop.browse(hle.getURL().toURI());
+    //             } catch (Exception ex) {
+    //                 ex.printStackTrace();
+    //             }
+    //         }
+    //     }
+    // });
     
     JButton sendButton = new JButton("SUBMIT"); // button for send panel
     // For Panel Credits

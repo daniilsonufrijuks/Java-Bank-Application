@@ -30,7 +30,7 @@ public class BankAccountManager {       // Class for monetary transactions (send
                     String duplPartsStr = String.join(", ", duplParts);
                     BigDecimal moneyToSendBD = new BigDecimal(moneyToSend);                 // money to send convert to BigDecimal
                     BigDecimal receiverCurrentCapital = new BigDecimal(parts[9]);           // current receiver's capital convert to BigDecimal
-                    receiverCurrentCapital = receiverCurrentCapital.add(moneyToSendBD).setScale(2, RoundingMode.DOWN);     // new receiver's capital rounded down to 2 decimal places
+                    receiverCurrentCapital = receiverCurrentCapital.add(moneyToSendBD).setScale(2, RoundingMode.HALF_EVEN);     // new receiver's capital rounded down to 2 decimal places
                     parts[9] = receiverCurrentCapital.toString();                           // new capital value for receiver
                     String partsStr = String.join(", ", parts);
 

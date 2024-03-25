@@ -59,6 +59,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel credit4 = new JLabel("CREDIT OPTION 4");
     JLabel credit5 = new JLabel("CREDIT OPTION 5");
 
+    JLabel credityear = new JLabel("1 YEAR");
+    JLabel credityear2 = new JLabel("2 YEAR");
+    JLabel credityear3 = new JLabel("3 YEAR");
+    JLabel credityear4 = new JLabel("4 YEAR");
+    JLabel credityear5 = new JLabel("5 YEAR");
+
     String userpCode;
 
 
@@ -109,6 +115,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JButton TAKE3Button = new JButton("TAKE"); // button for take panel
     JButton TAKE4Button = new JButton("TAKE"); // button for take panel
     JButton TAKE5Button = new JButton("TAKE"); // button for take panel
+
+
 
     Font newFont = new Font("default", Font.PLAIN, 17); // set font for text area
 

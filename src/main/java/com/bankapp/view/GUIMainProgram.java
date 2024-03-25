@@ -209,6 +209,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         credit4.setBounds(160, 200, 200, 30);
         credit5.setBounds(160, 250, 200, 30);
 
+        credityear.setBounds(200, 50, 200, 30);
+        credityear.setBounds(200, 100, 200, 30);
+        credityear.setBounds(200, 150, 200, 30);
+        credityear.setBounds(200, 200, 200, 30);
+        credityear.setBounds(200, 250, 200, 30);
+
         // Set font for the labels
         credit.setFont(newFont);
         credit2.setFont(newFont);

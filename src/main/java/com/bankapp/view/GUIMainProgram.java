@@ -69,7 +69,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     "no negaidītiem pārbaudījumiem un sarežģītiem apstākļiem. Tomēr tie, kas ir drosmīgi \n" +
     "iegājuši iekšā, saka, ka atlīdzība par risku var būt ievērojama. Nav skaidrs, \n" +
     "vai Monolīts ir mīts vai realitāte, taču daudzi finanšu piedzīvojumu meklētāji \n" +
-    "turpina pētīt tā noslēpumainās iespējas.";
+    "turpina pētīt tā noslēpumainās iespējas. \n" +
+    "Link to us - https://daniilsonufrijuks.github.io/MONOLITH.github.io/";
     
     JButton sendButton = new JButton("SUBMIT"); // button for send panel
     // For Panel Credits
@@ -100,7 +101,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         recBankAccountField = new JTextField();
         moneyToSendField = new JTextField();
 
-        userbalanceLabel = new JLabel(String.valueOf(BankAccountManager.GetBalance(userPCode, userlnameText)));
+        userbalanceLabel = new JLabel(String.valueOf(BankAccountManager.GetBalance(userPCode)));
         setLayoutManager();
         setLocationAndSize();
         // panel1.add(new JLabel("Content for Tab 1"));
@@ -273,7 +274,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
             }
-            userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(usernameLabel.getText(), userlastnameLabel.getText()))); // update balance
+            userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
         }
     }
     

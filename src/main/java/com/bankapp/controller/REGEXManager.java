@@ -11,7 +11,7 @@ public class REGEXManager {
 
     // regex for personal code
     public static boolean PersoncodeRegex(String pcode) {
-        String expression = "^\\d{6}-\\d{6}$";
+        String expression = "^\\d{6}-\\d{5}$";
         return pcode.matches(expression); // return if the personal code matches the expression
     }
 

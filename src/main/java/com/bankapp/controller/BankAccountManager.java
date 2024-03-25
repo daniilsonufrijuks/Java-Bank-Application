@@ -48,8 +48,8 @@ public class BankAccountManager {       // Class for monetary transactions (send
     }
 
     // to get balance of the user
-    public static int GetBalance(String PersonalID) {
-        int balance = 0;
+    public static float GetBalance(String PersonalID) {
+        float balance = 0.0f;
         try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object
             String line;
             while ((line = br.readLine()) != null) { // while there is a next line
@@ -58,8 +58,9 @@ public class BankAccountManager {       // Class for monetary transactions (send
                 //     System.out.println("GetBalance results parts: " + string);
                 // }
                 if (parts.length == 10) {
-                    if (parts[3].equals(PersonalID)) {                             // if the length of the parts is 10
-                        return balance = Integer.parseInt(parts[9]);           
+                    if (parts[3].equals(PersonalID)) {
+                        balance = Float.parseFloat(parts[9]);                             // if the length of the parts is 10
+                        return balance;         
                     }   // balance is the 10th part of the csv line
                 }
             }

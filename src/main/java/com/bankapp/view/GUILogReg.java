@@ -110,6 +110,7 @@ public class GUILogReg extends JFrame implements ActionListener {
             } else {
                 Registration reg = new Registration();
                 reg.WriteToAFile(person);
+                JOptionPane.showMessageDialog(this, "Registration Successful");
             }
 
             // if (userText.equalsIgnoreCase("mehtab") && pwdText.equalsIgnoreCase("12345")) {

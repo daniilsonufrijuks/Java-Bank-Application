@@ -65,6 +65,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel credityear4 = new JLabel("4 YEAR");
     JLabel credityear5 = new JLabel("5 YEAR");
 
+    JLabel percentsy = new JLabel("25");
+    JLabel percentsy2 = new JLabel("20");
+    JLabel percentsy3 = new JLabel("15");
+    JLabel percentsy4 = new JLabel("14");
+    JLabel percentsy5 = new JLabel("5");
+
     String userpCode;
 
 
@@ -209,6 +215,19 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         credit4.setBounds(160, 200, 200, 30);
         credit5.setBounds(160, 250, 200, 30);
 
+        // for credit
+        credityear.setBounds(220, 50, 200, 30);
+        credityear.setBounds(220, 100, 200, 30);
+        credityear.setBounds(220, 150, 200, 30);
+        credityear.setBounds(220, 200, 200, 30);
+        credityear.setBounds(220, 250, 200, 30);
+
+
+        percentsy.setBounds(280, 50, 200, 30);
+        percentsy.setBounds(280, 100, 200, 30);
+        percentsy.setBounds(280, 150, 200, 30);
+        percentsy.setBounds(280, 200, 200, 30);
+        percentsy.setBounds(280, 250, 200, 30);
         // Set font for the labels
         credit.setFont(newFont);
         credit2.setFont(newFont);
@@ -271,6 +290,18 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.add(credit3);
         panel3.add(credit4);
         panel3.add(credit5);
+
+        panel3.add(credityear);
+        panel3.add(credityear2);
+        panel3.add(credityear3);
+        panel3.add(credityear4);
+        panel3.add(credityear5);
+
+        panel3.add(percentsy);
+        panel3.add(percentsy2);
+        panel3.add(percentsy3);
+        panel3.add(percentsy4);
+        panel3.add(percentsy5);
 
         // Panels   
         tabPanel.addTab("Main", panel1); 

@@ -94,14 +94,14 @@ public class GUILogReg extends JFrame implements ActionListener {
             String userlnameText;
             String userpcodetText;
             String useremailText;
-            String userlabelText;
+            String usernicknameText;
             userText = usernameField.getText();
             userlnameText = userlastnameField.getText();
             userpcodetText = userpcodetField.getText();
             useremailText = useremailField.getText();
-            userlabelText = userNicknameField.getText();
+            usernicknameText = userNicknameField.getText();
 
-            Person person = new Person(userText, userlnameText, userpcodetText, useremailText, userlabelText);
+            Person person = new Person(userText, userlnameText, userpcodetText, useremailText, usernicknameText);
 
             if (PersCode_Email_Controller.PersCodeCheckIfInCSVFile(person) == false){   // if check for personal code didn't pass (pc already exists in csv file)
                 JOptionPane.showMessageDialog(this, "This personal code already exists.");
@@ -110,13 +110,8 @@ public class GUILogReg extends JFrame implements ActionListener {
             } else {
                 Registration reg = new Registration();
                 reg.WriteToAFile(person);
+                JOptionPane.showMessageDialog(this, "Registration Successful");
             }
-
-            // if (userText.equalsIgnoreCase("mehtab") && pwdText.equalsIgnoreCase("12345")) {
-            //     JOptionPane.showMessageDialog(this, "Login Successful");
-            // } else {
-            //     JOptionPane.showMessageDialog(this, "Invalid Username or Password");
-            // }
 
         }
         Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();

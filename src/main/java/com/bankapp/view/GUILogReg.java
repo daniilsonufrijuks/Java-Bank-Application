@@ -28,7 +28,7 @@ public class GUILogReg extends JFrame implements ActionListener {
     JTextField userlastnameField = new JTextField();
     JTextField userpcodetField = new JTextField();
     JTextField useremailField = new JTextField();
-    JTextField userLabelField = new JTextField();
+    JTextField userNicknameField = new JTextField();
     JButton loginButton = new JButton("LOGIN");
     JButton regButton = new JButton("REGISTER");
     JCheckBox showPCode = new JCheckBox("Show PCode");
@@ -56,7 +56,7 @@ public class GUILogReg extends JFrame implements ActionListener {
         userlastnameField.setBounds(610, 60, 100, 30);
         userpcodetField.setBounds(610, 100, 100, 30);
         useremailField.setBounds(610, 140, 100, 30);
-        userLabelField.setBounds(610, 180, 100, 30);
+        userNicknameField.setBounds(610, 180, 100, 30);
         showPCode.setBounds(500, 250, 150, 30);
         loginButton.setBounds(450, 300, 100, 30);
         regButton.setBounds(600, 300, 100, 30);
@@ -74,7 +74,7 @@ public class GUILogReg extends JFrame implements ActionListener {
         container.add(userlastnameField);
         container.add(userpcodetField);
         container.add(useremailField);
-        container.add(userLabelField);
+        container.add(userNicknameField);
         container.add(showPCode);
         container.add(loginButton);
         container.add(regButton);
@@ -99,7 +99,7 @@ public class GUILogReg extends JFrame implements ActionListener {
             userlnameText = userlastnameField.getText();
             userpcodetText = userpcodetField.getText();
             useremailText = useremailField.getText();
-            userlabelText = userLabelField.getText();
+            userlabelText = userNicknameField.getText();
 
             Person person = new Person(userText, userlnameText, userpcodetText, useremailText, userlabelText);
 
@@ -125,20 +125,22 @@ public class GUILogReg extends JFrame implements ActionListener {
             String userlnameText;
             String userpcodetText;
             String useremailText;
-            String userlabelText;
+            String userNicknameText;
             userText = usernameField.getText();
             userlnameText = userlastnameField.getText();
             userpcodetText = userpcodetField.getText();
             useremailText = useremailField.getText();
-            userlabelText = userLabelField.getText();
+            userNicknameText = userNicknameField.getText();
 
             boolean logb = false;
-            if (REGEXManager.NameRegex(userText) && REGEXManager.NameRegex(userlnameText) && REGEXManager.PersoncodeRegex(userpcodetText) && REGEXManager.EmailRegex(useremailText)) {
-                Login login = new Login();
-                logb = login.login(userText, userlnameText, userpcodetText, useremailText, userlabelText);
-                System.out.println(logb);
-                JOptionPane.showMessageDialog(this, "Login Successful");
-            } else {
+            if (REGEXManager.NameRegex(userText) && REGEXManager.NameRegex(userlnameText) && REGEXManager.PersoncodeRegex(userpcodetText) && REGEXManager.EmailRegex(useremailText)) {  // REGEX check
+                if (Login.login(userText, userlnameText, userpcodetText, useremailText, userNicknameText)){       // if this user was found in csv file
+                    logb = true;
+                    JOptionPane.showMessageDialog(this, "Login Successful");
+                } else {    // user wasnt found
+                    JOptionPane.showMessageDialog(this, "This user does not exist.");
+                }
+            } else {    // REGEX didnt pass
                 JOptionPane.showMessageDialog(this, "Invalid Data");
             }
             if (logb == true) {

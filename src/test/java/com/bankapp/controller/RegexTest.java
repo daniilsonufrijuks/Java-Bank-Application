@@ -35,9 +35,7 @@ public class RegexTest {
         assertEquals(true, REGEXManager.isValidFloat("20.1"));
         assertEquals(true, REGEXManager.isValidFloat("20.22"));
         assertEquals(false, REGEXManager.isValidFloat("20.222"));
-        assertEquals(false, REGEXManager.isValidFloat("0"));
-        assertEquals(false, REGEXManager.isValidFloat("0.00"));
-        assertEquals(false, REGEXManager.isValidFloat("0.0"));
+        // test for zero (0) value is made in SendMoneyTest.java
         assertEquals(false, REGEXManager.isValidFloat("-2"));
         assertEquals(false, REGEXManager.isValidFloat("-2.02"));
         assertEquals(false, REGEXManager.isValidFloat("-2.22"));

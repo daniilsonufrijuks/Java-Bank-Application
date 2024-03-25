@@ -69,7 +69,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     "no negaidītiem pārbaudījumiem un sarežģītiem apstākļiem. Tomēr tie, kas ir drosmīgi \n" +
     "iegājuši iekšā, saka, ka atlīdzība par risku var būt ievērojama. Nav skaidrs, \n" +
     "vai Monolīts ir mīts vai realitāte, taču daudzi finanšu piedzīvojumu meklētāji \n" +
-    "turpina pētīt tā noslēpumainās iespējas.";
+    "turpina pētīt tā noslēpumainās iespējas. \n" +
+    "Link to us - https://daniilsonufrijuks.github.io/MONOLITH.github.io/";
     
     JButton sendButton = new JButton("SUBMIT"); // button for send panel
     // For Panel Credits

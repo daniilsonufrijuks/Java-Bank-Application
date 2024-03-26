@@ -4,12 +4,14 @@ public class Credits {
     private float total;
     private float peryeartaxes;
     private String description;
-
+    // Constructor
     public Credits(float NewTotal, float NewPeryaertaxes, String Newdescription) {
         this.total = NewTotal;
         this.peryeartaxes= NewPeryaertaxes;
         this.description = Newdescription;
     }
+
+    // Getters and Setters
 
     public float getTotal() {
         return total;

@@ -8,6 +8,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+
+import model.Transaction;
+
 import java.math.BigDecimal;
 // BigDecimal is datatype for money
 import java.math.RoundingMode;
@@ -15,7 +18,7 @@ import java.math.RoundingMode;
 public class BankAccountManager {       // Class for monetary transactions (send, get money etc.)
     
     // method to send money to another account
-    public static boolean SendMoney (String recUsername, String recBankAcc, float moneyToSend){
+    public static boolean SendMoney (Transaction transaction){
         boolean result = false;
         try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object
             String line;
@@ -25,10 +28,10 @@ public class BankAccountManager {       // Class for monetary transactions (send
                     System.out.println("SendMoney results parts: " + string);
                 }
                 
-                if (parts.length == 10 && parts[6].equals(recUsername) && parts[4].equals(recBankAcc)) {
+                if (parts.length == 10 && parts[6].equals(transaction.getUsername()) && parts[4].equals(transaction.getBankaccount())) {
                     String[] duplParts = parts;           // csv line duplicate to use in Update method    
                     String duplPartsStr = String.join(", ", duplParts);
-                    BigDecimal moneyToSendBD = new BigDecimal(moneyToSend);                 // money to send convert to BigDecimal
+                    BigDecimal moneyToSendBD = new BigDecimal(transaction.getAmount());                 // money to send convert to BigDecimal
                     BigDecimal receiverCurrentCapital = new BigDecimal(parts[9]);           // current receiver's capital convert to BigDecimal
                     receiverCurrentCapital = receiverCurrentCapital.add(moneyToSendBD).setScale(2, RoundingMode.HALF_EVEN);     // new receiver's capital rounded down to 2 decimal places
                     parts[9] = receiverCurrentCapital.toString();                           // new capital value for receiver

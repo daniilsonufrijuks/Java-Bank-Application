@@ -7,6 +7,7 @@ import controller.AutoSendonYourEmail;
 import controller.BankAccountManager;
 import logreg.Login;
 import model.Person;
+import model.Transaction;
 import regex.REGEXManager;
 
 import java.awt.*;
@@ -339,10 +340,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             String recBankAccount = recBankAccountField.getText();
             float moneyToSend = Float.valueOf(moneyToSendField.getText());
 
+            Transaction transaction = new Transaction(moneyToSend, recBankAccount, recUsername);
+
             //if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend) && REGEXManager.isValidFloat(String.valueOf(moneyToSend))){
             if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend, userpCode)){
                 if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0){
-                    BankAccountManager.SendMoney(recUsername, recBankAccount, moneyToSend);
+                    BankAccountManager.SendMoney(transaction); // send money to another account
                     BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userPCodeLabel.getText(), userEmailLabel.getText(), moneyToSend);   // take money from sender account after sending money
                     JOptionPane.showMessageDialog(this, "Success transaction!");
                 } else {

@@ -20,4 +20,10 @@ public class PinKontGen {
         }
         return Integer.parseInt(pin);
     }
+    
+    // method to generate random number
+    public int generateRandomNumber(int min, int max) {
+        Random rand = new Random();
+        return rand.nextInt((max - min) + 1) + min;
+    }
 }

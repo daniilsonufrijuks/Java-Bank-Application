@@ -4,7 +4,7 @@ package test.java.com.bankapp.controller;
 
 // import org.junit.Test;
 
-import controller.REGEXManager;
+import regex.*;
 
 //import lib.org.junit.Test;
 

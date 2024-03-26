@@ -1,6 +1,6 @@
 package test.java.com.bankapp.controller;
 
-import controller.PinKontGen;
+import generator.*;
 
 public class PinGenTest {
     public void testPin() {

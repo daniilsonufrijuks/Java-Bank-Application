@@ -10,7 +10,7 @@ import java.util.Scanner;
 import generator.PinKontGen;
 import model.Person;
 
-public class Registration{      // Registration lass
+public class Registration{      // Registration class
 
     // method writes to file given fields through person 
     public void WriteToAFile(Person personToWriteIn){

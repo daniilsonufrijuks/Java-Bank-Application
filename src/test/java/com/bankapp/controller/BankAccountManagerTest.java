@@ -2,6 +2,7 @@ package test.java.com.bankapp.controller;
 
 import org.junit.Test;
 import controller.BankAccountManager;
+import model.Transaction;
 
 public class BankAccountManagerTest {
     
@@ -11,8 +12,8 @@ public class BankAccountManagerTest {
         String[] lineToUpdParsed = lineToUpdate.split(", ");
         float money = 20.2f;
         System.out.println(lineToUpdParsed);
-
-        BankAccountManager.SendMoney("VaasFC", "65f644d5dfd77654334d5f677df76554", money);
+        Transaction transaction = new Transaction(money, "65f644d5dfd77654334d5f677df76554", "VaasFC");
+        BankAccountManager.SendMoney(transaction);
         // money = 20.42f;
         // BankAccountManager.SendMoney("VaasFC", "65f644d5dfd77654334d5f677df76554", money);
         // money = 20.55f;

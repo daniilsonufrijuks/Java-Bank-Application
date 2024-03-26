@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 import java.awt.Point;
 import java.awt.GraphicsEnvironment;
 
-
+// Main class
 public class Main {
     public static GUILogReg frame;
     public static void main(String[] args) throws InterruptedException {

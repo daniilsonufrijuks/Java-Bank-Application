@@ -4,7 +4,7 @@ package generator;
 import java.util.Random;
 import java.util.UUID;
 
-public class PinKontGen {
+public class PinKontGen { // Class for generating account numbers and pins
 
     // method to gen account number
     public String GenKontnum() {

@@ -5,9 +5,9 @@ import javax.swing.event.HyperlinkEvent;
 
 import controller.AutoSendonYourEmail;
 import controller.BankAccountManager;
-import controller.Login;
-import controller.REGEXManager;
+import logreg.Login;
 import model.Person;
+import regex.REGEXManager;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

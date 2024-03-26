@@ -2,9 +2,8 @@ package view;
 
 import javax.swing.*;
 
-import controller.Login;
-import controller.Registration;
-
+import logreg.Login;
+import logreg.Registration;
 import model.Person;
 import regex.REGEXManager;
 // Remove the unnecessary import statement

@@ -10,4 +10,30 @@ public class Credits {
         this.peryeartaxes= NewPeryaertaxes;
         this.description = Newdescription;
     }
+
+    public float getTotal() {
+        return total;
+    }
+
+    public void setTotal(float NewTotal) {
+        this.total = NewTotal;
+    }
+
+    public float getPeryeartaxes() {
+        return peryeartaxes;
+    }
+
+    public void setPeryeartaxes(float NewPeryaertaxes) {
+        this.peryeartaxes = NewPeryaertaxes;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String Newdescription) {
+        this.description = Newdescription;
+    }
+
+    
 }

@@ -3,10 +3,10 @@ package view;
 import javax.swing.*;
 
 import controller.Login;
-import controller.REGEXManager;
 import controller.Registration;
 
 import model.Person;
+import regex.REGEXManager;
 // Remove the unnecessary import statement
 // import Main;
 import controller.PersCode_Email_Controller;

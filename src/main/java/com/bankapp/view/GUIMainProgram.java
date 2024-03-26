@@ -126,7 +126,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
 
     Font newFont = new Font("default", Font.PLAIN, 17); // set font for text area
-
+    // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail) {
         usernameLabel = new JLabel(userText);
         userlastnameLabel = new JLabel(userlnameText);
@@ -165,6 +165,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         addActionEvent(); // add action event
     }
 
+    // Set layout manager
     public void setLayoutManager() {
         //container.setLayout(null);
         panel1.setLayout(null);
@@ -261,6 +262,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         moneyToSendLabel.setFont(newFont); // set font 
     }
 
+    // Add components to the container
     public void addComponentsToContainer() {
         //container.add(usernameLabel);
         //container.add(userlastnameLabel);
@@ -327,29 +329,29 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
     }
 
-    public void addActionEvent() {
+    public void addActionEvent() { // add action events
         //addmButton.addActionListener(this);
         sendButton.addActionListener(this);
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) { // if the button is clicked
         if (e.getSource() == sendButton) {
             //AutoSendonYourEmail.SendEmail();
-            String recUsername = recUsernameField.getText();
-            String recBankAccount = recBankAccountField.getText();
-            float moneyToSend = Float.valueOf(moneyToSendField.getText());
+            String recUsername = recUsernameField.getText(); // get receiver username
+            String recBankAccount = recBankAccountField.getText(); // get receiver bank account
+            float moneyToSend = Float.valueOf(moneyToSendField.getText()); // get money to send
 
-            Transaction transaction = new Transaction(moneyToSend, recBankAccount, recUsername);
+            Transaction transaction = new Transaction(moneyToSend, recBankAccount, recUsername); // create a new transaction object
 
             //if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend) && REGEXManager.isValidFloat(String.valueOf(moneyToSend))){
             if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend, userpCode)){
                 if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0){
                     BankAccountManager.SendMoney(transaction); // send money to another account
                     BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userPCodeLabel.getText(), userEmailLabel.getText(), moneyToSend);   // take money from sender account after sending money
-                    JOptionPane.showMessageDialog(this, "Success transaction!");
+                    JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
                 } else {
-                    JOptionPane.showMessageDialog(this, "Invalid money input!");
+                    JOptionPane.showMessageDialog(this, "Invalid money input!"); // show error message
                 }
                 // BankAccountManager.SendMoney(recUsername, recBankAccount, moneyToSend);
                 // BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userPCodeLabel.getText(), userEmailLabel.getText(), moneyToSend);   // take money from sender account after sending money
@@ -357,7 +359,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
 
             } else {
-                JOptionPane.showMessageDialog(this, "Invalid Data");
+                JOptionPane.showMessageDialog(this, "Invalid Data"); // show error message
             }
             userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
         }

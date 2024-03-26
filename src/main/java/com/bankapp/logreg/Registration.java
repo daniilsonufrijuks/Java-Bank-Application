@@ -1,4 +1,4 @@
-package controller;
+package logreg;
 
 
 import java.io.File;
@@ -7,6 +7,7 @@ import java.io.FileWriter;   // Import the FileWriter class
 import java.io.IOException;  // Import the IOException class to handle errors
 import java.util.Scanner;
 
+import generator.PinKontGen;
 import model.Person;
 
 public class Registration{      // Registration lass

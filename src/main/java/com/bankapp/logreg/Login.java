@@ -1,4 +1,4 @@
-package controller;
+package logreg;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

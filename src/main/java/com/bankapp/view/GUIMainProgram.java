@@ -85,6 +85,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel creditsum4 = new JLabel("CREDIT SUM: ");
     JLabel creditsum5 = new JLabel("CREDIT SUM: ");
 
+    JLabel creditsumtotal = new JLabel();
+    JLabel creditsumtotal2 = new JLabel();
+    JLabel creditsumtotal3 = new JLabel();
+    JLabel creditsumtotal4 = new JLabel();
+    JLabel creditsumtotal5 = new JLabel();
+
 
     JLabel creditsum;
 
@@ -265,11 +271,19 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditoptionfiled5 = new JTextField();
         creditoptionfiled5.setBounds(490, 250, 200, 30);
 
-        creditsum1.setBounds(690, 50, 200, 30);
-        creditsum2.setBounds(690, 100, 200, 30);
-        creditsum3.setBounds(690, 150, 200, 30);
-        creditsum4.setBounds(690, 200, 200, 30);
-        creditsum5.setBounds(690, 250, 200, 30);
+        creditsum1.setBounds(700, 50, 200, 30);
+        creditsum2.setBounds(700, 100, 200, 30);
+        creditsum3.setBounds(700, 150, 200, 30);
+        creditsum4.setBounds(700, 200, 200, 30);
+        creditsum5.setBounds(700, 250, 200, 30);
+
+
+        creditsumtotal.setBounds(790, 300, 200, 30);
+        creditsumtotal2.setBounds(790, 350, 200, 30);
+        creditsumtotal3.setBounds(790, 400, 200, 30);
+        creditsumtotal4.setBounds(790, 450, 200, 30);
+        creditsumtotal5.setBounds(790, 500, 200, 30);
+
 
         creditsum1.setFont(newFont);
         creditsum2.setFont(newFont);
@@ -278,10 +292,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditsum5.setFont(newFont);
 
 
-
-        //creditsum.setBounds(500, 50, 200, 30);
-
-        //creditsum.setFont(newFont);
         // Set font for the labels
         credit.setFont(newFont);
         credit2.setFont(newFont);
@@ -301,7 +311,11 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         percentsy4.setFont(newFont);
         percentsy5.setFont(newFont);
         
-
+        creditsumtotal.setFont(newFont);
+        creditsumtotal2.setFont(newFont);
+        creditsumtotal3.setFont(newFont);
+        creditsumtotal4.setFont(newFont);
+        creditsumtotal5.setFont(newFont);
 
 
         // For panel Send lables
@@ -383,6 +397,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.add(creditsum3);
         panel3.add(creditsum4);
         panel3.add(creditsum5);
+
+        panel3.add(creditsumtotal);
+        panel3.add(creditsumtotal2);
+        panel3.add(creditsumtotal3);
+        panel3.add(creditsumtotal4);
+        panel3.add(creditsumtotal5);
 
         //panel3.add(creditsum);
 

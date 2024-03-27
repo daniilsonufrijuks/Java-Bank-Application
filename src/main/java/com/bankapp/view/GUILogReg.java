@@ -110,6 +110,7 @@ public class GUILogReg extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "Invalid data.");
             } else {
                 Registration reg = new Registration();
+                Numbers num = new Numbers(0, 3500);
                 reg.WriteToAFile(person);
                 JOptionPane.showMessageDialog(this, "Registration Successful");
             }

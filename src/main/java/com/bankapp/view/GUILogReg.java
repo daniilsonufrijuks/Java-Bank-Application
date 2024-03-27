@@ -7,7 +7,7 @@ import logreg.Registration;
 import model.Numbers;
 import model.Person;
 import regex.REGEXManager;
-import test.java.com.bankapp.controller.PinGenTest;
+
 // Remove the unnecessary import statement
 // import Main;
 import controller.PersCode_Email_Controller;

@@ -13,7 +13,7 @@ import model.Person;
 public class Registration{      // Registration class
 
     // method writes to file given fields through person 
-    public void WriteToAFile(Person personToWriteIn){
+    public void WriteToAFile(Person personToWriteIn, float balance){
         try{
             PinKontGen gen = new PinKontGen(); // create a new object of PinKontGen
             String pin1Str = String.valueOf(gen.GenPinS()); // convert pin1 to string
@@ -28,7 +28,7 @@ public class Registration{      // Registration class
                 line_id++;
             }
             FileWriter regWriter = new FileWriter("resources/person.csv", true); // create a new file writer object
-            regWriter.write(String.valueOf(line_id) + ", " +  personToWriteIn.GetName() + ", " +  personToWriteIn.GetLastName() + ", " + personToWriteIn.GetPersonCode() + ", " +  accountID + ", " + personToWriteIn.GetEmail() + ", " + personToWriteIn.GetNickName() + ", " + pin1Str + ", " +  pin2Str + ", " + "0" + "\n");
+            regWriter.write(String.valueOf(line_id) + ", " +  personToWriteIn.GetName() + ", " +  personToWriteIn.GetLastName() + ", " + personToWriteIn.GetPersonCode() + ", " +  accountID + ", " + personToWriteIn.GetEmail() + ", " + personToWriteIn.GetNickName() + ", " + pin1Str + ", " +  pin2Str + ", " + balance + "\n");
             regWriter.close();
         } catch (IOException e) {
             e.printStackTrace();

@@ -153,4 +153,27 @@ public class BankAccountManager {       // Class for monetary transactions (send
         return remMoneyResult;
     }
 
+    public static String FindBankAccount(String usepCode) {
+        String bankAcc = "";
+        try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object
+            String line;
+            while ((line = br.readLine()) != null) { // while there is a next line
+                String[] parts = line.split(", ");      // current line from csv file
+                // for (String string : parts) {
+                //     System.out.println("GetBalance results parts: " + string);
+                // }
+                if (parts.length == 10) {
+                    if (parts[3].equals(usepCode)) {
+                        bankAcc = parts[4];         
+                        return bankAcc;         
+                    }   // balance is the 10th part of the csv line
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bankAcc;
+    }
+
 }

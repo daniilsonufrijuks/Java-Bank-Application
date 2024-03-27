@@ -147,7 +147,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JButton TAKE5Button = new JButton("TAKE"); // button for take panel
 
 
-
+    String username;
     Font newFont = new Font("default", Font.PLAIN, 17); // set font for text area
     // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail) {
@@ -158,7 +158,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         //textaboutusB = new JLabel(textaboutus);
 
         userpCode = userPCode;
-
+        username = userText;
         textaboutusB = new JTextArea(textaboutus); // added textaboutus to text area
         textaboutusB.setLineWrap(true);
         textaboutusB.setWrapStyleWord(true);
@@ -465,8 +465,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
             if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {
                 CreditManager genCredit = new CreditManager();
+                Transaction transaction = new Transaction(filedcredit1, BankAccountManager.FindBankAccount(userpCode), username); // create a new transaction object
+
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1);
                 creditsumtotal.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1)));
+                BankAccountManager.SendMoney(transaction); // send money to another account
+                userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
@@ -480,8 +484,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
             if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {
                 CreditManager genCredit = new CreditManager();
+                Transaction transaction = new Transaction(filedcredit2, BankAccountManager.FindBankAccount(userpCode), username); // create a new transaction object
+
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2);
                 creditsumtotal2.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2)));
+                BankAccountManager.SendMoney(transaction); // send money to another account
+                userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
@@ -495,8 +503,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
             if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {
                 CreditManager genCredit = new CreditManager();
+                Transaction transaction = new Transaction(filedcredit3, BankAccountManager.FindBankAccount(userpCode), username); // create a new transaction object
+
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3);
                 creditsumtotal3.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3)));
+                BankAccountManager.SendMoney(transaction); // send money to another account
+                userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
@@ -510,8 +522,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
             if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {
                 CreditManager genCredit = new CreditManager();
+                Transaction transaction = new Transaction(filedcredit4, BankAccountManager.FindBankAccount(userpCode), username); // create a new transaction object
+
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4);
                 creditsumtotal4.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4)));
+                BankAccountManager.SendMoney(transaction); // send money to another account
+                userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
@@ -523,9 +539,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             BigDecimal balance = BankAccountManager.GetBalance(userpCode);
             BigDecimal filedcredit1BigDecimal = BigDecimal.valueOf(filedcredit5);
             
-            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {                CreditManager genCredit = new CreditManager();
+            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {                
+                CreditManager genCredit = new CreditManager();
+                Transaction transaction = new Transaction(filedcredit5, BankAccountManager.FindBankAccount(userpCode), username); // create a new transaction object
+
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5);
                 creditsumtotal5.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5)));
+                BankAccountManager.SendMoney(transaction); // send money to another account
+                userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");

@@ -79,6 +79,13 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel percentsy4 = new JLabel("14%");
     JLabel percentsy5 = new JLabel("5%");
 
+    JLabel creditsum1 = new JLabel("CREDIT SUM: ");
+    JLabel creditsum2 = new JLabel("CREDIT SUM: ");
+    JLabel creditsum3 = new JLabel("CREDIT SUM: ");
+    JLabel creditsum4 = new JLabel("CREDIT SUM: ");
+    JLabel creditsum5 = new JLabel("CREDIT SUM: ");
+
+
     JLabel creditsum;
 
     String userpCode;
@@ -257,6 +264,19 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         creditoptionfiled5 = new JTextField();
         creditoptionfiled5.setBounds(490, 250, 200, 30);
+
+        creditsum1.setBounds(690, 50, 200, 30);
+        creditsum2.setBounds(690, 100, 200, 30);
+        creditsum3.setBounds(690, 150, 200, 30);
+        creditsum4.setBounds(690, 200, 200, 30);
+        creditsum5.setBounds(690, 250, 200, 30);
+
+        creditsum1.setFont(newFont);
+        creditsum2.setFont(newFont);
+        creditsum3.setFont(newFont);
+        creditsum4.setFont(newFont);
+        creditsum5.setFont(newFont);
+        
 
 
         //creditsum.setBounds(500, 50, 200, 30);

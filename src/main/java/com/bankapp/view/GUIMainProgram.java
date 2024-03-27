@@ -276,7 +276,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditsum3.setFont(newFont);
         creditsum4.setFont(newFont);
         creditsum5.setFont(newFont);
-        
+
 
 
         //creditsum.setBounds(500, 50, 200, 30);
@@ -378,6 +378,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.add(creditoptionfiled4);
         panel3.add(creditoptionfiled5);
 
+        panel3.add(creditsum1);
+        panel3.add(creditsum2);
+        panel3.add(creditsum3);
+        panel3.add(creditsum4);
+        panel3.add(creditsum5);
+
         //panel3.add(creditsum);
 
         // Panels   
@@ -423,6 +429,32 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 JOptionPane.showMessageDialog(this, "Invalid Data"); // show error message
             }
             userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+        }
+
+        if (e.getSource() == TAKEButton) {
+            CreditManager genCredit = new CreditManager();
+            //genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1);
+            creditsum1.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1)));
+        }
+        if (e.getSource() == TAKE2Button) {
+            CreditManager genCredit = new CreditManager();
+            //genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2);
+            creditsum2.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2)));
+        }
+        if (e.getSource() == TAKE3Button) {
+            CreditManager genCredit = new CreditManager();
+            //genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3);
+            creditsum3.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3)));
+        }
+        if (e.getSource() == TAKE4Button) {
+            CreditManager genCredit = new CreditManager();
+            //genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4);
+            creditsum4.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4)));
+        }
+        if (e.getSource() == TAKE5Button) {
+            CreditManager genCredit = new CreditManager();
+            //genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5);
+            creditsum5.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5)));
         }
     }
     

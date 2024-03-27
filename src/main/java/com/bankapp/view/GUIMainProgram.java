@@ -6,6 +6,7 @@ import javax.swing.event.HyperlinkEvent;
 import controller.AutoSendonYourEmail;
 import logreg.Login;
 import managers.BankAccountManager;
+import managers.CreditManager;
 import model.Person;
 import model.Transaction;
 import regex.REGEXManager;
@@ -71,6 +72,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel percentsy3 = new JLabel("15%");
     JLabel percentsy4 = new JLabel("14%");
     JLabel percentsy5 = new JLabel("5%");
+
+    JLabel creditsum;
 
     String userpCode;
 
@@ -147,6 +150,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         moneyToSendField = new JTextField();
 
         userbalanceLabel = new JLabel(String.valueOf(BankAccountManager.GetBalance(userPCode)));
+        BankAccountManager bankAccountManager = new BankAccountManager();
+        CreditManager genCredit = new CreditManager();
+        //genCredit.GenCredit(bankAccountManager.GetBalance(userText), 25, 1);
+        //creditsum = new JLabel(String.valueOf(genCredit.GenCredit(bankAccountManager.GetBalance(userText), 25, 1)));
         setLayoutManager();
         setLocationAndSize();
         // panel1.add(new JLabel("Content for Tab 1"));
@@ -230,6 +237,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         percentsy3.setBounds(430, 150, 200, 30);
         percentsy4.setBounds(430, 200, 200, 30);
         percentsy5.setBounds(430, 250, 200, 30);
+
+        //creditsum.setBounds(500, 50, 200, 30);
+
+        //creditsum.setFont(newFont);
         // Set font for the labels
         credit.setFont(newFont);
         credit2.setFont(newFont);
@@ -318,6 +329,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.add(percentsy3);
         panel3.add(percentsy4);
         panel3.add(percentsy5);
+
+        //panel3.add(creditsum);
 
         // Panels   
         tabPanel.addTab("Main", panel1); 

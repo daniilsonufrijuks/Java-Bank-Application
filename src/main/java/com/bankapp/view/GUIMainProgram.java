@@ -4,8 +4,8 @@ import javax.swing.*;
 import javax.swing.event.HyperlinkEvent;
 
 import controller.AutoSendonYourEmail;
-import controller.BankAccountManager;
 import logreg.Login;
+import managers.BankAccountManager;
 import model.Person;
 import model.Transaction;
 import regex.REGEXManager;

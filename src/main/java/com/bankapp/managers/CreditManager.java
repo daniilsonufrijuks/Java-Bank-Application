@@ -1,4 +1,4 @@
-package controller;
+package managers;
 
 public class CreditManager {
     public float GenCredit(float money, float percents, int years) {

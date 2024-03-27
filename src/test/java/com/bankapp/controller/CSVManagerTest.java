@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import controller.CSVManager;
+import managers.CSVManager;
 
 public class CSVManagerTest {
     

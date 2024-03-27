@@ -52,7 +52,7 @@ public class BankAccountManager {       // Class for monetary transactions (send
 
     // to get balance of the user
     public static float GetBalance(String PersonalID) {
-        float balance = 0.0f;
+        float balance = 0.00f;
         try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object
             String line;
             while ((line = br.readLine()) != null) { // while there is a next line

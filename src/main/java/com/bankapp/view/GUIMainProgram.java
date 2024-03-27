@@ -91,11 +91,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel creditsumtotal4 = new JLabel();
     JLabel creditsumtotal5 = new JLabel();
 
-
     JLabel creditsum;
 
     String userpCode;
-
+    // color change
+    JCheckBox darkModeChBox = new JCheckBox("Dark Mode");
+    Color defaultBackgroundColor = new Color(211, 233, 252);
+    Color defaultColorForFrame = new Color(119, 203, 233);
+    //
 
     //For Panel about us
     String textaboutus = "Finanšu pasaules miglainajās vietās pastāv banka, kas pazīstama kā Monolīts. \n" +
@@ -150,6 +153,13 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     Font newFont = new Font("default", Font.PLAIN, 17); // set font for text area
     // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail) {
+        getContentPane().setBackground(defaultColorForFrame);
+        panel1.setBackground(defaultBackgroundColor);
+        panel2.setBackground(defaultBackgroundColor);
+        panel3.setBackground(defaultBackgroundColor);
+        panel4.setBackground(defaultBackgroundColor);
+        panel5.setBackground(defaultBackgroundColor);
+
         usernameLabel = new JLabel(userText);
         userlastnameLabel = new JLabel(userlnameText);
         userPCodeLabel = new JLabel(userPCode);     // for SendMoney, doesnt show up on screen
@@ -159,6 +169,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         userpCode = userPCode;
 
         textaboutusB = new JTextArea(textaboutus); // added textaboutus to text area
+        textaboutusB.setBackground(defaultColorForFrame);
         textaboutusB.setLineWrap(true);
         textaboutusB.setWrapStyleWord(true);
         textaboutusB.setEditable(false);
@@ -226,6 +237,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         recUsernameField.setBounds(180, 40, 200, 30);
         recBankAccountField.setBounds(180, 90, 200, 30);
         moneyToSendField.setBounds(180, 140, 200, 30);
+
+        // color switch
+        darkModeChBox.setBounds(1000, 50, 150, 30);
 
         // Buttons   
         sendButton.setBounds(215, 190, 100, 30);
@@ -338,6 +352,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel1.add(userlastnameLabel);
         panel1.add(userbalanceLabel);
         panel1.add(moneyLabel);
+        panel1.add(darkModeChBox);
         //ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); // replace with your image file path
         //JLabel imageLabel = new JLabel(imageIcon);
         //panel1.setLayout(null);
@@ -419,6 +434,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     public void addActionEvent() { // add action events
         //addmButton.addActionListener(this);
         sendButton.addActionListener(this);
+        darkModeChBox.addActionListener(this);
         TAKEButton.addActionListener(this);
         TAKE2Button.addActionListener(this);
         TAKE3Button.addActionListener(this);
@@ -485,6 +501,26 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             //genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5);
             creditsumtotal5.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5)));
             JOptionPane.showMessageDialog(this, "Success credit!");
+        }
+
+        if (e.getSource() == darkModeChBox){    // turn on/off dark mode
+            if (darkModeChBox.isSelected()){
+                getContentPane().setBackground(Color.DARK_GRAY);
+                panel1.setBackground(Color.GRAY);
+                panel2.setBackground(Color.GRAY);
+                panel3.setBackground(Color.GRAY);
+                panel4.setBackground(Color.GRAY);
+                panel5.setBackground(Color.GRAY);
+                textaboutusB.setBackground(Color.DARK_GRAY);
+            } else {
+                getContentPane().setBackground(defaultColorForFrame);
+                panel1.setBackground(defaultBackgroundColor);
+                panel2.setBackground(defaultBackgroundColor);
+                panel3.setBackground(defaultBackgroundColor);
+                panel4.setBackground(defaultBackgroundColor);
+                panel5.setBackground(defaultBackgroundColor);
+                textaboutusB.setBackground(defaultColorForFrame);
+            }
         }
     }
     

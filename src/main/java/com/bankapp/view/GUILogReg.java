@@ -106,6 +106,8 @@ public class GUILogReg extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "This personal code already exists.");
             } else if (PersCode_Email_Controller.EmailCheckIfInCSVFile(person) == false){
                 JOptionPane.showMessageDialog(this, "This email already exists.");  // if check for email didn' pass (email already exists in csv file)
+            } else if (!REGEXManager.NameRegex(userText) || !REGEXManager.NameRegex(userlnameText) || !REGEXManager.PersoncodeRegex(userpcodetText) || !REGEXManager.EmailRegex(useremailText)) {   // if input is invalid or blank
+                JOptionPane.showMessageDialog(this, "Invalid data.");
             } else {
                 Registration reg = new Registration();
                 reg.WriteToAFile(person);

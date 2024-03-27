@@ -14,7 +14,8 @@ import regex.REGEXManager;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.Console;   
+import java.io.Console;
+import java.math.BigDecimal;   
 
 // Remove the unnecessary import statement
 // import view.GUILogReg.person;
@@ -149,7 +150,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JButton TAKE5Button = new JButton("TAKE"); // button for take panel
 
 
-
+    String username;
     Font newFont = new Font("default", Font.PLAIN, 17); // set font for text area
     // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail) {
@@ -167,7 +168,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         //textaboutusB = new JLabel(textaboutus);
 
         userpCode = userPCode;
-
+        username = userText;
         textaboutusB = new JTextArea(textaboutus); // added textaboutus to text area
         textaboutusB.setBackground(defaultColorForFrame);
         textaboutusB.setLineWrap(true);
@@ -292,11 +293,11 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditsum5.setBounds(700, 250, 200, 30);
 
 
-        creditsumtotal.setBounds(790, 50, 200, 30);
-        creditsumtotal2.setBounds(790, 100, 200, 30);
-        creditsumtotal3.setBounds(790, 150, 200, 30);
-        creditsumtotal4.setBounds(790, 200, 200, 30);
-        creditsumtotal5.setBounds(790, 250, 200, 30);
+        creditsumtotal.setBounds(830, 50, 200, 30);
+        creditsumtotal2.setBounds(830, 100, 200, 30);
+        creditsumtotal3.setBounds(830, 150, 200, 30);
+        creditsumtotal4.setBounds(830, 200, 200, 30);
+        creditsumtotal5.setBounds(830, 250, 200, 30);
 
 
         creditsum1.setFont(newFont);
@@ -473,34 +474,99 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         }
 
         if (e.getSource() == TAKEButton) {
-            CreditManager genCredit = new CreditManager();
-            //genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1);
-            creditsumtotal.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1)));
-            JOptionPane.showMessageDialog(this, "Success credit!");
+            Float filedcredit1;
+            filedcredit1 = Float.parseFloat(creditoptionfiled1.getText());
+            BigDecimal balance = BankAccountManager.GetBalance(userpCode);
+            BigDecimal filedcredit1BigDecimal = BigDecimal.valueOf(filedcredit1);
+
+            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {
+                CreditManager genCredit = new CreditManager();
+                Transaction transaction = new Transaction(filedcredit1, BankAccountManager.FindBankAccount(userpCode), username); // create a new transaction object
+
+                //genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1);
+                creditsumtotal.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1)));
+                BankAccountManager.SendMoney(transaction); // send money to another account
+                userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                JOptionPane.showMessageDialog(this, "Success credit!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Invalid Data");
+            }
         }
         if (e.getSource() == TAKE2Button) {
-            CreditManager genCredit = new CreditManager();
-            //genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2);
-            creditsumtotal2.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2)));
-            JOptionPane.showMessageDialog(this, "Success credit!");
+            Float filedcredit2;
+            filedcredit2 = Float.parseFloat(creditoptionfiled2.getText());
+            BigDecimal balance = BankAccountManager.GetBalance(userpCode);
+            BigDecimal filedcredit1BigDecimal = BigDecimal.valueOf(filedcredit2);
+
+            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {
+                CreditManager genCredit = new CreditManager();
+                Transaction transaction = new Transaction(filedcredit2, BankAccountManager.FindBankAccount(userpCode), username); // create a new transaction object
+
+                //genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2);
+                creditsumtotal2.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2)));
+                BankAccountManager.SendMoney(transaction); // send money to another account
+                userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                JOptionPane.showMessageDialog(this, "Success credit!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Invalid Data");
+            }
         }
         if (e.getSource() == TAKE3Button) {
-            CreditManager genCredit = new CreditManager();
-            //genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3);
-            creditsumtotal3.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3)));
-            JOptionPane.showMessageDialog(this, "Success credit!");
+            Float filedcredit3;
+            filedcredit3 = Float.parseFloat(creditoptionfiled3.getText());
+            BigDecimal balance = BankAccountManager.GetBalance(userpCode);
+            BigDecimal filedcredit1BigDecimal = BigDecimal.valueOf(filedcredit3);
+
+            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {
+                CreditManager genCredit = new CreditManager();
+                Transaction transaction = new Transaction(filedcredit3, BankAccountManager.FindBankAccount(userpCode), username); // create a new transaction object
+
+                //genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3);
+                creditsumtotal3.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3)));
+                BankAccountManager.SendMoney(transaction); // send money to another account
+                userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                JOptionPane.showMessageDialog(this, "Success credit!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Invalid Data");
+            }
         }
         if (e.getSource() == TAKE4Button) {
-            CreditManager genCredit = new CreditManager();
-            //genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4);
-            creditsumtotal4.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4)));
-            JOptionPane.showMessageDialog(this, "Success credit!");
+            Float filedcredit4;
+            filedcredit4 = Float.parseFloat(creditoptionfiled4.getText());
+            BigDecimal balance = BankAccountManager.GetBalance(userpCode);
+            BigDecimal filedcredit1BigDecimal = BigDecimal.valueOf(filedcredit4);
+
+            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {
+                CreditManager genCredit = new CreditManager();
+                Transaction transaction = new Transaction(filedcredit4, BankAccountManager.FindBankAccount(userpCode), username); // create a new transaction object
+
+                //genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4);
+                creditsumtotal4.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4)));
+                BankAccountManager.SendMoney(transaction); // send money to another account
+                userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                JOptionPane.showMessageDialog(this, "Success credit!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Invalid Data");
+            }
         }
         if (e.getSource() == TAKE5Button) {
-            CreditManager genCredit = new CreditManager();
-            //genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5);
-            creditsumtotal5.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5)));
-            JOptionPane.showMessageDialog(this, "Success credit!");
+            Float filedcredit5;
+            filedcredit5 = Float.parseFloat(creditoptionfiled5.getText());
+            BigDecimal balance = BankAccountManager.GetBalance(userpCode);
+            BigDecimal filedcredit1BigDecimal = BigDecimal.valueOf(filedcredit5);
+            
+            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {                
+                CreditManager genCredit = new CreditManager();
+                Transaction transaction = new Transaction(filedcredit5, BankAccountManager.FindBankAccount(userpCode), username); // create a new transaction object
+
+                //genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5);
+                creditsumtotal5.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5)));
+                BankAccountManager.SendMoney(transaction); // send money to another account
+                userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                JOptionPane.showMessageDialog(this, "Success credit!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Invalid Data");
+            }
         }
 
         if (e.getSource() == darkModeChBox){    // turn on/off dark mode

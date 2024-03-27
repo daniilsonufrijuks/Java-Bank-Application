@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import controller.BankAccountManager;
+import managers.BankAccountManager;
 import regex.*;
 
 public class SendMoneyTest {        // Unit Test for methods and conditions used in GUIMainProgram.java for SendMoney

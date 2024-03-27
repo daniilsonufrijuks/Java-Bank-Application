@@ -1,7 +1,8 @@
 package test.java.com.bankapp.controller;
 
 import org.junit.Test;
-import controller.BankAccountManager;
+
+import managers.BankAccountManager;
 import model.Transaction;
 
 public class BankAccountManagerTest {

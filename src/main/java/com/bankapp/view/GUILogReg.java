@@ -4,11 +4,14 @@ import javax.swing.*;
 
 import logreg.Login;
 import logreg.Registration;
+import model.Numbers;
 import model.Person;
 import regex.REGEXManager;
+import test.java.com.bankapp.controller.PinGenTest;
 // Remove the unnecessary import statement
 // import Main;
 import controller.PersCode_Email_Controller;
+import generator.PinKontGen;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -110,8 +113,8 @@ public class GUILogReg extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "Invalid data.");
             } else {
                 Registration reg = new Registration();
-                Numbers num = new Numbers(0, 3500);
-                reg.WriteToAFile(person);
+                Numbers num = new Numbers(0.00f, 3500.59f); // create a new object of Numbers to gen balance <<<<<<<<<<
+                reg.WriteToAFile(person, PinKontGen.generateRandomNumber(num.getNumber1(), num.getNumber2())); // write to file
                 JOptionPane.showMessageDialog(this, "Registration Successful");
             }
 

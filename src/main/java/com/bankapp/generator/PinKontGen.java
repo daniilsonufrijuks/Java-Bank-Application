@@ -22,8 +22,8 @@ public class PinKontGen { // Class for generating account numbers and pins
     }
     
     // method to generate random number
-    public int generateRandomNumber(int min, int max) {
+    public static float generateRandomNumber(float min, float max) {
         Random rand = new Random();
-        return rand.nextInt((max - min) + 1) + min;
+        return min + rand.nextFloat() * (max - min);
     }
 }

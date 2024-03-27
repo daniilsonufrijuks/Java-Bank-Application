@@ -85,6 +85,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel creditsum4 = new JLabel("CREDIT SUM: ");
     JLabel creditsum5 = new JLabel("CREDIT SUM: ");
 
+    JLabel creditsumtotal = new JLabel();
+    JLabel creditsumtotal2 = new JLabel();
+    JLabel creditsumtotal3 = new JLabel();
+    JLabel creditsumtotal4 = new JLabel();
+    JLabel creditsumtotal5 = new JLabel();
+
 
     JLabel creditsum;
 
@@ -265,23 +271,27 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditoptionfiled5 = new JTextField();
         creditoptionfiled5.setBounds(490, 250, 200, 30);
 
-        creditsum1.setBounds(690, 50, 200, 30);
-        creditsum2.setBounds(690, 100, 200, 30);
-        creditsum3.setBounds(690, 150, 200, 30);
-        creditsum4.setBounds(690, 200, 200, 30);
-        creditsum5.setBounds(690, 250, 200, 30);
+        creditsum1.setBounds(700, 50, 200, 30);
+        creditsum2.setBounds(700, 100, 200, 30);
+        creditsum3.setBounds(700, 150, 200, 30);
+        creditsum4.setBounds(700, 200, 200, 30);
+        creditsum5.setBounds(700, 250, 200, 30);
+
+
+        creditsumtotal.setBounds(790, 50, 200, 30);
+        creditsumtotal2.setBounds(790, 100, 200, 30);
+        creditsumtotal3.setBounds(790, 150, 200, 30);
+        creditsumtotal4.setBounds(790, 200, 200, 30);
+        creditsumtotal5.setBounds(790, 250, 200, 30);
+
 
         creditsum1.setFont(newFont);
         creditsum2.setFont(newFont);
         creditsum3.setFont(newFont);
         creditsum4.setFont(newFont);
         creditsum5.setFont(newFont);
-        
 
 
-        //creditsum.setBounds(500, 50, 200, 30);
-
-        //creditsum.setFont(newFont);
         // Set font for the labels
         credit.setFont(newFont);
         credit2.setFont(newFont);
@@ -301,7 +311,11 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         percentsy4.setFont(newFont);
         percentsy5.setFont(newFont);
         
-
+        creditsumtotal.setFont(newFont);
+        creditsumtotal2.setFont(newFont);
+        creditsumtotal3.setFont(newFont);
+        creditsumtotal4.setFont(newFont);
+        creditsumtotal5.setFont(newFont);
 
 
         // For panel Send lables
@@ -378,6 +392,18 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.add(creditoptionfiled4);
         panel3.add(creditoptionfiled5);
 
+        panel3.add(creditsum1);
+        panel3.add(creditsum2);
+        panel3.add(creditsum3);
+        panel3.add(creditsum4);
+        panel3.add(creditsum5);
+
+        panel3.add(creditsumtotal);
+        panel3.add(creditsumtotal2);
+        panel3.add(creditsumtotal3);
+        panel3.add(creditsumtotal4);
+        panel3.add(creditsumtotal5);
+
         //panel3.add(creditsum);
 
         // Panels   
@@ -393,6 +419,11 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     public void addActionEvent() { // add action events
         //addmButton.addActionListener(this);
         sendButton.addActionListener(this);
+        TAKEButton.addActionListener(this);
+        TAKE2Button.addActionListener(this);
+        TAKE3Button.addActionListener(this);
+        TAKE4Button.addActionListener(this);
+        TAKE5Button.addActionListener(this);
     }
 
     @Override
@@ -423,6 +454,37 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 JOptionPane.showMessageDialog(this, "Invalid Data"); // show error message
             }
             userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+        }
+
+        if (e.getSource() == TAKEButton) {
+            CreditManager genCredit = new CreditManager();
+            //genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1);
+            creditsumtotal.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1)));
+            JOptionPane.showMessageDialog(this, "Success credit!");
+        }
+        if (e.getSource() == TAKE2Button) {
+            CreditManager genCredit = new CreditManager();
+            //genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2);
+            creditsumtotal2.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2)));
+            JOptionPane.showMessageDialog(this, "Success credit!");
+        }
+        if (e.getSource() == TAKE3Button) {
+            CreditManager genCredit = new CreditManager();
+            //genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3);
+            creditsumtotal3.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3)));
+            JOptionPane.showMessageDialog(this, "Success credit!");
+        }
+        if (e.getSource() == TAKE4Button) {
+            CreditManager genCredit = new CreditManager();
+            //genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4);
+            creditsumtotal4.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4)));
+            JOptionPane.showMessageDialog(this, "Success credit!");
+        }
+        if (e.getSource() == TAKE5Button) {
+            CreditManager genCredit = new CreditManager();
+            //genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5);
+            creditsumtotal5.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5)));
+            JOptionPane.showMessageDialog(this, "Success credit!");
         }
     }
     

@@ -44,16 +44,16 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JTextArea textaboutusB;
 
     // For Panel Send
-
-    JTextField recUsernameField;
-    JTextField recBankAccountField;
-    JTextField moneyToSendField;
-
     JTextField creditoptionfiled1;
     JTextField creditoptionfiled2;
     JTextField creditoptionfiled3;
     JTextField creditoptionfiled4;
     JTextField creditoptionfiled5;
+
+    JTextField recUsernameField;
+    JTextField recBankAccountField;
+    JTextField moneyToSendField;
+
 
     // For Panel Send lables
     JLabel recUsernameLabel = new JLabel("Receiver username");
@@ -244,11 +244,18 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         percentsy4.setBounds(430, 200, 200, 30);
         percentsy5.setBounds(430, 250, 200, 30);
 
-
+        creditoptionfiled1 = new JTextField();
         creditoptionfiled1.setBounds(490, 50, 200, 30);
+        creditoptionfiled2 = new JTextField();
         creditoptionfiled2.setBounds(490, 100, 200, 30);
+
+        creditoptionfiled3 = new JTextField();
         creditoptionfiled3.setBounds(490, 150, 200, 30);
+
+        creditoptionfiled4 = new JTextField();
         creditoptionfiled4.setBounds(490, 200, 200, 30);
+
+        creditoptionfiled5 = new JTextField();
         creditoptionfiled5.setBounds(490, 250, 200, 30);
 
 
@@ -314,7 +321,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         panel2.add(sendButton);
 
-        panel5.add(textaboutusB);
+        panel5.add(textaboutusB); // add text area to the panel
 
         panel1.add(imageLabel); // add image to the panel
 
@@ -350,7 +357,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.add(creditoptionfiled3);
         panel3.add(creditoptionfiled4);
         panel3.add(creditoptionfiled5);
-        
+
         //panel3.add(creditsum);
 
         // Panels   

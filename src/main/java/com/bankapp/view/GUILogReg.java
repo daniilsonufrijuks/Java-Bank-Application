@@ -19,6 +19,8 @@ import java.awt.event.ActionListener;
 import java.io.Console;   
 //import main.java.com.bankapp.Main;
 
+import java.awt.Color;
+
 public class GUILogReg extends JFrame implements ActionListener {  
     Container container = getContentPane();
     JLabel usernameLabel = new JLabel("NAME");
@@ -34,6 +36,7 @@ public class GUILogReg extends JFrame implements ActionListener {
     JButton loginButton = new JButton("LOGIN");
     JButton regButton = new JButton("REGISTER");
     JCheckBox showPCode = new JCheckBox("Show PCode");
+    JCheckBox darkModeChBox = new JCheckBox("Dark Mode");
 
 
     public GUILogReg() {
@@ -60,10 +63,9 @@ public class GUILogReg extends JFrame implements ActionListener {
         useremailField.setBounds(610, 140, 100, 30);
         userNicknameField.setBounds(610, 180, 100, 30);
         showPCode.setBounds(500, 250, 150, 30);
+        darkModeChBox.setBounds(1000, 30, 150, 30);
         loginButton.setBounds(450, 300, 100, 30);
         regButton.setBounds(600, 300, 100, 30);
-
-
     }
 
     public void addComponentsToContainer() {
@@ -78,6 +80,7 @@ public class GUILogReg extends JFrame implements ActionListener {
         container.add(useremailField);
         container.add(userNicknameField);
         container.add(showPCode);
+        container.add(darkModeChBox);
         container.add(loginButton);
         container.add(regButton);
     }
@@ -86,6 +89,7 @@ public class GUILogReg extends JFrame implements ActionListener {
         loginButton.addActionListener(this);
         regButton.addActionListener(this);
         showPCode.addActionListener(this);
+        darkModeChBox.addActionListener(this);
     }
 
 
@@ -120,6 +124,7 @@ public class GUILogReg extends JFrame implements ActionListener {
 
         }
         Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
+
         if (e.getSource() == loginButton) { // to login person
             String userText;
             String userlnameText;
@@ -187,6 +192,14 @@ public class GUILogReg extends JFrame implements ActionListener {
 
             }
             
+        }
+
+        if (e.getSource() == darkModeChBox){    // turn on/off dark mode
+            if (darkModeChBox.isSelected()){
+                getContentPane().setBackground(Color.BLACK);
+            } else {
+                getContentPane().setBackground(Color.CYAN); // change
+            }
         }
         // if (e.getSource() == userpcodetText) {
         //     if (userpcodetText.isSelected()) {

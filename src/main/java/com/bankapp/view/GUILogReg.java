@@ -1,5 +1,6 @@
 package view;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import logreg.Login;
@@ -17,6 +18,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Console;   
 //import main.java.com.bankapp.Main;
+import java.io.File;
+import java.io.IOException;
 
 public class GUILogReg extends JFrame implements ActionListener {  
     Container container = getContentPane();
@@ -148,14 +151,30 @@ public class GUILogReg extends JFrame implements ActionListener {
                 //Point center2 = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
                 JFrame stwm = new JFrame();  
                 stwm.setTitle("MONOLITH Bank"); // set title
-                JLabel label = new JLabel(new ImageIcon("resources/hamster.jpg")); // set background image
+                // JLabel label = new JLabel(new ImageIcon("resources/hamster.jpg")); // set background image
+                // stwm.getContentPane().add(label); // add label to the frame
+                // // gui start -----------------------
+                // //stw.add(m);
+                // stwm.setVisible(true);
+                // stwm.setBounds(center.x - 400 / 2, center.y - 550 / 2, 400, 550); // to centre window
+                // stwm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                
+                //try {
+                    // Load the image
+                    //Image image = ImageIO.read(new File("resources/hamster.jpg"));
+                ImageIcon loadingIcon = new ImageIcon("loading.gif");
+                // Create a label with the image
+                JLabel label = new JLabel(loadingIcon);
                 stwm.getContentPane().add(label); // add label to the frame
-                // gui start -----------------------
-                //stw.add(m);
-                stwm.setVisible(true);
+                    
+                    // Rest of your code...
+                // } catch (IOException ex) {
+                //     ex.printStackTrace();
+                // }
                 stwm.setBounds(center.x - 400 / 2, center.y - 550 / 2, 400, 550); // to centre window
-                stwm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                stwm.setResizable(false);
+                stwm.setVisible(true);
+                //stwm.setResizable(false);
+                stwm.setVisible(true);
                 // -------------------------------------------------------------------------------------
 
                 try {

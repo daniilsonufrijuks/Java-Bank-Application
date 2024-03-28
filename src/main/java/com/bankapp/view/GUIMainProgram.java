@@ -15,8 +15,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Console;
-import java.math.BigDecimal;  
-import javax.swing.BorderFactory; 
+import java.math.BigDecimal; 
 
 // Remove the unnecessary import statement
 // import view.GUILogReg.person;
@@ -336,7 +335,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditsumtotal5.setFont(newFont);
 
         slidingGraph.setBorder(BorderFactory.createEmptyBorder(10, 50, 300, 50)); // set bounds for the graph
-
+        slidingGraph.setBorder(BorderFactory.createLineBorder(Color.RED, 5));
 
         // For panel Send lables
         recUsernameLabel.setBounds(5, 40, 150, 30);

@@ -8,19 +8,18 @@ import java.awt.event.ActionListener;
 
 public class Graphic extends JPanel implements ActionListener {
     private int[] data = new int[100];
-    private int xOffset = 10; // Отступ слева
-    private int yOffset = 10; // Отступ сверху
-    private int xScale = 10; // Масштаб по горизонтали
-    private int yScale = 10; // Масштаб по вертикали
     private Timer timer;
 
+    // Область, в которой будет отображаться график
+    private Rectangle graphArea = new Rectangle(50, 50, 500, 200); // x, y, width, height
+
     public Graphic() {
-        timer = new Timer(3000, this);
+        timer = new Timer(50, this);
         timer.start();
 
         // Заполнение массива данными (для примера)
         for (int i = 0; i < data.length; i++) {
-            data[i] = (int) (Math.random() * 30);
+            data[i] = (int) (Math.random() * 100);
         }
     }
 
@@ -28,21 +27,22 @@ public class Graphic extends JPanel implements ActionListener {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
-        int width = getWidth();
-        int height = getHeight();
 
-        // Отрисовка осей координат
-        g2d.setColor(Color.BLACK);
-        g2d.drawLine(xOffset, height - yOffset, width - xOffset, height - yOffset); // Ось X
-        g2d.drawLine(xOffset, height - yOffset, xOffset, yOffset); // Ось Y
+        // Отрисовка области графика
+        g2d.setColor(Color.LIGHT_GRAY);
+        g2d.fill(graphArea);
 
-        // Отрисовка графика
+        // Отрисовка графика в заданной области
         g2d.setColor(Color.BLUE);
+        int x = graphArea.x;
+        int y = graphArea.y + graphArea.height;
+        int xScale = graphArea.width / data.length;
+        int yScale = graphArea.height / 100;
         for (int i = 0; i < data.length - 1; i++) {
-            int x1 = i * xScale + xOffset;
-            int y1 = height - data[i] * yScale - yOffset;
-            int x2 = (i + 1) * xScale + xOffset;
-            int y2 = height - data[i + 1] * yScale - yOffset;
+            int x1 = x + i * xScale;
+            int y1 = y - data[i] * yScale;
+            int x2 = x + (i + 1) * xScale;
+            int y2 = y - data[i + 1] * yScale;
             g2d.drawLine(x1, y1, x2, y2); // Отрисовка линий между точками
             g2d.fillOval(x1 - 2, y1 - 2, 4, 4); // Отрисовка точек
         }
@@ -61,7 +61,7 @@ public class Graphic extends JPanel implements ActionListener {
     // public static void main(String[] args) {
     //     JFrame frame = new JFrame("Sliding Graph");
     //     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    //     frame.setSize(800, 400);
+    //     frame.setSize(400, 300);
     //     frame.add(new Graphic());
     //     frame.setVisible(true);
     // }

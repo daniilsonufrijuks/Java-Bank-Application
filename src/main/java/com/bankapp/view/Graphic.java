@@ -11,10 +11,10 @@ public class Graphic extends JPanel implements ActionListener {
     private Timer timer;
 
     // Область, в которой будет отображаться график
-    private Rectangle graphArea = new Rectangle(50, 50, 150, 350); // x, y, width, height
+    private Rectangle graphArea = new Rectangle(50, 50, 1100, 350); // x, y, width, height
 
     public Graphic() {
-        timer = new Timer(50, this);
+        timer = new Timer(2500, this);
         timer.start();
 
         // Заполнение массива данными (для примера)

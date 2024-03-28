@@ -183,6 +183,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         userbalanceLabel = new JLabel(String.valueOf(BankAccountManager.GetBalance(userPCode)));
         BankAccountManager bankAccountManager = new BankAccountManager();
         CreditManager genCredit = new CreditManager();
+
         //genCredit.GenCredit(bankAccountManager.GetBalance(userText), 25, 1);
         //creditsum = new JLabel(String.valueOf(genCredit.GenCredit(bankAccountManager.GetBalance(userText), 25, 1)));
         setLayoutManager();
@@ -420,7 +421,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.add(creditsumtotal4);
         panel3.add(creditsumtotal5);
 
-        //panel3.add(creditsum);
+        //Graphic slidingGraph = new Graphic();
+        //panel4.setSize(800, 400);
+        panel4.add(new Graphic());
+        //.setVisible(true);
+        //panel4.add(slidingGraph, BorderLayout.CENTER);
+
 
         // Panels   
         tabPanel.addTab("Main", panel1); 

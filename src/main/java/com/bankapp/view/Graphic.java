@@ -58,11 +58,11 @@ public class Graphic extends JPanel implements ActionListener {
         repaint();
     }
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Sliding Graph");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 400);
-        frame.add(new Graphic());
-        frame.setVisible(true);
-    }
+    // public static void main(String[] args) {
+    //     JFrame frame = new JFrame("Sliding Graph");
+    //     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    //     frame.setSize(800, 400);
+    //     frame.add(new Graphic());
+    //     frame.setVisible(true);
+    // }
 }

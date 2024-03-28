@@ -15,7 +15,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Console;
-import java.math.BigDecimal;   
+import java.math.BigDecimal;  
+import javax.swing.BorderFactory; 
 
 // Remove the unnecessary import statement
 // import view.GUILogReg.person;
@@ -149,6 +150,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JButton TAKE4Button = new JButton("TAKE"); // button for take panel
     JButton TAKE5Button = new JButton("TAKE"); // button for take panel
 
+    Graphic slidingGraph = new Graphic();
 
     String username;
     Font newFont = new Font("default", Font.PLAIN, 17); // set font for text area
@@ -333,6 +335,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditsumtotal4.setFont(newFont);
         creditsumtotal5.setFont(newFont);
 
+        slidingGraph.setBorder(BorderFactory.createEmptyBorder(10, 50, 300, 50)); // set bounds for the graph
+
 
         // For panel Send lables
         recUsernameLabel.setBounds(5, 40, 150, 30);
@@ -421,9 +425,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.add(creditsumtotal4);
         panel3.add(creditsumtotal5);
 
-        //Graphic slidingGraph = new Graphic();
         //panel4.setSize(800, 400);
-        panel4.add(new Graphic());
+        panel4.add(slidingGraph, BorderLayout.CENTER);
         //.setVisible(true);
         //panel4.add(slidingGraph, BorderLayout.CENTER);
 

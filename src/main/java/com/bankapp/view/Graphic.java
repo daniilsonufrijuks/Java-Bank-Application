@@ -2,6 +2,9 @@ package view;
 
 
 import javax.swing.*;
+
+import managers.FileManager;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,6 +23,10 @@ public class Graphic extends JPanel implements ActionListener {
         // Заполнение массива данными (для примера)
         for (int i = 0; i < data.length; i++) {
             data[i] = (int) (Math.random() * 100);
+        }
+        FileManager fileManager = new FileManager();
+        for (int value : data) {
+            fileManager.WriteToAFileTXT("resources/graphic.txt", value);
         }
     }
 

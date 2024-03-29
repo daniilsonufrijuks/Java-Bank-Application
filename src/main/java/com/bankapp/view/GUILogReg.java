@@ -200,7 +200,7 @@ public class GUILogReg extends JFrame implements ActionListener {
                 stwm.setBounds(center.x - 400 / 2, center.y - 550 / 2, 400, 550); // to centre window
 
                 // Create a Timer that executes the following code after 3 seconds
-                new Timer(5000, new ActionListener() {
+                new Timer(1000, new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         // Remove the loading animation
@@ -223,7 +223,11 @@ public class GUILogReg extends JFrame implements ActionListener {
                     }
                 }).start();
 
-
+                // try {
+                //     Thread.sleep(3000);
+                // } catch (InterruptedException e1) {
+                //     e1.printStackTrace();
+                // } // time sleep for 3 seconds
 
                 //GUIMainProgram frame2 = new GUIMainProgram(userText, userlnameText);
                 frame2.setTitle("MONOLITH Bank");

@@ -2,6 +2,9 @@ package view;
 
 import javax.swing.*;
 import javax.swing.event.HyperlinkEvent;
+import javax.swing.event.HyperlinkListener;
+
+import org.w3c.dom.events.MouseEvent;
 
 import controller.AutoSendonYourEmail;
 import logreg.Login;
@@ -15,7 +18,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Console;
-import java.math.BigDecimal; 
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.net.URI;
+import java.net.URISyntaxException; 
 
 // Remove the unnecessary import statement
 // import view.GUILogReg.person;
@@ -100,7 +106,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     Color defaultBackgroundColor = new Color(211, 233, 252);
     Color defaultColorForFrame = new Color(119, 203, 233);
     //
-
+    JEditorPane editorPane = new JEditorPane();
     //For Panel about us
     String textaboutus = "Finanšu pasaules miglainajās vietās pastāv banka, kas pazīstama kā Monolīts. \n" +
     "Tās dīvainības un mistikas reputācija piesaista uzmanību. Daži saka, ka šai bankai \n" +
@@ -109,37 +115,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     "no negaidītiem pārbaudījumiem un sarežģītiem apstākļiem. Tomēr tie, kas ir drosmīgi \n" +
     "iegājuši iekšā, saka, ka atlīdzība par risku var būt ievērojama. Nav skaidrs, \n" +
     "vai Monolīts ir mīts vai realitāte, taču daudzi finanšu piedzīvojumu meklētāji \n" +
-    "turpina pētīt tā noslēpumainās iespējas. \n\n" +
-    "Link to us - https://daniilsonufrijuks.github.io/MONOLITH.github.io/";
+    "turpina pētīt tā noslēpumainās iespējas. \n\n";
 
-
-    // JEditorPane textaboutus = new JEditorPane();
-    // textaboutus.setContentType("text/html");
-    // textaboutus.setEditable(false);
-    // textaboutus.setOpaque(false);
-    // textaboutus.setText("<html>" +
-    //     "Finanšu pasaules miglainajās vietās pastāv banka, kas pazīstama kā Monolīts. <br>" +
-    //     "Tās dīvainības un mistikas reputācija piesaista uzmanību. Daži saka, ka šai bankai <br>" +
-    //     "ir tiesības parastos ieguldījumus pārveidot par kaut ko vērtīgāku, piemēram, <br>" +
-    //     "artefaktus no citas dimensijas. Ne visi uzdrošinās ienākt tās durvīm, baidoties <br>" +
-    //     "no negaidītiem pārbaudījumiem un sarežģītiem apstākļiem. Tomēr tie, kas ir drosmīgi <br>" +
-    //     "iegājuši iekšā, saka, ka atlīdzība par risku var būt ievērojama. Nav skaidrs, <br>" +
-    //     "vai Monolīts ir mīts vai realitāte, taču daudzi finanšu piedzīvojumu meklētāji <br>" +
-    //     "turpina pētīt tā noslēpumainās iespējas. <br><br>" +
-    //     "<a href='https://daniilsonufrijuks.github.io/MONOLITH.github.io/'>Link to us</a>" +
-    //     "</html>");
-    // textaboutus.addHyperlinkListener(new HyperlinkListener() {
-    //     public void hyperlinkUpdate(HyperlinkEvent hle) {
-    //         if (HyperlinkEvent.EventType.ACTIVATED.equals(hle.getEventType())) {
-    //             Desktop desktop = Desktop.getDesktop();
-    //             try {
-    //                 desktop.browse(hle.getURL().toURI());
-    //             } catch (Exception ex) {
-    //                 ex.printStackTrace();
-    //             }
-    //         }
-    //     }
-    // });
     
     JButton sendButton = new JButton("SUBMIT"); // button for send panel
     // For Panel Credits
@@ -189,18 +166,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         //creditsum = new JLabel(String.valueOf(genCredit.GenCredit(bankAccountManager.GetBalance(userText), 25, 1)));
         setLayoutManager();
         setLocationAndSize();
-        // panel1.add(new JLabel("Content for Tab 1"));
-        // panel2.add(new JLabel("Content for Tab 2"));
-        // panel3.add(new JLabel("Content for Tab 3"));
-        // panel1.add(usernameLabel);
-        // panel1.add(userlastnameLabel);
-        // //ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); // replace with your image file path
-        // //JLabel imageLabel = new JLabel(imageIcon);
-        // //panel1.setLayout(null);
-        // panel1.add(imageLabel);
-        // tabPanel.addTab("Main", panel1); 
-        // tabPanel.addTab("Add", panel2); 
-        // tabPanel.addTab("Send", panel3); 
         addComponentsToContainer(); // add components to the container
         addActionEvent(); // add action event
     }
@@ -301,6 +266,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditsumtotal4.setBounds(830, 200, 200, 30);
         creditsumtotal5.setBounds(830, 250, 200, 30);
 
+        editorPane.setBounds(500, 590, 200, 30); // set bounds for the link
+        editorPane.setFont(newFont);
 
         creditsum1.setFont(newFont);
         creditsum2.setFont(newFont);
@@ -353,6 +320,32 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         //container.add(userlastnameLabel);
         // Add components to the panels
         container.add(tabPanel);
+
+        // Set the content type to HTML
+        editorPane.setContentType("text/html");
+
+        // Make it non-editable
+        editorPane.setEditable(false);
+
+        // Add the text with the link
+        editorPane.setText("<html><a href='https://daniilsonufrijuks.github.io/MONOLITH.github.io/'>Link to us</a></html>");
+
+        // Add a hyperlink listener to handle click events
+        editorPane.addHyperlinkListener(new HyperlinkListener() {
+            public void hyperlinkUpdate(HyperlinkEvent e) {
+                if(e.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {
+                // Open the link in the default browser
+                if(Desktop.isDesktopSupported()) {
+                    try {
+                        Desktop.getDesktop().browse(e.getURL().toURI());
+                    } catch (IOException | URISyntaxException e1) {
+                        e1.printStackTrace();
+                    }
+                }
+                }
+            }
+        });
+        panel5.add(editorPane);
         panel1.add(usernameLabel);
         panel1.add(userlastnameLabel);
         panel1.add(userbalanceLabel);

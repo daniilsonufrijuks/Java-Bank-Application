@@ -334,7 +334,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditsumtotal4.setFont(newFont);
         creditsumtotal5.setFont(newFont);
 
-        slidingGraph.setBorder(BorderFactory.createEmptyBorder(10, 50, 300, 50)); // set bounds for the graph
+        //slidingGraph.setBorder(BorderFactory.createEmptyBorder(10, 50, 300, 50)); // set bounds for the graph
         slidingGraph.setBorder(BorderFactory.createLineBorder(Color.RED, 5));
 
         // For panel Send lables

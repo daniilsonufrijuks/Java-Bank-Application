@@ -162,36 +162,68 @@ public class GUILogReg extends JFrame implements ActionListener {
                 //try {
                     // Load the image
                     //Image image = ImageIO.read(new File("resources/hamster.jpg"));
-                ImageIcon loadingIcon = new ImageIcon("loading.gif");
-                // Create a label with the image
-                JLabel label = new JLabel(loadingIcon);
-                stwm.getContentPane().add(label); // add label to the frame
+                // ImageIcon loadingIcon = new ImageIcon("resources/loading.gif");
+                // // Create a label with the image
+                // JLabel label = new JLabel(loadingIcon);
+                // stwm.getContentPane().add(label); // add label to the frame
                     
-                    // Rest of your code...
-                // } catch (IOException ex) {
-                //     ex.printStackTrace();
-                // }
-                stwm.setBounds(center.x - 400 / 2, center.y - 550 / 2, 400, 550); // to centre window
-                stwm.setVisible(true);
-                //stwm.setResizable(false);
-                stwm.setVisible(true);
+                // // Rest of your code...
+                // // } catch (IOException ex) {
+                // //     ex.printStackTrace();
+                // // }
+                // stwm.setBounds(center.x - 400 / 2, center.y - 550 / 2, 400, 550); // to centre window
+                // stwm.setVisible(true);
+                // //stwm.setResizable(false);
+                // stwm.setVisible(true);
                 // -------------------------------------------------------------------------------------
 
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException e1) {
-                    e1.printStackTrace();
-                } // time sleep for 3 seconds
+                // try {
+                //     Thread.sleep(3000);
+                // } catch (InterruptedException e1) {
+                //     e1.printStackTrace();
+                // } // time sleep for 3 seconds
 
-                // Timer timer = new Timer(3000, new ActionListener() {
-                //     @Override
-                //     public void actionPerformed(ActionEvent e) {
-                //         stwm.setVisible(true);
-                //     }
-                // });
-                // timer.setRepeats(false);
-                // timer.start();
-                stwm.dispose(); // close the start window
+                // Create a Timer that executes the following code after 3 seconds
+
+
+                // Load the loading animation
+                ImageIcon loadingIcon = new ImageIcon("resources/loading.gif");
+
+                // Create a label with the loading animation
+                JLabel loadingLabel = new JLabel(loadingIcon);
+
+                // Add the label to the frame
+                stwm.getContentPane().add(loadingLabel);
+
+                // Make the frame visible
+                stwm.setVisible(true);
+                stwm.setBounds(center.x - 400 / 2, center.y - 550 / 2, 400, 550); // to centre window
+
+                // Create a Timer that executes the following code after 3 seconds
+                new Timer(5000, new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        // Remove the loading animation
+                        stwm.getContentPane().remove(loadingLabel);
+
+                        // Add the main content to the frame
+                        // For example, add a label with an image
+                        try {
+                            Image image = ImageIO.read(new File("resources/loading.gif"));
+                            JLabel label = new JLabel(new ImageIcon(image));
+                            stwm.getContentPane().add(label);
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+
+                        // Repaint the frame to reflect the changes
+                        stwm.revalidate();
+                        stwm.repaint();
+                        stwm.dispose(); // close the start window
+                    }
+                }).start();
+
+
 
                 //GUIMainProgram frame2 = new GUIMainProgram(userText, userlnameText);
                 frame2.setTitle("MONOLITH Bank");

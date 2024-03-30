@@ -176,4 +176,24 @@ public class BankAccountManager {       // Class for monetary transactions (send
         return bankAcc;
     }
 
+    public static float TakeMoney(Transaction transaction) {
+        float money = 0.0f;
+        try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object
+            String line;
+            while ((line = br.readLine()) != null) { // while there is a next line
+                String[] parts = line.split(", ");      // current line from csv file
+                if (parts.length == 10) {
+                    if (parts[3].equals(transaction.getUsername())) {
+                        money = Float.parseFloat(parts[9]);         
+                        return money;         
+                    }   // balance is the 10th part of the csv line
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return money;
+    }
+
 }

@@ -129,9 +129,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     Graphic slidingGraph = new Graphic();
 
     String username;
+    String nickname;
     Font newFont = new Font("default", Font.PLAIN, 17); // set font for text area
     // Constructor
-    public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail) {
+    public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail, String Nnickname) {
         getContentPane().setBackground(defaultColorForFrame);
         panel1.setBackground(defaultBackgroundColor);
         panel2.setBackground(defaultBackgroundColor);
@@ -147,6 +148,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         userpCode = userPCode;
         username = userText;
+        nickname = Nnickname;
         textaboutusB = new JTextArea(textaboutus); // added textaboutus to text area
         textaboutusB.setBackground(defaultColorForFrame);
         textaboutusB.setLineWrap(true);
@@ -482,11 +484,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
             if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {
                 CreditManager genCredit = new CreditManager();
-                Transaction transaction = new Transaction(filedcredit1, BankAccountManager.FindBankAccount(userpCode), username); // create a new transaction object
-
+                Transaction transaction = new Transaction(genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1);
+                System.out.println(BankAccountManager.FindBankAccount(userpCode) + " ," +username);
                 creditsumtotal.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1)));
                 BankAccountManager.SendMoney(transaction); // send money to another account
+                System.out.println("   balance ---> " + String.valueOf(BankAccountManager.GetBalance(userpCode)));
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
@@ -501,7 +504,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
             if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {
                 CreditManager genCredit = new CreditManager();
-                Transaction transaction = new Transaction(filedcredit2, BankAccountManager.FindBankAccount(userpCode), username); // create a new transaction object
+                Transaction transaction = new Transaction(genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
 
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2);
                 creditsumtotal2.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2)));
@@ -520,7 +523,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
             if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {
                 CreditManager genCredit = new CreditManager();
-                Transaction transaction = new Transaction(filedcredit3, BankAccountManager.FindBankAccount(userpCode), username); // create a new transaction object
+                Transaction transaction = new Transaction(genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
 
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3);
                 creditsumtotal3.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3)));
@@ -539,7 +542,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
             if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {
                 CreditManager genCredit = new CreditManager();
-                Transaction transaction = new Transaction(filedcredit4, BankAccountManager.FindBankAccount(userpCode), username); // create a new transaction object
+                Transaction transaction = new Transaction(genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
 
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4);
                 creditsumtotal4.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4)));
@@ -558,7 +561,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             
             if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {                
                 CreditManager genCredit = new CreditManager();
-                Transaction transaction = new Transaction(filedcredit5, BankAccountManager.FindBankAccount(userpCode), username); // create a new transaction object
+                Transaction transaction = new Transaction(genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
 
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5);
                 creditsumtotal5.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5)));

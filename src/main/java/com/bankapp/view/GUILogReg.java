@@ -146,7 +146,7 @@ public class GUILogReg extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
             }
             if (logb == true) {
-                GUIMainProgram frame2 = new GUIMainProgram(userText, userlnameText, userpcodetText, useremailText);
+                GUIMainProgram frame2 = new GUIMainProgram(userText, userlnameText, userpcodetText, useremailText, userNicknameText);
                 Main.frame.dispose();
                 //Point center2 = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
                 JFrame stwm = new JFrame();  

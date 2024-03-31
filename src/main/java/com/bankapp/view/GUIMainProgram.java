@@ -130,6 +130,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
     String username;
     String nickname;
+    String useremail;
     Font newFont = new Font("default", Font.PLAIN, 17); // set font for text area
     // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail, String Nnickname) {
@@ -149,6 +150,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         userpCode = userPCode;
         username = userText;
         nickname = Nnickname;
+        useremail = userEmail;
         textaboutusB = new JTextArea(textaboutus); // added textaboutus to text area
         textaboutusB.setBackground(defaultColorForFrame);
         textaboutusB.setLineWrap(true);
@@ -488,6 +490,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1);
                 System.out.println(BankAccountManager.FindBankAccount(userpCode) + " ," +username);
                 creditsumtotal.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1)));
+                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit1);
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 System.out.println("   balance ---> " + String.valueOf(BankAccountManager.GetBalance(userpCode)));
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
@@ -508,6 +511,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2);
                 creditsumtotal2.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2)));
+                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit2);
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
@@ -527,6 +531,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3);
                 creditsumtotal3.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3)));
+                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit3);
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
@@ -546,6 +551,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4);
                 creditsumtotal4.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4)));
+                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit4);
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
@@ -565,6 +571,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5);
                 creditsumtotal5.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5)));
+                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit5);
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");

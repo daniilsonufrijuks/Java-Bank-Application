@@ -194,7 +194,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel2.setLayout(null);
         panel3.setLayout(null);
         //panel4.setLayout(null);
-        panel4.setLayout(new BoxLayout(panel4, BoxLayout.Y_AXIS));
+        panel4.setLayout(null);
         panel5.setLayout(null);
     }
 
@@ -331,13 +331,18 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         recBankAccountLabel.setFont(newFont);
         moneyToSendLabel.setFont(newFont); // set font 
 
-        slidingGraph.setBounds(10, 20, 900, 400); // set bounds for the graph
-        slidingGraph2.setBounds(10, 20, 900, 400);
-        slidingGraph3.setBounds(10, 20, 900, 400);
+        slidingGraph.setBounds(45, 70, 1100, 300); // set bounds for the graph
+        slidingGraph2.setBounds(45, 70, 1100, 300);
+        slidingGraph3.setBounds(45, 70, 1100, 300);
 
         group.add(fond1); // add radio buttons to the group
         group.add(fond2);
         group.add(fond3);
+
+        fond1.setBounds(5, 0, 100, 30); // set bounds for the radio buttons
+        fond2.setBounds(5, 20, 100, 30);
+        fond3.setBounds(5, 40, 100, 30);
+
 
         //panel4.setComponentZOrder(slidingGraph2, 0);
 

@@ -68,6 +68,11 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel moneyToSendLabel = new JLabel("Money");
     JLabel moneyLabel = new JLabel("YOUR BALANCE: ");
 
+
+    JRadioButton fond1 = new JRadioButton("MONOLITH"); // create a radio button
+    JRadioButton fond2 = new JRadioButton("CLEAR SKY"); // create a radio button
+    JRadioButton fond3 = new JRadioButton("DUTY"); // create a radio button
+
     //JTextArea textArea = new JTextArea(20, 20); // Create a JTextArea
     //JScrollPane scrollPane = new JScrollPane(textArea); // Create a JScrollPane and add the JTextArea to it
 
@@ -170,6 +175,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         userbalanceLabel = new JLabel(String.valueOf(BankAccountManager.GetBalance(userPCode)));
         BankAccountManager bankAccountManager = new BankAccountManager();
         CreditManager genCredit = new CreditManager();
+
 
         //genCredit.GenCredit(bankAccountManager.GetBalance(userText), 25, 1);
         //creditsum = new JLabel(String.valueOf(genCredit.GenCredit(bankAccountManager.GetBalance(userText), 25, 1)));
@@ -446,9 +452,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         //graphPanel.setLayout(null);
         //graphPanel.setLayout(new BoxLayout(graphPanel, BoxLayout.Y_AXIS));
         //panel4.setLayout(new BoxLayout(panel4, BoxLayout.Y_AXIS));
-        panel4.add(slidingGraph);
-        panel4.add(slidingGraph2);
-        panel4.add(slidingGraph3);
+        //panel4.add(slidingGraph);
+        //panel4.add(slidingGraph2);
+        //panel4.add(slidingGraph3);
 
         //panel4.add(graphPanel, BorderLayout.CENTER);
         //panel4.add(scrollBarV, BorderLayout.EAST);

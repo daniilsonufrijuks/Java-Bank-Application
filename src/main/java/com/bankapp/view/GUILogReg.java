@@ -57,7 +57,7 @@ public class GUILogReg extends JFrame implements ActionListener {
     }
 
     public void setLocationAndSize() {
-        welcomeLabel.setBounds(395, 25, 410, 100);
+        welcomeLabel.setBounds(395, 25, 500, 100);
         usernameLabel.setBounds(450, 250, 100, 30);
         userlastnameLabel.setBounds(450, 290, 100, 30);
         userpcodeLabel.setBounds(450, 330, 170, 30);

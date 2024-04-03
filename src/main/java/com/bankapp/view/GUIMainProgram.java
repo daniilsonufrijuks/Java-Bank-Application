@@ -185,7 +185,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel1.setLayout(null);
         panel2.setLayout(null);
         panel3.setLayout(null);
-        panel4.setLayout(new BorderLayout());
+        //panel4.setLayout(null);
+        panel4.setLayout(new BoxLayout(panel4, BoxLayout.Y_AXIS));
         panel5.setLayout(null);
     }
 
@@ -322,8 +323,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         recBankAccountLabel.setFont(newFont);
         moneyToSendLabel.setFont(newFont); // set font 
 
-        slidingGraph.setBounds(20, 0, 1100, 400); // set bounds for the graph
-        slidingGraph2.setBounds(20, 700, 1100, 400);
+        slidingGraph.setBounds(10, 0, 900, 400); // set bounds for the graph
+        slidingGraph2.setBounds(10, 500, 900, 400);
+        slidingGraph3.setBounds(10, 900, 900, 400);
 
         //panel4.setComponentZOrder(slidingGraph2, 0);
 
@@ -437,34 +439,34 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         //panel4.add(slidingGraph2);
         //panel4.add(slidingGraph3);
 
-        JScrollBar scrollBarV = new JScrollBar(JScrollBar.VERTICAL, 30, 40, 0, 500);
+        //JScrollBar scrollBarV = new JScrollBar(JScrollBar.VERTICAL, 30, 40, 0, 500);
         //panel4.add(scrollBarV, BorderLayout.EAST);
 
+        //JPanel graphPanel = new JPanel();
+        //graphPanel.setLayout(null);
+        //graphPanel.setLayout(new BoxLayout(graphPanel, BoxLayout.Y_AXIS));
+        //panel4.setLayout(new BoxLayout(panel4, BoxLayout.Y_AXIS));
+        panel4.add(slidingGraph);
+        panel4.add(slidingGraph2);
+        panel4.add(slidingGraph3);
 
-        JPanel graphPanel = new JPanel();
-
-        graphPanel.setLayout(new BoxLayout(graphPanel, BoxLayout.Y_AXIS));
-
-        graphPanel.add(slidingGraph);
-        graphPanel.add(slidingGraph2);
-
-        
-        panel4.add(graphPanel, BorderLayout.CENTER);
+        //panel4.add(graphPanel, BorderLayout.CENTER);
         //panel4.add(scrollBarV, BorderLayout.EAST);
 
-        JScrollPane scrollPane = new JScrollPane(panel4);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        // Make the JScrollPane visible
-        scrollPane.setVisible(true);
-        graphPanel.setVisible(true); // Make graphPanel visible
-        panel4.setVisible(true); // Make panel4 visible
+        //JScrollPane scrollPane = new JScrollPane(panel4);
+        //scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        //panel4.add(scrollPane, BorderLayout.CENTER);
+        //Make the JScrollPane visible
+        // panel4.setVisible(true); // Make graphPanel visible
+        //panel4.setVisible(true); // Make panel4 visible
+        //scrollPane.setVisible(true);
 
         //panel4.add(innerPanel, BorderLayout.CENTER); // add graph to the panel
         // Panels   
         tabPanel.addTab("Main", panel1); 
         tabPanel.addTab("Send", panel2); 
         tabPanel.addTab("Credits", panel3); 
-        tabPanel.addTab("Stock exchange", scrollPane);
+        tabPanel.addTab("Stock exchange", panel4);
         tabPanel.addTab("About us", panel5);
         //container.add(addmButton);
 

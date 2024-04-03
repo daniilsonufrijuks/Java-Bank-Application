@@ -129,11 +129,13 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JButton TAKE4Button = new JButton("TAKE"); // button for take panel
     JButton TAKE5Button = new JButton("TAKE"); // button for take panel
 
-    Graphic slidingGraph = new Graphic();
+    Graphic slidingGraph = new Graphic(); // create a new graph object
+    Graphic slidingGraph2 = new Graphic();
+    Graphic slidingGraph3 = new Graphic();
 
-    String username;
-    String nickname;
-    String useremail;
+    String username; // person name
+    String nickname; // person nickname
+    String useremail; // person email
     Font newFont = new Font("default", Font.PLAIN, 17); // set font for text area
     // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail, String Nnickname) {
@@ -320,6 +322,11 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         recBankAccountLabel.setFont(newFont);
         moneyToSendLabel.setFont(newFont); // set font 
 
+        slidingGraph.setBounds(20, 0, 1100, 400); // set bounds for the graph
+        slidingGraph2.setBounds(20, 700, 1100, 400);
+
+        //panel4.setComponentZOrder(slidingGraph2, 0);
+
         //textArea.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);  
     }
 
@@ -426,15 +433,38 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.add(creditsumtotal4);
         panel3.add(creditsumtotal5);
 
-        panel4.add(slidingGraph); // add graph to the panel
+        //panel4.add(slidingGraph); // add graph to the panel
+        //panel4.add(slidingGraph2);
+        //panel4.add(slidingGraph3);
+
         JScrollBar scrollBarV = new JScrollBar(JScrollBar.VERTICAL, 30, 40, 0, 500);
-        panel4.add(scrollBarV, BorderLayout.EAST);
+        //panel4.add(scrollBarV, BorderLayout.EAST);
+
+
+        JPanel graphPanel = new JPanel();
+
+        graphPanel.setLayout(new BoxLayout(graphPanel, BoxLayout.Y_AXIS));
+
+        graphPanel.add(slidingGraph);
+        graphPanel.add(slidingGraph2);
+
+        
+        panel4.add(graphPanel, BorderLayout.CENTER);
+        //panel4.add(scrollBarV, BorderLayout.EAST);
+
+        JScrollPane scrollPane = new JScrollPane(panel4);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        // Make the JScrollPane visible
+        scrollPane.setVisible(true);
+        graphPanel.setVisible(true); // Make graphPanel visible
+        panel4.setVisible(true); // Make panel4 visible
+
         //panel4.add(innerPanel, BorderLayout.CENTER); // add graph to the panel
         // Panels   
         tabPanel.addTab("Main", panel1); 
         tabPanel.addTab("Send", panel2); 
         tabPanel.addTab("Credits", panel3); 
-        tabPanel.addTab("Stock exchange", panel4);
+        tabPanel.addTab("Stock exchange", scrollPane);
         tabPanel.addTab("About us", panel5);
         //container.add(addmButton);
 

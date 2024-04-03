@@ -251,13 +251,13 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         credityear5.setBounds(350, 250, 200, 30);
 
 
-        percentsy.setBounds(430, 50, 200, 30);
+        percentsy.setBounds(430, 50, 200, 30); // set bounds for the labels
         percentsy2.setBounds(430, 100, 200, 30);
         percentsy3.setBounds(430, 150, 200, 30);
         percentsy4.setBounds(430, 200, 200, 30);
         percentsy5.setBounds(430, 250, 200, 30);
 
-        creditoptionfiled1 = new JTextField();
+        creditoptionfiled1 = new JTextField(); // create a text field
         creditoptionfiled1.setBounds(490, 50, 200, 30);
         creditoptionfiled2 = new JTextField();
         creditoptionfiled2.setBounds(490, 100, 200, 30);
@@ -271,7 +271,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditoptionfiled5 = new JTextField();
         creditoptionfiled5.setBounds(490, 250, 200, 30);
 
-        creditsum1.setBounds(700, 50, 200, 30);
+        creditsum1.setBounds(700, 50, 200, 30); // set bounds for the labels
         creditsum2.setBounds(700, 100, 200, 30);
         creditsum3.setBounds(700, 150, 200, 30);
         creditsum4.setBounds(700, 200, 200, 30);
@@ -281,7 +281,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditsumtotal.setBounds(830, 50, 200, 30);
         creditsumtotal2.setBounds(830, 100, 200, 30);
         creditsumtotal3.setBounds(830, 150, 200, 30);
-        creditsumtotal4.setBounds(830, 200, 200, 30);
+        creditsumtotal4.setBounds(830, 200, 200, 30); // set bounds for the labels
         creditsumtotal5.setBounds(830, 250, 200, 30);
 
         editorPane.setBounds(500, 590, 200, 30); // set bounds for the link
@@ -289,7 +289,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         creditsum1.setFont(newFont);
         creditsum2.setFont(newFont);
-        creditsum3.setFont(newFont);
+        creditsum3.setFont(newFont); // set font
         creditsum4.setFont(newFont);
         creditsum5.setFont(newFont);
 
@@ -307,7 +307,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         credityear4.setFont(newFont);
         credityear5.setFont(newFont);
 
-        percentsy.setFont(newFont);
+        percentsy.setFont(newFont); // set font
         percentsy2.setFont(newFont);
         percentsy3.setFont(newFont);
         percentsy4.setFont(newFont);
@@ -513,7 +513,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         TAKE5Button.addActionListener(this);
         fond1.addActionListener(this);
         fond2.addActionListener(this);
-        fond3.addActionListener(this);
+        fond3.addActionListener(this); // action listener for radio buttons
     }
 
     @Override

@@ -67,49 +67,71 @@ import javax.mail.internet.MimeMessage;
 public class AutoSendonYourEmail {
 
     public static void main(String [] args) {          
-        // email ID of Recipient. 
-        String recipient = "kroshthebestfriend@gmail.com"; 
+        // // email ID of Recipient. 
+        // String recipient = "kroshthebestfriend@gmail.com"; 
     
-        // email ID of  Sender. 
-        String sender = "monolithabout@gmail.com"; 
+        // // email ID of  Sender. 
+        // String sender = "monolithabout@gmail.com"; 
     
-        // using host as localhost 
-        String host = "127.0.0.1"; 
+        // // using host as localhost 
+        // String host = "127.0.0.1"; 
     
-        // Getting system properties 
-        Properties properties = System.getProperties(); 
+        // // Getting system properties 
+        // Properties properties = System.getProperties(); 
     
-        // Setting up mail server 
-        properties.setProperty("mail.smtp.host", host); 
+        // // Setting up mail server 
+        // properties.setProperty("mail.smtp.host", host); 
     
-        // creating session object to get properties 
-        Session session = Session.getDefaultInstance(properties); 
+        // // creating session object to get properties 
+        // Session session = Session.getDefaultInstance(properties); 
     
-        try 
-        { 
-            // MimeMessage object. 
-            MimeMessage message = new MimeMessage(session); 
+        // try 
+        // { 
+        //     // MimeMessage object. 
+        //     MimeMessage message = new MimeMessage(session); 
     
-            // Set From Field: adding senders email to from field. 
-            message.setFrom(new InternetAddress(sender)); 
+        //     // Set From Field: adding senders email to from field. 
+        //     message.setFrom(new InternetAddress(sender)); 
     
-            // Set To Field: adding recipient's email to from field. 
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient)); 
+        //     // Set To Field: adding recipient's email to from field. 
+        //     message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient)); 
     
-            // Set Subject: subject of the email 
-            message.setSubject("This is Subject"); 
+        //     // Set Subject: subject of the email 
+        //     message.setSubject("This is Subject"); 
     
-            // set body of the email. 
-            message.setText("This is a test mail"); 
+        //     // set body of the email. 
+        //     message.setText("This is a test mail"); 
     
-            // Send email. 
-            Transport.send(message); 
-            System.out.println("Mail successfully sent"); 
-        } 
-        catch (MessagingException mex)  
-        { 
-            mex.printStackTrace(); 
-        } 
+        //     // Send email. 
+        //     Transport.send(message); 
+        //     System.out.println("Mail successfully sent"); 
+        // } 
+        // catch (MessagingException mex)  
+        // { 
+        //     mex.printStackTrace(); 
+        // } 
+
+        // Set up the SMTP server.
+        java.util.Properties props = new java.util.Properties();
+        props.put("mail.smtp.host", "smtp.myisp.com");
+        Session session = Session.getDefaultInstance(props, null);
+
+        // Construct the message
+        String to = "kroshthebestfriend@gmail.com";
+        String from = "monolithabout@gmail.com";
+        String subject = "Hello";
+        Message msg = new MimeMessage(session);
+        try {
+            msg.setFrom(new InternetAddress(from));
+            msg.setRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            msg.setSubject(subject);
+            msg.setText("Hi,\n\nHow are you?");
+
+            // Send the message.
+            Transport.send(msg);
+        } catch (MessagingException e) {
+            // Error.
+        }
     }
 }
 

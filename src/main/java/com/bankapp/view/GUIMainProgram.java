@@ -68,6 +68,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel moneyToSendLabel = new JLabel("Money");
     JLabel moneyLabel = new JLabel("YOUR BALANCE: ");
 
+
+    JRadioButton fond1 = new JRadioButton("MONOLITH"); // create a radio button
+    JRadioButton fond2 = new JRadioButton("CLEAR SKY"); // create a radio button
+    JRadioButton fond3 = new JRadioButton("DUTY"); // create a radio button
+
+    //JTextArea textArea = new JTextArea(20, 20); // Create a JTextArea
+    //JScrollPane scrollPane = new JScrollPane(textArea); // Create a JScrollPane and add the JTextArea to it
+
     JLabel credit = new JLabel("CREDIT OPTION 1");
     JLabel credit2 = new JLabel("CREDIT OPTION 2");
     JLabel credit3 = new JLabel("CREDIT OPTION 3");
@@ -126,11 +134,13 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JButton TAKE4Button = new JButton("TAKE"); // button for take panel
     JButton TAKE5Button = new JButton("TAKE"); // button for take panel
 
-    Graphic slidingGraph = new Graphic();
+    Graphic slidingGraph = new Graphic(); // create a new graph object
+    Graphic slidingGraph2 = new Graphic();
+    Graphic slidingGraph3 = new Graphic();
 
-    String username;
-    String nickname;
-    String useremail;
+    String username; // person name
+    String nickname; // person nickname
+    String useremail; // person email
     Font newFont = new Font("default", Font.PLAIN, 17); // set font for text area
     // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail, String Nnickname) {
@@ -166,6 +176,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         BankAccountManager bankAccountManager = new BankAccountManager();
         CreditManager genCredit = new CreditManager();
 
+
         //genCredit.GenCredit(bankAccountManager.GetBalance(userText), 25, 1);
         //creditsum = new JLabel(String.valueOf(genCredit.GenCredit(bankAccountManager.GetBalance(userText), 25, 1)));
         setLayoutManager();
@@ -180,7 +191,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel1.setLayout(null);
         panel2.setLayout(null);
         panel3.setLayout(null);
-        panel4.setLayout(new BorderLayout());
+        //panel4.setLayout(null);
+        panel4.setLayout(new BoxLayout(panel4, BoxLayout.Y_AXIS));
         panel5.setLayout(null);
     }
 
@@ -306,7 +318,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditsumtotal5.setFont(newFont);
 
         //slidingGraph.setBorder(BorderFactory.createEmptyBorder(10, 50, 300, 50)); // set bounds for the graph
-        slidingGraph.setBorder(BorderFactory.createLineBorder(Color.RED, 5));
+        //slidingGraph.setBorder(BorderFactory.createLineBorder(Color.RED, 5));
 
         // For panel Send lables
         recUsernameLabel.setBounds(5, 40, 150, 30);
@@ -316,6 +328,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         recUsernameLabel.setFont(newFont);
         recBankAccountLabel.setFont(newFont);
         moneyToSendLabel.setFont(newFont); // set font 
+
+        slidingGraph.setBounds(10, 0, 900, 400); // set bounds for the graph
+        slidingGraph2.setBounds(10, 500, 900, 400);
+        slidingGraph3.setBounds(10, 900, 900, 400);
+
+        //panel4.setComponentZOrder(slidingGraph2, 0);
+
+        //textArea.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);  
     }
 
     // Add components to the container
@@ -421,12 +441,33 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.add(creditsumtotal4);
         panel3.add(creditsumtotal5);
 
-        //panel4.setSize(800, 400);
-        panel4.add(slidingGraph, BorderLayout.CENTER);
-        //.setVisible(true);
-        //panel4.add(slidingGraph, BorderLayout.CENTER);
+        //panel4.add(slidingGraph); // add graph to the panel
+        //panel4.add(slidingGraph2);
+        //panel4.add(slidingGraph3);
 
+        //JScrollBar scrollBarV = new JScrollBar(JScrollBar.VERTICAL, 30, 40, 0, 500);
+        //panel4.add(scrollBarV, BorderLayout.EAST);
 
+        //JPanel graphPanel = new JPanel();
+        //graphPanel.setLayout(null);
+        //graphPanel.setLayout(new BoxLayout(graphPanel, BoxLayout.Y_AXIS));
+        //panel4.setLayout(new BoxLayout(panel4, BoxLayout.Y_AXIS));
+        //panel4.add(slidingGraph);
+        //panel4.add(slidingGraph2);
+        //panel4.add(slidingGraph3);
+
+        //panel4.add(graphPanel, BorderLayout.CENTER);
+        //panel4.add(scrollBarV, BorderLayout.EAST);
+
+        //JScrollPane scrollPane = new JScrollPane(panel4);
+        //scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        //panel4.add(scrollPane, BorderLayout.CENTER);
+        //Make the JScrollPane visible
+        // panel4.setVisible(true); // Make graphPanel visible
+        //panel4.setVisible(true); // Make panel4 visible
+        //scrollPane.setVisible(true);
+
+        //panel4.add(innerPanel, BorderLayout.CENTER); // add graph to the panel
         // Panels   
         tabPanel.addTab("Main", panel1); 
         tabPanel.addTab("Send", panel2); 

@@ -332,8 +332,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         moneyToSendLabel.setFont(newFont); // set font 
 
         slidingGraph.setBounds(10, 0, 900, 400); // set bounds for the graph
-        slidingGraph2.setBounds(10, 500, 900, 400);
-        slidingGraph3.setBounds(10, 900, 900, 400);
+        slidingGraph2.setBounds(10, 0, 900, 400);
+        slidingGraph3.setBounds(10, 0, 900, 400);
 
         group.add(fond1); // add radio buttons to the group
         group.add(fond2);
@@ -673,7 +673,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             // Code for when radioButton2 is selected
             //panel4.add(slidingGraph2);
             slidingGraph.setVisible(false);
-            slidingGraph2.setVisible(false);
+            slidingGraph3.setVisible(false);
             slidingGraph2.setVisible(true);
         } else if (fond3.isSelected()) {
             // Code for when radioButton3 is selected

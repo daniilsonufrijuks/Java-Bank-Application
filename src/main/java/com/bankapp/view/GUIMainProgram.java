@@ -68,6 +68,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel moneyToSendLabel = new JLabel("Money");
     JLabel moneyLabel = new JLabel("YOUR BALANCE: ");
 
+    //JTextArea textArea = new JTextArea(20, 20); // Create a JTextArea
+    //JScrollPane scrollPane = new JScrollPane(textArea); // Create a JScrollPane and add the JTextArea to it
+
     JLabel credit = new JLabel("CREDIT OPTION 1");
     JLabel credit2 = new JLabel("CREDIT OPTION 2");
     JLabel credit3 = new JLabel("CREDIT OPTION 3");
@@ -306,7 +309,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditsumtotal5.setFont(newFont);
 
         //slidingGraph.setBorder(BorderFactory.createEmptyBorder(10, 50, 300, 50)); // set bounds for the graph
-        slidingGraph.setBorder(BorderFactory.createLineBorder(Color.RED, 5));
+        //slidingGraph.setBorder(BorderFactory.createLineBorder(Color.RED, 5));
 
         // For panel Send lables
         recUsernameLabel.setBounds(5, 40, 150, 30);
@@ -316,6 +319,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         recUsernameLabel.setFont(newFont);
         recBankAccountLabel.setFont(newFont);
         moneyToSendLabel.setFont(newFont); // set font 
+
+        //textArea.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);  
     }
 
     // Add components to the container
@@ -421,12 +426,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.add(creditsumtotal4);
         panel3.add(creditsumtotal5);
 
-        //panel4.setSize(800, 400);
-        panel4.add(slidingGraph, BorderLayout.CENTER);
-        //.setVisible(true);
-        //panel4.add(slidingGraph, BorderLayout.CENTER);
-
-
+        panel4.add(slidingGraph); // add graph to the panel
+        JScrollBar scrollBarV = new JScrollBar(JScrollBar.VERTICAL, 30, 40, 0, 500);
+        panel4.add(scrollBarV, BorderLayout.EAST);
+        //panel4.add(innerPanel, BorderLayout.CENTER); // add graph to the panel
         // Panels   
         tabPanel.addTab("Main", panel1); 
         tabPanel.addTab("Send", panel2); 

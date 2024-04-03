@@ -73,6 +73,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JRadioButton fond2 = new JRadioButton("CLEAR SKY"); // create a radio button
     JRadioButton fond3 = new JRadioButton("DUTY"); // create a radio button
 
+    ButtonGroup group = new ButtonGroup();
+
     //JTextArea textArea = new JTextArea(20, 20); // Create a JTextArea
     //JScrollPane scrollPane = new JScrollPane(textArea); // Create a JScrollPane and add the JTextArea to it
 
@@ -333,6 +335,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         slidingGraph2.setBounds(10, 500, 900, 400);
         slidingGraph3.setBounds(10, 900, 900, 400);
 
+        group.add(fond1); // add radio buttons to the group
+        group.add(fond2);
+        group.add(fond3);
+
         //panel4.setComponentZOrder(slidingGraph2, 0);
 
         //textArea.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);  
@@ -467,6 +473,19 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         //panel4.setVisible(true); // Make panel4 visible
         //scrollPane.setVisible(true);
 
+        panel4.add(slidingGraph); // add graph to the panel
+        panel4.add(slidingGraph2);
+        panel4.add(slidingGraph3);
+
+        slidingGraph.setVisible(false); // set graph invisible
+        slidingGraph2.setVisible(false);
+        slidingGraph3.setVisible(false);
+
+
+        panel4.add(fond1); // add radio button to the panel
+        panel4.add(fond2); // add radio button to the panel
+        panel4.add(fond3); // add radio button to the panel  
+
         //panel4.add(innerPanel, BorderLayout.CENTER); // add graph to the panel
         // Panels   
         tabPanel.addTab("Main", panel1); 
@@ -487,6 +506,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         TAKE3Button.addActionListener(this);
         TAKE4Button.addActionListener(this);
         TAKE5Button.addActionListener(this);
+        fond1.addActionListener(this);
+        fond2.addActionListener(this);
+        fond3.addActionListener(this);
     }
 
     @Override
@@ -639,6 +661,26 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 panel5.setBackground(defaultBackgroundColor);
                 textaboutusB.setBackground(defaultColorForFrame);
             }
+        }
+
+        if (fond1.isSelected()) {
+            // Code for when radioButton1 is selected
+            //panel4.add(slidingGraph);
+            slidingGraph2.setVisible(false);
+            slidingGraph3.setVisible(false);
+            slidingGraph.setVisible(true);
+        } else if (fond2.isSelected()) {
+            // Code for when radioButton2 is selected
+            //panel4.add(slidingGraph2);
+            slidingGraph.setVisible(false);
+            slidingGraph2.setVisible(false);
+            slidingGraph2.setVisible(true);
+        } else if (fond3.isSelected()) {
+            // Code for when radioButton3 is selected
+            //panel4.add(slidingGraph3);
+            slidingGraph2.setVisible(false);
+            slidingGraph.setVisible(false);
+            slidingGraph3.setVisible(true);
         }
     }
     

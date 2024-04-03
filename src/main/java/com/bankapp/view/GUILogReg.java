@@ -23,28 +23,33 @@ import java.io.IOException;
 
 public class GUILogReg extends JFrame implements ActionListener {  
     Container container = getContentPane();
-    JLabel usernameLabel = new JLabel("NAME");
-    JLabel userlastnameLabel = new JLabel("LAST NAME");
-    JLabel userpcodeLabel = new JLabel("PERSONAL CODE");
-    JLabel useremailLabel = new JLabel("EMAIL");
-    JLabel userLabel = new JLabel("USERNAME");
-    JTextField usernameField = new JTextField();
-    JTextField userlastnameField = new JTextField();
-    JTextField userpcodetField = new JTextField();
-    JTextField useremailField = new JTextField();
-    JTextField userNicknameField = new JTextField();
-    JButton loginButton = new JButton("LOGIN");
-    JButton regButton = new JButton("REGISTER");
-    JCheckBox showPCode = new JCheckBox("Show PCode");
+    JLabel welcomeLabel = new JLabel("Welcome to Monolith!");
+    JLabel usernameLabel = new JLabel("Name");
+    JLabel userlastnameLabel = new JLabel("Last name");
+    JLabel userpcodeLabel = new JLabel("Personal code");
+    JLabel useremailLabel = new JLabel("Email address");
+    JLabel userLabel = new JLabel("Username");
+    RoundJTextField usernameField = new RoundJTextField(20);
+    RoundJTextField userlastnameField = new RoundJTextField(20);
+    RoundJTextField userpcodetField = new RoundJTextField(20);
+    RoundJTextField useremailField = new RoundJTextField(20);
+    RoundJTextField userNicknameField = new RoundJTextField(20);
+    JButton loginButton = new JButton("Login");
+    JButton regButton = new JButton("Register");
+
+    Color titleColor = new Color(203, 0, 0);
     Color defaultBackgroundColor = new Color(211, 233, 252);
 
+    Font textFont = new Font("Arial", Font.BOLD, 15); // set font for text area
+    Font titleFont = new Font("Arial", Font.BOLD, 40);
+    ImageIcon imgIcon = new ImageIcon("resources/program_logo.jpg");    // logo
+    JLabel imageLabel = new JLabel(imgIcon);
 
     public GUILogReg() {
         setLayoutManager();
         setLocationAndSize();
         addComponentsToContainer();
         addActionEvent();
-
     }
 
     public void setLayoutManager() {
@@ -52,22 +57,35 @@ public class GUILogReg extends JFrame implements ActionListener {
     }
 
     public void setLocationAndSize() {
-        usernameLabel.setBounds(450, 20, 100, 30);
-        userlastnameLabel.setBounds(450, 60, 100, 30);
-        userpcodeLabel.setBounds(450, 100, 100, 30);
-        useremailLabel.setBounds(450, 140, 100, 30);
-        userLabel.setBounds(450, 180, 100, 30);
-        usernameField.setBounds(610, 20, 100, 30);
-        userlastnameField.setBounds(610, 60, 100, 30);
-        userpcodetField.setBounds(610, 100, 100, 30);
-        useremailField.setBounds(610, 140, 100, 30);
-        userNicknameField.setBounds(610, 180, 100, 30);
-        showPCode.setBounds(500, 250, 150, 30);
-        loginButton.setBounds(450, 300, 100, 30);
-        regButton.setBounds(600, 300, 100, 30);
+        welcomeLabel.setBounds(395, 25, 410, 100);
+        usernameLabel.setBounds(450, 250, 100, 30);
+        userlastnameLabel.setBounds(450, 290, 100, 30);
+        userpcodeLabel.setBounds(450, 330, 170, 30);
+        useremailLabel.setBounds(450, 370, 100, 30);
+        userLabel.setBounds(450, 410, 100, 30);
+        usernameField.setBounds(610, 250, 200, 30);
+        userlastnameField.setBounds(610, 290, 200, 30);
+        userpcodetField.setBounds(610, 330, 200, 30);
+        useremailField.setBounds(610, 370, 200, 30);
+        userNicknameField.setBounds(610, 410, 200, 30);
+        loginButton.setBounds(450, 530, 100, 30);
+        regButton.setBounds(600, 530, 100, 30);
+        imageLabel.setBounds(1, 1, 750, 1000);        
+        //fonts and colors
+        welcomeLabel.setFont(titleFont);
+        welcomeLabel.setForeground(titleColor);
+
+        usernameLabel.setFont(textFont);
+        userlastnameLabel.setFont(textFont);
+        userpcodeLabel.setFont(textFont);
+        useremailLabel.setFont(textFont);
+        userLabel.setFont(textFont);
+        
     }
 
     public void addComponentsToContainer() {
+        container.add(welcomeLabel);
+        container.add(imageLabel);
         container.add(usernameLabel);
         container.add(userlastnameLabel);
         container.add(userpcodeLabel);
@@ -78,15 +96,14 @@ public class GUILogReg extends JFrame implements ActionListener {
         container.add(userpcodetField);
         container.add(useremailField);
         container.add(userNicknameField);
-        container.add(showPCode);
         container.add(loginButton);
         container.add(regButton);
+        
     }
 
     public void addActionEvent() {
         loginButton.addActionListener(this);
         regButton.addActionListener(this);
-        showPCode.addActionListener(this);
     }
 
 

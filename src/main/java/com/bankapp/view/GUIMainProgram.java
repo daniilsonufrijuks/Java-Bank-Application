@@ -339,9 +339,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         group.add(fond2);
         group.add(fond3);
 
-        fond1.setBounds(5, 0, 100, 30); // set bounds for the radio buttons
-        fond2.setBounds(5, 20, 100, 30);
-        fond3.setBounds(5, 40, 100, 30);
+        fond1.setBounds(480, 5, 100, 30); // set bounds for the radio buttons
+        fond2.setBounds(560, 5, 100, 30);
+        fond3.setBounds(640, 5, 100, 30);
 
 
         //panel4.setComponentZOrder(slidingGraph2, 0);

@@ -349,14 +349,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         group.add(fond3);
 
         fond1.setBounds(480, 5, 100, 30); // set bounds for the radio buttons
-        fond2.setBounds(560, 5, 100, 30);
-        fond3.setBounds(640, 5, 100, 30);
+        fond2.setBounds(580, 5, 100, 30);
+        fond3.setBounds(680, 5, 100, 30);
 
-        buyfond.setBounds(300, 650, 100, 30); // set bounds for the button for buying fonds
+        buyfond.setBounds(500, 650, 100, 30); // set bounds for the button for buying fonds
 
-        fondLabelM.setBounds(400, 650, 100, 30); // set bounds for the label for fonds
-        fondLabelC.setBounds(400, 650, 100, 30);
-        fondLabelD.setBounds(400, 650, 100, 30);
+        fondLabelM.setBounds(650, 650, 100, 30); // set bounds for the label for fonds
+        fondLabelC.setBounds(650, 650, 100, 30);
+        fondLabelD.setBounds(650, 650, 100, 30);
 
 
         //panel4.setComponentZOrder(slidingGraph2, 0);

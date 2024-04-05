@@ -138,7 +138,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JButton TAKE4Button = new JButton("TAKE"); // button for take panel
     JButton TAKE5Button = new JButton("TAKE"); // button for take panel
 
+
     JButton buyfond = new JButton("BUY"); // button for buy panel
+
+    JLabel fondLabelM = new JLabel("MONOLITH"); // label for fonds
+    JLabel fondLabelC = new JLabel("CLEAR SKY"); // label for fonds
+    JLabel fondLabelD = new JLabel("DUTY"); // label for fonds
 
     Graphic slidingGraph = new Graphic(); // create a new graph object
     Graphic slidingGraph2 = new Graphic();
@@ -349,6 +354,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         buyfond.setBounds(300, 650, 100, 30); // set bounds for the button for buying fonds
 
+        fondLabelM.setBounds(400, 650, 100, 30); // set bounds for the label for fonds
+        fondLabelC.setBounds(400, 650, 100, 30);
+        fondLabelD.setBounds(400, 650, 100, 30);
+
 
         //panel4.setComponentZOrder(slidingGraph2, 0);
 
@@ -495,18 +504,33 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         slidingGraph2.setVisible(false);
         slidingGraph3.setVisible(false);
 
+        // ------------
+        // For panel Stock exchange btn and lables 
         panel4.add(buyfond); // add button to the panel 4 
+
+        panel4.add(fondLabelM); // add label to the panel 4
+        panel4.add(fondLabelC); // add label to the panel 4
+        panel4.add(fondLabelD); // add label to the panel 4
+
+        fondLabelM.setVisible(false); // set label invisible
+        fondLabelC.setVisible(false);
+        fondLabelD.setVisible(false);
+        // ------------
 
 
 
         //panel4.add(innerPanel, BorderLayout.CENTER); // add graph to the panel
+
+
+
+        // ------------
         // Panels   
         tabPanel.addTab("Main", panel1); 
         tabPanel.addTab("Send", panel2); 
         tabPanel.addTab("Credits", panel3); 
         tabPanel.addTab("Stock exchange", panel4);
         tabPanel.addTab("About us", panel5);
-        //container.add(addmButton);
+        // ------------
 
     }
 
@@ -682,18 +706,27 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             slidingGraph2.setVisible(false);
             slidingGraph3.setVisible(false);
             slidingGraph.setVisible(true);
+            fondLabelM.setVisible(true);
+            fondLabelC.setVisible(false);
+            fondLabelD.setVisible(false);
         } else if (fond2.isSelected()) {
             // Code for when radioButton2 is selected
             //panel4.add(slidingGraph2);
             slidingGraph.setVisible(false);
             slidingGraph3.setVisible(false);
             slidingGraph2.setVisible(true);
+            fondLabelM.setVisible(false);
+            fondLabelC.setVisible(true);
+            fondLabelD.setVisible(false);
         } else if (fond3.isSelected()) {
             // Code for when radioButton3 is selected
             //panel4.add(slidingGraph3);
             slidingGraph2.setVisible(false);
             slidingGraph.setVisible(false);
             slidingGraph3.setVisible(true);
+            fondLabelM.setVisible(false);
+            fondLabelC.setVisible(false);
+            fondLabelD.setVisible(true);
         }
     }
     

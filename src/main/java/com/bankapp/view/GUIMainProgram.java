@@ -57,6 +57,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JTextField creditoptionfiled4;
     JTextField creditoptionfiled5;
 
+    // For Panel Send text fields
     JTextField recUsernameField;
     JTextField recBankAccountField;
     JTextField moneyToSendField;
@@ -68,16 +69,17 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel moneyToSendLabel = new JLabel("Money");
     JLabel moneyLabel = new JLabel("YOUR BALANCE: ");
 
-
+    // For Panel Stock exchange
     JRadioButton fond1 = new JRadioButton("MONOLITH"); // create a radio button
     JRadioButton fond2 = new JRadioButton("CLEAR SKY"); // create a radio button
     JRadioButton fond3 = new JRadioButton("DUTY"); // create a radio button
 
-    ButtonGroup group = new ButtonGroup();
+    ButtonGroup group = new ButtonGroup(); // create a button group
 
     //JTextArea textArea = new JTextArea(20, 20); // Create a JTextArea
     //JScrollPane scrollPane = new JScrollPane(textArea); // Create a JScrollPane and add the JTextArea to it
 
+    // For Panel Credits
     JLabel credit = new JLabel("CREDIT OPTION 1");
     JLabel credit2 = new JLabel("CREDIT OPTION 2");
     JLabel credit3 = new JLabel("CREDIT OPTION 3");
@@ -108,9 +110,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel creditsumtotal4 = new JLabel();
     JLabel creditsumtotal5 = new JLabel();
 
-    JLabel creditsum;
+    JLabel creditsum; // for credits
 
-    String userpCode;
+    String userpCode; // for SendMoney
     // color change
     JCheckBox darkModeChBox = new JCheckBox("Dark Mode");
     Color defaultBackgroundColor = new Color(211, 233, 252);
@@ -135,6 +137,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JButton TAKE3Button = new JButton("TAKE"); // button for take panel
     JButton TAKE4Button = new JButton("TAKE"); // button for take panel
     JButton TAKE5Button = new JButton("TAKE"); // button for take panel
+
+    JButton buyfond = new JButton("BUY"); // button for buy panel
 
     Graphic slidingGraph = new Graphic(); // create a new graph object
     Graphic slidingGraph2 = new Graphic();
@@ -343,6 +347,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         fond2.setBounds(560, 5, 100, 30);
         fond3.setBounds(640, 5, 100, 30);
 
+        buyfond.setBounds(300, 650, 100, 30); // set bounds for the button for buying fonds
+
 
         //panel4.setComponentZOrder(slidingGraph2, 0);
 
@@ -488,6 +494,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         slidingGraph.setVisible(false); // set graph invisible
         slidingGraph2.setVisible(false);
         slidingGraph3.setVisible(false);
+
+        panel4.add(buyfond); // add button to the panel 4 
 
 
 

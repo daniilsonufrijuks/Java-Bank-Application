@@ -141,9 +141,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
     JButton buyfond = new JButton("BUY"); // button for buy panel
 
-    JLabel fondLabelM = new JLabel("MONOLITH"); // label for fonds
-    JLabel fondLabelC = new JLabel("CLEAR SKY"); // label for fonds
-    JLabel fondLabelD = new JLabel("DUTY"); // label for fonds
+    JLabel fondLabelM = new JLabel("MONOLITH FUND"); // label for fonds
+    JLabel fondLabelC = new JLabel("CLEAR SKY FUND"); // label for fonds
+    JLabel fondLabelD = new JLabel("DUTY FUND"); // label for fonds
 
     Graphic slidingGraph = new Graphic(Color.BLUE, "resources/graphic.txt"); // create a new graph object
     Graphic slidingGraph2 = new Graphic(Color.BLACK, "resources/graphic2.txt");

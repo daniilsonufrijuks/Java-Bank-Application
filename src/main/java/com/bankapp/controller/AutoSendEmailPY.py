@@ -1,43 +1,30 @@
-from mailersend import emails
-from dotenv import load_dotenv
-import os
+import smtplib
+from email.mime.text import MIMEText
 
-def send():
-    load_dotenv()
+def send_email(sender_email, sender_password, receiver_email, subject, body):
+    # Create a MIMEText object to represent the email
+    message = MIMEText(body)
+    message['From'] = sender_email
+    message['To'] = receiver_email
+    message['Subject'] = subject
 
-    mailer = emails.NewEmail(os.getenv('mlsn.186724e6fb19f297bc5fe91426fec9d3830e9e65a06a39d52056850d74ebc1a3'))
+    # Connect to the SMTP server
+    server = smtplib.SMTP('smtp.example.com', 25)  # Specify SMTP server and port
 
-    # define an empty dict to populate with mail values
-    mail_body = {}
+    # Login to the SMTP server (optional if not required)
+    server.login(sender_email, sender_password)
 
-    mail_from = {
-        "name": "...",
-        "email": "monolithabout@gmail.com",
-    }
+    # Send the email
+    server.sendmail(sender_email, receiver_email, message.as_string())
 
-    recipients = [
-        {
-            "name": "Your Client",
-            "email": "kroshthebestfriend@gmail.com",
-        }
-    ]
+    # Close the connection to the SMTP server
+    server.quit()
 
-    # reply_to = {
-    #     "name": "Name",
-    #     "email": "reply@domain.com",
-    # }
+# Example usage:
+sender_email = "monolithabout@gmail.com"
+sender_password = "your_password"
+receiver_email = "kroshthebestfriend@gmail.com"
+subject = "Test Email"
+body = "This is a test email sent using Python."
 
-    mailer.set_mail_from(mail_from, mail_body)
-    mailer.set_mail_to(recipients, mail_body)
-    mailer.set_subject("Hello!", mail_body)
-    mailer.set_html_content("This is the HTML content", mail_body)
-    mailer.set_plaintext_content("This is the text content", mail_body)
-    # mailer.set_reply_to(reply_to, mail_body)
-
-    # using print() will also return status code and data
-    mailer.send(mail_body)
-
-def main():
-    send()
-
-main()
+send_email(sender_email, sender_password, receiver_email, subject, body)

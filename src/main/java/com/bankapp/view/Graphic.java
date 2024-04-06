@@ -60,19 +60,10 @@ public class Graphic extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Смещение данных (для примера)
         for (int i = 0; i < data.length - 1; i++) {
             data[i] = data[i + 1];
         }
         data[data.length - 1] = (int) (Math.random() * 100); // Генерация нового значения для последней точки
         repaint();
     }
-
-    // public static void main(String[] args) {
-    //     JFrame frame = new JFrame("Sliding Graph");
-    //     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    //     frame.setSize(400, 300);
-    //     frame.add(new Graphic());
-    //     frame.setVisible(true);
-    // }
 }

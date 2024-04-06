@@ -18,7 +18,7 @@ public class Graphic extends JPanel implements ActionListener {
     // Область, в которой будет отображаться график
     private Rectangle graphArea = new Rectangle(0, 0, 1100, 300); // x, y, width, height
 
-    public Graphic(Color color) {
+    public Graphic(Color color, String filepath) {
         this.color = color;
         timer = new Timer(2500, this);
         timer.start();
@@ -29,7 +29,7 @@ public class Graphic extends JPanel implements ActionListener {
         }
         FileManager fileManager = new FileManager();
         for (int value : data) {
-            fileManager.WriteToAFileTXT("resources/graphic.txt", value);
+            fileManager.WriteToAFileTXT(filepath, value);
         }
     }
 

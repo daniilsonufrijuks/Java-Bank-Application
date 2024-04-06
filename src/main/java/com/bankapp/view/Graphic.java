@@ -38,6 +38,9 @@ public class Graphic extends JPanel implements ActionListener {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
 
+        float thickness = 3f; // Change this value to change the thickness
+        g2d.setStroke(new BasicStroke(thickness));
+
         // Отрисовка области графика
         g2d.setColor(Color.LIGHT_GRAY);
         g2d.fill(graphArea);

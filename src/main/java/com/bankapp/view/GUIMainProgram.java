@@ -354,9 +354,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         buyfond.setBounds(500, 650, 100, 30); // set bounds for the button for buying fonds
 
-        fondLabelM.setBounds(650, 650, 100, 30); // set bounds for the label for fonds
-        fondLabelC.setBounds(650, 650, 100, 30);
-        fondLabelD.setBounds(650, 650, 100, 30);
+        fondLabelM.setBounds(620, 650, 140, 30); // set bounds for the label for fonds
+        fondLabelC.setBounds(620, 650, 140, 30);
+        fondLabelD.setBounds(620, 650, 140, 30);
 
 
         //panel4.setComponentZOrder(slidingGraph2, 0);

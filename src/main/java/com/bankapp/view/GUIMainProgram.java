@@ -10,6 +10,7 @@ import controller.AutoSendonYourEmail;
 import logreg.Login;
 import managers.BankAccountManager;
 import managers.CreditManager;
+import model.Credits;
 import model.Person;
 import model.Transaction;
 import regex.REGEXManager;
@@ -583,16 +584,17 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         if (e.getSource() == TAKEButton) {
             Float filedcredit1;
             filedcredit1 = Float.parseFloat(creditoptionfiled1.getText());
+            Credits credits = new Credits(filedcredit1);
             BigDecimal balance = BankAccountManager.GetBalance(userpCode);
             BigDecimal filedcredit1BigDecimal = BigDecimal.valueOf(filedcredit1);
 
             if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {
                 CreditManager genCredit = new CreditManager();
-                Transaction transaction = new Transaction(genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
+                Transaction transaction = new Transaction(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 25, 1), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1);
                 System.out.println(BankAccountManager.FindBankAccount(userpCode) + " ," +username);
-                creditsumtotal.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1)));
-                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit1);
+                creditsumtotal.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 25, 1)));
+                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, credits.getTotal());
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 System.out.println("   balance ---> " + String.valueOf(BankAccountManager.GetBalance(userpCode)));
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance

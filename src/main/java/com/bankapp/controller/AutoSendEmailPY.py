@@ -5,7 +5,7 @@ import os
 def send():
     load_dotenv()
 
-    mailer = emails.NewEmail(os.getenv('mlsn.13b8ebc4ce704c2e43a1ead6dac9ef778ffe77b1291461ad8ecf8e1e481bfc64'))
+    mailer = emails.NewEmail(os.getenv('mlsn.186724e6fb19f297bc5fe91426fec9d3830e9e65a06a39d52056850d74ebc1a3'))
 
     # define an empty dict to populate with mail values
     mail_body = {}

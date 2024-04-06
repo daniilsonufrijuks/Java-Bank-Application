@@ -10,13 +10,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Graphic extends JPanel implements ActionListener {
+    private Color color; // graphic color 
+
     private int[] data = new int[100];
-    private Timer timer;
+    private Timer timer; // timer for updating the graph every 2.5 seconds (2500 ms)
 
     // Область, в которой будет отображаться график
     private Rectangle graphArea = new Rectangle(0, 0, 1100, 300); // x, y, width, height
 
-    public Graphic() {
+    public Graphic(Color color) {
+        this.color = color;
         timer = new Timer(2500, this);
         timer.start();
 
@@ -40,7 +43,7 @@ public class Graphic extends JPanel implements ActionListener {
         g2d.fill(graphArea);
 
         // Отрисовка графика в заданной области
-        g2d.setColor(Color.BLUE);
+        g2d.setColor(color);
         int x = graphArea.x;
         int y = graphArea.y + graphArea.height;
         int xScale = graphArea.width / data.length;

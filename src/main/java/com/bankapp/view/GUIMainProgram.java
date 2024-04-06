@@ -145,9 +145,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel fondLabelC = new JLabel("CLEAR SKY"); // label for fonds
     JLabel fondLabelD = new JLabel("DUTY"); // label for fonds
 
-    Graphic slidingGraph = new Graphic(); // create a new graph object
-    Graphic slidingGraph2 = new Graphic();
-    Graphic slidingGraph3 = new Graphic();
+    Graphic slidingGraph = new Graphic(Color.BLUE); // create a new graph object
+    Graphic slidingGraph2 = new Graphic(Color.GREEN);
+    Graphic slidingGraph3 = new Graphic(Color.RED);
 
     String username; // person name
     String nickname; // person nickname

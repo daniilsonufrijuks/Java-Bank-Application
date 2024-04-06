@@ -588,13 +588,13 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             BigDecimal balance = BankAccountManager.GetBalance(userpCode);
             BigDecimal filedcredit1BigDecimal = BigDecimal.valueOf(filedcredit1);
 
-            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {
+            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0 && credits.getTotal() <= 100) {
                 CreditManager genCredit = new CreditManager();
-                Transaction transaction = new Transaction(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 25, 1), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
+                Transaction transaction = new Transaction(Float.valueOf(credits.getTotal()), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1);
                 System.out.println(BankAccountManager.FindBankAccount(userpCode) + " ," +username);
                 creditsumtotal.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 25, 1)));
-                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, credits.getTotal());
+                //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, credits.getTotal());
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 System.out.println("   balance ---> " + String.valueOf(BankAccountManager.GetBalance(userpCode)));
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
@@ -606,16 +606,17 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         if (e.getSource() == TAKE2Button) {
             Float filedcredit2;
             filedcredit2 = Float.parseFloat(creditoptionfiled2.getText());
+            Credits credits = new Credits(filedcredit2);
             BigDecimal balance = BankAccountManager.GetBalance(userpCode);
             BigDecimal filedcredit1BigDecimal = BigDecimal.valueOf(filedcredit2);
 
-            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {
+            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0 && credits.getTotal() <= 1000) {
                 CreditManager genCredit = new CreditManager();
-                Transaction transaction = new Transaction(genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
+                Transaction transaction = new Transaction(Float.valueOf(credits.getTotal()), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
 
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2);
-                creditsumtotal2.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2)));
-                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit2);
+                creditsumtotal2.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 20, 2)));
+                //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit2);
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
@@ -626,16 +627,17 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         if (e.getSource() == TAKE3Button) {
             Float filedcredit3;
             filedcredit3 = Float.parseFloat(creditoptionfiled3.getText());
+            Credits credits = new Credits(filedcredit3);
             BigDecimal balance = BankAccountManager.GetBalance(userpCode);
             BigDecimal filedcredit1BigDecimal = BigDecimal.valueOf(filedcredit3);
 
-            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {
+            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0 && credits.getTotal() <= 10000) {
                 CreditManager genCredit = new CreditManager();
-                Transaction transaction = new Transaction(genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
+                Transaction transaction = new Transaction(credits.getTotal(), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
 
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3);
-                creditsumtotal3.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3)));
-                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit3);
+                creditsumtotal3.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 15, 3)));
+                //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit3);
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
@@ -646,16 +648,17 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         if (e.getSource() == TAKE4Button) {
             Float filedcredit4;
             filedcredit4 = Float.parseFloat(creditoptionfiled4.getText());
+            Credits credits = new Credits(filedcredit4);
             BigDecimal balance = BankAccountManager.GetBalance(userpCode);
             BigDecimal filedcredit1BigDecimal = BigDecimal.valueOf(filedcredit4);
 
-            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {
+            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0 && credits.getTotal() <= 100000) {
                 CreditManager genCredit = new CreditManager();
-                Transaction transaction = new Transaction(genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
+                Transaction transaction = new Transaction(credits.getTotal(), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
 
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4);
-                creditsumtotal4.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4)));
-                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit4);
+                creditsumtotal4.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 14, 4)));
+                //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit4);
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
@@ -666,16 +669,17 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         if (e.getSource() == TAKE5Button) {
             Float filedcredit5;
             filedcredit5 = Float.parseFloat(creditoptionfiled5.getText());
+            Credits credits = new Credits(filedcredit5);
             BigDecimal balance = BankAccountManager.GetBalance(userpCode);
             BigDecimal filedcredit1BigDecimal = BigDecimal.valueOf(filedcredit5);
             
-            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0) {                
+            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0 && credits.getTotal() <= 1000000){                
                 CreditManager genCredit = new CreditManager();
-                Transaction transaction = new Transaction(genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
+                Transaction transaction = new Transaction(credits.getTotal(), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
 
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5);
-                creditsumtotal5.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5)));
-                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit5);
+                creditsumtotal5.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 5, 5)));
+                //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit5);
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");

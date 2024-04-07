@@ -361,7 +361,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         fondLabelC.setBounds(620, 650, 140, 30);
         fondLabelD.setBounds(620, 650, 140, 30);
 
-        calendarApp.setBounds(900, 400, 300, 200); // set bounds for the calendar
+        calendarApp.setBounds(650, 300, 400, 300); // set bounds for the calendar
 
 
         //panel4.setComponentZOrder(slidingGraph2, 0);

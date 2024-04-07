@@ -150,6 +150,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     Graphic slidingGraph2 = new Graphic(Color.BLACK, "resources/graphic2.txt");
     Graphic slidingGraph3 = new Graphic(Color.RED, "resources/graphic3.txt");
 
+    CalendarApp calendarApp = new CalendarApp(); // create a new calendar object
+
     String username; // person name
     String nickname; // person nickname
     String useremail; // person email
@@ -359,6 +361,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         fondLabelC.setBounds(620, 650, 140, 30);
         fondLabelD.setBounds(620, 650, 140, 30);
 
+        calendarApp.setBounds(900, 400, 300, 200); // set bounds for the calendar
+
 
         //panel4.setComponentZOrder(slidingGraph2, 0);
 
@@ -402,6 +406,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel1.add(userbalanceLabel);
         panel1.add(moneyLabel);
         panel1.add(darkModeChBox);
+
+        panel1.add(calendarApp); // add calendar to the panel
+
         //ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); // replace with your image file path
         //JLabel imageLabel = new JLabel(imageIcon);
         //panel1.setLayout(null);

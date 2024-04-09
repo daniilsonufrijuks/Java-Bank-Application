@@ -49,7 +49,7 @@ public class Graphic extends JPanel implements ActionListener {
         g2d.setColor(color);
         int x = graphArea.x;
         int y = graphArea.y + graphArea.height;
-        int xScale = graphArea.width / data.length;
+        int xScale = graphArea.width / data.length; // int xScale = (int) (graphArea.width / (data.length * 0.75)); // 75% of the original distance
         int yScale = graphArea.height / 100;
         for (int i = 0; i < data.length - 1; i++) {
             int x1 = x + i * xScale;

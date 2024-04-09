@@ -752,6 +752,23 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             fondLabelC.setVisible(false);
             fondLabelD.setVisible(true);
         }
+
+        // sell and buy action for btn in stock exchange
+        if (e.getSource() == buyfond) {
+            // Code for when buy button is clicked
+            //JOptionPane.showMessageDialog(this, "Buy button clicked!");
+            //BankAccountManager.SendMoney(transaction);
+            //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userPCodeLabel.getText(), userEmailLabel.getText(), moneyToSend);
+            //JOptionPane.showMessageDialog(this, "Success transaction!");
+        }
+
+        if (e.getSource() == sellfond) {
+            // Code for when sell button is clicked
+            //JOptionPane.showMessageDialog(this, "Sell button clicked!");
+            //BankAccountManager.SendMoney(transaction);
+            //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userPCodeLabel.getText(), userEmailLabel.getText(), moneyToSend);
+            //JOptionPane.showMessageDialog(this, "Success transaction!");
+        }
     }
     
 }

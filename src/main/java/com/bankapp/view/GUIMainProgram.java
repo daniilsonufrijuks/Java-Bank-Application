@@ -141,7 +141,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JButton TAKE5Button = new JButton("TAKE"); // button for take panel
 
 
-    JButton buyfond = new JButton("BUY"); // button for buy panel
+    // ------------
+    JButton buyfond = new JButton("BUY"); // button for buy panel stock exchange
+    JButton sellfond = new JButton("SELL"); // button for sell panel stock exchange
+    // ------------
 
     JLabel fondLabelM = new JLabel("MONOLITH FUND"); // label for fonds
     JLabel fondLabelC = new JLabel("CLEAR SKY FUND"); // label for fonds
@@ -356,7 +359,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         fond2.setBounds(580, 5, 100, 30);
         fond3.setBounds(680, 5, 100, 30);
 
-        buyfond.setBounds(500, 650, 100, 30); // set bounds for the button for buying fonds
+        buyfond.setBounds(500, 550, 100, 30); // set bounds for the button for buying fonds
+
+        sellfond.setBounds(500, 650, 100, 30); // set bounds for the button for selling fonds
 
         fondLabelM.setBounds(620, 650, 140, 30); // set bounds for the label for fonds
         fondLabelC.setBounds(620, 650, 140, 30);
@@ -516,6 +521,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         // ------------
         // For panel Stock exchange btn and lables 
         panel4.add(buyfond); // add button to the panel 4 
+        panel4.add(sellfond); // add button to the panel 4
 
         panel4.add(fondLabelM); // add label to the panel 4
         panel4.add(fondLabelC); // add label to the panel 4
@@ -552,6 +558,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         TAKE3Button.addActionListener(this);
         TAKE4Button.addActionListener(this);
         TAKE5Button.addActionListener(this);
+        buyfond.addActionListener(this);
+        sellfond.addActionListener(this);
         fond1.addActionListener(this);
         fond2.addActionListener(this);
         fond3.addActionListener(this); // action listener for radio buttons

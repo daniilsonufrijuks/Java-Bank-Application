@@ -57,7 +57,7 @@ public class Graphic extends JPanel implements ActionListener {
             int x2 = x + (i + 1) * xScale;
             int y2 = y - data[i + 1] * yScale;
             g2d.drawLine(x1, y1, x2, y2); // Отрисовка линий между точками
-            g2d.fillOval(x1 - 2, y1 - 2, 4, 4); // Отрисовка точек
+            g2d.fillOval(x1 - 2, y1 - 2, 6, 6); // Отрисовка точек
         }
     }
 

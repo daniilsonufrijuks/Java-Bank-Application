@@ -14,8 +14,10 @@ public class Main {
         // gui start -----------------------
         //StartWindow m = new StartWindow();
         Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
-        JFrame stw = new JFrame();  
+        JFrame stw = new JFrame();
+        ImageIcon imgIcon = new ImageIcon("resources/program_logo.jpg");    // logo
         stw.setTitle("MONOLITH Bank"); // set title
+        stw.setIconImage(imgIcon.getImage());   // set icon
         JLabel label = new JLabel(new ImageIcon("resources/monolithbg.jpg")); // set background image
         stw.getContentPane().add(label); // add label to the frame
         // gui start -----------------------
@@ -33,6 +35,7 @@ public class Main {
         // log window
         frame = new GUILogReg(); // create a new frame
         frame.setTitle("MONOLITH Bank");
+        frame.setIconImage(imgIcon.getImage());     // set icon
         frame.setVisible(true);
         Color backgroundColor = new Color(211, 233, 252);   // for background color
         frame.getContentPane().setBackground(backgroundColor);

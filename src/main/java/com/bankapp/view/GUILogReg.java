@@ -58,19 +58,19 @@ public class GUILogReg extends JFrame implements ActionListener {
 
     public void setLocationAndSize() {
         welcomeLabel.setBounds(395, 25, 500, 100);
-        usernameLabel.setBounds(450, 250, 100, 30);
-        userlastnameLabel.setBounds(450, 290, 100, 30);
-        userpcodeLabel.setBounds(450, 330, 170, 30);
-        useremailLabel.setBounds(450, 370, 100, 30);
-        userLabel.setBounds(450, 410, 100, 30);
-        usernameField.setBounds(610, 250, 200, 30);
-        userlastnameField.setBounds(610, 290, 200, 30);
-        userpcodetField.setBounds(610, 330, 200, 30);
-        useremailField.setBounds(610, 370, 200, 30);
-        userNicknameField.setBounds(610, 410, 200, 30);
+        usernameLabel.setBounds(435, 250, 100, 30);
+        userlastnameLabel.setBounds(435, 290, 100, 30);
+        userpcodeLabel.setBounds(435, 330, 170, 30);
+        useremailLabel.setBounds(435, 370, 100, 30);
+        userLabel.setBounds(435, 410, 100, 30);
+        usernameField.setBounds(575, 250, 200, 30);
+        userlastnameField.setBounds(575, 290, 200, 30);
+        userpcodetField.setBounds(575, 330, 200, 30);
+        useremailField.setBounds(575, 370, 200, 30);
+        userNicknameField.setBounds(575, 410, 200, 30);
         loginButton.setBounds(450, 530, 100, 30);
         regButton.setBounds(600, 530, 100, 30);
-        imageLabel.setBounds(1, 1, 750, 1000);        
+        imageLabel.setBounds(1, 1, 284, 387);        
         //fonts and colors
         welcomeLabel.setFont(titleFont);
         welcomeLabel.setForeground(titleColor);
@@ -168,6 +168,7 @@ public class GUILogReg extends JFrame implements ActionListener {
                 //Point center2 = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
                 JFrame stwm = new JFrame();  
                 stwm.setTitle("MONOLITH Bank"); // set title
+                stwm.setIconImage(imgIcon.getImage());  // set icon
                 // JLabel label = new JLabel(new ImageIcon("resources/hamster.jpg")); // set background image
                 // stwm.getContentPane().add(label); // add label to the frame
                 // // gui start -----------------------
@@ -248,6 +249,7 @@ public class GUILogReg extends JFrame implements ActionListener {
 
                 //GUIMainProgram frame2 = new GUIMainProgram(userText, userlnameText);
                 frame2.setTitle("MONOLITH Bank");
+                frame2.setIconImage(imgIcon.getImage());    // set icon
                 frame2.setBounds(center.x - 1200 / 2, center.y - 750 / 2, 1200, 750); // to centre window
                 //frame2.setBounds(10, 10, 1200, 750);
                 frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

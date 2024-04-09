@@ -20,6 +20,7 @@ import java.io.Console;
 //import main.java.com.bankapp.Main;
 import java.io.File;
 import java.io.IOException;
+import view.RoundJTextField;
 
 public class GUILogReg extends JFrame implements ActionListener {  
     Container container = getContentPane();

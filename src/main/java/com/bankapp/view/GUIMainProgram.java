@@ -24,6 +24,7 @@ import java.math.BigDecimal;
 import java.net.URI;
 import java.net.URISyntaxException; 
 
+
 // Remove the unnecessary import statement
 // import view.GUILogReg.person;
 

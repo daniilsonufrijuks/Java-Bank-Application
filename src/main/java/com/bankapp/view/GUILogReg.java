@@ -44,7 +44,8 @@ public class GUILogReg extends JFrame implements ActionListener {
     Font textFont = new Font("Arial", Font.BOLD, 15); // set font for text area
     Font titleFont = new Font("Arial", Font.BOLD, 40);
     ImageIcon imgIcon = new ImageIcon("resources/program_logo.jpg");    // logo
-    JLabel imageLabel = new JLabel(imgIcon);
+    ImageIcon imgForFrame = new ImageIcon("resources/logo_small_forGUIlogreg.jpg");   // to put on frame
+    JLabel imageLabel = new JLabel(imgForFrame);
 
     public GUILogReg() {
         setLayoutManager();
@@ -59,19 +60,19 @@ public class GUILogReg extends JFrame implements ActionListener {
 
     public void setLocationAndSize() {
         welcomeLabel.setBounds(395, 25, 500, 100);
-        usernameLabel.setBounds(435, 250, 100, 30);
-        userlastnameLabel.setBounds(435, 290, 100, 30);
-        userpcodeLabel.setBounds(435, 330, 170, 30);
-        useremailLabel.setBounds(435, 370, 100, 30);
-        userLabel.setBounds(435, 410, 100, 30);
-        usernameField.setBounds(575, 250, 200, 30);
-        userlastnameField.setBounds(575, 290, 200, 30);
-        userpcodetField.setBounds(575, 330, 200, 30);
-        useremailField.setBounds(575, 370, 200, 30);
-        userNicknameField.setBounds(575, 410, 200, 30);
-        loginButton.setBounds(450, 530, 100, 30);
-        regButton.setBounds(600, 530, 100, 30);
-        imageLabel.setBounds(1, 1, 284, 387);        
+        usernameLabel.setBounds(435, 330, 100, 30);
+        userlastnameLabel.setBounds(435, 370, 100, 30);
+        userpcodeLabel.setBounds(435, 410, 170, 30);
+        useremailLabel.setBounds(435, 450, 100, 30);
+        userLabel.setBounds(435, 490, 100, 30);
+        usernameField.setBounds(575, 330, 200, 30);
+        userlastnameField.setBounds(575, 370, 200, 30);
+        userpcodetField.setBounds(575, 410, 200, 30);
+        useremailField.setBounds(575, 450, 200, 30);
+        userNicknameField.setBounds(575, 490, 200, 30);
+        loginButton.setBounds(475, 570, 100, 30);
+        regButton.setBounds(625, 570, 100, 30);
+        imageLabel.setBounds(529, 120, 142, 194);        
         //fonts and colors
         welcomeLabel.setFont(titleFont);
         welcomeLabel.setForeground(titleColor);

@@ -200,4 +200,14 @@ public class BankAccountManager {       // Class for monetary transactions (send
         return money;
     }
 
+    public static void ShowMessagewhenMoneysent(String userpcode, Float money) {
+        try{
+            FileWriter regWriter = new FileWriter("resources/messagetosend.csv", true); // create a new file writer object
+            regWriter.write(userpcode + ", " + money + "\n");
+            regWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

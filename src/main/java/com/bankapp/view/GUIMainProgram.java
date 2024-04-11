@@ -592,6 +592,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         fond1.addActionListener(this);
         fond2.addActionListener(this);
         fond3.addActionListener(this); // action listener for radio buttons
+        repaycredit.addActionListener(this);
     }
 
     @Override
@@ -810,6 +811,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         }
 
         if (e.getSource() == sellfond) {
+            // Code for when sell button is clicked
+            //JOptionPane.showMessageDialog(this, "Sell button clicked!");
+            //BankAccountManager.SendMoney(transaction);
+            //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userPCodeLabel.getText(), userEmailLabel.getText(), moneyToSend);
+            //JOptionPane.showMessageDialog(this, "Success transaction!");
+        }
+
+        if (e.getSource() == repaycredit) {
             // Code for when sell button is clicked
             //JOptionPane.showMessageDialog(this, "Sell button clicked!");
             //BankAccountManager.SendMoney(transaction);

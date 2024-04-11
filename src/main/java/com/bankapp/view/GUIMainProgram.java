@@ -140,6 +140,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JButton TAKE4Button = new JButton("TAKE"); // button for take panel
     JButton TAKE5Button = new JButton("TAKE"); // button for take panel
 
+    JButton repaycredit = new JButton("REPAY"); // button for repay panel
+    JTextField repaycreditfield = new JTextField(); // text field for repay panel
+
 
     // ------------
     JButton buyfond = new JButton("BUY"); // button for buy panel stock exchange
@@ -340,6 +343,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditsumtotal4.setFont(newFont);
         creditsumtotal5.setFont(newFont);
 
+        repaycredit.setBounds(50, 350, 100, 30); // set bounds for the button
+        repaycreditfield.setBounds(200, 350, 100, 30); // set bounds for the text field
+
         //slidingGraph.setBorder(BorderFactory.createEmptyBorder(10, 50, 300, 50)); // set bounds for the graph
         //slidingGraph.setBorder(BorderFactory.createLineBorder(Color.RED, 5));
 
@@ -489,6 +495,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.add(creditsumtotal3);
         panel3.add(creditsumtotal4);
         panel3.add(creditsumtotal5);
+
+        panel3.add(repaycredit);
+        panel3.add(repaycreditfield);
 
         //panel4.add(slidingGraph); // add graph to the panel
         //panel4.add(slidingGraph2);

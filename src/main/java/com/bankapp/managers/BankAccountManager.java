@@ -85,12 +85,19 @@ public class BankAccountManager {       // Class for monetary transactions (send
                 if (parts.length == 10 && parts[3].equals(userpCode)) {    // find the needed account
                     money = Float.parseFloat(parts[9]);
                     //System.out.println(moneyToSend);
-                    System.out.println(money);
-                    System.out.println(userpCode);
+                    System.out.println(" -----> ");
+                    System.out.println("money: " + money);
+                    System.out.println("userpcode: " + userpCode);
+                    System.out.println(" -----> ");
                     break;
                 }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try(BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) {
             // ---------------------------------------------------------------------
+            String line;
             while ((line = br.readLine()) != null) { // while there is a next line
                 String[] parts = line.split(", ");      // current line from csv file
                 for (String string : parts) {
@@ -112,9 +119,6 @@ public class BankAccountManager {       // Class for monetary transactions (send
                     System.out.println("Invalid username or bank account!");
                 }
             }
-
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -60,18 +60,18 @@ public class GUILogReg extends JFrame implements ActionListener {
 
     public void setLocationAndSize() {
         welcomeLabel.setBounds(395, 25, 500, 100);
-        usernameLabel.setBounds(435, 330, 100, 30);
-        userlastnameLabel.setBounds(435, 370, 100, 30);
-        userpcodeLabel.setBounds(435, 410, 170, 30);
-        useremailLabel.setBounds(435, 450, 100, 30);
-        userLabel.setBounds(435, 490, 100, 30);
-        usernameField.setBounds(575, 330, 200, 30);
-        userlastnameField.setBounds(575, 370, 200, 30);
-        userpcodetField.setBounds(575, 410, 200, 30);
-        useremailField.setBounds(575, 450, 200, 30);
-        userNicknameField.setBounds(575, 490, 200, 30);
-        loginButton.setBounds(475, 570, 100, 30);
-        regButton.setBounds(625, 570, 100, 30);
+        usernameLabel.setBounds(435, 340, 100, 30);
+        userlastnameLabel.setBounds(435, 380, 100, 30);
+        userpcodeLabel.setBounds(435, 420, 170, 30);
+        useremailLabel.setBounds(435, 460, 100, 30);
+        userLabel.setBounds(435, 500, 100, 30);
+        usernameField.setBounds(575, 340, 200, 30);
+        userlastnameField.setBounds(575, 380, 200, 30);
+        userpcodetField.setBounds(575, 420, 200, 30);
+        useremailField.setBounds(575, 460, 200, 30);
+        userNicknameField.setBounds(575, 500, 200, 30);
+        loginButton.setBounds(435, 570, 150, 30);
+        regButton.setBounds(625, 570, 150, 30);
         imageLabel.setBounds(529, 120, 142, 194);        
         //fonts and colors
         welcomeLabel.setFont(titleFont);
@@ -82,7 +82,12 @@ public class GUILogReg extends JFrame implements ActionListener {
         userpcodeLabel.setFont(textFont);
         useremailLabel.setFont(textFont);
         userLabel.setFont(textFont);
-        
+        loginButton.setBackground(titleColor);
+        loginButton.setForeground(Color.WHITE);     
+        loginButton.setFont(textFont);
+        regButton.setBackground(titleColor);
+        regButton.setForeground(Color.WHITE);     
+        regButton.setFont(textFont);   
     }
 
     public void addComponentsToContainer() {

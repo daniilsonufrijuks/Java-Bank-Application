@@ -167,6 +167,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     String username; // person name
     String nickname; // person nickname
     String useremail; // person email
+
+    JComboBox comboBox;
+    
     Font newFont = new Font("default", Font.PLAIN, 17); // set font for text area
     // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail, String Nnickname) {
@@ -176,6 +179,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.setBackground(defaultBackgroundColor);
         panel4.setBackground(defaultBackgroundColor);
         panel5.setBackground(defaultBackgroundColor);
+
+        String bankacc = BankAccountManager.FindBankAccount(userpCode); // find bank account by personal code
+        String[] data = {nickname, useremail, bankacc}; // create a new string array
+        comboBox = new JComboBox(data); // create a new combo box
 
         usernameLabel = new JLabel(userText);
         userlastnameLabel = new JLabel(userlnameText);
@@ -384,6 +391,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         calendarApp.setBounds(650, 300, 400, 300); // set bounds for the calendar
 
+        comboBox.setBounds(900, 100, 250, 30); // set bounds for the combo box
+
 
         //panel4.setComponentZOrder(slidingGraph2, 0);
 
@@ -429,6 +438,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel1.add(darkModeChBox);
 
         panel1.add(calendarApp); // add calendar to the panel
+
+        panel1.add(comboBox); // add combo box to the panel
 
         //ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); // replace with your image file path
         //JLabel imageLabel = new JLabel(imageIcon);

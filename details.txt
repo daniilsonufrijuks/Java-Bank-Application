@@ -20,11 +20,6 @@ have to write email check, nickname, personal code
 
 кредит выносится в отдельный класс
 
-График:
-Как работает, шо делать, зачем записывает данные в ткст файл.
-Возможно увеличить время изменения графика?
-Создаётся ли полностью новый график при каждом включении программы?
+В GUIMainProgram заменить JComboBox на JButton + JPopupMenu
+https://www.codejava.net/java-se/swing/how-to-create-drop-down-button-in-swing
 
-!ИСПРАВИТЬ!
-Ошибка в отсылании денег. С аккаунта Adam, Merkel не получилось прислать деньги на аккаунт Mark, Cen.
-С аккаунта Mark, Cen получилось отсылать деньги.

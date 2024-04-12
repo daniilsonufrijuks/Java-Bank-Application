@@ -43,13 +43,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JPanel panel3 = new JPanel();
     JPanel panel4 = new JPanel();
     JPanel panel5 = new JPanel();
-    JLabel usernameLabel;
-    JLabel userlastnameLabel;
     // for SendMoney
     JLabel userPCodeLabel;
     JLabel userEmailLabel;
     //
-    JLabel userbalanceLabel;
     JTextArea textaboutusB;
 
     // For Panel Send
@@ -73,10 +70,13 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     // For Main Panel
     JLabel overviewLabel = new JLabel("Overview");
     JLabel accountLabel = new JLabel("Your account:");
-    JLabel bankAccLabel;
+    JLabel bankAccLabel = new JLabel("placeholder for bankacc");
     JLabel availableBalanceLabel = new JLabel("Available balance");
     JLabel amountOfCreditLabel = new JLabel("Amount of credit");
-    JLabel bankAccountLabel;
+    JLabel usernameLabel;
+    JLabel userlastnameLabel;
+    JLabel userbalanceLabel = new JLabel("placeholder for userbalance");
+    JLabel userCreditsLabel = new JLabel("placeholder for usercredits");
     //
 
     // For Panel Stock exchange
@@ -178,7 +178,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
     JComboBox comboBox;
     
-    Font newFont = new Font("default", Font.PLAIN, 17); // set font for text area
+    Font newFont = new Font("Arial", Font.BOLD, 15); // set font for text area
     // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail, String Nnickname) {
         getContentPane().setBackground(defaultColorForFrame);
@@ -241,14 +241,26 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
     public void setLocationAndSize() {
         // Setting location and Size of each components using setBounds() method.
+        overviewLabel.setBounds(50, 50, 100, 30);
+        accountLabel.setBounds(50, 40, 100, 30);
+        bankAccLabel.setBounds(50, 50, 100, 30);
+        availableBalanceLabel.setBounds(150, 40, 100, 30);
+        amountOfCreditLabel.setBounds(300, 40, 100, 30);
         usernameLabel.setBounds(1000, 20, 100, 30);
         userlastnameLabel.setBounds(1050, 20, 100, 30); 
         userbalanceLabel.setBounds(150, 20, 100, 30);
+        userCreditsLabel.setBounds(300, 60, 100, 30);
         // Set font for the labels
+        overviewLabel.setFont(newFont);
+        accountLabel.setFont(newFont);
+        bankAccLabel.setFont(newFont);
+        availableBalanceLabel.setFont(newFont);
+        amountOfCreditLabel.setFont(newFont);
         userbalanceLabel.setFont(newFont);
         usernameLabel.setFont(newFont);
         userlastnameLabel.setFont(newFont);
-
+        userCreditsLabel.setFont(newFont);
+        
         tabPanel.setBounds(0, 0, 1200, 750); // tab position
 
         imageLabel.setBounds(920, 17, 50, 50); // image position
@@ -439,9 +451,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             }
         });
         panel5.add(editorPane);
+        panel1.add(overviewLabel);
+        panel1.add(accountLabel);
+        panel1.add(bankAccLabel);
+        panel1.add(availableBalanceLabel);
+        panel1.add(amountOfCreditLabel);
         panel1.add(usernameLabel);
         panel1.add(userlastnameLabel);
         panel1.add(userbalanceLabel);
+        panel1.add(userCreditsLabel);
         panel1.add(darkModeChBox);
 
         panel1.add(calendarApp); // add calendar to the panel

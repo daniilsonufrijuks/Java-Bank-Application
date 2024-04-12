@@ -200,14 +200,38 @@ public class BankAccountManager {       // Class for monetary transactions (send
         return money;
     }
 
-    public static void ShowMessagewhenMoneysent(String userpcode, Float money) {
+    // method to show message when money is sent
+    public static void ShowMessagewhenMoneysent(String senderuserpcode, Float money, String userpcode) {
         try{
             FileWriter regWriter = new FileWriter("resources/messagetosend.csv", true); // create a new file writer object
-            regWriter.write(userpcode + ", " + money + "\n");
+            regWriter.write(senderuserpcode + ", " + money + ", " + userpcode + "\n");
             regWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    // method to find person code   
+    public static String FindPersonPcode(String bankacc) {
+        String pcode = "";
+        try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object
+            String line;
+            while ((line = br.readLine()) != null) { // while there is a next line
+                String[] parts = line.split(", ");      // current line from csv file
+                // for (String string : parts) {
+                //     System.out.println("GetBalance results parts: " + string);
+                // }
+                if (parts.length == 10) {
+                    if (parts[4].equals(bankacc)) {
+                        pcode = parts[3];         
+                        return pcode;         
+                    }   // balance is the 10th part of the csv line
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return pcode;
+    } 
 }

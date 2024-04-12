@@ -175,7 +175,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     String username; // person name
     String nickname; // person nickname
     String useremail; // person email
-    Font newFont = new Font("Arial", Font.BOLD, 20); // set font for text area
+
+    JComboBox comboBox;
+    
+    Font newFont = new Font("default", Font.PLAIN, 17); // set font for text area
     // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail, String Nnickname) {
         getContentPane().setBackground(defaultColorForFrame);
@@ -184,6 +187,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.setBackground(defaultBackgroundColor);
         panel4.setBackground(defaultBackgroundColor);
         panel5.setBackground(defaultBackgroundColor);
+
+        String bankacc = BankAccountManager.FindBankAccount(userpCode); // find bank account by personal code
+        String[] data = {nickname, useremail, bankacc}; // create a new string array
+        comboBox = new JComboBox(data); // create a new combo box
 
         usernameLabel = new JLabel(userText);
         userlastnameLabel = new JLabel(userlnameText);
@@ -390,6 +397,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         calendarApp.setBounds(650, 300, 400, 300); // set bounds for the calendar
 
+        comboBox.setBounds(900, 100, 250, 30); // set bounds for the combo box
+
 
         //panel4.setComponentZOrder(slidingGraph2, 0);
 
@@ -434,6 +443,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel1.add(darkModeChBox);
 
         panel1.add(calendarApp); // add calendar to the panel
+
+        panel1.add(comboBox); // add combo box to the panel
 
         //ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); // replace with your image file path
         //JLabel imageLabel = new JLabel(imageIcon);
@@ -646,7 +657,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1);
                 System.out.println(BankAccountManager.FindBankAccount(userpCode) + " ," +username);
                 creditsumtotal.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 25, 1)));
-                //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, credits.getTotal());
+                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 System.out.println("   balance ---> " + String.valueOf(BankAccountManager.GetBalance(userpCode)));
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
@@ -669,6 +680,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2);
                 creditsumtotal2.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 20, 2)));
                 //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit2);
+                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
@@ -690,6 +702,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3);
                 creditsumtotal3.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 15, 3)));
                 //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit3);
+                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
@@ -711,6 +724,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4);
                 creditsumtotal4.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 14, 4)));
                 //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit4);
+                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
@@ -732,6 +746,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5);
                 creditsumtotal5.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 5, 5)));
                 //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit5);
+                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
@@ -824,12 +839,19 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         }
 
         if (e.getSource() == repaycredit) {
-            // Code for when sell button is clicked
-            //JOptionPane.showMessageDialog(this, "Sell button clicked!");
-            //BankAccountManager.SendMoney(transaction);
-            //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userPCodeLabel.getText(), userEmailLabel.getText(), moneyToSend);
-            //JOptionPane.showMessageDialog(this, "Success transaction!");
+            String recUsername = "MONOLITH"; // get receiver username MONOLITH account
+            String recBankAccount = "7m493791o0684f1nof5fl8it80626123"; // get receiver bank account MONOLITH account 
+            float moneyToSend = Float.valueOf(repaycreditfield.getText()); // get money to send
+
+            Transaction transaction = new Transaction(moneyToSend, recBankAccount, recUsername); // create a new transaction object
+
+            if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0){
+                BankAccountManager.SendMoney(transaction); // send money to another account
+                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, moneyToSend);   // take money from sender account after sending money
+                JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
+            } else {
+                JOptionPane.showMessageDialog(this, "Invalid money input!"); // show error message
+            }
         }
     }
-    
 }

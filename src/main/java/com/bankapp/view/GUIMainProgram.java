@@ -69,7 +69,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel recUsernameLabel = new JLabel("Receiver username");
     JLabel recBankAccountLabel = new JLabel("Receiver bank account");
     JLabel moneyToSendLabel = new JLabel("Money");
-    JLabel moneyLabel = new JLabel("YOUR BALANCE: ");
+
+    // For Main Panel
+    JLabel overviewLabel = new JLabel("Overview");
+    JLabel accountLabel = new JLabel("Your account:");
+    JLabel bankAccLabel;
+    JLabel availableBalanceLabel = new JLabel("Available balance");
+    JLabel amountOfCreditLabel = new JLabel("Amount of credit");
+    JLabel bankAccountLabel;
+    //
 
     // For Panel Stock exchange
     JRadioButton fond1 = new JRadioButton("MONOLITH"); // create a radio button
@@ -167,7 +175,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     String username; // person name
     String nickname; // person nickname
     String useremail; // person email
-    Font newFont = new Font("default", Font.PLAIN, 17); // set font for text area
+    Font newFont = new Font("Arial", Font.BOLD, 20); // set font for text area
     // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail, String Nnickname) {
         getContentPane().setBackground(defaultColorForFrame);
@@ -226,11 +234,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         // Setting location and Size of each components using setBounds() method.
         usernameLabel.setBounds(1000, 20, 100, 30);
         userlastnameLabel.setBounds(1050, 20, 100, 30); 
-        moneyLabel.setBounds(10, 20, 150, 30);
         userbalanceLabel.setBounds(150, 20, 100, 30);
         // Set font for the labels
         userbalanceLabel.setFont(newFont);
-        moneyLabel.setFont(newFont);
         usernameLabel.setFont(newFont);
         userlastnameLabel.setFont(newFont);
 
@@ -425,7 +431,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel1.add(usernameLabel);
         panel1.add(userlastnameLabel);
         panel1.add(userbalanceLabel);
-        panel1.add(moneyLabel);
         panel1.add(darkModeChBox);
 
         panel1.add(calendarApp); // add calendar to the panel

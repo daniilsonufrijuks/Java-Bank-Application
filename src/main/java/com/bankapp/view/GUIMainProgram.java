@@ -188,20 +188,22 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel4.setBackground(defaultBackgroundColor);
         panel5.setBackground(defaultBackgroundColor);
 
-        String bankacc = BankAccountManager.FindBankAccount(userpCode); // find bank account by personal code
-        String[] data = {nickname, useremail, bankacc}; // create a new string array
-        comboBox = new JComboBox(data); // create a new combo box
-
+        
         usernameLabel = new JLabel(userText);
         userlastnameLabel = new JLabel(userlnameText);
         userPCodeLabel = new JLabel(userPCode);     // for SendMoney, doesnt show up on screen
         userEmailLabel = new JLabel(userEmail);     // for SendMoney, doesnt show up on screen
         //textaboutusB = new JLabel(textaboutus);
-
+        
         userpCode = userPCode;
         username = userText;
         nickname = Nnickname;
         useremail = userEmail;
+
+        String bankacc = BankAccountManager.FindBankAccount(userpCode); // find bank account by personal code
+        String[] data = {nickname, useremail, bankacc}; // create a new string array
+        comboBox = new JComboBox(data); // create a new combo box
+        
         textaboutusB = new JTextArea(textaboutus); // added textaboutus to text area
         textaboutusB.setBackground(defaultColorForFrame);
         textaboutusB.setLineWrap(true);

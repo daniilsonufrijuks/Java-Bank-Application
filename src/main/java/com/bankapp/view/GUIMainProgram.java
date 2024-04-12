@@ -140,6 +140,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JButton TAKE4Button = new JButton("TAKE"); // button for take panel
     JButton TAKE5Button = new JButton("TAKE"); // button for take panel
 
+    JButton repaycredit = new JButton("REPAY"); // button for repay panel
+    JTextField repaycreditfield = new JTextField(); // text field for repay panel
+
 
     // ------------
     JButton buyfond = new JButton("BUY"); // button for buy panel stock exchange
@@ -340,6 +343,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditsumtotal4.setFont(newFont);
         creditsumtotal5.setFont(newFont);
 
+        repaycredit.setBounds(50, 350, 100, 30); // set bounds for the button
+        repaycreditfield.setBounds(200, 350, 100, 30); // set bounds for the text field
+
         //slidingGraph.setBorder(BorderFactory.createEmptyBorder(10, 50, 300, 50)); // set bounds for the graph
         //slidingGraph.setBorder(BorderFactory.createLineBorder(Color.RED, 5));
 
@@ -490,6 +496,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.add(creditsumtotal4);
         panel3.add(creditsumtotal5);
 
+        panel3.add(repaycredit);
+        panel3.add(repaycreditfield);
+
         //panel4.add(slidingGraph); // add graph to the panel
         //panel4.add(slidingGraph2);
         //panel4.add(slidingGraph3);
@@ -583,6 +592,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         fond1.addActionListener(this);
         fond2.addActionListener(this);
         fond3.addActionListener(this); // action listener for radio buttons
+        repaycredit.addActionListener(this);
     }
 
     @Override
@@ -600,7 +610,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend, userpCode)){
                 if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0){
                     BankAccountManager.SendMoney(transaction); // send money to another account
-                    BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userPCodeLabel.getText(), userEmailLabel.getText(), moneyToSend);   // take money from sender account after sending money
+                    System.out.println(username + " - " + " - " + useremail + " - " + moneyToSend);
+                    BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, moneyToSend);   // take money from sender account after sending money
                     JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
                 } else {
                     JOptionPane.showMessageDialog(this, "Invalid money input!"); // show error message
@@ -800,6 +811,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         }
 
         if (e.getSource() == sellfond) {
+            // Code for when sell button is clicked
+            //JOptionPane.showMessageDialog(this, "Sell button clicked!");
+            //BankAccountManager.SendMoney(transaction);
+            //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userPCodeLabel.getText(), userEmailLabel.getText(), moneyToSend);
+            //JOptionPane.showMessageDialog(this, "Success transaction!");
+        }
+
+        if (e.getSource() == repaycredit) {
             // Code for when sell button is clicked
             //JOptionPane.showMessageDialog(this, "Sell button clicked!");
             //BankAccountManager.SendMoney(transaction);

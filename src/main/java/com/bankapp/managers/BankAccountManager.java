@@ -125,6 +125,7 @@ public class BankAccountManager {       // Class for monetary transactions (send
         return result;
     }
 
+    // method to remove money from the sender's account
     public static boolean RemoveMoneyFromSenderInCSVAfterSendMoney(String Pcode, String email, float sentMoney){
         boolean remMoneyResult = false;
         try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object
@@ -157,6 +158,7 @@ public class BankAccountManager {       // Class for monetary transactions (send
         return remMoneyResult;
     }
 
+    // method to find bank account
     public static String FindBankAccount(String usepCode) {
         String bankAcc = "";
         try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object
@@ -180,6 +182,7 @@ public class BankAccountManager {       // Class for monetary transactions (send
         return bankAcc;
     }
 
+    // method to take money from the account
     public static float TakeMoney(Transaction transaction) {
         float money = 0.0f;
         try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object
@@ -200,14 +203,80 @@ public class BankAccountManager {       // Class for monetary transactions (send
         return money;
     }
 
-    public static void ShowMessagewhenMoneysent(String userpcode, Float money) {
+    // method to show message when money is sent
+    public static void ShowMessagewhenMoneysent(String senderuserpcode, Float money, String userpcode) {
         try{
             FileWriter regWriter = new FileWriter("resources/messagetosend.csv", true); // create a new file writer object
-            regWriter.write(userpcode + ", " + money + "\n");
+            regWriter.write(senderuserpcode + ", " + money + ", " + userpcode + "\n");
             regWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    // method to find person code   
+    public static String FindPersonPcode(String bankacc) {
+        String pcode = "";
+        try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object
+            String line;
+            while ((line = br.readLine()) != null) { // while there is a next line
+                String[] parts = line.split(", ");      // current line from csv file
+                // for (String string : parts) {
+                //     System.out.println("GetBalance results parts: " + string);
+                // }
+                if (parts.length == 10) {
+                    if (parts[4].equals(bankacc)) {
+                        pcode = parts[3];         
+                        return pcode;         
+                    }   // balance is the 10th part of the csv line
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return pcode;
+    } 
+
+    // method to show message when money is received
+    public static boolean IfSomebodySentMoney(String userpcode) {
+        boolean result = false;
+        try (BufferedReader br = new BufferedReader(new FileReader("resources/messagetosend.csv"))) { // create a new buffered reader object
+            String line;
+            while ((line = br.readLine()) != null) { // while there is a next line
+                String[] parts = line.split(", ");      // current line from csv file
+                if (parts.length == 3 && parts[2].equals(userpcode)) {
+                    result = true;
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static void DeleteMessage(String userpcode) {
+        try {
+            File inputFile = new File("resources/messagetosend.csv");
+            File tempFile = new File("resources/messagetosendTemp.csv");
+
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+            String lineToRemove = userpcode;
+            String currentLine;
+
+            while((currentLine = reader.readLine()) != null) {
+                String trimmedLine = currentLine.trim();
+                if(trimmedLine.equals(lineToRemove)) continue;
+                writer.write(currentLine + System.getProperty("line.separator"));
+            }
+            writer.close(); 
+            reader.close(); 
+            boolean successful = tempFile.renameTo(inputFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

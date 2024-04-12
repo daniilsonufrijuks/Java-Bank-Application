@@ -203,7 +203,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         String bankacc = BankAccountManager.FindBankAccount(userpCode); // find bank account by personal code
         String[] data = {nickname, useremail, bankacc}; // create a new string array
         comboBox = new JComboBox(data); // create a new combo box
-        
+
         textaboutusB = new JTextArea(textaboutus); // added textaboutus to text area
         textaboutusB.setBackground(defaultColorForFrame);
         textaboutusB.setLineWrap(true);
@@ -426,6 +426,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         // Add components to the panels
         container.add(tabPanel);
 
+        // ------------
         // Set the content type to HTML
         editorPane.setContentType("text/html");
 
@@ -450,6 +451,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 }
             }
         });
+
+        // ------------
+        
         panel5.add(editorPane);
         panel1.add(overviewLabel);
         panel1.add(accountLabel);

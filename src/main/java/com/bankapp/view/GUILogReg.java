@@ -259,7 +259,16 @@ public class GUILogReg extends JFrame implements ActionListener {
 
                 if (BankAccountManager.IfSomebodySentMoney(userpcodetText)) {
                     BankAccountManager.DeleteMessage(userpcodetText);
-                    JOptionPane.showMessageDialog(this, "You have received money!");
+                    //JOptionPane.showMessageDialog(this, "You have received money!");
+
+                    JPanel panel = new JPanel();
+                    panel.setLayout(null);
+                    panel.setPreferredSize(new Dimension(400, 550)); // Set the size of the panel
+                    JLabel label = new JLabel("You have received money!");
+                    label.setBounds(15, 153, 100, 30);
+                    label.setFont(new Font("Arial", Font.BOLD, 20));
+                    panel.add(label);
+                    JOptionPane.showOptionDialog(null, panel, "Message", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{}, null);
                 }
                 // } else {
                 //     JOptionPane.showMessageDialog(this, "You have not received money.");

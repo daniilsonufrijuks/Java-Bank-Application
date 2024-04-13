@@ -257,26 +257,31 @@ public class BankAccountManager {       // Class for monetary transactions (send
     }
 
     public static void DeleteMessage(String userpcode) {
-        try {
-            File inputFile = new File("resources/messagetosend.csv");
-            File tempFile = new File("resources/messagetosendTemp.csv");
+        File inputFile = new File("resources/messagetosend.csv");
+        File tempFile = new File("resources/messagetosendTemp.csv");
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
 
-            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-
-            String lineToRemove = userpcode;
             String currentLine;
-
-            while((currentLine = reader.readLine()) != null) {
+            while ((currentLine = reader.readLine()) != null) {
+                // trim newline when comparing with userpcode
                 String trimmedLine = currentLine.trim();
-                if(trimmedLine.equals(lineToRemove)) continue;
+                if (trimmedLine.contains(userpcode)) continue;
                 writer.write(currentLine + System.getProperty("line.separator"));
             }
-            writer.close(); 
-            reader.close(); 
-            boolean successful = tempFile.renameTo(inputFile);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+        //Delete the original file
+        if (!inputFile.delete()) {
+            System.out.println("Could not delete file");
+            return;
+        }
+
+        //Rename the new file to the filename the original file had.
+        if (!tempFile.renameTo(inputFile)) {
+            System.out.println("Could not rename file");
         }
     }
 

@@ -258,6 +258,7 @@ public class GUILogReg extends JFrame implements ActionListener {
                 //GUIMainProgram frame2 = new GUIMainProgram(userText, userlnameText);
 
                 if (BankAccountManager.IfSomebodySentMoney(userpcodetText)) {
+                    BankAccountManager.DeleteMessage(userpcodetText);
                     JOptionPane.showMessageDialog(this, "You have received money!");
                 }
                 // } else {

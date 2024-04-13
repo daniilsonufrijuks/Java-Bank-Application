@@ -265,7 +265,7 @@ public class GUILogReg extends JFrame implements ActionListener {
                     panel.setLayout(null);
                     panel.setPreferredSize(new Dimension(400, 550)); // Set the size of the panel
                     JLabel label = new JLabel("You have received money!");
-                    label.setBounds(15, 153, 100, 30);
+                    label.setBounds(15, 153, 350, 30);
                     label.setFont(new Font("Arial", Font.BOLD, 20));
                     panel.add(label);
                     JOptionPane.showOptionDialog(null, panel, "Message", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{}, null);

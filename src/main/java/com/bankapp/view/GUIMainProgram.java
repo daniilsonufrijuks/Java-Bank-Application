@@ -638,6 +638,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         exitButton.addActionListener(this);
     }
 
+    public static void receiveData(int data) {
+        System.out.println(data);
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) { // if the button is clicked
         // for send money 

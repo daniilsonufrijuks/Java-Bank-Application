@@ -173,6 +173,7 @@ public class GUILogReg extends JFrame implements ActionListener {
             if (logb == true) {
                 GUIMainProgram frame2 = new GUIMainProgram(userText, userlnameText, userpcodetText, useremailText, userNicknameText);
                 Main.frame.dispose();
+                //GUIMainProgram.framelogreg.dispose();
                 //Point center2 = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
                 JFrame stwm = new JFrame();  
                 stwm.setTitle("MONOLITH Bank"); // set title

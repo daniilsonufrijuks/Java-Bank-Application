@@ -30,6 +30,7 @@ import java.net.URISyntaxException;
 
 
 public class GUIMainProgram extends JFrame implements ActionListener{  
+    public static GUILogReg framelogreg;
     Container container = getContentPane();
     JTabbedPane tabPanel = new JTabbedPane(); 
     ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); 
@@ -170,13 +171,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     Graphic slidingGraph2 = new Graphic(Color.BLACK, "resources/graphic2.txt");
     Graphic slidingGraph3 = new Graphic(Color.RED, "resources/graphic3.txt");
 
+    JButton exitButton = new JButton("Exit"); // create a new exit button
+
     CalendarApp calendarApp = new CalendarApp(); // create a new calendar object
 
     String username; // person name
     String nickname; // person nickname
     String useremail; // person email
 
-    JComboBox comboBox;
+    JComboBox comboBox; // drop down menu for panel 1 about user 
     
     Font newFont = new Font("Arial", Font.BOLD, 15); // set font for text area
     // Constructor
@@ -413,10 +416,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         comboBox.setBounds(900, 100, 250, 30); // set bounds for the combo box
 
-
-        //panel4.setComponentZOrder(slidingGraph2, 0);
-
-        //textArea.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);  
+        exitButton.setBounds(1000, 150, 100, 30); // set bounds for the exit button
+ 
     }
 
     // Add components to the container
@@ -455,6 +456,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         // ------------
         
         panel5.add(editorPane);
+
+        // for panel 1 main panel
         panel1.add(overviewLabel);
         panel1.add(accountLabel);
         panel1.add(bankAccLabel);
@@ -470,9 +473,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         panel1.add(comboBox); // add combo box to the panel
 
-        //ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); // replace with your image file path
-        //JLabel imageLabel = new JLabel(imageIcon);
-        //panel1.setLayout(null);
+        panel1.add(exitButton); // add exit button to the panel
+
 
         // For panel Send
         panel2.add(recUsernameField);
@@ -633,6 +635,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         fond2.addActionListener(this);
         fond3.addActionListener(this); // action listener for radio buttons
         repaycredit.addActionListener(this);
+        exitButton.addActionListener(this);
     }
 
     @Override
@@ -873,10 +876,31 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0){
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, moneyToSend);   // take money from sender account after sending money
+                userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid money input!"); // show error message
             }
+        }
+        
+        if (e.getSource() == exitButton) {
+            //System.exit(0);
+            this.setVisible(false); // Hide the current window
+
+            Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
+
+            ImageIcon imgIcon = new ImageIcon("resources/program_logo.jpg");    // logo
+
+            GUIMainProgram.framelogreg = new GUILogReg(); // create a new frame
+            framelogreg.setTitle("MONOLITH Bank");
+            framelogreg.setIconImage(imgIcon.getImage());     // set icon
+            framelogreg.setVisible(true);
+            Color backgroundColor = new Color(211, 233, 252);   // for background color
+            framelogreg.getContentPane().setBackground(backgroundColor);
+            //frame.setBounds(10, 10, 1200, 750);
+            framelogreg.setBounds(center.x - 1200 / 2, center.y - 750 / 2, 1200, 750); // to centre window
+            framelogreg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            framelogreg.setResizable(false);
         }
     }
 }

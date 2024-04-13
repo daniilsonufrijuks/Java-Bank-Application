@@ -227,7 +227,7 @@ public class BankAccountManager {       // Class for monetary transactions (send
                 if (parts.length == 10) {
                     if (parts[4].equals(bankacc)) {
                         pcode = parts[3];         
-                        return pcode;         
+                        //return pcode;         
                     }   // balance is the 10th part of the csv line
                 }
             }
@@ -278,5 +278,24 @@ public class BankAccountManager {       // Class for monetary transactions (send
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static String FindPinCodes(String userpcode) {
+        String pinCode = "";
+        try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object
+            String line;
+            while ((line = br.readLine()) != null) { // while there is a next line
+                String[] parts = line.split(", ");      // current line from csv file
+                if (parts.length == 10) {
+                    if (parts[3].equals(userpcode)) {
+                        pinCode = parts[7];         
+                        return pinCode;         
+                    } 
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return pinCode;
     }
 }

@@ -172,9 +172,20 @@ public class GUILogReg extends JFrame implements ActionListener {
             }
             if (logb == true) {
                 GUIMainProgram frame2 = new GUIMainProgram(userText, userlnameText, userpcodetText, useremailText, userNicknameText);
-                Main.frame.dispose();
+                
+
+                // to destroy the login frame
+                if (Main.frame != null) {
+                    Main.frame.dispose();
+                }
+                //Main.frame.dispose();
+                if (GUIMainProgram.framelogreg != null) { // if the login frame is not null (it is opened)
+                    GUIMainProgram.framelogreg.dispose(); // close the login frame
+                }
                 //GUIMainProgram.framelogreg.dispose();
                 //Point center2 = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
+
+
                 JFrame stwm = new JFrame();  
                 stwm.setTitle("MONOLITH Bank"); // set title
                 stwm.setIconImage(imgIcon.getImage());  // set icon

@@ -5,6 +5,7 @@ import javax.swing.*;
 
 import logreg.Login;
 import logreg.Registration;
+import managers.BankAccountManager;
 import model.Numbers;
 import model.Person;
 import regex.REGEXManager;
@@ -255,6 +256,14 @@ public class GUILogReg extends JFrame implements ActionListener {
                 // } // time sleep for 3 seconds
 
                 //GUIMainProgram frame2 = new GUIMainProgram(userText, userlnameText);
+
+                if (BankAccountManager.IfSomebodySentMoney(userpcodetText)) {
+                    JOptionPane.showMessageDialog(this, "You have received money!");
+                }
+                // } else {
+                //     JOptionPane.showMessageDialog(this, "You have not received money.");
+                // }
+
                 frame2.setTitle("MONOLITH Bank");
                 frame2.setIconImage(imgIcon.getImage());    // set icon
                 frame2.setBounds(center.x - 1200 / 2, center.y - 750 / 2, 1200, 750); // to centre window

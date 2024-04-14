@@ -1,7 +1,7 @@
 # Java-Bank-Application
 
 <a href="#">
-    <img src="resources/program_logo" alt="html" style="vertical-align:center; margin:6px 4px">
+    <img src="resources/program_logo.jpg" alt="html" style="vertical-align:center; margin:6px 4px">
 </a>  
 
 <a href="#">

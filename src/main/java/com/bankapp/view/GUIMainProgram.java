@@ -179,7 +179,11 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     String nickname; // person nickname
     String useremail; // person email
 
-    JComboBox comboBox; // drop down menu for panel 1 about user 
+    JComboBox comboBox; // drop down menu for panel 1 about user
+    
+
+    public static int receivedata; // received data from graphic
+    static JLabel fundcost = new JLabel(String.valueOf(receivedata/10*100)); // label for fund cost
     
     Font newFont = new Font("Arial", Font.BOLD, 15); // set font for text area
     // Constructor
@@ -417,6 +421,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         comboBox.setBounds(900, 100, 250, 30); // set bounds for the combo box
 
         exitButton.setBounds(1000, 150, 100, 30); // set bounds for the exit button
+
+        fundcost.setBounds(720, 550, 140, 30); // set bounds for the label fonds cost
  
     }
 
@@ -603,7 +609,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         fondLabelDs.setVisible(false);
         // ------------
 
-
+        panel4.add(fundcost); // add label to the panel 4
+        fundcost.setFont(newFont); // set font for the label
+        fundcost.setVisible(false); // set label invisible
 
         //panel4.add(innerPanel, BorderLayout.CENTER); // add graph to the panel
 
@@ -640,6 +648,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
     public static void receiveData(int data) {
         //System.out.println(data);
+        receivedata = data;
+        fundcost.setText(String.valueOf(receivedata)); // update balance
+        System.out.println(data);
     }
 
     @Override
@@ -827,6 +838,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             fondLabelD.setVisible(false);
             fondLabelCs.setVisible(false);
             fondLabelDs.setVisible(false);
+            fundcost.setVisible(true);
         } else if (fond2.isSelected()) {
             // Code for when radioButton2 is selected
             //panel4.add(slidingGraph2);
@@ -860,11 +872,22 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         // sell and buy action for btn in stock exchange
         if (e.getSource() == buyfond) {
-            // Code for when buy button is clicked
-            //JOptionPane.showMessageDialog(this, "Buy button clicked!");
-            //BankAccountManager.SendMoney(transaction);
-            //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userPCodeLabel.getText(), userEmailLabel.getText(), moneyToSend);
-            //JOptionPane.showMessageDialog(this, "Success transaction!");
+            // nothing yet
+            BigDecimal balance = BankAccountManager.GetBalance(userpCode); // get balance in big decimal
+            
+            String recUsername = "MONOLITH"; // get receiver username MONOLITH account
+            String recBankAccount = "7m493791o0684f1nof5fl8it80626123"; // get receiver bank account MONOLITH account            
+
+            Transaction transaction = new Transaction(receivedata, recBankAccount, recUsername); // create a new transaction object
+
+            if (balance.compareTo(BigDecimal.ZERO) > 0) {
+                BankAccountManager.SendMoney(transaction); // send money to another account
+                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, receivedata);   // take money from sender account after sending money
+                userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
+            } else {
+                JOptionPane.showMessageDialog(this, "Invalid money input!"); // show error message
+            }
         }
 
         if (e.getSource() == sellfond) {

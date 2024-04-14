@@ -678,19 +678,20 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         // for credits
         if (e.getSource() == TAKEButton) {
             Float filedcredit1;
-            filedcredit1 = Float.parseFloat(creditoptionfiled1.getText());
-            Credits credits = new Credits(filedcredit1);
-            BigDecimal balance = BankAccountManager.GetBalance(userpCode);
+            filedcredit1 = Float.parseFloat(creditoptionfiled1.getText()); // get credit option 1
+            Credits credits = new Credits(filedcredit1); // create a new credits object
+            BigDecimal balance = BankAccountManager.GetBalance(userpCode); // get balance in big decimal  
             BigDecimal filedcredit1BigDecimal = BigDecimal.valueOf(filedcredit1);
 
             if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0 && credits.getTotal() <= 100) {
-                CreditManager genCredit = new CreditManager();
+                CreditManager genCredit = new CreditManager(); // create a new credit manager object
                 Transaction transaction = new Transaction(Float.valueOf(credits.getTotal()), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1);
                 System.out.println(BankAccountManager.FindBankAccount(userpCode) + " ," +username);
-                creditsumtotal.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 25, 1)));
+                creditsumtotal.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 25, 1))); // set credit sum
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());
                 BankAccountManager.SendMoney(transaction); // send money to another account
+                CreditManager.WriteCredittoFile(userpCode, Float.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 25, 1))); // write credit to file
                 System.out.println("   balance ---> " + String.valueOf(BankAccountManager.GetBalance(userpCode)));
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");

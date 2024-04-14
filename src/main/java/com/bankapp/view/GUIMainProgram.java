@@ -639,7 +639,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     }
 
     public static void receiveData(int data) {
-        System.out.println(data);
+        //System.out.println(data);
     }
 
     @Override
@@ -882,10 +882,11 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
             Transaction transaction = new Transaction(moneyToSend, recBankAccount, recUsername); // create a new transaction object
 
-            if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0){
+            if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0 && moneyToSend <= CreditManager.FindCredit("resources/credits.csv", userpCode)) { // find credit by personal code   
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, moneyToSend);   // take money from sender account after sending money
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                CreditManager.DeleteMessage(userpCode);
                 JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid money input!"); // show error message

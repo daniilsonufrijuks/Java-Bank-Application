@@ -183,7 +183,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     
 
     public static int receivedata; // received data from graphic
-    static JLabel fundcost = new JLabel(String.valueOf(receivedata/10*100)); // label for fund cost
+    static JLabel fundcostM = new JLabel(); // label for fund cost
+    static JLabel fundcostC = new JLabel(); // label for fund cost
+    static JLabel fundcostD = new JLabel(); // label for fund cost
     
     Font newFont = new Font("Arial", Font.BOLD, 15); // set font for text area
     // Constructor
@@ -422,7 +424,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         exitButton.setBounds(1000, 150, 100, 30); // set bounds for the exit button
 
-        fundcost.setBounds(720, 550, 140, 30); // set bounds for the label fonds cost
+        fundcostM.setBounds(730, 550, 140, 30); // set bounds for the label fonds cost
+        fundcostC.setBounds(730, 550, 140, 30);
+        fundcostD.setBounds(730, 550, 140, 30);
  
     }
 
@@ -609,12 +613,19 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         fondLabelDs.setVisible(false);
         // ------------
 
-        panel4.add(fundcost); // add label to the panel 4
-        fundcost.setFont(newFont); // set font for the label
-        fundcost.setVisible(false); // set label invisible
+        panel4.add(fundcostM); // add label to the panel 4
+        fundcostM.setFont(newFont); // set font for the label
+        fundcostM.setVisible(false); // set label invisible
+
+        panel4.add(fundcostC); // add label to the panel 4
+        fundcostC.setFont(newFont); // set font for the label
+        fundcostC.setVisible(false); // set label invisible
+
+        panel4.add(fundcostD); // add label to the panel 4
+        fundcostD.setFont(newFont); // set font for the label
+        fundcostD.setVisible(false); // set label invisible
 
         //panel4.add(innerPanel, BorderLayout.CENTER); // add graph to the panel
-
 
 
         // ------------
@@ -649,7 +660,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     public static void receiveData(int data) {
         //System.out.println(data);
         receivedata = data;
-        fundcost.setText(String.valueOf(receivedata)); // update balance
+        fundcostM.setText(String.valueOf(receivedata/10*90)); // update balance
+        fundcostC.setText(String.valueOf(receivedata/10*100)); // update balance
+        fundcostD.setText(String.valueOf(receivedata/10*120)); // update balance
         System.out.println(data);
     }
 
@@ -838,7 +851,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             fondLabelD.setVisible(false);
             fondLabelCs.setVisible(false);
             fondLabelDs.setVisible(false);
-            fundcost.setVisible(true);
+            fundcostM.setVisible(true);
+            fundcostC.setVisible(false);
+            fundcostD.setVisible(false);
         } else if (fond2.isSelected()) {
             // Code for when radioButton2 is selected
             //panel4.add(slidingGraph2);
@@ -854,6 +869,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             fondLabelD.setVisible(false);
             fondLabelDs.setVisible(false);
             fondLabelMs.setVisible(false);
+            fundcostM.setVisible(false);
+            fundcostC.setVisible(true);
+            fundcostD.setVisible(false);
         } else if (fond3.isSelected()) {
             // Code for when radioButton3 is selected
             //panel4.add(slidingGraph3);
@@ -868,6 +886,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             fondLabelDs.setVisible(true);
             fondLabelCs.setVisible(false);
             fondLabelMs.setVisible(false);
+            fundcostM.setVisible(false);
+            fundcostC.setVisible(false);
+            fundcostD.setVisible(true);
         }
 
         // sell and buy action for btn in stock exchange

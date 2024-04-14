@@ -20,7 +20,7 @@ public class Graphic extends JPanel implements ActionListener {
 
     public Graphic(Color color, String filepath) {
         this.color = color;
-        timer = new Timer(1000, this);
+        timer = new Timer(15000, this);
         timer.start();
 
         // Заполнение массива данными (для примера)

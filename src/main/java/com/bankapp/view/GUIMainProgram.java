@@ -71,9 +71,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     // For Main Panel
     JLabel overviewLabel = new JLabel("Overview");
     JLabel accountLabel = new JLabel("Your account:");
-    JLabel bankAccLabel = new JLabel("placeholder for bankacc");
-    JLabel availableBalanceLabel = new JLabel("Available balance");
-    JLabel amountOfCreditLabel = new JLabel("Amount of credit");
+    JLabel bankAccLabel;
+    JLabel availableBalanceLabel = new JLabel("Available balance:");
+    JLabel amountOfCreditLabel = new JLabel("Amount of credit:");
     JLabel usernameLabel;
     JLabel userlastnameLabel;
     JLabel userbalanceLabel = new JLabel("placeholder for userbalance");
@@ -197,9 +197,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel4.setBackground(defaultBackgroundColor);
         panel5.setBackground(defaultBackgroundColor);
 
-        
+
         usernameLabel = new JLabel(userText);
         userlastnameLabel = new JLabel(userlnameText);
+        bankAccLabel = new JLabel(BankAccountManager.FindBankAccount(userPCode));
         userPCodeLabel = new JLabel(userPCode);     // for SendMoney, doesnt show up on screen
         userEmailLabel = new JLabel(userEmail);     // for SendMoney, doesnt show up on screen
         //textaboutusB = new JLabel(textaboutus);
@@ -250,15 +251,16 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
     public void setLocationAndSize() {
         // Setting location and Size of each components using setBounds() method.
-        overviewLabel.setBounds(50, 50, 100, 30);
-        accountLabel.setBounds(50, 40, 100, 30);
-        bankAccLabel.setBounds(50, 50, 100, 30);
-        availableBalanceLabel.setBounds(150, 40, 100, 30);
-        amountOfCreditLabel.setBounds(300, 40, 100, 30);
+        // Main panel
+        overviewLabel.setBounds(40, 30, 100, 30);
+        accountLabel.setBounds(40, 70, 100, 30);
+        bankAccLabel.setBounds(200, 70, 170, 30);
+        availableBalanceLabel.setBounds(40, 110, 170, 30);
+        userbalanceLabel.setBounds(200, 110, 200, 30);
+        amountOfCreditLabel.setBounds(40, 150, 170, 30);
+        userCreditsLabel.setBounds(200, 150, 200, 30);
         usernameLabel.setBounds(1000, 20, 100, 30);
         userlastnameLabel.setBounds(1050, 20, 100, 30); 
-        userbalanceLabel.setBounds(150, 20, 100, 30);
-        userCreditsLabel.setBounds(300, 60, 100, 30);
         // Set font for the labels
         overviewLabel.setFont(newFont);
         accountLabel.setFont(newFont);
@@ -269,6 +271,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         usernameLabel.setFont(newFont);
         userlastnameLabel.setFont(newFont);
         userCreditsLabel.setFont(newFont);
+        //
         
         tabPanel.setBounds(0, 0, 1200, 750); // tab position
 

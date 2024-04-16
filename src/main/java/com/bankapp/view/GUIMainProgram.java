@@ -44,11 +44,13 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JPanel panel3 = new JPanel();
     JPanel panel4 = new JPanel();
     JPanel panel5 = new JPanel();
+
+    JTextArea textaboutusB;
+
     // for SendMoney
     JLabel userPCodeLabel;
     JLabel userEmailLabel;
     //
-    JTextArea textaboutusB;
 
     // For Panel Send
     JTextField creditoptionfiled1;
@@ -62,11 +64,11 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JTextField recBankAccountField;
     JTextField moneyToSendField;
 
-
     // For Panel Send lables
     JLabel recUsernameLabel = new JLabel("Receiver username");
     JLabel recBankAccountLabel = new JLabel("Receiver bank account");
     JLabel moneyToSendLabel = new JLabel("Money");
+    JLabel newPaymentLabel = new JLabel("New payment");
 
     // For Main Panel
     JLabel overviewLabel = new JLabel("Overview");
@@ -76,7 +78,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel amountOfCreditLabel = new JLabel("Amount of credit:");
     JLabel usernameLabel;
     JLabel userlastnameLabel;
-    JLabel userbalanceLabel = new JLabel("placeholder for userbalance");
+    JLabel userbalanceLabel;
     JLabel userCreditsLabel = new JLabel("placeholder for usercredits");
     //
 
@@ -128,6 +130,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JCheckBox darkModeChBox = new JCheckBox("Dark Mode");
     Color defaultBackgroundColor = new Color(211, 233, 252);
     Color defaultColorForFrame = new Color(119, 203, 233);
+    Color defaultdefaultTitleColor = new Color(203, 0, 0);
+    Color titleColorDarkMode = new Color(13, 209, 219);
     //
     JEditorPane editorPane = new JEditorPane();
     //For Panel about us
@@ -188,6 +192,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     static JLabel fundcostD = new JLabel(); // label for fund cost
     
     Font newFont = new Font("Arial", Font.BOLD, 15); // set font for text area
+    Font titleFontPanel1 = new Font("Arial", Font.BOLD, 20);
+    Font titleFontBigger = new Font("Arial", Font.BOLD, 30);
     // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail, String Nnickname) {
         getContentPane().setBackground(defaultColorForFrame);
@@ -254,15 +260,17 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         // Main panel
         overviewLabel.setBounds(40, 30, 100, 30);
         accountLabel.setBounds(40, 70, 100, 30);
-        bankAccLabel.setBounds(200, 70, 170, 30);
+        bankAccLabel.setBounds(200, 70, 280, 30);
         availableBalanceLabel.setBounds(40, 110, 170, 30);
         userbalanceLabel.setBounds(200, 110, 200, 30);
         amountOfCreditLabel.setBounds(40, 150, 170, 30);
         userCreditsLabel.setBounds(200, 150, 200, 30);
         usernameLabel.setBounds(1000, 20, 100, 30);
         userlastnameLabel.setBounds(1050, 20, 100, 30); 
+
         // Set font for the labels
-        overviewLabel.setFont(newFont);
+        overviewLabel.setFont(titleFontPanel1);
+        overviewLabel.setForeground(defaultdefaultTitleColor);
         accountLabel.setFont(newFont);
         bankAccLabel.setFont(newFont);
         availableBalanceLabel.setFont(newFont);
@@ -392,10 +400,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         recUsernameLabel.setBounds(5, 40, 150, 30);
         recBankAccountLabel.setBounds(5, 90, 150, 30);
         moneyToSendLabel.setBounds(5, 140, 150, 30);
+        newPaymentLabel.setBounds(500, 50, 200, 30);
+        newPaymentLabel.setForeground(defaultdefaultTitleColor);
         // Set font for the labels
         recUsernameLabel.setFont(newFont);
         recBankAccountLabel.setFont(newFont);
-        moneyToSendLabel.setFont(newFont); // set font 
+        moneyToSendLabel.setFont(newFont);
+        newPaymentLabel.setFont(titleFontBigger);
+        //
 
         slidingGraph.setBounds(45, 70, 1100, 300); // set bounds for the graph
         slidingGraph2.setBounds(45, 70, 1100, 300);
@@ -425,7 +437,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         comboBox.setBounds(900, 100, 250, 30); // set bounds for the combo box
 
-        exitButton.setBounds(1000, 150, 100, 30); // set bounds for the exit button
+        exitButton.setBounds(1000, 250, 100, 30); // set bounds for the exit button
 
         fundcostM.setBounds(730, 550, 140, 30); // set bounds for the label fonds cost
         fundcostC.setBounds(730, 550, 140, 30);
@@ -496,6 +508,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel2.add(recUsernameLabel);
         panel2.add(recBankAccountLabel);
         panel2.add(moneyToSendLabel);
+        panel2.add(newPaymentLabel);
 
         panel5.add(imageLabel2);
         //panel5.add(imageLabel3);
@@ -828,6 +841,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 panel4.setBackground(Color.GRAY);
                 panel5.setBackground(Color.GRAY);
                 textaboutusB.setBackground(Color.DARK_GRAY);
+                overviewLabel.setForeground(titleColorDarkMode);
+                newPaymentLabel.setForeground(titleColorDarkMode);
             } else {
                 getContentPane().setBackground(defaultColorForFrame);
                 panel1.setBackground(defaultBackgroundColor);
@@ -836,6 +851,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 panel4.setBackground(defaultBackgroundColor);
                 panel5.setBackground(defaultBackgroundColor);
                 textaboutusB.setBackground(defaultColorForFrame);
+                overviewLabel.setForeground(defaultdefaultTitleColor);
+                newPaymentLabel.setForeground(defaultdefaultTitleColor);
             }
         }
 

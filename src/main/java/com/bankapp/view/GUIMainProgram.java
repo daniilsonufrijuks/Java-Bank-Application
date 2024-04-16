@@ -187,6 +187,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     String nickname; // person nickname
     String useremail; // person email
 
+    String pinkcode;
+
 
     JComboBox comboBox; // drop down menu for panel 1 about user
     
@@ -208,7 +210,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 System.out.println(elem);
             }
         }
-        
+
         getContentPane().setBackground(defaultColorForFrame);
         panel1.setBackground(defaultBackgroundColor);
         panel2.setBackground(defaultBackgroundColor);
@@ -230,6 +232,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         useremail = userEmail;
 
         String bankacc = BankAccountManager.FindBankAccount(userpCode); // find bank account by personal code
+        pinkcode = BankAccountManager.FindPinCodes(userpCode); // ------------->
         String[] data = {nickname, useremail, bankacc}; // create a new string array
         comboBox = new JComboBox(data); // create a new combo box
 
@@ -709,7 +712,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
             //if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend) && REGEXManager.isValidFloat(String.valueOf(moneyToSend))){
             if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend, userpCode)){
-                if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0){
+                float balanceuser = BankAccountManager.GetBalance(userpCode).floatValue();
+                if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0 && moneyToSend <= balanceuser){
                     BankAccountManager.SendMoney(transaction); // send money to another account
                     System.out.println(username + " - " + " - " + useremail + " - " + moneyToSend);
                     BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, moneyToSend);   // take money from sender account after sending money
@@ -719,11 +723,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 } else {
                     JOptionPane.showMessageDialog(this, "Invalid money input!"); // show error message
                 }
-                // BankAccountManager.SendMoney(recUsername, recBankAccount, moneyToSend);
-                // BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userPCodeLabel.getText(), userEmailLabel.getText(), moneyToSend);   // take money from sender account after sending money
-                // JOptionPane.showMessageDialog(this, "Success transaction!");
-
-
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data"); // show error message
             }

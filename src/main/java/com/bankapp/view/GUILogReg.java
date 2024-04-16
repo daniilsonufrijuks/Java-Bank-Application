@@ -264,7 +264,7 @@ public class GUILogReg extends JFrame implements ActionListener {
 
                 //GUIMainProgram frame2 = new GUIMainProgram(userText, userlnameText);
 
-                //int res = 0;
+                int res = 0;
                 if (BankAccountManager.IfSomebodySentMoney(userpcodetText)) {
                     BankAccountManager.DeleteMessage(userpcodetText);
                     //JOptionPane.showMessageDialog(this, "You have received money!");
@@ -278,12 +278,12 @@ public class GUILogReg extends JFrame implements ActionListener {
                     label.setBounds(15, 153, 350, 30);
                     label.setFont(new Font("Arial", Font.BOLD, 20));
                     panel.add(label);
-                    JOptionPane.showOptionDialog(null, panel, "Message", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{}, null);
+                    res = JOptionPane.showOptionDialog(null, panel, "Message", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{}, null);
                 }
                 
-                //if (res == -1) {
-                //    CreditManager.DeleteMessage(userpcodetText);
-                //}
+                if (res == -1) {
+                   CreditManager.DeleteMessage(userpcodetText);
+                }
 
                 frame2.setTitle("MONOLITH Bank");
                 frame2.setIconImage(imgIcon.getImage());    // set icon

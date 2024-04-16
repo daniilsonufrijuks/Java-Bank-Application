@@ -199,6 +199,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
     // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail, String Nnickname) {
+        // find data fro transaction visualisation
+        String[] transactions = CreditManager.FindCreditTransaction("resources/creditTransactions.csv", userPCode);
+        for (String elem : transactions) {
+            System.out.println(elem);
+        }
+
         getContentPane().setBackground(defaultColorForFrame);
         panel1.setBackground(defaultBackgroundColor);
         panel2.setBackground(defaultBackgroundColor);

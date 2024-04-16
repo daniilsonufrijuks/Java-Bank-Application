@@ -55,16 +55,16 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     //
 
     // For Panel Send
-    JTextField creditoptionfiled1;
-    JTextField creditoptionfiled2;
-    JTextField creditoptionfiled3;
-    JTextField creditoptionfiled4;
-    JTextField creditoptionfiled5;
+    RoundJTextField creditoptionfiled1;
+    RoundJTextField creditoptionfiled2;
+    RoundJTextField creditoptionfiled3;
+    RoundJTextField creditoptionfiled4;
+    RoundJTextField creditoptionfiled5;
 
     // For Panel Send text fields
-    JTextField recUsernameField;
-    JTextField recBankAccountField;
-    JTextField moneyToSendField;
+    RoundJTextField recUsernameField;
+    RoundJTextField recBankAccountField;
+    RoundJTextField moneyToSendField;
 
     // For Panel Send lables
     JLabel recUsernameLabel = new JLabel("Receiver username");
@@ -156,7 +156,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JButton TAKE5Button = new JButton("TAKE"); // button for take panel
 
     JButton repaycredit = new JButton("REPAY"); // button for repay panel
-    JTextField repaycreditfield = new JTextField(); // text field for repay panel
+    RoundJTextField repaycreditfield = new RoundJTextField(20); // text field for repay panel
 
 
     // ------------
@@ -194,9 +194,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     static JLabel fundcostC = new JLabel(); // label for fund cost
     static JLabel fundcostD = new JLabel(); // label for fund cost
     
-    Font newFont = new Font("Arial", Font.BOLD, 15); // set font for text area
-    Font titleFontPanel1 = new Font("Arial", Font.BOLD, 20);
-    Font titleFontBigger = new Font("Arial", Font.BOLD, 30);
+    Font newFont = new Font("Arial", Font.BOLD, 17); // set font for text area
+    Font titleFont = new Font("Arial", Font.BOLD, 30);
+
     // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail, String Nnickname) {
         getContentPane().setBackground(defaultColorForFrame);
@@ -230,9 +230,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         textaboutusB.setEditable(false);
 
         // For panel Send
-        recUsernameField = new JTextField();
-        recBankAccountField = new JTextField();
-        moneyToSendField = new JTextField();
+        recUsernameField = new RoundJTextField(20);
+        recBankAccountField = new RoundJTextField(20);
+        moneyToSendField = new RoundJTextField(20);
 
         userbalanceLabel = new JLabel(String.valueOf(BankAccountManager.GetBalance(userPCode)));
         BankAccountManager bankAccountManager = new BankAccountManager();
@@ -261,18 +261,22 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     public void setLocationAndSize() {
         // Setting location and Size of each components using setBounds() method.
         // Main panel
-        overviewLabel.setBounds(40, 30, 100, 30);
-        accountLabel.setBounds(40, 70, 100, 30);
-        bankAccLabel.setBounds(200, 70, 280, 30);
-        availableBalanceLabel.setBounds(40, 110, 170, 30);
-        userbalanceLabel.setBounds(200, 110, 200, 30);
-        amountOfCreditLabel.setBounds(40, 150, 170, 30);
-        userCreditsLabel.setBounds(200, 150, 200, 30);
+        overviewLabel.setBounds(40, 30, 150, 30);
+        accountLabel.setBounds(40, 80, 150, 30);
+        bankAccLabel.setBounds(200, 80, 320, 30);
+        availableBalanceLabel.setBounds(40, 120, 170, 30);
+        userbalanceLabel.setBounds(200, 120, 250, 30);
+        amountOfCreditLabel.setBounds(40, 160, 170, 30);
+        userCreditsLabel.setBounds(200, 160, 250, 30);
         usernameLabel.setBounds(1000, 20, 100, 30);
         userlastnameLabel.setBounds(1050, 20, 100, 30); 
+        darkModeChBox.setBounds(1000, 50, 150, 30); // color switch
+        exitButton.setBounds(1000, 100, 150, 30); // set bounds for the exit button
+        comboBox.setBounds(900, 150, 250, 30); // set bounds for the combo box
+        calendarApp.setBounds(760, 370, 400, 300); // set bounds for the calendar
 
         // Set font for the labels
-        overviewLabel.setFont(titleFontPanel1);
+        overviewLabel.setFont(titleFont);
         overviewLabel.setForeground(defaultdefaultTitleColor);
         accountLabel.setFont(newFont);
         bankAccLabel.setFont(newFont);
@@ -292,14 +296,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         textaboutusB.setBounds(290, 290, 600, 450); // text area position
         textaboutusB.setFont(newFont);
-
-        //For panel Send text fields
-        recUsernameField.setBounds(180, 40, 200, 30);
-        recBankAccountField.setBounds(180, 90, 200, 30);
-        moneyToSendField.setBounds(180, 140, 200, 30);
-
-        // color switch
-        darkModeChBox.setBounds(1000, 50, 150, 30);
 
         // Buttons   
         sendButton.setBounds(215, 190, 100, 30);
@@ -331,18 +327,18 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         percentsy4.setBounds(430, 200, 200, 30);
         percentsy5.setBounds(430, 250, 200, 30);
 
-        creditoptionfiled1 = new JTextField(); // create a text field
+        creditoptionfiled1 = new RoundJTextField(20); // create a text field
         creditoptionfiled1.setBounds(490, 50, 200, 30);
-        creditoptionfiled2 = new JTextField();
+        creditoptionfiled2 = new RoundJTextField(20);
         creditoptionfiled2.setBounds(490, 100, 200, 30);
 
-        creditoptionfiled3 = new JTextField();
+        creditoptionfiled3 = new RoundJTextField(20);
         creditoptionfiled3.setBounds(490, 150, 200, 30);
 
-        creditoptionfiled4 = new JTextField();
+        creditoptionfiled4 = new RoundJTextField(20);
         creditoptionfiled4.setBounds(490, 200, 200, 30);
 
-        creditoptionfiled5 = new JTextField();
+        creditoptionfiled5 = new RoundJTextField(20);
         creditoptionfiled5.setBounds(490, 250, 200, 30);
 
         creditsum1.setBounds(700, 50, 200, 30); // set bounds for the labels
@@ -400,16 +396,20 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         //slidingGraph.setBorder(BorderFactory.createLineBorder(Color.RED, 5));
 
         // For panel Send lables
-        recUsernameLabel.setBounds(5, 40, 150, 30);
-        recBankAccountLabel.setBounds(5, 90, 150, 30);
-        moneyToSendLabel.setBounds(5, 140, 150, 30);
         newPaymentLabel.setBounds(500, 50, 200, 30);
         newPaymentLabel.setForeground(defaultdefaultTitleColor);
+        recUsernameLabel.setBounds(350, 200, 150, 30);
+        recBankAccountLabel.setBounds(350, 250, 200, 30);
+        moneyToSendLabel.setBounds(350, 300, 150, 30);
+        //For panel Send text fields
+        recUsernameField.setBounds(520, 200, 250, 30);
+        recBankAccountField.setBounds(180, 90, 200, 30);
+        moneyToSendField.setBounds(180, 140, 200, 30);
         // Set font for the labels
         recUsernameLabel.setFont(newFont);
         recBankAccountLabel.setFont(newFont);
         moneyToSendLabel.setFont(newFont);
-        newPaymentLabel.setFont(titleFontBigger);
+        newPaymentLabel.setFont(titleFont);
         //
 
         slidingGraph.setBounds(45, 70, 1100, 300); // set bounds for the graph
@@ -435,12 +435,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         fondLabelMs.setBounds(620, 650, 140, 30); // set bounds for the label for fonds
         fondLabelCs.setBounds(620, 650, 140, 30);
         fondLabelDs.setBounds(620, 650, 140, 30);
-
-        calendarApp.setBounds(650, 300, 400, 300); // set bounds for the calendar
-
-        comboBox.setBounds(900, 100, 250, 30); // set bounds for the combo box
-
-        exitButton.setBounds(1000, 250, 100, 30); // set bounds for the exit button
 
         fundcostM.setBounds(730, 550, 140, 30); // set bounds for the label fonds cost
         fundcostC.setBounds(730, 550, 140, 30);

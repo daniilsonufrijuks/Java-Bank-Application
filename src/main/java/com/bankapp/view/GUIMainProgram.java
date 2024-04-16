@@ -759,7 +759,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit2);
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());
                 BankAccountManager.SendMoney(transaction); // send money to another account
-                CreditManager.WriteCredittoFile(userpCode, Float.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 20, 2))); // write credit to file
+
+                // to write credit to file credits.csv  
+                CreditManager.WriteCredittoFile(userpCode, gencreditsum); // write credit to file
+                
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
@@ -790,7 +793,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit3);
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());
                 BankAccountManager.SendMoney(transaction); // send money to another account
-                CreditManager.WriteCredittoFile(userpCode, Float.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 15, 3))); // write credit to file
+                
+                // to write credit to file credits.csv  
+                CreditManager.WriteCredittoFile(userpCode, gencreditsum); // write credit to file
+                
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
@@ -822,7 +828,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit4);
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());
                 BankAccountManager.SendMoney(transaction); // send money to another account
-                CreditManager.WriteCredittoFile(userpCode, Float.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 14, 4))); // write credit to file
+                
+                // to write credit to file credits.csv  
+                CreditManager.WriteCredittoFile(userpCode, gencreditsum); // write credit to file
+                
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
@@ -854,7 +863,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit5);
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());
                 BankAccountManager.SendMoney(transaction); // send money to another account
-                CreditManager.WriteCredittoFile(userpCode, Float.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 5, 5))); // write credit to file
+                
+                // to write credit to file credits.csv  
+                CreditManager.WriteCredittoFile(userpCode, gencreditsum); // write credit to file
+                
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {

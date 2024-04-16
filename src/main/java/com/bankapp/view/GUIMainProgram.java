@@ -69,7 +69,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     // For Panel Send lables
     JLabel recUsernameLabel = new JLabel("Receiver username:");
     JLabel recBankAccountLabel = new JLabel("Receiver bank account:");
-    JLabel moneyToSendLabel = new JLabel("Money:");
+    JLabel moneyToSendLabel = new JLabel("Amount:");
     JLabel newPaymentLabel = new JLabel("New payment");
 
     // For Main Panel
@@ -275,14 +275,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         accountLabel.setBounds(40, 80, 150, 30);
         bankAccLabel.setBounds(200, 80, 320, 30);
         availableBalanceLabel.setBounds(40, 120, 170, 30);
-        userbalanceLabel.setBounds(200, 120, 250, 30);
+        userbalanceLabel.setBounds(200, 120, 450, 30);
         amountOfCreditLabel.setBounds(40, 160, 170, 30);
-        userCreditsLabel.setBounds(200, 160, 250, 30);
-        usernameLabel.setBounds(1000, 20, 100, 30);
-        userlastnameLabel.setBounds(1050, 20, 100, 30); 
-        darkModeChBox.setBounds(1000, 50, 150, 30); // color switch
-        exitButton.setBounds(1000, 100, 150, 30); // set bounds for the exit button
-        comboBox.setBounds(900, 150, 250, 30); // set bounds for the combo box
+        userCreditsLabel.setBounds(200, 160, 450, 30);
+        usernameLabel.setBounds(920, 20, 100, 30);
+        userlastnameLabel.setBounds(920, 60, 100, 30);
+        imageLabel.setBounds(850, 17, 50, 50); // image position
+        darkModeChBox.setBounds(1000, 100, 150, 30); // color switch
+        exitButton.setBounds(1000, 140, 150, 30); // set bounds for the exit button
+        comboBox.setBounds(900, 180, 250, 30); // set bounds for the combo box
         calendarApp.setBounds(760, 370, 400, 300); // set bounds for the calendar
 
         // Set font for the labels
@@ -295,12 +296,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         userbalanceLabel.setFont(defaultTextFont);
         usernameLabel.setFont(defaultTextFont);
         userlastnameLabel.setFont(defaultTextFont);
+
         userCreditsLabel.setFont(defaultTextFont);
+        exitButton.setBackground(defaultTitleColor);
+        exitButton.setForeground(Color.WHITE);
+        exitButton.setFont(defaultTextFont);
         //
         
         tabPanel.setBounds(0, 0, 1200, 750); // tab position
 
-        imageLabel.setBounds(920, 17, 50, 50); // image position
         imageLabel2.setBounds(389, 5, 400, 250);
         //imageLabel3.setBounds(500, 5, 400, 250);
 
@@ -405,14 +409,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         // For panel Send lables
         newPaymentLabel.setBounds(500, 50, 200, 30);
-        recUsernameLabel.setBounds(350, 200, 150, 30);
-        recBankAccountLabel.setBounds(350, 250, 200, 30);
-        moneyToSendLabel.setBounds(350, 300, 150, 30);
+        recUsernameLabel.setBounds(360, 200, 200, 30);
+        recBankAccountLabel.setBounds(360, 250, 200, 30);
+        moneyToSendLabel.setBounds(360, 300, 200, 30);
         //For panel Send text fields
-        recUsernameField.setBounds(600, 200, 250, 30);
-        recBankAccountField.setBounds(600, 250, 250, 30);
-        moneyToSendField.setBounds(600, 300, 250, 30);
-        sendButton.setBounds(700, 400, 100, 30);
+        recUsernameField.setBounds(610, 200, 250, 30);
+        recBankAccountField.setBounds(610, 250, 250, 30);
+        moneyToSendField.setBounds(610, 300, 250, 30);
+        sendButton.setBounds(525, 400, 150, 30);
         sendButton.setBackground(defaultTitleColor);
         sendButton.setForeground(Color.WHITE);     
         sendButton.setFont(defaultTextFont);
@@ -913,6 +917,11 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 textaboutusB.setBackground(Color.DARK_GRAY);
                 overviewLabel.setForeground(titleColorDarkMode);
                 newPaymentLabel.setForeground(titleColorDarkMode);
+                exitButton.setBackground(titleColorDarkMode);
+                exitButton.setForeground(Color.BLACK);
+                sendButton.setBackground(titleColorDarkMode);
+                sendButton.setForeground(Color.BLACK);   
+
             } else {
                 getContentPane().setBackground(defaultColorForFrame);
                 panel1.setBackground(defaultBackgroundColor);
@@ -923,6 +932,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 textaboutusB.setBackground(defaultColorForFrame);
                 overviewLabel.setForeground(defaultTitleColor);
                 newPaymentLabel.setForeground(defaultTitleColor);
+                exitButton.setBackground(defaultTitleColor);
+                exitButton.setForeground(Color.WHITE);
+                sendButton.setBackground(defaultTitleColor);
+                sendButton.setForeground(Color.WHITE);   
             }
         }
 

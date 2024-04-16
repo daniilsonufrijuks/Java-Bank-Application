@@ -777,8 +777,16 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 CreditManager genCredit = new CreditManager();
                 Transaction transaction = new Transaction(credits.getTotal(), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
 
+                Float gencreditsum;
+                gencreditsum = genCredit.GenCredit(credits.getTotal(), 15, 3);
+                System.out.println(gencreditsum);
+                BigDecimal bd2 = new BigDecimal(Float.toString(gencreditsum));
+                bd2 = bd2.setScale(2, RoundingMode.HALF_UP); // 2 is the number of decimal places
+                gencreditsum = bd2.floatValue();
+                creditsumtotal3.setText(gencreditsum.toString());
+
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3);
-                creditsumtotal3.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 15, 3)));
+                //creditsumtotal3.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 15, 3)));
                 //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit3);
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());
                 BankAccountManager.SendMoney(transaction); // send money to another account
@@ -800,8 +808,17 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 CreditManager genCredit = new CreditManager();
                 Transaction transaction = new Transaction(credits.getTotal(), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
 
+
+                Float gencreditsum;
+                gencreditsum = genCredit.GenCredit(credits.getTotal(), 14, 3);
+                System.out.println(gencreditsum);
+                BigDecimal bd2 = new BigDecimal(Float.toString(gencreditsum));
+                bd2 = bd2.setScale(2, RoundingMode.HALF_UP); // 2 is the number of decimal places
+                gencreditsum = bd2.floatValue();
+                creditsumtotal4.setText(gencreditsum.toString());
+
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4);
-                creditsumtotal4.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 14, 4)));
+                //creditsumtotal4.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 14, 4)));
                 //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit4);
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());
                 BankAccountManager.SendMoney(transaction); // send money to another account
@@ -823,8 +840,17 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 CreditManager genCredit = new CreditManager();
                 Transaction transaction = new Transaction(credits.getTotal(), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
 
+
+                Float gencreditsum;
+                gencreditsum = genCredit.GenCredit(credits.getTotal(), 5, 5);
+                System.out.println(gencreditsum);
+                BigDecimal bd2 = new BigDecimal(Float.toString(gencreditsum));
+                bd2 = bd2.setScale(2, RoundingMode.HALF_UP); // 2 is the number of decimal places
+                gencreditsum = bd2.floatValue();
+                creditsumtotal5.setText(gencreditsum.toString());
+
                 //genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5);
-                creditsumtotal5.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 5, 5)));
+                //creditsumtotal5.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 5, 5)));
                 //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit5);
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());
                 BankAccountManager.SendMoney(transaction); // send money to another account

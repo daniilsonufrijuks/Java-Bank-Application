@@ -208,7 +208,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 System.out.println(elem);
             }
         }
-        
+
         getContentPane().setBackground(defaultColorForFrame);
         panel1.setBackground(defaultBackgroundColor);
         panel2.setBackground(defaultBackgroundColor);
@@ -705,7 +705,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
             //if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend) && REGEXManager.isValidFloat(String.valueOf(moneyToSend))){
             if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend, userpCode)){
-                if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0){
+                float balanceuser = BankAccountManager.GetBalance(userpCode).floatValue();
+                if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0 && moneyToSend <= balanceuser){
                     BankAccountManager.SendMoney(transaction); // send money to another account
                     System.out.println(username + " - " + " - " + useremail + " - " + moneyToSend);
                     BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, moneyToSend);   // take money from sender account after sending money

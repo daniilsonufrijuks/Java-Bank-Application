@@ -100,4 +100,14 @@ public class CreditManager {
             e.printStackTrace();
         }
     }
+
+    public static void WriteCrditTransactionsToafile(String recpcode, String sennickname, String senbankacc, Float money) {
+        try {
+            FileWriter writer = new FileWriter("resources/creditTransactions.csv", true);
+            writer.write(recpcode + ", " + sennickname + ", " + senbankacc + ", " + money + "\n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -1014,7 +1014,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 CreditManager.DeleteMessage(userpCode);
                 JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
             } else {
-                JOptionPane.showMessageDialog(this, "Invalid money input!"); // show error message
+                JOptionPane.showMessageDialog(this, "Invalid money input! You can not pay more than your loan! :)"); // show error message
             }
         }
         

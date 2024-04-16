@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -103,10 +104,10 @@ public class CreditManager {
     }
 
     // Write credit transactions to a file
-    public static void WriteCrditTransactionsToafile(String recpcode, String sennickname, String senbankacc, Float money) {
+    public static void WriteCrditTransactionsToafile(String recpcode, String sennickname, String senbankacc, Float money, LocalDate date) {
         try {
             FileWriter writer = new FileWriter("resources/creditTransactions.csv", true);
-            writer.write(recpcode + ", " + sennickname + ", " + senbankacc + ", " + money + "\n");
+            writer.write(recpcode + ", " + sennickname + ", " + senbankacc + ", " + money + ", " + date + "\n");
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();

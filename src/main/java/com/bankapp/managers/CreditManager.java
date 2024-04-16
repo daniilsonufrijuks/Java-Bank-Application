@@ -70,4 +70,14 @@ public class CreditManager {
             System.out.println("Could not rename file");
         }
     }
+
+    public static void Check(String userpcode) {
+        String filepath = "resources/credits.csv";
+        Float credit = FindCredit(filepath, userpcode);
+        if (credit != null) {
+            System.out.println("Credit: " + credit);
+        } else {
+            System.out.println("Credit not found");
+        }
+    }
 }

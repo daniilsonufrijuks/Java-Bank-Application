@@ -7,6 +7,7 @@ import javax.swing.event.HyperlinkListener;
 import org.w3c.dom.events.MouseEvent;
 
 import controller.AutoSendonYourEmail;
+import date.DateGen;
 import logreg.Login;
 import managers.BankAccountManager;
 import managers.CreditManager;
@@ -183,6 +184,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     String username; // person name
     String nickname; // person nickname
     String useremail; // person email
+
 
     JComboBox comboBox; // drop down menu for panel 1 about user
     
@@ -695,6 +697,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                     System.out.println(username + " - " + " - " + useremail + " - " + moneyToSend);
                     BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, moneyToSend);   // take money from sender account after sending money
                     BankAccountManager.ShowMessagewhenMoneysent(userpCode, moneyToSend, BankAccountManager.FindPersonPcode(recBankAccount));
+                    CreditManager.WriteCrditTransactionsToafile(recBankAccount, username, BankAccountManager.FindBankAccount(userpCode), moneyToSend, DateGen.GetDate()); // write credit to files
                     JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
                 } else {
                     JOptionPane.showMessageDialog(this, "Invalid money input!"); // show error message
@@ -729,6 +732,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 CreditManager.WriteCredittoFile(userpCode, Float.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 25, 1))); // write credit to file
                 System.out.println("   balance ---> " + String.valueOf(BankAccountManager.GetBalance(userpCode)));
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                CreditManager.CheckForSimilarUserPcodeinFileandSumValues(userpCode);
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
@@ -771,6 +775,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 CreditManager.WriteCredittoFile(userpCode, gencreditsum); // write credit to file
                 
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                CreditManager.CheckForSimilarUserPcodeinFileandSumValues(userpCode);
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
@@ -805,6 +810,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 CreditManager.WriteCredittoFile(userpCode, gencreditsum); // write credit to file
                 
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                CreditManager.CheckForSimilarUserPcodeinFileandSumValues(userpCode);
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
@@ -840,6 +846,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 CreditManager.WriteCredittoFile(userpCode, gencreditsum); // write credit to file
                 
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                CreditManager.CheckForSimilarUserPcodeinFileandSumValues(userpCode);
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
@@ -875,6 +882,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 CreditManager.WriteCredittoFile(userpCode, gencreditsum); // write credit to file
                 
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                CreditManager.CheckForSimilarUserPcodeinFileandSumValues(userpCode);
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
@@ -1002,7 +1010,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 CreditManager.DeleteMessage(userpCode);
                 JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
             } else {
-                JOptionPane.showMessageDialog(this, "Invalid money input!"); // show error message
+                JOptionPane.showMessageDialog(this, "Invalid money input! You can not pay more than your loan! :)"); // show error message
             }
         }
         

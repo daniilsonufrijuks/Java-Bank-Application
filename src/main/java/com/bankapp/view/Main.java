@@ -15,9 +15,9 @@ import java.awt.GraphicsEnvironment;
 public class Main {
     public static GUILogReg frame;
     public static void main(String[] args) throws InterruptedException {
-        FileCleaner.CleanFile("resources/graphic.txt"); // clean the file
-        FileCleaner.CleanFile("resources/graphic2.txt"); // clean the file
-        FileCleaner.CleanFile("resources/graphic3.txt"); // clean the file
+        //FileCleaner.CleanFile("resources/graphic.txt"); // clean the file
+        //FileCleaner.CleanFile("resources/graphic2.txt"); // clean the file
+        //FileCleaner.CleanFile("resources/graphic3.txt"); // clean the file
         // gui start -----------------------
         //StartWindow m = new StartWindow();
         Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();

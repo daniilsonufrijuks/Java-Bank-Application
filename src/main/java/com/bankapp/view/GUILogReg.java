@@ -6,6 +6,7 @@ import javax.swing.*;
 import logreg.Login;
 import logreg.Registration;
 import managers.BankAccountManager;
+import managers.CreditManager;
 import model.Numbers;
 import model.Person;
 import regex.REGEXManager;
@@ -261,17 +262,14 @@ public class GUILogReg extends JFrame implements ActionListener {
                     }
                 }).start();
 
-                // try {
-                //     Thread.sleep(3000);
-                // } catch (InterruptedException e1) {
-                //     e1.printStackTrace();
-                // } // time sleep for 3 seconds
-
                 //GUIMainProgram frame2 = new GUIMainProgram(userText, userlnameText);
 
+                //int res = 0;
                 if (BankAccountManager.IfSomebodySentMoney(userpcodetText)) {
                     BankAccountManager.DeleteMessage(userpcodetText);
                     //JOptionPane.showMessageDialog(this, "You have received money!");
+
+                    System.out.println("-----------------------------------------------------");
 
                     JPanel panel = new JPanel();
                     panel.setLayout(null);
@@ -282,9 +280,10 @@ public class GUILogReg extends JFrame implements ActionListener {
                     panel.add(label);
                     JOptionPane.showOptionDialog(null, panel, "Message", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{}, null);
                 }
-                // } else {
-                //     JOptionPane.showMessageDialog(this, "You have not received money.");
-                // }
+                
+                //if (res == -1) {
+                //    CreditManager.DeleteMessage(userpcodetText);
+                //}
 
                 frame2.setTitle("MONOLITH Bank");
                 frame2.setIconImage(imgIcon.getImage());    // set icon

@@ -201,6 +201,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
     // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail, String Nnickname) {
+        // find data fro transaction visualisation
+        String[] transactions = CreditManager.FindCreditTransaction("resources/creditTransactions.csv", userPCode);
+        for (String elem : transactions) {
+            System.out.println(elem);
+        }
+
         getContentPane().setBackground(defaultColorForFrame);
         panel1.setBackground(defaultBackgroundColor);
         panel2.setBackground(defaultBackgroundColor);
@@ -702,7 +708,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                     System.out.println(username + " - " + " - " + useremail + " - " + moneyToSend);
                     BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, moneyToSend);   // take money from sender account after sending money
                     BankAccountManager.ShowMessagewhenMoneysent(userpCode, moneyToSend, BankAccountManager.FindPersonPcode(recBankAccount));
-                    CreditManager.WriteCrditTransactionsToafile(recBankAccount, username, BankAccountManager.FindBankAccount(userpCode), moneyToSend, DateGen.GetDate()); // write credit to files
+                    CreditManager.WriteCrditTransactionsToafile(BankAccountManager.FindPersonPcode(recBankAccount), username, BankAccountManager.FindBankAccount(userpCode), moneyToSend, DateGen.GetDate()); // write credit to files
                     JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
                 } else {
                     JOptionPane.showMessageDialog(this, "Invalid money input!"); // show error message

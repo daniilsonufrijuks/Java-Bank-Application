@@ -716,11 +716,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 } else {
                     JOptionPane.showMessageDialog(this, "Invalid money input!"); // show error message
                 }
-                // BankAccountManager.SendMoney(recUsername, recBankAccount, moneyToSend);
-                // BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userPCodeLabel.getText(), userEmailLabel.getText(), moneyToSend);   // take money from sender account after sending money
-                // JOptionPane.showMessageDialog(this, "Success transaction!");
-
-
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data"); // show error message
             }

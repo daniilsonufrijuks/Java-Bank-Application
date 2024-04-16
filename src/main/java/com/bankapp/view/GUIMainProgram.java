@@ -172,9 +172,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel fondLabelCs = new JLabel("CLEAR SKY FUND"); // label for fonds
     JLabel fondLabelDs = new JLabel("DUTY FUND"); // label for fonds
 
-    Graphic slidingGraph = new Graphic(Color.BLUE, "resources/graphic.txt"); // create a new graph object
-    Graphic slidingGraph2 = new Graphic(Color.BLACK, "resources/graphic2.txt");
-    Graphic slidingGraph3 = new Graphic(Color.RED, "resources/graphic3.txt");
+    Graphic slidingGraph = new Graphic(Color.BLUE); // create a new graph object
+    Graphic slidingGraph2 = new Graphic(Color.BLACK);
+    Graphic slidingGraph3 = new Graphic(Color.RED);
 
     JButton exitButton = new JButton("Exit"); // create a new exit button
 

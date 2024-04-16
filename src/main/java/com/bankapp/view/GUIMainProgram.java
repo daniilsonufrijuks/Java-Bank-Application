@@ -779,6 +779,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 CreditManager.WriteCredittoFile(userpCode, gencreditsum); // write credit to file
                 
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                CreditManager.CheckForSimilarUserPcodeinFileandSumValues(userpCode);
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
@@ -813,6 +814,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 CreditManager.WriteCredittoFile(userpCode, gencreditsum); // write credit to file
                 
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                CreditManager.CheckForSimilarUserPcodeinFileandSumValues(userpCode);
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
@@ -848,6 +850,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 CreditManager.WriteCredittoFile(userpCode, gencreditsum); // write credit to file
                 
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                CreditManager.CheckForSimilarUserPcodeinFileandSumValues(userpCode);
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
@@ -883,6 +886,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 CreditManager.WriteCredittoFile(userpCode, gencreditsum); // write credit to file
                 
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                CreditManager.CheckForSimilarUserPcodeinFileandSumValues(userpCode);
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");

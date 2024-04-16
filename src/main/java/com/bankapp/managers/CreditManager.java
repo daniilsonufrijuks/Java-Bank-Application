@@ -73,6 +73,7 @@ public class CreditManager {
         }
     }
 
+    // Check for similar user pcode in file and sum values and delete similar mess
     public static void CheckForSimilarUserPcodeinFileandSumValues(String userpcode) {
         try {
             File file = new File("resources/credits.csv");
@@ -101,6 +102,7 @@ public class CreditManager {
         }
     }
 
+    // Write credit transactions to a file
     public static void WriteCrditTransactionsToafile(String recpcode, String sennickname, String senbankacc, Float money) {
         try {
             FileWriter writer = new FileWriter("resources/creditTransactions.csv", true);

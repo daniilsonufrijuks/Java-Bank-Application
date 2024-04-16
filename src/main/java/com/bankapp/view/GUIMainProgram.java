@@ -184,6 +184,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     String nickname; // person nickname
     String useremail; // person email
 
+
     JComboBox comboBox; // drop down menu for panel 1 about user
     
 
@@ -735,6 +736,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 CreditManager.WriteCredittoFile(userpCode, Float.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 25, 1))); // write credit to file
                 System.out.println("   balance ---> " + String.valueOf(BankAccountManager.GetBalance(userpCode)));
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                CreditManager.CheckForSimilarUserPcodeinFileandSumValues(userpCode);
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");

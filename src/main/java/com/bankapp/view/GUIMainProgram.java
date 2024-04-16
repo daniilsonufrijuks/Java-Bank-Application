@@ -67,9 +67,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     RoundJTextField moneyToSendField;
 
     // For Panel Send lables
-    JLabel recUsernameLabel = new JLabel("Receiver username");
-    JLabel recBankAccountLabel = new JLabel("Receiver bank account");
-    JLabel moneyToSendLabel = new JLabel("Money");
+    JLabel recUsernameLabel = new JLabel("Receiver username:");
+    JLabel recBankAccountLabel = new JLabel("Receiver bank account:");
+    JLabel moneyToSendLabel = new JLabel("Money:");
     JLabel newPaymentLabel = new JLabel("New payment");
 
     // For Main Panel
@@ -128,13 +128,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel creditsum; // for credits
 
     String userpCode; // for SendMoney
+
     // color change
     JCheckBox darkModeChBox = new JCheckBox("Dark Mode");
     Color defaultBackgroundColor = new Color(211, 233, 252);
     Color defaultColorForFrame = new Color(119, 203, 233);
-    Color defaultdefaultTitleColor = new Color(203, 0, 0);
-    Color titleColorDarkMode = new Color(13, 209, 219);
+    Color defaultTitleColor = new Color(203, 0, 0);
+    Color titleColorDarkMode = new Color(211, 233, 252);
     //
+
     JEditorPane editorPane = new JEditorPane();
     //For Panel about us
     String textaboutus = "Finanšu pasaules miglainajās vietās pastāv banka, kas pazīstama kā Monolīts. \n" +
@@ -147,7 +149,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     "turpina pētīt tā noslēpumainās iespējas. \n\n";
 
     
-    JButton sendButton = new JButton("SUBMIT"); // button for send panel
+    JButton sendButton = new JButton("Submit"); // button for send panel
     // For Panel Credits
     JButton TAKEButton = new JButton("TAKE"); // button for take panel
     JButton TAKE2Button = new JButton("TAKE"); // button for take panel
@@ -194,7 +196,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     static JLabel fundcostC = new JLabel(); // label for fund cost
     static JLabel fundcostD = new JLabel(); // label for fund cost
     
-    Font newFont = new Font("Arial", Font.BOLD, 17); // set font for text area
+    Font defaultTextFont = new Font("Arial", Font.BOLD, 17); // set font for text area
     Font titleFont = new Font("Arial", Font.BOLD, 30);
 
     // Constructor
@@ -277,15 +279,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         // Set font for the labels
         overviewLabel.setFont(titleFont);
-        overviewLabel.setForeground(defaultdefaultTitleColor);
-        accountLabel.setFont(newFont);
-        bankAccLabel.setFont(newFont);
-        availableBalanceLabel.setFont(newFont);
-        amountOfCreditLabel.setFont(newFont);
-        userbalanceLabel.setFont(newFont);
-        usernameLabel.setFont(newFont);
-        userlastnameLabel.setFont(newFont);
-        userCreditsLabel.setFont(newFont);
+        overviewLabel.setForeground(defaultTitleColor);
+        accountLabel.setFont(defaultTextFont);
+        bankAccLabel.setFont(defaultTextFont);
+        availableBalanceLabel.setFont(defaultTextFont);
+        amountOfCreditLabel.setFont(defaultTextFont);
+        userbalanceLabel.setFont(defaultTextFont);
+        usernameLabel.setFont(defaultTextFont);
+        userlastnameLabel.setFont(defaultTextFont);
+        userCreditsLabel.setFont(defaultTextFont);
         //
         
         tabPanel.setBounds(0, 0, 1200, 750); // tab position
@@ -295,11 +297,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         //imageLabel3.setBounds(500, 5, 400, 250);
 
         textaboutusB.setBounds(290, 290, 600, 450); // text area position
-        textaboutusB.setFont(newFont);
+        textaboutusB.setFont(defaultTextFont);
 
         // Buttons   
-        sendButton.setBounds(215, 190, 100, 30);
-
         TAKEButton.setBounds(50, 50, 100, 30);
         TAKE2Button.setBounds(50, 100, 100, 30);
         TAKE3Button.setBounds(50, 150, 100, 30);
@@ -355,39 +355,39 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditsumtotal5.setBounds(830, 250, 200, 30);
 
         editorPane.setBounds(500, 590, 200, 30); // set bounds for the link
-        editorPane.setFont(newFont);
+        editorPane.setFont(defaultTextFont);
 
-        creditsum1.setFont(newFont);
-        creditsum2.setFont(newFont);
-        creditsum3.setFont(newFont); // set font
-        creditsum4.setFont(newFont);
-        creditsum5.setFont(newFont);
+        creditsum1.setFont(defaultTextFont);
+        creditsum2.setFont(defaultTextFont);
+        creditsum3.setFont(defaultTextFont); // set font
+        creditsum4.setFont(defaultTextFont);
+        creditsum5.setFont(defaultTextFont);
 
 
         // Set font for the labels
-        credit.setFont(newFont);
-        credit2.setFont(newFont);
-        credit3.setFont(newFont);
-        credit4.setFont(newFont);
-        credit5.setFont(newFont);
+        credit.setFont(defaultTextFont);
+        credit2.setFont(defaultTextFont);
+        credit3.setFont(defaultTextFont);
+        credit4.setFont(defaultTextFont);
+        credit5.setFont(defaultTextFont);
 
-        credityear.setFont(newFont);
-        credityear2.setFont(newFont);
-        credityear3.setFont(newFont);
-        credityear4.setFont(newFont);
-        credityear5.setFont(newFont);
+        credityear.setFont(defaultTextFont);
+        credityear2.setFont(defaultTextFont);
+        credityear3.setFont(defaultTextFont);
+        credityear4.setFont(defaultTextFont);
+        credityear5.setFont(defaultTextFont);
 
-        percentsy.setFont(newFont); // set font
-        percentsy2.setFont(newFont);
-        percentsy3.setFont(newFont);
-        percentsy4.setFont(newFont);
-        percentsy5.setFont(newFont);
+        percentsy.setFont(defaultTextFont); // set font
+        percentsy2.setFont(defaultTextFont);
+        percentsy3.setFont(defaultTextFont);
+        percentsy4.setFont(defaultTextFont);
+        percentsy5.setFont(defaultTextFont);
         
-        creditsumtotal.setFont(newFont);
-        creditsumtotal2.setFont(newFont);
-        creditsumtotal3.setFont(newFont);
-        creditsumtotal4.setFont(newFont);
-        creditsumtotal5.setFont(newFont);
+        creditsumtotal.setFont(defaultTextFont);
+        creditsumtotal2.setFont(defaultTextFont);
+        creditsumtotal3.setFont(defaultTextFont);
+        creditsumtotal4.setFont(defaultTextFont);
+        creditsumtotal5.setFont(defaultTextFont);
 
         repaycredit.setBounds(50, 350, 100, 30); // set bounds for the button
         repaycreditfield.setBounds(200, 350, 100, 30); // set bounds for the text field
@@ -397,18 +397,23 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         // For panel Send lables
         newPaymentLabel.setBounds(500, 50, 200, 30);
-        newPaymentLabel.setForeground(defaultdefaultTitleColor);
         recUsernameLabel.setBounds(350, 200, 150, 30);
         recBankAccountLabel.setBounds(350, 250, 200, 30);
         moneyToSendLabel.setBounds(350, 300, 150, 30);
         //For panel Send text fields
-        recUsernameField.setBounds(520, 200, 250, 30);
-        recBankAccountField.setBounds(180, 90, 200, 30);
-        moneyToSendField.setBounds(180, 140, 200, 30);
+        recUsernameField.setBounds(600, 200, 250, 30);
+        recBankAccountField.setBounds(600, 250, 250, 30);
+        moneyToSendField.setBounds(600, 300, 250, 30);
+        sendButton.setBounds(700, 400, 100, 30);
+        sendButton.setBackground(defaultTitleColor);
+        sendButton.setForeground(Color.WHITE);     
+        sendButton.setFont(defaultTextFont);
+
         // Set font for the labels
-        recUsernameLabel.setFont(newFont);
-        recBankAccountLabel.setFont(newFont);
-        moneyToSendLabel.setFont(newFont);
+        recUsernameLabel.setFont(defaultTextFont);
+        recBankAccountLabel.setFont(defaultTextFont);
+        moneyToSendLabel.setFont(defaultTextFont);
+        newPaymentLabel.setForeground(defaultTitleColor);
         newPaymentLabel.setFont(titleFont);
         //
 
@@ -627,15 +632,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         // ------------
 
         panel4.add(fundcostM); // add label to the panel 4
-        fundcostM.setFont(newFont); // set font for the label
+        fundcostM.setFont(defaultTextFont); // set font for the label
         fundcostM.setVisible(false); // set label invisible
 
         panel4.add(fundcostC); // add label to the panel 4
-        fundcostC.setFont(newFont); // set font for the label
+        fundcostC.setFont(defaultTextFont); // set font for the label
         fundcostC.setVisible(false); // set label invisible
 
         panel4.add(fundcostD); // add label to the panel 4
-        fundcostD.setFont(newFont); // set font for the label
+        fundcostD.setFont(defaultTextFont); // set font for the label
         fundcostD.setVisible(false); // set label invisible
 
         //panel4.add(innerPanel, BorderLayout.CENTER); // add graph to the panel
@@ -908,8 +913,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 panel4.setBackground(defaultBackgroundColor);
                 panel5.setBackground(defaultBackgroundColor);
                 textaboutusB.setBackground(defaultColorForFrame);
-                overviewLabel.setForeground(defaultdefaultTitleColor);
-                newPaymentLabel.setForeground(defaultdefaultTitleColor);
+                overviewLabel.setForeground(defaultTitleColor);
+                newPaymentLabel.setForeground(defaultTitleColor);
             }
         }
 

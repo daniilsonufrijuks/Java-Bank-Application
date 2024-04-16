@@ -187,6 +187,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     String nickname; // person nickname
     String useremail; // person email
 
+    String pinkcode;
+
 
     JComboBox comboBox; // drop down menu for panel 1 about user
     
@@ -230,6 +232,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         useremail = userEmail;
 
         String bankacc = BankAccountManager.FindBankAccount(userpCode); // find bank account by personal code
+        pinkcode = BankAccountManager.FindPinCodes(userpCode); // ------------->
         String[] data = {nickname, useremail, bankacc}; // create a new string array
         comboBox = new JComboBox(data); // create a new combo box
 

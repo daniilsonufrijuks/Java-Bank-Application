@@ -112,4 +112,19 @@ public class CreditManager {
             e.printStackTrace();
         }
     }
+
+    public static String[] FindCreditTransaction(String filepath, String recpcode) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filepath))) { // create a new buffered reader object
+            String line;
+            while ((line = br.readLine()) != null) { // while there is a next line
+                String[] parts = line.split(", ");      // current line from csv file
+                if (parts.length == 4 && parts[0].equals(recpcode)) {
+                    return new String[]{parts[1], parts[2], parts[3]};
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

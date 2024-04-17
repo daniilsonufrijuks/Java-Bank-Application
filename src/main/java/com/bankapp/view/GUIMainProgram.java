@@ -233,7 +233,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         String bankacc = BankAccountManager.FindBankAccount(userpCode); // find bank account by personal code
         pinkcode = BankAccountManager.FindPinCodes(userpCode); // ------------->
-        String[] data = {nickname, useremail, bankacc}; // create a new string array
+        String[] data = {nickname, useremail, bankacc, pinkcode}; // create a new string array
         comboBox = new JComboBox(data); // create a new combo box
 
         textaboutusB = new JTextArea(textaboutus); // added textaboutus to text area

@@ -30,3 +30,5 @@
 
 
 **WEB PAGE** -> https://daniilsonufrijuks.github.io/MONOLITH.github.io/
+
+**PRESENTATION** -> https://pikcrvtlv-my.sharepoint.com/:p:/r/personal/do00492_rvt_lv/Documents/Bank%20Application%20Documentation%20and%20Presentation/Bank%20Application.pptx?d=wab8957a765c241cdb982645456923430&csf=1&web=1&e=9jmxpj

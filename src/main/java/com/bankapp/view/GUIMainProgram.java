@@ -210,7 +210,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail, String Nnickname) {
         // find data fro transaction visualisation
-        String[] transactions = CreditManager.FindCreditTransaction("resources/creditTransactions.csv", userPCode);
+        String[] transactions = CreditManager.FindCreditTransaction("resources/sendmoneyTransactions.csv", userPCode);
         if (transactions != null) {
             for (String elem : transactions) {
                 System.out.println(elem);
@@ -1049,14 +1049,19 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             BigDecimal balance = BankAccountManager.GetBalance(userpCode); // get balance in big decimal
             
             String recUsername = "MONOLITH"; // get receiver username MONOLITH account
+            String bankpcode = "000000-00000";
+            String bankemail = "monolith@gmail.com";
             String recBankAccount = "7m493791o0684f1nof5fl8it80626123"; // get receiver bank account MONOLITH account            
 
-            Transaction transaction = new Transaction(FundsManager.FindFund(userpCode), recBankAccount, recUsername); // create a new transaction object
+            Transaction transaction = new Transaction(FundsManager.FindFund(userpCode, fundname), BankAccountManager.FindBankAccount(userpCode), username); // create a new transaction object
+            
+            System.out.println(FundsManager.FindFund(userpCode, fundname));
 
             if (FundsManager.CheckBoughtFunds(userpCode)) {
                 if (balance.compareTo(BigDecimal.ZERO) > 0) {
                     BankAccountManager.SendMoney(transaction); // send money to another account
-                    BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, FundsManager.FindFund(userpCode));   // take money from sender account after sending money
+                    BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(bankpcode, bankemail, FundsManager.FindFund(bankpcode, fundname));   // take money from sender account after sending money
+                    //FundsManager.DeleteMessage(userpCode);
                     userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                     JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
                 } else {

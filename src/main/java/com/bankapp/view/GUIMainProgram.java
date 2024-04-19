@@ -11,6 +11,7 @@ import date.DateGen;
 import logreg.Login;
 import managers.BankAccountManager;
 import managers.CreditManager;
+import managers.FundsManager;
 import model.Credits;
 import model.Person;
 import model.Transaction;
@@ -191,7 +192,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
 
     JComboBox comboBox; // drop down menu for panel 1 about user
-    
+
+
+    static int fundscost = 0; // fonds cost
+    String fundname; // fonds name
 
     public static int receivedata; // received data from graphic
     static JLabel fundcostM = new JLabel(); // label for fund cost
@@ -694,6 +698,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     public static void receiveData(int data) {
         //System.out.println(data);
         receivedata = data;
+        fundscost = receivedata;
         fundcostM.setText(String.valueOf(receivedata/10*90)); // update balance
         fundcostC.setText(String.valueOf(receivedata/10*100)); // update balance
         fundcostD.setText(String.valueOf(receivedata/10*120)); // update balance
@@ -957,6 +962,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             fundcostM.setVisible(true);
             fundcostC.setVisible(false);
             fundcostD.setVisible(false);
+            fundscost = receivedata/10*90;
+            fundname = "MONOLITH";
         } else if (fond2.isSelected()) {
             // Code for when radioButton2 is selected
             //panel4.add(slidingGraph2);
@@ -975,6 +982,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             fundcostM.setVisible(false);
             fundcostC.setVisible(true);
             fundcostD.setVisible(false);
+            fundscost = receivedata/10*100;
+            fundname = "CLEAR SKY";
         } else if (fond3.isSelected()) {
             // Code for when radioButton3 is selected
             //panel4.add(slidingGraph3);
@@ -992,6 +1001,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             fundcostM.setVisible(false);
             fundcostC.setVisible(false);
             fundcostD.setVisible(true);
+            fundscost = receivedata/10*120;
+            fundname = "DUTY";
         }
 
         // sell and buy action for btn in stock exchange
@@ -1002,11 +1013,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             String recUsername = "MONOLITH"; // get receiver username MONOLITH account
             String recBankAccount = "7m493791o0684f1nof5fl8it80626123"; // get receiver bank account MONOLITH account            
 
-            Transaction transaction = new Transaction(receivedata, recBankAccount, recUsername); // create a new transaction object
+            Transaction transaction = new Transaction(fundscost, recBankAccount, recUsername); // create a new transaction object
 
             if (balance.compareTo(BigDecimal.ZERO) > 0) {
                 BankAccountManager.SendMoney(transaction); // send money to another account
-                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, receivedata);   // take money from sender account after sending money
+                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, fundscost);   // take money from sender account after sending money
+                FundsManager.WriteBoughtFunds(userpCode, fundscost, fundname); // write bought funds to file
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
             } else {

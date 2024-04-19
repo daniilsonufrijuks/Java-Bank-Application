@@ -724,7 +724,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                     System.out.println(username + " - " + " - " + useremail + " - " + moneyToSend);
                     BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, moneyToSend);   // take money from sender account after sending money
                     BankAccountManager.ShowMessagewhenMoneysent(userpCode, moneyToSend, BankAccountManager.FindPersonPcode(recBankAccount));
-                    CreditManager.WriteCrditTransactionsToafile(BankAccountManager.FindPersonPcode(recBankAccount), username, BankAccountManager.FindBankAccount(userpCode), moneyToSend, DateGen.GetDate()); // write credit to files
+                    CreditManager.WriteMoneyTransactionsToafile(BankAccountManager.FindPersonPcode(recBankAccount), username, BankAccountManager.FindBankAccount(userpCode), moneyToSend, DateGen.GetDate()); // write credit to files
                     JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
                 } else {
                     JOptionPane.showMessageDialog(this, "Invalid money input!"); // show error message

@@ -1018,7 +1018,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             if (balance.compareTo(BigDecimal.ZERO) > 0) {
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, fundscost);   // take money from sender account after sending money
-                FundsManager.WriteBoughtFunds(userpCode, fundscost, fundname); // write bought funds to file
+                FundsManager.WriteBoughtFunds(userpCode, fundscost, fundname); // write bought funds to file 
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
             } else {

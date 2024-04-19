@@ -1,6 +1,8 @@
 package managers;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -46,5 +48,34 @@ public class FundsManager {
             e.printStackTrace();
         }
         return amount;
+    }
+
+    public static void DeleteMessage(String userpcode) {
+        File inputFile = new File("resources/funds.csv");
+        File tempFile = new File("resources/fundsTemp.csv");
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
+
+            String currentLine;
+            while ((currentLine = reader.readLine()) != null) {
+                // trim newline when comparing with userpcode
+                String trimmedLine = currentLine.trim();
+                if (trimmedLine.contains(userpcode)) continue;
+                writer.write(currentLine + System.getProperty("line.separator"));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //Delete the original file
+        if (!inputFile.delete()) {
+            System.out.println("Could not delete file");
+            return;
+        }
+
+        //Rename the new file to the filename the original file had.
+        if (!tempFile.renameTo(inputFile)) {
+            System.out.println("Could not rename file");
+        }
     }
 }

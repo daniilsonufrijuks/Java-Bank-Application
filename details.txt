@@ -28,3 +28,5 @@ have to write email check, nickname, personal code
 
 transactions.csv:
     receiver pers code, sender user name, sender bank acc, total sent money, date
+
+- Проверка на капитал пользователя в stock exchange, чтобы в минус не уходило

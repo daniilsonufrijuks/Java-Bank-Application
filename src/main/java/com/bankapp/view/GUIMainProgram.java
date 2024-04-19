@@ -95,17 +95,18 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     //JScrollPane scrollPane = new JScrollPane(textArea); // Create a JScrollPane and add the JTextArea to it
 
     // For Panel Credits
-    JLabel credit = new JLabel("CREDIT OPTION 1");
-    JLabel credit2 = new JLabel("CREDIT OPTION 2");
-    JLabel credit3 = new JLabel("CREDIT OPTION 3");
-    JLabel credit4 = new JLabel("CREDIT OPTION 4");
-    JLabel credit5 = new JLabel("CREDIT OPTION 5");
+    JLabel newLoanLable = new JLabel("Take a new loan or repay it");
+    JLabel credit = new JLabel("Credit option 1");
+    JLabel credit2 = new JLabel("Credit option 2");
+    JLabel credit3 = new JLabel("Credit option 3");
+    JLabel credit4 = new JLabel("Credit option 4");
+    JLabel credit5 = new JLabel("Credit option 5");
 
-    JLabel credityear = new JLabel("1 YEAR");
-    JLabel credityear2 = new JLabel("2 YEAR");
-    JLabel credityear3 = new JLabel("3 YEAR");
-    JLabel credityear4 = new JLabel("4 YEAR");
-    JLabel credityear5 = new JLabel("5 YEAR");
+    JLabel credityear = new JLabel("For 1 year");
+    JLabel credityear2 = new JLabel("For 2 years");
+    JLabel credityear3 = new JLabel("For 3 years");
+    JLabel credityear4 = new JLabel("For 4 years");
+    JLabel credityear5 = new JLabel("For 5 years");
 
     JLabel percentsy = new JLabel("25%");
     JLabel percentsy2 = new JLabel("20%");
@@ -113,11 +114,22 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel percentsy4 = new JLabel("14%");
     JLabel percentsy5 = new JLabel("5%");
 
-    JLabel creditsum1 = new JLabel("CREDIT SUM: ");
-    JLabel creditsum2 = new JLabel("CREDIT SUM: ");
-    JLabel creditsum3 = new JLabel("CREDIT SUM: ");
-    JLabel creditsum4 = new JLabel("CREDIT SUM: ");
-    JLabel creditsum5 = new JLabel("CREDIT SUM: ");
+    JLabel creditsum1 = new JLabel("Credit sum: ");
+    JLabel creditsum2 = new JLabel("Credit sum: ");
+    JLabel creditsum3 = new JLabel("Credit sum: ");
+    JLabel creditsum4 = new JLabel("Credit sum: ");
+    JLabel creditsum5 = new JLabel("Credit sum: ");
+
+    // For Panel Credits
+    JButton TAKEButton = new JButton("Take"); // button for take panel
+    JButton TAKE2Button = new JButton("Take");
+    JButton TAKE3Button = new JButton("Take");
+    JButton TAKE4Button = new JButton("Take");
+    JButton TAKE5Button = new JButton("Take");
+
+    JButton repaycredit = new JButton("Repay"); // button for repay panel
+    RoundJTextField repaycreditfield = new RoundJTextField(20); // text field for repay panel
+    // credits end
 
     JLabel creditsumtotal = new JLabel();
     JLabel creditsumtotal2 = new JLabel();
@@ -150,16 +162,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
     
     JButton sendButton = new JButton("Submit"); // button for send panel
-    // For Panel Credits
-    JButton TAKEButton = new JButton("TAKE"); // button for take panel
-    JButton TAKE2Button = new JButton("TAKE"); // button for take panel
-    JButton TAKE3Button = new JButton("TAKE"); // button for take panel
-    JButton TAKE4Button = new JButton("TAKE"); // button for take panel
-    JButton TAKE5Button = new JButton("TAKE"); // button for take panel
-
-    JButton repaycredit = new JButton("REPAY"); // button for repay panel
-    RoundJTextField repaycreditfield = new RoundJTextField(20); // text field for repay panel
-
 
     // ------------
     JButton buyfond = new JButton("BUY"); // button for buy panel stock exchange
@@ -315,70 +317,64 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         textaboutusB.setBounds(290, 290, 600, 450); // text area position
         textaboutusB.setFont(defaultTextFont);
 
-        // Buttons   
-        TAKEButton.setBounds(50, 50, 100, 30);
-        TAKE2Button.setBounds(50, 100, 100, 30);
-        TAKE3Button.setBounds(50, 150, 100, 30);
-        TAKE4Button.setBounds(50, 200, 100, 30);
-        TAKE5Button.setBounds(50, 250, 100, 30);
-
         // For panel Credits lables
-        credit.setBounds(160, 50, 200, 30);
-        credit2.setBounds(160, 100, 200, 30);
-        credit3.setBounds(160, 150, 200, 30);
-        credit4.setBounds(160, 200, 200, 30);
-        credit5.setBounds(160, 250, 200, 30);
+        newLoanLable.setBounds(400, 50, 400, 30);
+        newLoanLable.setFont(titleFont);
+        newLoanLable.setForeground(defaultTitleColor);
+        credit.setBounds(190, 100, 200, 30);
+        credit2.setBounds(190, 150, 200, 30);
+        credit3.setBounds(190, 200, 200, 30);
+        credit4.setBounds(190, 250, 200, 30);
+        credit5.setBounds(190, 300, 200, 30);
+
+        // Buttons   
+        TAKEButton.setBounds(80, 100, 100, 30);
+        TAKE2Button.setBounds(80, 150, 100, 30);
+        TAKE3Button.setBounds(80, 200, 100, 30);
+        TAKE4Button.setBounds(80, 250, 100, 30);
+        TAKE5Button.setBounds(80, 300, 100, 30);
 
         // for credit
-        credityear.setBounds(350, 50, 200, 30);
-        credityear2.setBounds(350, 100, 200, 30);
-        credityear3.setBounds(350, 150, 200, 30);
-        credityear4.setBounds(350, 200, 200, 30);
-        credityear5.setBounds(350, 250, 200, 30);
-
-
-        percentsy.setBounds(430, 50, 200, 30); // set bounds for the labels
-        percentsy2.setBounds(430, 100, 200, 30);
-        percentsy3.setBounds(430, 150, 200, 30);
-        percentsy4.setBounds(430, 200, 200, 30);
-        percentsy5.setBounds(430, 250, 200, 30);
-
+        credityear.setBounds(380, 100, 200, 30);
+        credityear2.setBounds(380, 150, 200, 30);
+        credityear3.setBounds(380, 200, 200, 30);
+        credityear4.setBounds(380, 250, 200, 30);
+        credityear5.setBounds(380, 300, 200, 30);
+        // percents
+        percentsy.setBounds(460, 100, 200, 30); // set bounds for the labels
+        percentsy2.setBounds(460, 150, 200, 30);
+        percentsy3.setBounds(460, 200, 200, 30);
+        percentsy4.setBounds(460, 250, 200, 30);
+        percentsy5.setBounds(460, 300, 200, 30);
+        // credit options
         creditoptionfiled1 = new RoundJTextField(20); // create a text field
-        creditoptionfiled1.setBounds(490, 50, 200, 30);
+        creditoptionfiled1.setBounds(520, 100, 200, 30);
         creditoptionfiled2 = new RoundJTextField(20);
-        creditoptionfiled2.setBounds(490, 100, 200, 30);
-
+        creditoptionfiled2.setBounds(520, 150, 200, 30);
         creditoptionfiled3 = new RoundJTextField(20);
-        creditoptionfiled3.setBounds(490, 150, 200, 30);
-
+        creditoptionfiled3.setBounds(520, 200, 200, 30);
         creditoptionfiled4 = new RoundJTextField(20);
-        creditoptionfiled4.setBounds(490, 200, 200, 30);
-
+        creditoptionfiled4.setBounds(520, 250, 200, 30);
         creditoptionfiled5 = new RoundJTextField(20);
-        creditoptionfiled5.setBounds(490, 250, 200, 30);
-
-        creditsum1.setBounds(700, 50, 200, 30); // set bounds for the labels
-        creditsum2.setBounds(700, 100, 200, 30);
-        creditsum3.setBounds(700, 150, 200, 30);
-        creditsum4.setBounds(700, 200, 200, 30);
-        creditsum5.setBounds(700, 250, 200, 30);
-
-
-        creditsumtotal.setBounds(830, 50, 200, 30);
-        creditsumtotal2.setBounds(830, 100, 200, 30);
-        creditsumtotal3.setBounds(830, 150, 200, 30);
-        creditsumtotal4.setBounds(830, 200, 200, 30); // set bounds for the labels
-        creditsumtotal5.setBounds(830, 250, 200, 30);
-
-        editorPane.setBounds(500, 590, 200, 30); // set bounds for the link
-        editorPane.setFont(defaultTextFont);
-
+        creditoptionfiled5.setBounds(520, 300, 200, 30);
+        // credit sum
+        creditsum1.setBounds(730, 100, 200, 30); // set bounds for the labels
+        creditsum2.setBounds(730, 150, 200, 30);
+        creditsum3.setBounds(730, 200, 200, 30);
+        creditsum4.setBounds(730, 250, 200, 30);
+        creditsum5.setBounds(730, 300, 200, 30);
+        // credit sum total
+        creditsumtotal.setBounds(860, 100, 200, 30);
+        creditsumtotal2.setBounds(860, 150, 200, 30);
+        creditsumtotal3.setBounds(860, 200, 200, 30);
+        creditsumtotal4.setBounds(860, 250, 200, 30); // set bounds for the labels
+        creditsumtotal5.setBounds(860, 300, 200, 30);
+        // fonts
         creditsum1.setFont(defaultTextFont);
         creditsum2.setFont(defaultTextFont);
-        creditsum3.setFont(defaultTextFont); // set font
+        creditsum3.setFont(defaultTextFont);
         creditsum4.setFont(defaultTextFont);
         creditsum5.setFont(defaultTextFont);
-
 
         // Set font for the labels
         credit.setFont(defaultTextFont);
@@ -405,11 +401,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditsumtotal4.setFont(defaultTextFont);
         creditsumtotal5.setFont(defaultTextFont);
 
-        repaycredit.setBounds(50, 350, 100, 30); // set bounds for the button
-        repaycreditfield.setBounds(200, 350, 100, 30); // set bounds for the text field
+        repaycredit.setBounds(80, 400, 100, 30); // set bounds for the button
+        repaycreditfield.setBounds(230, 400, 100, 30); // set bounds for the text field
 
         //slidingGraph.setBorder(BorderFactory.createEmptyBorder(10, 50, 300, 50)); // set bounds for the graph
         //slidingGraph.setBorder(BorderFactory.createLineBorder(Color.RED, 5));
+
+        editorPane.setBounds(500, 590, 200, 30); // set bounds for the link
+        editorPane.setFont(defaultTextFont);
 
         // For panel Send lables
         newPaymentLabel.setBounds(500, 50, 200, 30);
@@ -545,6 +544,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.add(TAKE5Button);
 
         // For panel Credits lables
+        panel3.add(newLoanLable);
         panel3.add(credit);
         panel3.add(credit2);
         panel3.add(credit3);
@@ -914,13 +914,22 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 panel3.setBackground(Color.GRAY);
                 panel4.setBackground(Color.GRAY);
                 panel5.setBackground(Color.GRAY);
-                textaboutusB.setBackground(Color.DARK_GRAY);
+
+                // Panel 1
                 overviewLabel.setForeground(titleColorDarkMode);
-                newPaymentLabel.setForeground(titleColorDarkMode);
                 exitButton.setBackground(titleColorDarkMode);
                 exitButton.setForeground(Color.BLACK);
+
+                // Panel 2
+                newPaymentLabel.setForeground(titleColorDarkMode);
                 sendButton.setBackground(titleColorDarkMode);
                 sendButton.setForeground(Color.BLACK);   
+
+                // Panel3
+                newLoanLable.setForeground(titleColorDarkMode);
+
+                //Panel 5
+                textaboutusB.setBackground(Color.DARK_GRAY);
 
             } else {
                 getContentPane().setBackground(defaultColorForFrame);
@@ -929,13 +938,22 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 panel3.setBackground(defaultBackgroundColor);
                 panel4.setBackground(defaultBackgroundColor);
                 panel5.setBackground(defaultBackgroundColor);
-                textaboutusB.setBackground(defaultColorForFrame);
+
+                // Panel 1
                 overviewLabel.setForeground(defaultTitleColor);
-                newPaymentLabel.setForeground(defaultTitleColor);
                 exitButton.setBackground(defaultTitleColor);
                 exitButton.setForeground(Color.WHITE);
+
+                // Panel 2
+                newPaymentLabel.setForeground(defaultTitleColor);
                 sendButton.setBackground(defaultTitleColor);
                 sendButton.setForeground(Color.WHITE);   
+
+                // Panel3
+                newLoanLable.setForeground(defaultTitleColor);
+
+                // Panel 5
+                textaboutusB.setBackground(defaultColorForFrame);
             }
         }
 

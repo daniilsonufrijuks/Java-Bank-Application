@@ -1027,12 +1027,25 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         }
 
         if (e.getSource() == sellfond) {
-            // Code for when sell button is clicked
-            //JOptionPane.showMessageDialog(this, "Sell button clicked!");
-            //BankAccountManager.SendMoney(transaction);
-            //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userPCodeLabel.getText(), userEmailLabel.getText(), moneyToSend);
-            //JOptionPane.showMessageDialog(this, "Success transaction!");
+            BigDecimal balance = BankAccountManager.GetBalance(userpCode); // get balance in big decimal
+            
+            String recUsername = "MONOLITH"; // get receiver username MONOLITH account
+            String recBankAccount = "7m493791o0684f1nof5fl8it80626123"; // get receiver bank account MONOLITH account            
+
+            Transaction transaction = new Transaction(FundsManager.FindFund(userpCode), recBankAccount, recUsername); // create a new transaction object
+
+            if (FundsManager.CheckBoughtFunds(userpCode)) {
+                if (balance.compareTo(BigDecimal.ZERO) > 0) {
+                    BankAccountManager.SendMoney(transaction); // send money to another account
+                    BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, FundsManager.FindFund(userpCode));   // take money from sender account after sending money
+                    userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                    JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
+                } else {
+                    JOptionPane.showMessageDialog(this, "Invalid money input!"); // show error message
+                }
+            }
         }
+
 
         if (e.getSource() == repaycredit) {
             String recUsername = "MONOLITH"; // get receiver username MONOLITH account

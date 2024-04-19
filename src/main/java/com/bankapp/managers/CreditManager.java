@@ -104,9 +104,9 @@ public class CreditManager {
     }
 
     // Write credit transactions to a file
-    public static void WriteCrditTransactionsToafile(String recpcode, String sennickname, String senbankacc, Float money, LocalDate date) {
+    public static void WriteMoneyTransactionsToafile(String recpcode, String sennickname, String senbankacc, Float money, LocalDate date) {
         try {
-            FileWriter writer = new FileWriter("resources/creditTransactions.csv", true);
+            FileWriter writer = new FileWriter("resources/sendmoneyTransactions.csv", true);
             writer.write(recpcode + ", " + sennickname + ", " + senbankacc + ", " + money + ", " + date + "\n");
             writer.close();
         } catch (IOException e) {

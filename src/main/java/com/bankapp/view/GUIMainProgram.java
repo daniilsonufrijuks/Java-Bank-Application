@@ -1055,7 +1055,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
             Transaction transaction = new Transaction(FundsManager.FindFund(userpCode, fundname), BankAccountManager.FindBankAccount(userpCode), username); // create a new transaction object
             
-            System.out.println(FundsManager.FindFund(userpCode, fundname));
+            System.out.println("----------------------------> " + FundsManager.FindFund(userpCode, fundname));
 
             if (FundsManager.CheckBoughtFunds(userpCode)) {
                 if (balance.compareTo(BigDecimal.ZERO) > 0) {

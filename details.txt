@@ -30,3 +30,6 @@ transactions.csv:
     receiver pers code, sender user name, sender bank acc, total sent money, date
 
 - Проверка на капитал пользователя в stock exchange, чтобы в минус не уходило
+
+
+написать проверку фондов, если один покупатель купил несколько фондов с одинаковыми наваниями соединить их вместе

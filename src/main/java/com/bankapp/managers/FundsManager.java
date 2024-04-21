@@ -79,4 +79,20 @@ public class FundsManager {
             System.out.println("Could not rename file");
         }
     }
+
+    public static float CheckForSimilarFundsAndJoinSimilar(String userpcode, String fundname) {
+        float amount = 0.0f;
+        try (BufferedReader br = new BufferedReader(new FileReader("resources/funds.csv"))) { // create a new buffered reader object
+            String line;
+            while ((line = br.readLine()) != null) { // while there is a next line
+                String[] parts = line.split(", ");      // current line from csv file
+                if (parts.length == 3 && parts[0].equals(userpcode) && parts[2].equals(fundname)) {
+                    amount += Float.parseFloat(parts[1]);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return amount;
+    }
 }

@@ -3,8 +3,6 @@ package view;
 
 import javax.swing.*;
 
-import managers.FileManager;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

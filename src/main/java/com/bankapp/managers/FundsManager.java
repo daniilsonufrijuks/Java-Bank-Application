@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-public class FundsManager {
+public class FundsManager implements DeleteFileData {
     public static void WriteBoughtFunds(String userpcode, float amount, String fundname) {
         try {
             FileWriter writer = new FileWriter("resources/funds.csv", true);
@@ -113,7 +113,7 @@ public class FundsManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+
         //Delete the original file
         if (!inputFile.delete()) {
             System.out.println("Could not delete file");

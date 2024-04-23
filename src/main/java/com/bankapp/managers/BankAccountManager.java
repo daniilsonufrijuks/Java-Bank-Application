@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 // BigDecimal is datatype for money
 import java.math.RoundingMode;
 
-public class BankAccountManager {       // Class for monetary transactions (send, get money etc.)
+public class BankAccountManager implements DeleteFileData {       // Class for monetary transactions (send, get money etc.)
     
     // method to send money to another account
     public static boolean SendMoney (Transaction transaction){

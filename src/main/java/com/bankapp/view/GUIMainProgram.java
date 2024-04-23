@@ -682,6 +682,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         exitButton.addActionListener(this);
     }
 
+    // to recieve data from graphic and work with it
     public static void receiveData(int data) {
         //System.out.println(data);
         receivedata = data;
@@ -694,7 +695,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) { // if the button is clicked
-        // for send money 
+        // for send money / to send money to another account
         if (e.getSource() == sendButton) {
             //AutoSendonYourEmail.SendEmail();
             String recUsername = recUsernameField.getText(); // get receiver username
@@ -722,7 +723,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
         }
 
-        // for credits
+        // =================================================== Take credits ===================================================
+        // for credits / to take credits and then repay
         if (e.getSource() == TAKEButton) {
             Float filedcredit1;
             filedcredit1 = Float.parseFloat(creditoptionfiled1.getText()); // get credit option 1
@@ -917,6 +919,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             }
         }
 
+        // repay your credit
         if (e.getSource() == repaycredit) {
             String recUsername = "MONOLITH"; // get receiver username MONOLITH account
             String recBankAccount = "7m493791o0684f1nof5fl8it80626123"; // get receiver bank account MONOLITH account 
@@ -924,15 +927,16 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
             Transaction transaction = new Transaction(moneyToSend, recBankAccount, recUsername); // create a new transaction object
 
-            if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0 && moneyToSend <= CreditManager.FindCredit("resources/credits.csv", userpCode)) { // find credit by personal code   
+            if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0 && moneyToSend == CreditManager.FindCredit("resources/credits.csv", userpCode)) { // find credit by personal code   
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, moneyToSend);   // take money from sender account after sending money
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 CreditManager.DeleteMessage(userpCode);
                 JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
             } else {
-                JOptionPane.showMessageDialog(this, "Invalid money input! You can not pay more than your loan! :)"); // show error message
+                JOptionPane.showMessageDialog(this, "Invalid money input! You can not pay fewer or more than your loan! :)"); // show error message
             }
+            //userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
             // check credits to display it on panel1
             if (CreditManager.FindCredit("resources/credits.csv", userpCode) == null){  // if user doesnt have credits (to prevent from writing 'null')
                 userCreditsLabel.setText("none");
@@ -941,6 +945,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             }
         }
 
+        // =================================================== Take credits ===================================================
+
+        // turn on/off dark mode of application
         if (e.getSource() == darkModeChBox){    // turn on/off dark mode
             JLabel[] arrPanel1Labels = {accountLabel, bankAccLabel, availableBalanceLabel, userbalanceLabel,
                 amountOfCreditLabel, userCreditsLabel, usernameLabel, userlastnameLabel};   // array for all labels on Panel1 except for imageLabel
@@ -1015,6 +1022,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             }
         }
 
+        // to show the graph of the stock exchange and buttons lables / for radio btns
         if (fond1.isSelected()) {
             // Code for when radioButton1 is selected
             //panel4.add(slidingGraph);
@@ -1131,7 +1139,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 JOptionPane.showMessageDialog(this, "You do not have any funds to sell!"); // show error message
             }
         }
-
+        
         // exit button to log in window
         if (e.getSource() == exitButton) {
             //System.exit(0);

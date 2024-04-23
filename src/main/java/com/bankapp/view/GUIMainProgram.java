@@ -942,6 +942,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             }
         }
 
+        // turn on/off dark mode of application
         if (e.getSource() == darkModeChBox){    // turn on/off dark mode
             JButton[] arrPanel3Buttons = {TAKEButton, TAKE2Button, TAKE3Button, TAKE4Button, TAKE5Button, repaycredit};    // array of all buttons on Panel3
             if (darkModeChBox.isSelected()){
@@ -1002,6 +1003,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             }
         }
 
+        // to show the graph of the stock exchange and buttons lables / for radio btns
         if (fond1.isSelected()) {
             // Code for when radioButton1 is selected
             //panel4.add(slidingGraph);

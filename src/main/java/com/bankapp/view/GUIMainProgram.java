@@ -916,6 +916,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             }
         }
 
+        // repay your credit
         if (e.getSource() == repaycredit) {
             String recUsername = "MONOLITH"; // get receiver username MONOLITH account
             String recBankAccount = "7m493791o0684f1nof5fl8it80626123"; // get receiver bank account MONOLITH account 
@@ -923,15 +924,16 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
             Transaction transaction = new Transaction(moneyToSend, recBankAccount, recUsername); // create a new transaction object
 
-            if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0 && moneyToSend <= CreditManager.FindCredit("resources/credits.csv", userpCode)) { // find credit by personal code   
+            if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0 && moneyToSend == CreditManager.FindCredit("resources/credits.csv", userpCode)) { // find credit by personal code   
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, moneyToSend);   // take money from sender account after sending money
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 CreditManager.DeleteMessage(userpCode);
                 JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
             } else {
-                JOptionPane.showMessageDialog(this, "Invalid money input! You can not pay more than your loan! :)"); // show error message
+                JOptionPane.showMessageDialog(this, "Invalid money input! You can not pay fewer or more than your loan! :)"); // show error message
             }
+            //userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
             // check credits to display it on panel1
             if (CreditManager.FindCredit("resources/credits.csv", userpCode) == null){  // if user doesnt have credits (to prevent from writing 'null')
                 userCreditsLabel.setText("none");
@@ -1115,26 +1117,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             } else {
                 JOptionPane.showMessageDialog(this, "You do not have any funds to sell!"); // show error message
             }
-        }
-
-        // repay your credit
-        if (e.getSource() == repaycredit) {
-            String recUsername = "MONOLITH"; // get receiver username MONOLITH account
-            String recBankAccount = "7m493791o0684f1nof5fl8it80626123"; // get receiver bank account MONOLITH account 
-            float moneyToSend = Float.valueOf(repaycreditfield.getText()); // get money to send
-
-            Transaction transaction = new Transaction(moneyToSend, recBankAccount, recUsername); // create a new transaction object
-
-            if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0 && moneyToSend == CreditManager.FindCredit("resources/credits.csv", userpCode)) { // find credit by personal code   
-                BankAccountManager.SendMoney(transaction); // send money to another account
-                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, moneyToSend);   // take money from sender account after sending money
-                userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
-                CreditManager.DeleteMessage(userpCode);
-                JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
-            } else {
-                JOptionPane.showMessageDialog(this, "Invalid money input! You can not pay fewer than your loan! :)"); // show error message
-            }
-            userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
         }
         
         // exit button to log in window

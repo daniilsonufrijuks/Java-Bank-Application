@@ -188,7 +188,7 @@ public class GUILogReg extends JFrame implements ActionListener {
 
 
                 JFrame stwm = new JFrame();  
-                stwm.setTitle("MONOLITH Bank"); // set title
+                stwm.setTitle("MONOLITH Bank v1.0"); // set title
                 stwm.setIconImage(imgIcon.getImage());  // set icon
                 // JLabel label = new JLabel(new ImageIcon("resources/hamster.jpg")); // set background image
                 // stwm.getContentPane().add(label); // add label to the frame
@@ -285,7 +285,7 @@ public class GUILogReg extends JFrame implements ActionListener {
                    CreditManager.DeleteMessage(userpcodetText);
                 }
 
-                frame2.setTitle("MONOLITH Bank");
+                frame2.setTitle("MONOLITH Bank v1.0");
                 frame2.setIconImage(imgIcon.getImage());    // set icon
                 frame2.setBounds(center.x - 1200 / 2, center.y - 750 / 2, 1200, 750); // to centre window
                 //frame2.setBounds(10, 10, 1200, 750);

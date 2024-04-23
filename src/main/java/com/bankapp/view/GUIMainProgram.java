@@ -1084,14 +1084,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
             Transaction transaction = new Transaction(moneyToSend, recBankAccount, recUsername); // create a new transaction object
 
-            if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0 && moneyToSend <= CreditManager.FindCredit("resources/credits.csv", userpCode)) { // find credit by personal code   
+            if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0 && moneyToSend == CreditManager.FindCredit("resources/credits.csv", userpCode)) { // find credit by personal code   
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, moneyToSend);   // take money from sender account after sending money
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 CreditManager.DeleteMessage(userpCode);
                 JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
             } else {
-                JOptionPane.showMessageDialog(this, "Invalid money input! You can not pay more than your loan! :)"); // show error message
+                JOptionPane.showMessageDialog(this, "Invalid money input! You can not pay fewer than your loan! :)"); // show error message
             }
             userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
         }
@@ -1105,7 +1105,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             ImageIcon imgIcon = new ImageIcon("resources/program_logo.jpg");    // logo
 
             GUIMainProgram.framelogreg = new GUILogReg(); // create a new frame
-            framelogreg.setTitle("MONOLITH Bank");
+            framelogreg.setTitle("MONOLITH Bank v1.0");
             framelogreg.setIconImage(imgIcon.getImage());     // set icon
             framelogreg.setVisible(true);
             Color backgroundColor = new Color(211, 233, 252);   // for background color

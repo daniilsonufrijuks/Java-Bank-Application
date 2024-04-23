@@ -1069,6 +1069,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             }
         }
 
+        // sell funds button
         if (e.getSource() == sellfond) {
             BigDecimal balance = BankAccountManager.GetBalance(userpCode); // get balance in big decimal
             
@@ -1103,7 +1104,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             }
         }
 
-
+        // repay your credit
         if (e.getSource() == repaycredit) {
             String recUsername = "MONOLITH"; // get receiver username MONOLITH account
             String recBankAccount = "7m493791o0684f1nof5fl8it80626123"; // get receiver bank account MONOLITH account 
@@ -1123,6 +1124,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
         }
         
+        // exit button to log in window
         if (e.getSource() == exitButton) {
             //System.exit(0);
             this.setVisible(false); // Hide the current window

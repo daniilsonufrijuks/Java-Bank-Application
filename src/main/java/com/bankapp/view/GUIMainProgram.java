@@ -260,7 +260,11 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         moneyToSendField = new RoundJTextField(20);
 
         userbalanceLabel = new JLabel(String.valueOf(BankAccountManager.GetBalance(userPCode)));
-        userCreditsLabel = new JLabel(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userPCode)));
+        if (CreditManager.FindCredit("resources/credits.csv", userPCode) == null){  // if user doesnt have credits (to prevent from writing 'null')
+            userCreditsLabel.setText("none");
+        } else {
+            userCreditsLabel = new JLabel(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userPCode)));
+        }
         BankAccountManager bankAccountManager = new BankAccountManager();
         CreditManager genCredit = new CreditManager();
 
@@ -380,8 +384,11 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditsumtotal4.setBounds(960, 300, 200, 30); // set bounds for the labels
         creditsumtotal5.setBounds(960, 350, 200, 30);
 
-        repaycredit.setBounds(400, 400, 100, 30); // set bounds for the button
-        repaycreditfield.setBounds(550, 400, 100, 30); // set bounds for the text field
+        repaycredit.setBounds(450, 450, 150, 30);    // set bounds for the button
+        repaycredit.setBackground(defaultTitleColor);
+        repaycredit.setForeground(Color.WHITE);     
+        repaycredit.setFont(defaultTextFont);
+        repaycreditfield.setBounds(600, 450, 100, 30); // set bounds for the text field
 
         // fonts
         creditsum1.setFont(defaultTextFont);
@@ -414,9 +421,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditsumtotal3.setFont(defaultTextFont);
         creditsumtotal4.setFont(defaultTextFont);
         creditsumtotal5.setFont(defaultTextFont);
-
-        //slidingGraph.setBorder(BorderFactory.createEmptyBorder(10, 50, 300, 50)); // set bounds for the graph
-        //slidingGraph.setBorder(BorderFactory.createLineBorder(Color.RED, 5));
 
         editorPane.setBounds(500, 590, 200, 30); // set bounds for the link
         editorPane.setFont(defaultTextFont);
@@ -527,33 +531,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel1.add(comboBox); // add combo box to the panel
 
         panel1.add(exitButton); // add exit button to the panel
-
-        // if (transactions != null) {
-        //     for (String elem : transactions) {
-        //         textArea.append(elem + "\n");
-        //     }
-        // }
-
-        // // Add other components to the CENTER region
-        // JPanel centerPanel = new JPanel();
-        // textArea.setPreferredSize(new Dimension(100, 100));
-        // centerPanel.add(overviewLabel);
-        // centerPanel.add(accountLabel);
-        // // Add the rest of your components to centerPanel
-        // panel1.add(centerPanel, BorderLayout.CENTER);
-
-        // // Add the JTextArea to the SOUTH region
-        // textArea.setForeground(Color.WHITE);
-        // JScrollPane scrollPane = new JScrollPane(textArea);
-        // scrollPane.setPreferredSize(new Dimension(100, 100));
-        // panel1.add(scrollPane, BorderLayout.SOUTH);
-        // panel1.revalidate();
-        // panel1.repaint();
         
-        // Add the JTextArea to panel1
-        //panel1.add(textArea);
-
-
         // For panel Send
         panel2.add(recUsernameField);
         panel2.add(recBankAccountField);
@@ -769,7 +747,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
             }
-            userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
+            // check credits to display it on panel1
+            if (CreditManager.FindCredit("resources/credits.csv", userpCode) == null){  // if user doesnt have credits (to prevent from writing 'null')
+                userCreditsLabel.setText("none");
+            } else {
+                userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
+            }
         }
         if (e.getSource() == TAKE2Button) {
             Float filedcredit2;
@@ -808,7 +791,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
             }
-            userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
+            // check credits to display it on panel1
+            if (CreditManager.FindCredit("resources/credits.csv", userpCode) == null){  // if user doesnt have credits (to prevent from writing 'null')
+                userCreditsLabel.setText("none");
+            } else {
+                userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
+            }
         }
         if (e.getSource() == TAKE3Button) {
             Float filedcredit3;
@@ -841,7 +829,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
             }
-            userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
+            // check credits to display it on panel1
+            if (CreditManager.FindCredit("resources/credits.csv", userpCode) == null){  // if user doesnt have credits (to prevent from writing 'null')
+                userCreditsLabel.setText("none");
+            } else {
+                userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
+            }
         }
         if (e.getSource() == TAKE4Button) {
             Float filedcredit4;
@@ -874,7 +867,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
             }
-            userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
+            // check credits to display it on panel1
+            if (CreditManager.FindCredit("resources/credits.csv", userpCode) == null){  // if user doesnt have credits (to prevent from writing 'null')
+                userCreditsLabel.setText("none");
+            } else {
+                userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
+            }
         }
         if (e.getSource() == TAKE5Button) {
             Float filedcredit5;
@@ -906,7 +904,36 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
             }
-            userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
+            // check credits to display it on panel1
+            if (CreditManager.FindCredit("resources/credits.csv", userpCode) == null){  // if user doesnt have credits (to prevent from writing 'null')
+                userCreditsLabel.setText("none");
+            } else {
+                userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
+            }
+        }
+
+        if (e.getSource() == repaycredit) {
+            String recUsername = "MONOLITH"; // get receiver username MONOLITH account
+            String recBankAccount = "7m493791o0684f1nof5fl8it80626123"; // get receiver bank account MONOLITH account 
+            float moneyToSend = Float.valueOf(repaycreditfield.getText()); // get money to send
+
+            Transaction transaction = new Transaction(moneyToSend, recBankAccount, recUsername); // create a new transaction object
+
+            if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0 && moneyToSend <= CreditManager.FindCredit("resources/credits.csv", userpCode)) { // find credit by personal code   
+                BankAccountManager.SendMoney(transaction); // send money to another account
+                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, moneyToSend);   // take money from sender account after sending money
+                userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                CreditManager.DeleteMessage(userpCode);
+                JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
+            } else {
+                JOptionPane.showMessageDialog(this, "Invalid money input! You can not pay more than your loan! :)"); // show error message
+            }
+            // check credits to display it on panel1
+            if (CreditManager.FindCredit("resources/credits.csv", userpCode) == null){  // if user doesnt have credits (to prevent from writing 'null')
+                userCreditsLabel.setText("none");
+            } else {
+                userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
+            }
         }
 
         if (e.getSource() == darkModeChBox){    // turn on/off dark mode
@@ -1091,7 +1118,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 CreditManager.DeleteMessage(userpCode);
                 JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
             } else {
-                JOptionPane.showMessageDialog(this, "Invalid money input! You can not pay fewer or more than your loan! :)"); // show error message
+                JOptionPane.showMessageDialog(this, "Invalid money input! You can not pay fewer than your loan! :)"); // show error message
             }
             userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
         }

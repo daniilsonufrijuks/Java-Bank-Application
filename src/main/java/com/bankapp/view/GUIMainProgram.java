@@ -693,7 +693,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) { // if the button is clicked
-        // for send money 
+        // for send money / to send money to another account
         if (e.getSource() == sendButton) {
             //AutoSendonYourEmail.SendEmail();
             String recUsername = recUsernameField.getText(); // get receiver username
@@ -721,7 +721,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
         }
 
-        // for credits
+        // for credits / to take credits and then repay
         if (e.getSource() == TAKEButton) {
             Float filedcredit1;
             filedcredit1 = Float.parseFloat(creditoptionfiled1.getText()); // get credit option 1

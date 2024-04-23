@@ -703,7 +703,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         fundcostM.setText(String.valueOf(receivedata/10*90)); // update balance
         fundcostC.setText(String.valueOf(receivedata/10*100)); // update balance
         fundcostD.setText(String.valueOf(receivedata/10*120)); // update balance
-        System.out.println(data);
+        //System.out.println(data);
     }
 
     @Override
@@ -1032,9 +1032,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             String recUsername = "MONOLITH"; // get receiver username MONOLITH account
             String recBankAccount = "7m493791o0684f1nof5fl8it80626123"; // get receiver bank account MONOLITH account            
 
-            Transaction transaction = new Transaction(fundscost, recBankAccount, recUsername); // create a new transaction object
-
+            
             if (balance.compareTo(BigDecimal.ZERO) > 0) {
+                Transaction transaction = new Transaction(fundscost, recBankAccount, recUsername); // create a new transaction object
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, fundscost);   // take money from sender account after sending money
                 FundsManager.WriteBoughtFunds(userpCode, fundscost, fundname); // write bought funds to file 
@@ -1053,21 +1053,29 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             String bankemail = "monolith@gmail.com";
             String recBankAccount = "7m493791o0684f1nof5fl8it80626123"; // get receiver bank account MONOLITH account            
 
-            Transaction transaction = new Transaction(FundsManager.FindFund(userpCode, fundname), BankAccountManager.FindBankAccount(userpCode), username); // create a new transaction object
             
-            System.out.println("----------------------------> " + FundsManager.FindFund(userpCode, fundname));
-
+            System.out.println("----------------------------> " + FundsManager.FindFund(userpCode, fundname) + " ---- " + BankAccountManager.FindBankAccount(userpCode) + " -------- " + username);
+            
             if (FundsManager.CheckBoughtFunds(userpCode)) {
                 if (balance.compareTo(BigDecimal.ZERO) > 0) {
+                    Transaction transaction = new Transaction(FundsManager.CheckForSimilarFundsAndJoinSimilar(userpCode, fundname), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
+
                     BankAccountManager.SendMoney(transaction); // send money to another account
-                    BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(bankpcode, bankemail, FundsManager.FindFund(bankpcode, fundname));   // take money from sender account after sending money
-                    //FundsManager.DeleteMessage(userpCode);
-                    System.out.println(FundsManager.CheckForSimilarFundsAndJoinSimilar(userpCode, fundname));
+                    BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(bankpcode, bankemail, FundsManager.CheckForSimilarFundsAndJoinSimilar(userpCode, fundname));   // take money from sender account after sending money
+
+
+                    // ----------------
+                    System.out.println(FundsManager.CheckForSimilarFundsAndJoinSimilar(userpCode, fundname)); // to check the sum of the funds
+                    // ----------------
+
+                    FundsManager.DeleteSimilarUserpcodeAndFundnamesinFile(userpCode, fundname);
                     userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                     JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
                 } else {
                     JOptionPane.showMessageDialog(this, "Invalid money input!"); // show error message
                 }
+            } else {
+                JOptionPane.showMessageDialog(this, "You do not have any funds to sell!"); // show error message
             }
         }
 

@@ -95,4 +95,34 @@ public class FundsManager {
         }
         return amount;
     }
+
+    public static void DeleteSimilarUserpcodeAndFundnamesinFile(String userpcode, String fundname) {
+        File inputFile = new File("resources/funds.csv");
+        File tempFile = new File("resources/fundsTemp.csv");
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))) {
+
+            String currentLine;
+            while ((currentLine = reader.readLine()) != null) {
+                // trim newline when comparing with userpcode
+                String trimmedLine = currentLine.trim();
+                String[] parts = currentLine.split(", ");
+                if (parts.length == 3 && parts[0].equals(userpcode) && parts[2].equals(fundname)) continue;
+                writer.write(currentLine + System.getProperty("line.separator"));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        //Delete the original file
+        if (!inputFile.delete()) {
+            System.out.println("Could not delete file");
+            return;
+        }
+
+        //Rename the new file to the filename the original file had.
+        if (!tempFile.renameTo(inputFile)) {
+            System.out.println("Could not rename file");
+        }
+    }
 }

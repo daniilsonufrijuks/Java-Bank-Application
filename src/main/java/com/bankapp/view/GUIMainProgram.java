@@ -1112,7 +1112,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             ImageIcon imgIcon = new ImageIcon("resources/program_logo.jpg");    // logo
 
             GUIMainProgram.framelogreg = new GUILogReg(); // create a new frame
-            framelogreg.setTitle("MONOLITH Bank");
+            framelogreg.setTitle("MONOLITH Bank v1.0");
             framelogreg.setIconImage(imgIcon.getImage());     // set icon
             framelogreg.setVisible(true);
             Color backgroundColor = new Color(211, 233, 252);   // for background color

@@ -32,7 +32,7 @@ import java.net.URISyntaxException;
 // import view.GUILogReg.person;
 
 
-public class GUIMainProgram extends JFrame implements ActionListener{  
+public class GUIMainProgram extends JFrame implements ActionListener{ 
     public static GUILogReg framelogreg;
     Container container = getContentPane();
     JTabbedPane tabPanel = new JTabbedPane(); 
@@ -316,7 +316,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         userbalanceLabel.setFont(defaultTextFont);
         usernameLabel.setFont(defaultTextFont);
         userlastnameLabel.setFont(defaultTextFont);
-
         userCreditsLabel.setFont(defaultTextFont);
         exitButton.setBackground(defaultTitleColor);
         exitButton.setForeground(Color.WHITE);
@@ -342,11 +341,18 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         credit5.setBounds(350, 350, 200, 30);
 
         // Buttons   
-        TAKEButton.setBounds(240, 150, 100, 30);
-        TAKE2Button.setBounds(240, 200, 100, 30);
-        TAKE3Button.setBounds(240, 250, 100, 30);
-        TAKE4Button.setBounds(240, 300, 100, 30);
-        TAKE5Button.setBounds(240, 350, 100, 30);
+        TAKEButton.setBounds(190, 150, 150, 30);
+        TAKE2Button.setBounds(190, 200, 150, 30);
+        TAKE3Button.setBounds(190, 250, 150, 30);
+        TAKE4Button.setBounds(190, 300, 150, 30);
+        TAKE5Button.setBounds(190, 350, 150, 30);
+        JButton[] arrPanel3Buttons = {TAKEButton, TAKE2Button, TAKE3Button, TAKE4Button, TAKE5Button, repaycredit};
+        for (JButton button : arrPanel3Buttons){      // loop for all TAKE buttons and Repay button
+            button.setBackground(defaultTitleColor);
+            button.setForeground(Color.WHITE);     
+            button.setFont(defaultTextFont);
+        }
+        arrPanel3Buttons = null;  // set to null (delete) variable
 
         // for credit
         credityear.setBounds(490, 150, 200, 30);
@@ -384,11 +390,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditsumtotal4.setBounds(960, 300, 200, 30); // set bounds for the labels
         creditsumtotal5.setBounds(960, 350, 200, 30);
 
-        repaycredit.setBounds(450, 450, 150, 30);    // set bounds for the button
-        repaycredit.setBackground(defaultTitleColor);
-        repaycredit.setForeground(Color.WHITE);     
+        repaycredit.setBounds(430, 450, 150, 30);    // set bounds for the button  
         repaycredit.setFont(defaultTextFont);
-        repaycreditfield.setBounds(600, 450, 100, 30); // set bounds for the text field
+        repaycreditfield.setBounds(630, 450, 150, 30); // set bounds for the text field
 
         // fonts
         creditsum1.setFont(defaultTextFont);
@@ -937,6 +941,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         }
 
         if (e.getSource() == darkModeChBox){    // turn on/off dark mode
+            JButton[] arrPanel3Buttons = {TAKEButton, TAKE2Button, TAKE3Button, TAKE4Button, TAKE5Button, repaycredit};    // array of all buttons on Panel3
             if (darkModeChBox.isSelected()){
                 getContentPane().setBackground(Color.DARK_GRAY);
                 panel1.setBackground(Color.GRAY);
@@ -957,6 +962,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
                 // Panel3
                 newLoanLable.setForeground(titleColorDarkMode);
+                for (JButton button : arrPanel3Buttons){      // loop for all TAKE buttons
+                    button.setBackground(titleColorDarkMode);
+                    button.setForeground(Color.BLACK);   
+                }
 
                 //Panel 5
                 textaboutusB.setBackground(Color.DARK_GRAY);
@@ -981,6 +990,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
                 // Panel3
                 newLoanLable.setForeground(defaultTitleColor);
+                for (JButton button : arrPanel3Buttons){      // loop for all TAKE buttons
+                    button.setBackground(defaultTitleColor);
+                    button.setForeground(Color.WHITE);   
+                }
 
                 // Panel 5
                 textaboutusB.setBackground(defaultColorForFrame);

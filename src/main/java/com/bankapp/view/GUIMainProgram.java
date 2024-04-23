@@ -722,6 +722,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
         }
 
+        // =================================================== Take credits ===================================================
         // for credits / to take credits and then repay
         if (e.getSource() == TAKEButton) {
             Float filedcredit1;
@@ -942,6 +943,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
             }
         }
+
+        // =================================================== Take credits ===================================================
 
         // turn on/off dark mode of application
         if (e.getSource() == darkModeChBox){    // turn on/off dark mode

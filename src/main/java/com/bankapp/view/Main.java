@@ -3,12 +3,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import cleaner.FileCleaner;
+//import cleaner.FileCleaner;
 
 import java.awt.Color;
 
 import java.awt.Point;
-import java.io.File;
+//import java.io.File;
 import java.awt.GraphicsEnvironment;
 
 // Main class

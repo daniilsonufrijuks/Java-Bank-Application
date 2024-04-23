@@ -325,7 +325,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         tabPanel.setBounds(0, 0, 1200, 750); // tab position
 
         imageLabel2.setBounds(389, 5, 400, 250);
-        //imageLabel3.setBounds(500, 5, 400, 250);
 
         textaboutusB.setBounds(290, 290, 600, 450); // text area position
         textaboutusB.setFont(defaultTextFont);
@@ -429,15 +428,17 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         editorPane.setBounds(500, 590, 200, 30); // set bounds for the link
         editorPane.setFont(defaultTextFont);
 
-        // For panel Send lables
+        // For Panel2 lables
         newPaymentLabel.setBounds(500, 50, 200, 30);
         recUsernameLabel.setBounds(360, 150, 200, 30);
         recBankAccountLabel.setBounds(360, 200, 200, 30);
         moneyToSendLabel.setBounds(360, 250, 200, 30);
-        //For panel Send text fields
+
+        //For Panel2 text fields
         recUsernameField.setBounds(610, 150, 250, 30);
         recBankAccountField.setBounds(610, 200, 250, 30);
         moneyToSendField.setBounds(610, 250, 250, 30);
+        // For Panel2 buttons
         sendButton.setBounds(525, 350, 150, 30);
         sendButton.setBackground(defaultTitleColor);
         sendButton.setForeground(Color.WHITE);     
@@ -941,6 +942,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         }
 
         if (e.getSource() == darkModeChBox){    // turn on/off dark mode
+            JLabel[] arrPanel1Labels = {accountLabel, bankAccLabel, availableBalanceLabel, userbalanceLabel,
+                amountOfCreditLabel, userCreditsLabel, usernameLabel, userlastnameLabel};   // array for all labels on Panel1 except for imageLabel
             JButton[] arrPanel3Buttons = {TAKEButton, TAKE2Button, TAKE3Button, TAKE4Button, TAKE5Button, repaycredit};    // array of all buttons on Panel3
             if (darkModeChBox.isSelected()){
                 getContentPane().setBackground(Color.DARK_GRAY);
@@ -952,11 +955,17 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
                 // Panel 1
                 overviewLabel.setForeground(titleColorDarkMode);
+                for (JLabel label : arrPanel1Labels){   // change all labels colors to white
+                    label.setForeground(Color.WHITE);
+                }
                 exitButton.setBackground(titleColorDarkMode);
                 exitButton.setForeground(Color.BLACK);
 
                 // Panel 2
                 newPaymentLabel.setForeground(titleColorDarkMode);
+                recUsernameField.setForeground(Color.WHITE);
+                recBankAccountField.setForeground(Color.WHITE);
+                moneyToSendField.setForeground(Color.WHITE);
                 sendButton.setBackground(titleColorDarkMode);
                 sendButton.setForeground(Color.BLACK);   
 
@@ -980,11 +989,17 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
                 // Panel 1
                 overviewLabel.setForeground(defaultTitleColor);
+                for (JLabel label : arrPanel1Labels){   // change all labels colors to white
+                    label.setForeground(Color.BLACK);
+                }
                 exitButton.setBackground(defaultTitleColor);
                 exitButton.setForeground(Color.WHITE);
 
                 // Panel 2
                 newPaymentLabel.setForeground(defaultTitleColor);
+                recUsernameField.setForeground(Color.BLACK);
+                recBankAccountField.setForeground(Color.BLACK);
+                moneyToSendField.setForeground(Color.BLACK);
                 sendButton.setBackground(defaultTitleColor);
                 sendButton.setForeground(Color.WHITE);   
 
@@ -1117,26 +1132,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             }
         }
 
-        // repay your credit
-        if (e.getSource() == repaycredit) {
-            String recUsername = "MONOLITH"; // get receiver username MONOLITH account
-            String recBankAccount = "7m493791o0684f1nof5fl8it80626123"; // get receiver bank account MONOLITH account 
-            float moneyToSend = Float.valueOf(repaycreditfield.getText()); // get money to send
-
-            Transaction transaction = new Transaction(moneyToSend, recBankAccount, recUsername); // create a new transaction object
-
-            if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0 && moneyToSend == CreditManager.FindCredit("resources/credits.csv", userpCode)) { // find credit by personal code   
-                BankAccountManager.SendMoney(transaction); // send money to another account
-                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, moneyToSend);   // take money from sender account after sending money
-                userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
-                CreditManager.DeleteMessage(userpCode);
-                JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
-            } else {
-                JOptionPane.showMessageDialog(this, "Invalid money input! You can not pay fewer than your loan! :)"); // show error message
-            }
-            userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
-        }
-        
         // exit button to log in window
         if (e.getSource() == exitButton) {
             //System.exit(0);

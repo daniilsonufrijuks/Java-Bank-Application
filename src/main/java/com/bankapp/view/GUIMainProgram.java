@@ -207,10 +207,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     Font defaultTextFont = new Font("Arial", Font.BOLD, 17); // set font for text area
     Font titleFont = new Font("Arial", Font.BOLD, 30);
 
+
+    // Create a new JTextArea for transactions visualisation
+    JTextArea textArea = new JTextArea();
+    String[] transactions;
+    
     // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail, String Nnickname) {
         // find data fro transaction visualisation
-        String[] transactions = CreditManager.FindCreditTransaction("resources/sendmoneyTransactions.csv", userPCode);
+        transactions = CreditManager.FindCreditTransaction("resources/sendmoneyTransactions.csv", userPCode);
         if (transactions != null) {
             for (String elem : transactions) {
                 System.out.println(elem);
@@ -522,6 +527,31 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         panel1.add(exitButton); // add exit button to the panel
 
+        // if (transactions != null) {
+        //     for (String elem : transactions) {
+        //         textArea.append(elem + "\n");
+        //     }
+        // }
+
+        // // Add other components to the CENTER region
+        // JPanel centerPanel = new JPanel();
+        // textArea.setPreferredSize(new Dimension(100, 100));
+        // centerPanel.add(overviewLabel);
+        // centerPanel.add(accountLabel);
+        // // Add the rest of your components to centerPanel
+        // panel1.add(centerPanel, BorderLayout.CENTER);
+
+        // // Add the JTextArea to the SOUTH region
+        // textArea.setForeground(Color.WHITE);
+        // JScrollPane scrollPane = new JScrollPane(textArea);
+        // scrollPane.setPreferredSize(new Dimension(100, 100));
+        // panel1.add(scrollPane, BorderLayout.SOUTH);
+        // panel1.revalidate();
+        // panel1.repaint();
+        
+        // Add the JTextArea to panel1
+        //panel1.add(textArea);
+
 
         // For panel Send
         panel2.add(recUsernameField);
@@ -590,31 +620,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.add(repaycredit);
         panel3.add(repaycreditfield);
 
-        //panel4.add(slidingGraph); // add graph to the panel
-        //panel4.add(slidingGraph2);
-        //panel4.add(slidingGraph3);
-
-        //JScrollBar scrollBarV = new JScrollBar(JScrollBar.VERTICAL, 30, 40, 0, 500);
-        //panel4.add(scrollBarV, BorderLayout.EAST);
-
-        //JPanel graphPanel = new JPanel();
-        //graphPanel.setLayout(null);
-        //graphPanel.setLayout(new BoxLayout(graphPanel, BoxLayout.Y_AXIS));
-        //panel4.setLayout(new BoxLayout(panel4, BoxLayout.Y_AXIS));
-        //panel4.add(slidingGraph);
-        //panel4.add(slidingGraph2);
-        //panel4.add(slidingGraph3);
-
-        //panel4.add(graphPanel, BorderLayout.CENTER);
-        //panel4.add(scrollBarV, BorderLayout.EAST);
-
-        //JScrollPane scrollPane = new JScrollPane(panel4);
-        //scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        //panel4.add(scrollPane, BorderLayout.CENTER);
-        //Make the JScrollPane visible
-        // panel4.setVisible(true); // Make graphPanel visible
-        //panel4.setVisible(true); // Make panel4 visible
-        //scrollPane.setVisible(true);
         panel4.add(fond1); // add radio button to the panel
         panel4.add(fond2); // add radio button to the panel
         panel4.add(fond3); // add radio button to the panel  

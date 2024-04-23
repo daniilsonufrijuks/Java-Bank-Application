@@ -1092,8 +1092,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             String recUsername = "MONOLITH"; // get receiver username MONOLITH account
             String recBankAccount = "7m493791o0684f1nof5fl8it80626123"; // get receiver bank account MONOLITH account            
 
+            BigDecimal fundscostBigDecimal = BigDecimal.valueOf(fundscost);
             
-            if (balance.compareTo(BigDecimal.ZERO) > 0) {
+            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(fundscostBigDecimal) >= 0){
                 Transaction transaction = new Transaction(fundscost, recBankAccount, recUsername); // create a new transaction object
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, fundscost);   // take money from sender account after sending money

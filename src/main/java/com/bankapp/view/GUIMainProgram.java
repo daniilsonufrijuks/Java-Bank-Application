@@ -681,6 +681,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         exitButton.addActionListener(this);
     }
 
+    // to recieve data from graphic and work with it
     public static void receiveData(int data) {
         //System.out.println(data);
         receivedata = data;

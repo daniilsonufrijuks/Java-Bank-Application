@@ -255,6 +255,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         moneyToSendField = new RoundJTextField(20);
 
         userbalanceLabel = new JLabel(String.valueOf(BankAccountManager.GetBalance(userPCode)));
+        userCreditsLabel = new JLabel(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userPCode)));
         BankAccountManager bankAccountManager = new BankAccountManager();
         CreditManager genCredit = new CreditManager();
 
@@ -590,31 +591,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.add(repaycredit);
         panel3.add(repaycreditfield);
 
-        //panel4.add(slidingGraph); // add graph to the panel
-        //panel4.add(slidingGraph2);
-        //panel4.add(slidingGraph3);
-
-        //JScrollBar scrollBarV = new JScrollBar(JScrollBar.VERTICAL, 30, 40, 0, 500);
-        //panel4.add(scrollBarV, BorderLayout.EAST);
-
-        //JPanel graphPanel = new JPanel();
-        //graphPanel.setLayout(null);
-        //graphPanel.setLayout(new BoxLayout(graphPanel, BoxLayout.Y_AXIS));
-        //panel4.setLayout(new BoxLayout(panel4, BoxLayout.Y_AXIS));
-        //panel4.add(slidingGraph);
-        //panel4.add(slidingGraph2);
-        //panel4.add(slidingGraph3);
-
-        //panel4.add(graphPanel, BorderLayout.CENTER);
-        //panel4.add(scrollBarV, BorderLayout.EAST);
-
-        //JScrollPane scrollPane = new JScrollPane(panel4);
-        //scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        //panel4.add(scrollPane, BorderLayout.CENTER);
-        //Make the JScrollPane visible
-        // panel4.setVisible(true); // Make graphPanel visible
-        //panel4.setVisible(true); // Make panel4 visible
-        //scrollPane.setVisible(true);
         panel4.add(fond1); // add radio button to the panel
         panel4.add(fond2); // add radio button to the panel
         panel4.add(fond3); // add radio button to the panel  
@@ -663,9 +639,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel4.add(fundcostD); // add label to the panel 4
         fundcostD.setFont(defaultTextFont); // set font for the label
         fundcostD.setVisible(false); // set label invisible
-
-        //panel4.add(innerPanel, BorderLayout.CENTER); // add graph to the panel
-
 
         // ------------
         // Panels   
@@ -745,21 +718,28 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             BigDecimal filedcredit1BigDecimal = BigDecimal.valueOf(filedcredit1);
 
             if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0 && credits.getTotal() <= 100) {
+                // creating and initializing
                 CreditManager genCredit = new CreditManager(); // create a new credit manager object
                 Transaction transaction = new Transaction(Float.valueOf(credits.getTotal()), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
-                //genCredit.GenCredit(Float.valueOf(creditoptionfiled1.getText()), 25, 1);
                 System.out.println(BankAccountManager.FindBankAccount(userpCode) + " ," +username);
-                creditsumtotal.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 25, 1))); // set credit sum
-                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());
-                BankAccountManager.SendMoney(transaction); // send money to another account
-                CreditManager.WriteCredittoFile(userpCode, Float.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 25, 1))); // write credit to file
+                BigDecimal finalCreditToPay = new BigDecimal(genCredit.GenCredit(credits.getTotal(), 25, 1));   // generate final credit that user should repay
+                //
+                // maths and sending
+                finalCreditToPay.setScale(2, RoundingMode.HALF_UP); // round value to 2 decimal positions
+                creditsumtotal.setText(String.valueOf(finalCreditToPay)); // set credit sum
+                BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());  // take money from acc of the bank
+                BankAccountManager.SendMoney(transaction); // send money to user's acc
+                CreditManager.WriteCredittoFile(userpCode, finalCreditToPay.floatValue()); // write credit to file
                 System.out.println("   balance ---> " + String.valueOf(BankAccountManager.GetBalance(userpCode)));
+                //
+                // work with credits
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 CreditManager.CheckForSimilarUserPcodeinFileandSumValues(userpCode);
                 JOptionPane.showMessageDialog(this, "Success credit!");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
             }
+            userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
         }
         if (e.getSource() == TAKE2Button) {
             Float filedcredit2;
@@ -778,8 +758,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 CreditManager genCredit = new CreditManager();
                 Transaction transaction = new Transaction(Float.valueOf(credits.getTotal()), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
 
-                //genCredit.GenCredit(Float.valueOf(creditoptionfiled2.getText()), 20, 2);
-
                 Float gencreditsum;
                 gencreditsum = genCredit.GenCredit(credits.getTotal(), 20, 2);
                 System.out.println(gencreditsum);
@@ -788,9 +766,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 gencreditsum = bd2.floatValue();
                 creditsumtotal2.setText(gencreditsum.toString());
 
-                //creditsumtotal2.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 20, 2)));
-
-                //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit2);
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());
                 BankAccountManager.SendMoney(transaction); // send money to another account
 
@@ -803,6 +778,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
             }
+            userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
         }
         if (e.getSource() == TAKE3Button) {
             Float filedcredit3;
@@ -823,9 +799,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 gencreditsum = bd2.floatValue();
                 creditsumtotal3.setText(gencreditsum.toString());
 
-                //genCredit.GenCredit(Float.valueOf(creditoptionfiled3.getText()), 15, 3);
-                //creditsumtotal3.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 15, 3)));
-                //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit3);
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 
@@ -838,6 +811,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
             }
+            userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
         }
         if (e.getSource() == TAKE4Button) {
             Float filedcredit4;
@@ -850,7 +824,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 CreditManager genCredit = new CreditManager();
                 Transaction transaction = new Transaction(credits.getTotal(), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
 
-
                 Float gencreditsum;
                 gencreditsum = genCredit.GenCredit(credits.getTotal(), 14, 3);
                 System.out.println(gencreditsum);
@@ -859,9 +832,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 gencreditsum = bd2.floatValue();
                 creditsumtotal4.setText(gencreditsum.toString());
 
-                //genCredit.GenCredit(Float.valueOf(creditoptionfiled4.getText()), 14, 4);
-                //creditsumtotal4.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 14, 4)));
-                //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit4);
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 
@@ -874,6 +844,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
             }
+            userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
         }
         if (e.getSource() == TAKE5Button) {
             Float filedcredit5;
@@ -885,8 +856,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0 && credits.getTotal() <= 1000000){                
                 CreditManager genCredit = new CreditManager();
                 Transaction transaction = new Transaction(credits.getTotal(), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
-
-
                 Float gencreditsum;
                 gencreditsum = genCredit.GenCredit(credits.getTotal(), 5, 5);
                 System.out.println(gencreditsum);
@@ -895,9 +864,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 gencreditsum = bd2.floatValue();
                 creditsumtotal5.setText(gencreditsum.toString());
 
-                //genCredit.GenCredit(Float.valueOf(creditoptionfiled5.getText()), 5, 5);
-                //creditsumtotal5.setText(String.valueOf(genCredit.GenCredit(Float.valueOf(credits.getTotal()), 5, 5)));
-                //BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, filedcredit5);
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());
                 BankAccountManager.SendMoney(transaction); // send money to another account
                 
@@ -910,6 +876,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Data");
             }
+            userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
         }
 
         if (e.getSource() == darkModeChBox){    // turn on/off dark mode
@@ -1088,6 +1055,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid money input! You can not pay more than your loan! :)"); // show error message
             }
+            userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
         }
         
         if (e.getSource() == exitButton) {

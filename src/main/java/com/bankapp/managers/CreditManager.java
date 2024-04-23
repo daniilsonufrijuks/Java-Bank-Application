@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -81,22 +83,28 @@ public class CreditManager {
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String line;
             List<String> lines = new ArrayList<>();
-            while ((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {    // saves all file in array
                 lines.add(line);
             }
             reader.close();
     
-            float sum = 0.0f;
+            BigDecimal sum = BigDecimal.ZERO; // total credit
+            BigDecimal pMoneyToBG;
             for (String l : lines) {
                 String[] parts = l.split(", ");
-                if (parts[0].equals(userpcode)) {
-                    sum += Float.parseFloat(parts[1]);
+                if (parts[0].equals(userpcode)) {       // if user's pcode is repeated
+                    pMoneyToBG = new BigDecimal(parts[1]);
+                    sum = sum.add(pMoneyToBG);
+                    System.out.println("sum is " + sum);
                 }
             }
-    
-            if (sum > 0) {
+
+            sum.setScale(2, RoundingMode.HALF_UP);  // round to 2 dec positions
+                
+            if (sum.compareTo(BigDecimal.ZERO) > 0) {   // if value is > 0
+                System.out.println("sum.compareTo(BigDecimal.ZERO) > 0 is made");
                 DeleteMessage(userpcode);
-                WriteCredittoFile(userpcode, sum);
+                WriteCredittoFile(userpcode, sum.floatValue());
             }
         } catch (IOException e) {
             e.printStackTrace();

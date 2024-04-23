@@ -15,7 +15,7 @@ public class CalendarApp extends JPanel {
         setLayout(new BorderLayout());
         // Create components
         monthLabel = new JLabel("", JLabel.CENTER);
-        calendarPanel = new JPanel(new GridLayout(7, 7));
+        calendarPanel = new JPanel(new GridLayout(0, 7));
         JButton prevMonthButton = new JButton("<-");
         JButton nextMonthButton = new JButton("->");
 
@@ -24,7 +24,7 @@ public class CalendarApp extends JPanel {
         nextMonthButton.addActionListener(e -> displayCalendar(currentDate.plusMonths(1)));
 
         // Set the bounds of the buttons
-        Dimension buttonSize = new Dimension(20, 20); // Adjust as needed
+        Dimension buttonSize = new Dimension(25, 25); // Adjust as needed
         prevMonthButton.setPreferredSize(buttonSize);
         nextMonthButton.setPreferredSize(buttonSize);
 
@@ -53,8 +53,9 @@ public class CalendarApp extends JPanel {
         // Add day names
         String[] dayNames = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
         for (String day : dayNames) {
-            JLabel label = new JLabel(day, JLabel.CENTER);
-            calendarPanel.add(label);
+            //JLabel label = new JLabel(day, JLabel.CENTER);
+            //calendarPanel.add(label);
+            calendarPanel.add(new JLabel(day, JLabel.CENTER));
         }
 
         // Calculate the start day of the month

@@ -128,4 +128,32 @@ public class CreditManager {
         }
         return null;
     }
+
+    // public static void CheckForSimilarUserPcodeinFileandSumValues(String userpcode) {
+    //     try {
+    //         File file = new File("resources/credits.csv");
+    //         BufferedReader reader = new BufferedReader(new FileReader(file));
+    //         String line;
+    //         List<String> lines = new ArrayList<>();
+    //         while ((line = reader.readLine()) != null) {
+    //             lines.add(line);
+    //         }
+    //         reader.close();
+    
+    //         float sum = 0.0f;
+    //         for (String l : lines) {
+    //             String[] parts = l.split(", ");
+    //             if (parts[0].equals(userpcode)) {
+    //                 sum += Float.parseFloat(parts[1]);
+    //             }
+    //         }
+    
+    //         if (sum > 0) {
+    //             DeleteMessage(userpcode);
+    //             WriteCredittoFile(userpcode, sum);
+    //         }
+    //     } catch (IOException e) {
+    //         e.printStackTrace();
+    //     }
+    // }
 }

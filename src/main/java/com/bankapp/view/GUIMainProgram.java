@@ -150,7 +150,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     Color titleColorDarkMode = new Color(211, 233, 252);
     //
 
+    // =================================================== Editor panes ===================================================
     JEditorPane editorPane = new JEditorPane();
+    // Create a JEditorPane
+    JEditorPane editorPaneT = new JEditorPane();
+    // =================================================== Editor panes ===================================================
+
     //For Panel about us
     String textaboutus = "Finanšu pasaules miglainajās vietās pastāv banka, kas pazīstama kā Monolīts. \n" +
     "Tās dīvainības un mistikas reputācija piesaista uzmanību. Daži saka, ka šai bankai \n" +
@@ -405,6 +410,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         editorPane.setBounds(500, 590, 200, 30); // set bounds for the link on Panel5
         editorPane.setFont(defaultTextFont);
 
+        // =================================================== Send money ===================================================
         // For Panel2 lables
         newPaymentLabel.setBounds(500, 50, 200, 30);
         recUsernameLabel.setBounds(360, 150, 200, 30);
@@ -427,8 +433,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         moneyToSendLabel.setFont(defaultTextFont);
         newPaymentLabel.setForeground(defaultTitleColor);
         newPaymentLabel.setFont(titleFont);
-        //
+        // =================================================== Send money ===================================================
 
+
+        // =================================================== Stock exchange ===================================================
         slidingGraph.setBounds(45, 70, 1100, 300); // set bounds for the graph
         slidingGraph2.setBounds(45, 70, 1100, 300);
         slidingGraph3.setBounds(45, 70, 1100, 300);
@@ -456,6 +464,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         fundcostM.setBounds(730, 550, 140, 30); // set bounds for the label fonds cost
         fundcostC.setBounds(730, 550, 140, 30);
         fundcostD.setBounds(730, 550, 140, 30);
+        // =================================================== Stock exchange ===================================================
+
+
+        editorPaneT.setBounds(40, 200, 650, 490); // set bounds for the editor pane for Transactions
  
     }
 
@@ -467,6 +479,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         container.add(tabPanel);
 
         // ------------
+        // =================================================== About us link ===================================================
         // Set the content type to HTML
         editorPane.setContentType("text/html");
 
@@ -496,6 +509,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         
         panel5.add(editorPane);
 
+        // =================================================== About us link ===================================================
+
         // for panel 1 main panel
         panel1.add(overviewLabel);
         panel1.add(accountLabel);
@@ -513,6 +528,26 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel1.add(comboBox); // add combo box to the panel
 
         panel1.add(exitButton); // add exit button to the panel
+
+
+        // =================================================== Editor pane transactions viz ===================================================
+        // Set the content type to text
+        editorPaneT.setContentType("text/plain");
+
+        // Make the JEditorPane uneditable
+        editorPaneT.setEditable(false);
+
+        // Iterate over transactions and append them to the JEditorPane
+        if (transactions != null) {
+            for (String elem : transactions) {
+                editorPaneT.setText(editorPaneT.getText() + elem + " ");
+            }
+        }
+
+        // Add the JEditorPaneT to panel1
+        panel1.add(editorPaneT);
+
+        // =================================================== Editor pane transactions viz ===================================================
         
         // For panel Send
         panel2.add(recUsernameField);
@@ -1077,6 +1112,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         }
 
         // =================================================== Stock exchange (whick funds selected)  ===================================================
+
+
+
 
         // =================================================== Stock exchange (buy, sell)  ===================================================
         // sell and buy action for btn in stock exchange

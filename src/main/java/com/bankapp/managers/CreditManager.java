@@ -128,7 +128,7 @@ public class CreditManager {
             while ((line = br.readLine()) != null) { // while there is a next line
                 String[] parts = line.split(", ");      // current line from csv file
                 if (parts.length == 5 && parts[0].equals(recpcode)) {
-                    return new String[]{parts[1], parts[2], parts[3]};
+                    return new String[]{parts[0], parts[1], parts[2], parts[3], parts[4]};
                 }
             }
         } catch (IOException e) {

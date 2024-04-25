@@ -1118,7 +1118,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             
             System.out.println("----------------------------> " + FundsManager.FindFund(userpCode, fundname) + " ---- " + BankAccountManager.FindBankAccount(userpCode) + " -------- " + username);
             
-            if (FundsManager.CheckBoughtFunds(userpCode)) {
+            if (FundsManager.CheckBoughtFunds(userpCode, fundname)) {
                 if (balance.compareTo(BigDecimal.ZERO) > 0) {
                     Transaction transaction = new Transaction(FundsManager.CheckForSimilarFundsAndJoinSimilar(userpCode, fundname), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
 

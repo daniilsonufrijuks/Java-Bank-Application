@@ -445,19 +445,23 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         group.add(fond2);
         group.add(fond3);
 
-        fond1.setBounds(480, 5, 100, 30); // set bounds for the radio buttons
-        fond2.setBounds(580, 5, 100, 30);
-        fond3.setBounds(680, 5, 100, 30);
+        fond1.setBounds(450, 5, 100, 30); // set bounds for the radio buttons
+        fond2.setBounds(550, 5, 100, 30);
+        fond3.setBounds(650, 5, 100, 30);
+
+        fond1.setBackground(defaultBackgroundColor);    // set background color for radio buttons
+        fond2.setBackground(defaultBackgroundColor);
+        fond3.setBackground(defaultBackgroundColor);
 
         buyfond.setBounds(500, 550, 100, 30); // set bounds for the button for buying fonds
 
         sellfond.setBounds(500, 650, 100, 30); // set bounds for the button for selling fonds
 
-        fondLabelM.setBounds(620, 550, 140, 30); // set bounds for the label for fonds
+        fondLabelM.setBounds(620, 550, 140, 30); // set bounds for the label for fonds names (above)
         fondLabelC.setBounds(620, 550, 140, 30);
         fondLabelD.setBounds(620, 550, 140, 30);
 
-        fondLabelMs.setBounds(620, 650, 140, 30); // set bounds for the label for fonds
+        fondLabelMs.setBounds(620, 650, 140, 30); // set bounds for the label for fonds names (at the bottom)
         fondLabelCs.setBounds(620, 650, 140, 30);
         fondLabelDs.setBounds(620, 650, 140, 30);
 
@@ -512,21 +516,16 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         // =================================================== About us link ===================================================
 
         // for panel 1 main panel
-        panel1.add(overviewLabel);
-        panel1.add(accountLabel);
-        panel1.add(bankAccLabel);
-        panel1.add(availableBalanceLabel);
-        panel1.add(amountOfCreditLabel);
-        panel1.add(usernameLabel);
-        panel1.add(userlastnameLabel);
-        panel1.add(userbalanceLabel);
-        panel1.add(userCreditsLabel);
+        JLabel[] arrPanel1LabelsAdd = {overviewLabel, accountLabel, bankAccLabel, availableBalanceLabel, userbalanceLabel,
+            amountOfCreditLabel, userCreditsLabel, usernameLabel, userlastnameLabel, };   // array for all labels on Panel1 except for imageLabel
+        for (JLabel label : arrPanel1LabelsAdd){   // add all Labels on Panel1
+            panel1.add(label);
+        }
+        arrPanel1LabelsAdd = null;  // set to null (delete) variable
         panel1.add(darkModeChBox);
-
+        panel1.add(imageLabel); // add image to the panel1
         panel1.add(calendarApp); // add calendar to the panel
-
         panel1.add(comboBox); // add combo box to the panel
-
         panel1.add(exitButton); // add exit button to the panel
 
 
@@ -565,8 +564,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         panel5.add(textaboutusB); // add text area to the panel
 
-        panel1.add(imageLabel); // add image to the panel
-
         // For panel Credits
         panel3.add(TAKEButton);
         panel3.add(TAKE2Button);
@@ -575,43 +572,19 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         panel3.add(TAKE5Button);
 
         // For panel Credits lables
-        panel3.add(newLoanLable);
-        panel3.add(credit);
-        panel3.add(credit2);
-        panel3.add(credit3);
-        panel3.add(credit4);
-        panel3.add(credit5);
-
-        panel3.add(credityear);
-        panel3.add(credityear2);
-        panel3.add(credityear3);
-        panel3.add(credityear4);
-        panel3.add(credityear5);
-
-        panel3.add(percentsy);
-        panel3.add(percentsy2);
-        panel3.add(percentsy3);
-        panel3.add(percentsy4);
-        panel3.add(percentsy5);
-
+        JLabel[] arrPanel3LabelsAdd = {newLoanLable, credit, credit2, credit3, credit4, credit5, credityear, credityear2, credityear3, credityear4, credityear5,
+        percentsy, percentsy2, percentsy3, percentsy4, percentsy5, creditsum1, creditsum2, creditsum3, creditsum4, creditsum5,
+        creditsumtotal, creditsumtotal2, creditsumtotal3, creditsumtotal4, creditsumtotal5};        // array with all labels on Panel3
+        for (JLabel label : arrPanel3LabelsAdd){      // add all Labels on Panel3  
+            panel3.add(label);
+        }
+        arrPanel3LabelsAdd = null;  // set to null (delete) variable
 
         panel3.add(creditoptionfiled1);
         panel3.add(creditoptionfiled2);
         panel3.add(creditoptionfiled3);
         panel3.add(creditoptionfiled4);
         panel3.add(creditoptionfiled5);
-
-        panel3.add(creditsum1);
-        panel3.add(creditsum2);
-        panel3.add(creditsum3);
-        panel3.add(creditsum4);
-        panel3.add(creditsum5);
-
-        panel3.add(creditsumtotal);
-        panel3.add(creditsumtotal2);
-        panel3.add(creditsumtotal3);
-        panel3.add(creditsumtotal4);
-        panel3.add(creditsumtotal5);
 
         panel3.add(repaycredit);
         panel3.add(repaycreditfield);

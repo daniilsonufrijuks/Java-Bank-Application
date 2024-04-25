@@ -1012,6 +1012,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             }
         }
 
+
+        // =================================================== Stock exchange (which fund selected)  ===================================================
         // to show the graph of the stock exchange and buttons lables / for radio btns
         if (fond1.isSelected()) {
             // Code for when radioButton1 is selected
@@ -1074,6 +1076,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             fundname = "DUTY";
         }
 
+        // =================================================== Stock exchange (whick funds selected)  ===================================================
+
+        // =================================================== Stock exchange (buy, sell)  ===================================================
         // sell and buy action for btn in stock exchange
         if (e.getSource() == buyfond) {
             // nothing yet
@@ -1108,7 +1113,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             
             System.out.println("----------------------------> " + FundsManager.FindFund(userpCode, fundname) + " ---- " + BankAccountManager.FindBankAccount(userpCode) + " -------- " + username);
             
-            if (FundsManager.CheckBoughtFunds(userpCode)) {
+            if (FundsManager.CheckBoughtFunds(userpCode, fundname)) {
                 if (balance.compareTo(BigDecimal.ZERO) > 0) {
                     Transaction transaction = new Transaction(FundsManager.CheckForSimilarFundsAndJoinSimilar(userpCode, fundname), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
 
@@ -1130,7 +1135,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 JOptionPane.showMessageDialog(this, "You do not have any funds to sell!"); // show error message
             }
         }
-        
+        // =================================================== Stock exchange (buy, sell)  ===================================================
+
+
+        // =================================================== Exit ===================================================
         // exit button to log in window
         if (e.getSource() == exitButton) {
             //System.exit(0);
@@ -1152,4 +1160,5 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             framelogreg.setResizable(false);
         }
     }
+    // =================================================== Exit ===================================================
 }

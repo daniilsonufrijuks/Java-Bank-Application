@@ -142,12 +142,13 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
     String userpCode; // for SendMoney
 
-    // color change
+    // Colors
     JCheckBox darkModeChBox = new JCheckBox("Dark Mode");
     Color defaultBackgroundColor = new Color(211, 233, 252);
     Color defaultColorForFrame = new Color(119, 203, 233);
     Color defaultTitleColor = new Color(203, 0, 0);
     Color titleColorDarkMode = new Color(211, 233, 252);
+    Color RadioButtonsColor = new Color(153, 204, 255);
     //
 
     // =================================================== Editor panes ===================================================
@@ -170,8 +171,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JButton sendButton = new JButton("Submit"); // button for send panel
 
     // ------------
-    JButton buyfond = new JButton("BUY"); // button for buy panel stock exchange
-    JButton sellfond = new JButton("SELL"); // button for sell panel stock exchange
+    JButton buyfond = new JButton("Buy stocks"); // button for buy panel stock exchange
+    JButton sellfond = new JButton("Sell stocks"); // button for sell panel stock exchange
     // ------------
 
     JLabel fondLabelM = new JLabel("MONOLITH FUND"); // label for fonds
@@ -445,29 +446,39 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         group.add(fond2);
         group.add(fond3);
 
-        fond1.setBounds(450, 5, 100, 30); // set bounds for the radio buttons
-        fond2.setBounds(550, 5, 100, 30);
-        fond3.setBounds(650, 5, 100, 30);
+        fond1.setBounds(450, 10, 100, 30); // set bounds for the radio buttons
+        fond2.setBounds(550, 10, 100, 30);
+        fond3.setBounds(650, 10, 100, 30);
+        fond1.setBackground(RadioButtonsColor);
+        fond2.setBackground(RadioButtonsColor);
+        fond3.setBackground(RadioButtonsColor);
 
-        fond1.setBackground(defaultBackgroundColor);    // set background color for radio buttons
-        fond2.setBackground(defaultBackgroundColor);
-        fond3.setBackground(defaultBackgroundColor);
+        buyfond.setBounds(390, 450, 150, 30); // set bounds for the button for buying fonds
+        sellfond.setBounds(390, 550, 150, 30); // set bounds for the button for selling fonds
+        buyfond.setBackground(defaultTitleColor);
+        buyfond.setForeground(Color.WHITE);     
+        buyfond.setFont(defaultTextFont);
+        sellfond.setBackground(defaultTitleColor);
+        sellfond.setForeground(Color.WHITE);     
+        sellfond.setFont(defaultTextFont);
 
-        buyfond.setBounds(500, 550, 100, 30); // set bounds for the button for buying fonds
+        fondLabelM.setBounds(560, 450, 140, 30); // set bounds for the label for fonds names (next to But button)
+        fondLabelC.setBounds(560, 450, 170, 30);
+        fondLabelD.setBounds(560, 450, 140, 30);
 
-        sellfond.setBounds(500, 650, 100, 30); // set bounds for the button for selling fonds
+        fondLabelMs.setBounds(560, 550, 140, 30); // set bounds for the label for fonds names (next to Sell button)
+        fondLabelCs.setBounds(560, 550, 170, 30);
+        fondLabelDs.setBounds(560, 550, 140, 30);
 
-        fondLabelM.setBounds(620, 550, 140, 30); // set bounds for the label for fonds names (above)
-        fondLabelC.setBounds(620, 550, 140, 30);
-        fondLabelD.setBounds(620, 550, 140, 30);
+        fundcostM.setBounds(730, 450, 140, 30); // set bounds for the label fonds cost
+        fundcostC.setBounds(730, 450, 140, 30);
+        fundcostD.setBounds(730, 450, 140, 30);
 
-        fondLabelMs.setBounds(620, 650, 140, 30); // set bounds for the label for fonds names (at the bottom)
-        fondLabelCs.setBounds(620, 650, 140, 30);
-        fondLabelDs.setBounds(620, 650, 140, 30);
-
-        fundcostM.setBounds(730, 550, 140, 30); // set bounds for the label fonds cost
-        fundcostC.setBounds(730, 550, 140, 30);
-        fundcostD.setBounds(730, 550, 140, 30);
+        JLabel[] arrayPanel4Labels = {fondLabelM, fondLabelC, fondLabelD, fondLabelMs, fondLabelCs, fondLabelDs, fundcostM, fundcostC, fundcostD};  // array with all JLabels on Panel4
+        for (JLabel labelP4 : arrayPanel4Labels){
+            labelP4.setFont(defaultTextFont);
+        }
+        arrayPanel4Labels = null;  // set to null (delete) variable
         // =================================================== Stock exchange ===================================================
 
 
@@ -977,6 +988,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                     label.setForeground(Color.WHITE);
                 }
 
+                // Panel4
+                fond1.setBackground(titleColorDarkMode);
+                fond2.setBackground(titleColorDarkMode);
+                fond3.setBackground(titleColorDarkMode);
+                buyfond.setBackground(titleColorDarkMode);
+                buyfond.setForeground(Color.BLACK);
+                sellfond.setBackground(titleColorDarkMode);
+                sellfond.setForeground(Color.BLACK);
+
                 //Panel 5
                 textaboutusB.setBackground(Color.DARK_GRAY);
 
@@ -1014,6 +1034,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 for (JLabel label : arrPanel3Labels){      // loop for all labels on Panel3    
                     label.setForeground(Color.BLACK);
                 }
+
+                // Panel4
+                fond1.setBackground(RadioButtonsColor);
+                fond2.setBackground(RadioButtonsColor);
+                fond3.setBackground(RadioButtonsColor);
+                buyfond.setBackground(defaultTitleColor);
+                buyfond.setForeground(Color.WHITE);
+                sellfond.setBackground(defaultTitleColor);
+                sellfond.setForeground(Color.WHITE);
 
                 // Panel 5
                 textaboutusB.setBackground(defaultColorForFrame);

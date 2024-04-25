@@ -345,7 +345,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         TAKE3Button.setBounds(190, 250, 150, 30);
         TAKE4Button.setBounds(190, 300, 150, 30);
         TAKE5Button.setBounds(190, 350, 150, 30);
-        JButton[] arrPanel3Buttons = {TAKEButton, TAKE2Button, TAKE3Button, TAKE4Button, TAKE5Button, repaycredit};
+        JButton[] arrPanel3Buttons = {TAKEButton, TAKE2Button, TAKE3Button, TAKE4Button, TAKE5Button, repaycredit}; // array with all buttons on Panel2
         for (JButton button : arrPanel3Buttons){      // loop for all TAKE buttons and Repay button
             button.setBackground(defaultTitleColor);
             button.setForeground(Color.WHITE);     
@@ -389,43 +389,20 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditsumtotal4.setBounds(960, 300, 200, 30); // set bounds for the labels
         creditsumtotal5.setBounds(960, 350, 200, 30);
 
-        repaycredit.setBounds(430, 450, 150, 30);    // set bounds for the button  
+        repaycredit.setBounds(435, 450, 150, 30);    // set bounds for the button  
         repaycredit.setFont(defaultTextFont);
-        repaycreditfield.setBounds(630, 450, 150, 30); // set bounds for the text field
+        repaycreditfield.setBounds(635, 450, 150, 30); // set bounds for the text field
 
         // fonts
-        creditsum1.setFont(defaultTextFont);
-        creditsum2.setFont(defaultTextFont);
-        creditsum3.setFont(defaultTextFont);
-        creditsum4.setFont(defaultTextFont);
-        creditsum5.setFont(defaultTextFont);
+        JLabel[] arrPanel3Labels = {credit, credit2, credit3, credit4, credit5, credityear, credityear2, credityear3, credityear4, credityear5,
+        percentsy, percentsy2, percentsy3, percentsy4, percentsy5, creditsum1, creditsum2, creditsum3, creditsum4, creditsum5,
+        creditsumtotal, creditsumtotal2, creditsumtotal3, creditsumtotal4, creditsumtotal5};        // array with all labels on Panel3
+        for (JLabel label : arrPanel3Labels){      // loop for all labels on Panel3    
+            label.setFont(defaultTextFont);
+        }
+        arrPanel3Labels = null;  // set to null (delete) variable
 
-        // Set font for the labels
-        credit.setFont(defaultTextFont);
-        credit2.setFont(defaultTextFont);
-        credit3.setFont(defaultTextFont);
-        credit4.setFont(defaultTextFont);
-        credit5.setFont(defaultTextFont);
-
-        credityear.setFont(defaultTextFont);
-        credityear2.setFont(defaultTextFont);
-        credityear3.setFont(defaultTextFont);
-        credityear4.setFont(defaultTextFont);
-        credityear5.setFont(defaultTextFont);
-
-        percentsy.setFont(defaultTextFont); // set font
-        percentsy2.setFont(defaultTextFont);
-        percentsy3.setFont(defaultTextFont);
-        percentsy4.setFont(defaultTextFont);
-        percentsy5.setFont(defaultTextFont);
-        
-        creditsumtotal.setFont(defaultTextFont);
-        creditsumtotal2.setFont(defaultTextFont);
-        creditsumtotal3.setFont(defaultTextFont);
-        creditsumtotal4.setFont(defaultTextFont);
-        creditsumtotal5.setFont(defaultTextFont);
-
-        editorPane.setBounds(500, 590, 200, 30); // set bounds for the link
+        editorPane.setBounds(500, 590, 200, 30); // set bounds for the link on Panel5
         editorPane.setFont(defaultTextFont);
 
         // For Panel2 lables
@@ -952,6 +929,11 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             JLabel[] arrPanel1Labels = {accountLabel, bankAccLabel, availableBalanceLabel, userbalanceLabel,
                 amountOfCreditLabel, userCreditsLabel, usernameLabel, userlastnameLabel};   // array for all labels on Panel1 except for imageLabel
             JButton[] arrPanel3Buttons = {TAKEButton, TAKE2Button, TAKE3Button, TAKE4Button, TAKE5Button, repaycredit};    // array of all buttons on Panel3
+
+            JLabel[] arrPanel3Labels = {credit, credit2, credit3, credit4, credit5, credityear, credityear2, credityear3, credityear4, credityear5,
+                percentsy, percentsy2, percentsy3, percentsy4, percentsy5, creditsum1, creditsum2, creditsum3, creditsum4, creditsum5,
+                creditsumtotal, creditsumtotal2, creditsumtotal3, creditsumtotal4, creditsumtotal5};        // array with all labels on Panel3
+
             if (darkModeChBox.isSelected()){
                 getContentPane().setBackground(Color.DARK_GRAY);
                 panel1.setBackground(Color.GRAY);
@@ -970,9 +952,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
                 // Panel 2
                 newPaymentLabel.setForeground(titleColorDarkMode);
-                recUsernameField.setForeground(Color.WHITE);
-                recBankAccountField.setForeground(Color.WHITE);
-                moneyToSendField.setForeground(Color.WHITE);
+                recUsernameLabel.setForeground(Color.WHITE);
+                recBankAccountLabel.setForeground(Color.WHITE);
+                moneyToSendLabel.setForeground(Color.WHITE);
                 sendButton.setBackground(titleColorDarkMode);
                 sendButton.setForeground(Color.BLACK);   
 
@@ -981,6 +963,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 for (JButton button : arrPanel3Buttons){      // loop for all TAKE buttons
                     button.setBackground(titleColorDarkMode);
                     button.setForeground(Color.BLACK);   
+                }
+
+                for (JLabel label : arrPanel3Labels){      // loop for all labels on Panel3    
+                    label.setForeground(Color.WHITE);
                 }
 
                 //Panel 5
@@ -1004,9 +990,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
                 // Panel 2
                 newPaymentLabel.setForeground(defaultTitleColor);
-                recUsernameField.setForeground(Color.BLACK);
-                recBankAccountField.setForeground(Color.BLACK);
-                moneyToSendField.setForeground(Color.BLACK);
+                recUsernameLabel.setForeground(Color.BLACK);
+                recBankAccountLabel.setForeground(Color.BLACK);
+                moneyToSendLabel.setForeground(Color.BLACK);
                 sendButton.setBackground(defaultTitleColor);
                 sendButton.setForeground(Color.WHITE);   
 
@@ -1015,6 +1001,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 for (JButton button : arrPanel3Buttons){      // loop for all TAKE buttons
                     button.setBackground(defaultTitleColor);
                     button.setForeground(Color.WHITE);   
+                }
+
+                for (JLabel label : arrPanel3Labels){      // loop for all labels on Panel3    
+                    label.setForeground(Color.BLACK);
                 }
 
                 // Panel 5

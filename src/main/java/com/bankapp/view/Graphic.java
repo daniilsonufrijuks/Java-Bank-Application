@@ -48,7 +48,7 @@ public class Graphic extends JPanel implements ActionListener {
         int x = graphArea.x;
         int y = graphArea.y + graphArea.height;
         //int xScale = graphArea.width / data.length; 
-        int xScale = (int) (graphArea.width / (data.length * 0.75)); // 75% of the original distance
+        int xScale = graphArea.width / data.length; //(int) (graphArea.width / (data.length * 0.75)); // 75% of the original distance
         int yScale = graphArea.height / 100;
         for (int i = 0; i < data.length - 1; i++) {
             int x1 = x + i * xScale;
@@ -58,6 +58,11 @@ public class Graphic extends JPanel implements ActionListener {
             g2d.drawLine(x1, y1, x2, y2); // Отрисовка линий между точками
             g2d.fillOval(x1 - 2, y1 - 2, 6, 6); // Отрисовка точек
         }
+
+        // Draw the last point
+        //int xLast = x + (data.length - 1) * xScale;
+        //int yLast = y - data[data.length - 1] * yScale;
+        //g2d.fillOval(xLast - 2, yLast - 2, 6, 6);
     }
 
     @Override

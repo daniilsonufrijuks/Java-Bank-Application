@@ -146,6 +146,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JCheckBox darkModeChBox = new JCheckBox("Dark Mode");
     Color defaultBackgroundColor = new Color(211, 233, 252);
     Color defaultColorForFrame = new Color(119, 203, 233);
+    Color darkModeBackgroundColor = new Color(85, 77, 86);
     Color defaultTitleColor = new Color(203, 0, 0);
     Color titleColorDarkMode = new Color(211, 233, 252);
     Color RadioButtonsColor = new Color(153, 204, 255);
@@ -175,14 +176,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JButton sellfond = new JButton("Sell stocks"); // button for sell panel stock exchange
     // ------------
 
-    JLabel fondLabelM = new JLabel("MONOLITH FUND"); // label for fonds
-    JLabel fondLabelC = new JLabel("CLEAR SKY FUND"); // label for fonds
-    JLabel fondLabelD = new JLabel("DUTY FUND"); // label for fonds
-
-    // for sell btn in stock exchange
-    JLabel fondLabelMs = new JLabel("MONOLITH FUND"); // label for fonds
-    JLabel fondLabelCs = new JLabel("CLEAR SKY FUND"); // label for fonds
-    JLabel fondLabelDs = new JLabel("DUTY FUND"); // label for fonds
+    JLabel fondLabelM = new JLabel("MONOLITH fund price:"); // label for fonds
+    JLabel fondLabelC = new JLabel("CLEAR SKY fund price:"); // label for fonds
+    JLabel fondLabelD = new JLabel("DUTY fund price:"); // label for fonds
 
     Graphic slidingGraph = new Graphic(Color.BLUE); // create a new graph object
     Graphic slidingGraph2 = new Graphic(Color.BLACK);
@@ -395,9 +391,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         creditsumtotal4.setBounds(960, 300, 200, 30); // set bounds for the labels
         creditsumtotal5.setBounds(960, 350, 200, 30);
 
-        repaycredit.setBounds(435, 450, 150, 30);    // set bounds for the button  
+        repaycredit.setBounds(425, 450, 150, 30);    // set bounds for the button  
         repaycredit.setFont(defaultTextFont);
-        repaycreditfield.setBounds(635, 450, 150, 30); // set bounds for the text field
+        repaycreditfield.setBounds(625, 450, 150, 30); // set bounds for the text field
 
         // fonts
         JLabel[] arrPanel3Labels = {credit, credit2, credit3, credit4, credit5, credityear, credityear2, credityear3, credityear4, credityear5,
@@ -453,8 +449,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         fond2.setBackground(RadioButtonsColor);
         fond3.setBackground(RadioButtonsColor);
 
-        buyfond.setBounds(390, 450, 150, 30); // set bounds for the button for buying fonds
-        sellfond.setBounds(390, 550, 150, 30); // set bounds for the button for selling fonds
+        buyfond.setBounds(525, 495, 150, 30); // set bounds for the button for buying fonds
+        sellfond.setBounds(525, 575, 150, 30); // set bounds for the button for selling fonds
         buyfond.setBackground(defaultTitleColor);
         buyfond.setForeground(Color.WHITE);     
         buyfond.setFont(defaultTextFont);
@@ -462,21 +458,19 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         sellfond.setForeground(Color.WHITE);     
         sellfond.setFont(defaultTextFont);
 
-        fondLabelM.setBounds(560, 450, 140, 30); // set bounds for the label for fonds names (next to But button)
-        fondLabelC.setBounds(560, 450, 170, 30);
-        fondLabelD.setBounds(560, 450, 140, 30);
+        fondLabelM.setBounds(470, 440, 200, 30); // set bounds for the label for fonds names (next to But button)
+        fondLabelC.setBounds(470, 440, 200, 30);
+        fondLabelD.setBounds(495, 440, 150, 30);
 
-        fondLabelMs.setBounds(560, 550, 140, 30); // set bounds for the label for fonds names (next to Sell button)
-        fondLabelCs.setBounds(560, 550, 170, 30);
-        fondLabelDs.setBounds(560, 550, 140, 30);
+        fundcostM.setBounds(670, 440, 60, 30); // set bounds for the label fonds cost
+        fundcostC.setBounds(670, 440, 60, 30);
+        fundcostD.setBounds(645, 440, 60, 30);
 
-        fundcostM.setBounds(730, 450, 140, 30); // set bounds for the label fonds cost
-        fundcostC.setBounds(730, 450, 140, 30);
-        fundcostD.setBounds(730, 450, 140, 30);
-
-        JLabel[] arrayPanel4Labels = {fondLabelM, fondLabelC, fondLabelD, fondLabelMs, fondLabelCs, fondLabelDs, fundcostM, fundcostC, fundcostD};  // array with all JLabels on Panel4
+        JLabel[] arrayPanel4Labels = {fondLabelM, fondLabelC, fondLabelD, fundcostM, fundcostC, fundcostD};  // array with all JLabels on Panel4
         for (JLabel labelP4 : arrayPanel4Labels){
+            labelP4.setOpaque(true);    // set Label background opaque
             labelP4.setFont(defaultTextFont);
+            labelP4.setBackground(RadioButtonsColor);
         }
         arrayPanel4Labels = null;  // set to null (delete) variable
         // =================================================== Stock exchange ===================================================
@@ -627,26 +621,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         fondLabelM.setVisible(false); // set label invisible
         fondLabelC.setVisible(false);
         fondLabelD.setVisible(false);
-
-        panel4.add(fondLabelMs); // add label to the panel 4
-        panel4.add(fondLabelCs); // add label to the panel 4
-        panel4.add(fondLabelDs); // add label to the panel 4
-
-        fondLabelMs.setVisible(false); // set label invisible
-        fondLabelCs.setVisible(false);
-        fondLabelDs.setVisible(false);
         // ------------
 
         panel4.add(fundcostM); // add label to the panel 4
-        fundcostM.setFont(defaultTextFont); // set font for the label
         fundcostM.setVisible(false); // set label invisible
 
         panel4.add(fundcostC); // add label to the panel 4
-        fundcostC.setFont(defaultTextFont); // set font for the label
         fundcostC.setVisible(false); // set label invisible
 
         panel4.add(fundcostD); // add label to the panel 4
-        fundcostD.setFont(defaultTextFont); // set font for the label
         fundcostD.setVisible(false); // set label invisible
 
         // ------------
@@ -945,25 +928,27 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         // turn on/off dark mode of application
         if (e.getSource() == darkModeChBox){    // turn on/off dark mode
-            JLabel[] arrPanel1Labels = {accountLabel, bankAccLabel, availableBalanceLabel, userbalanceLabel,
+            JLabel[] arrPanel1LabelsDMode = {accountLabel, bankAccLabel, availableBalanceLabel, userbalanceLabel,
                 amountOfCreditLabel, userCreditsLabel, usernameLabel, userlastnameLabel};   // array for all labels on Panel1 except for imageLabel
-            JButton[] arrPanel3Buttons = {TAKEButton, TAKE2Button, TAKE3Button, TAKE4Button, TAKE5Button, repaycredit};    // array of all buttons on Panel3
+            JButton[] arrPanel3ButtonsDMode = {TAKEButton, TAKE2Button, TAKE3Button, TAKE4Button, TAKE5Button, repaycredit};    // array of all buttons on Panel3
 
-            JLabel[] arrPanel3Labels = {credit, credit2, credit3, credit4, credit5, credityear, credityear2, credityear3, credityear4, credityear5,
+            JLabel[] arrPanel3LabelsDMode = {credit, credit2, credit3, credit4, credit5, credityear, credityear2, credityear3, credityear4, credityear5,
                 percentsy, percentsy2, percentsy3, percentsy4, percentsy5, creditsum1, creditsum2, creditsum3, creditsum4, creditsum5,
                 creditsumtotal, creditsumtotal2, creditsumtotal3, creditsumtotal4, creditsumtotal5};        // array with all labels on Panel3
 
+            JLabel[] arrayPanel4LabelsDMode = {fondLabelM, fondLabelC, fondLabelD, fundcostM, fundcostC, fundcostD};  // array with all JLabels on Panel4
+
             if (darkModeChBox.isSelected()){
                 getContentPane().setBackground(Color.DARK_GRAY);
-                panel1.setBackground(Color.GRAY);
-                panel2.setBackground(Color.GRAY);
-                panel3.setBackground(Color.GRAY);
-                panel4.setBackground(Color.GRAY);
-                panel5.setBackground(Color.GRAY);
+                panel1.setBackground(darkModeBackgroundColor);
+                panel2.setBackground(darkModeBackgroundColor);
+                panel3.setBackground(darkModeBackgroundColor);
+                panel4.setBackground(darkModeBackgroundColor);
+                panel5.setBackground(darkModeBackgroundColor);
 
                 // Panel 1
                 overviewLabel.setForeground(titleColorDarkMode);
-                for (JLabel label : arrPanel1Labels){   // change all labels colors to white
+                for (JLabel label : arrPanel1LabelsDMode){   // change all labels colors to white
                     label.setForeground(Color.WHITE);
                 }
                 exitButton.setBackground(titleColorDarkMode);
@@ -979,12 +964,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
                 // Panel3
                 newLoanLable.setForeground(titleColorDarkMode);
-                for (JButton button : arrPanel3Buttons){      // loop for all TAKE buttons
+                for (JButton button : arrPanel3ButtonsDMode){      // loop for all TAKE buttons
                     button.setBackground(titleColorDarkMode);
                     button.setForeground(Color.BLACK);   
                 }
 
-                for (JLabel label : arrPanel3Labels){      // loop for all labels on Panel3    
+                for (JLabel label : arrPanel3LabelsDMode){      // loop for all labels on Panel3    
                     label.setForeground(Color.WHITE);
                 }
 
@@ -996,6 +981,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 buyfond.setForeground(Color.BLACK);
                 sellfond.setBackground(titleColorDarkMode);
                 sellfond.setForeground(Color.BLACK);
+                for (JLabel labelP4 : arrayPanel4LabelsDMode){  // loop for all labels on Panel4
+                    labelP4.setBackground(titleColorDarkMode);
+                }
 
                 //Panel 5
                 textaboutusB.setBackground(Color.DARK_GRAY);
@@ -1010,7 +998,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
                 // Panel 1
                 overviewLabel.setForeground(defaultTitleColor);
-                for (JLabel label : arrPanel1Labels){   // change all labels colors to white
+                for (JLabel label : arrPanel1LabelsDMode){   // change all labels colors to white
                     label.setForeground(Color.BLACK);
                 }
                 exitButton.setBackground(defaultTitleColor);
@@ -1026,12 +1014,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
                 // Panel3
                 newLoanLable.setForeground(defaultTitleColor);
-                for (JButton button : arrPanel3Buttons){      // loop for all TAKE buttons
+                for (JButton button : arrPanel3ButtonsDMode){      // loop for all TAKE buttons
                     button.setBackground(defaultTitleColor);
                     button.setForeground(Color.WHITE);   
                 }
 
-                for (JLabel label : arrPanel3Labels){      // loop for all labels on Panel3    
+                for (JLabel label : arrPanel3LabelsDMode){      // loop for all labels on Panel3    
                     label.setForeground(Color.BLACK);
                 }
 
@@ -1043,6 +1031,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 buyfond.setForeground(Color.WHITE);
                 sellfond.setBackground(defaultTitleColor);
                 sellfond.setForeground(Color.WHITE);
+                for (JLabel labelP4 : arrayPanel4LabelsDMode){  // loop for all labels on Panel4
+                    labelP4.setBackground(RadioButtonsColor);
+                }
 
                 // Panel 5
                 textaboutusB.setBackground(defaultColorForFrame);
@@ -1062,11 +1053,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             slidingGraph3.setVisible(false);
             slidingGraph.setVisible(true);
             fondLabelM.setVisible(true);
-            fondLabelMs.setVisible(true);
             fondLabelC.setVisible(false);
             fondLabelD.setVisible(false);
-            fondLabelCs.setVisible(false);
-            fondLabelDs.setVisible(false);
             fundcostM.setVisible(true);
             fundcostC.setVisible(false);
             fundcostD.setVisible(false);
@@ -1083,10 +1071,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             slidingGraph2.setVisible(true);
             fondLabelM.setVisible(false);
             fondLabelC.setVisible(true);
-            fondLabelCs.setVisible(true);
             fondLabelD.setVisible(false);
-            fondLabelDs.setVisible(false);
-            fondLabelMs.setVisible(false);
             fundcostM.setVisible(false);
             fundcostC.setVisible(true);
             fundcostD.setVisible(false);
@@ -1103,9 +1088,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             fondLabelM.setVisible(false);
             fondLabelC.setVisible(false);
             fondLabelD.setVisible(true);
-            fondLabelDs.setVisible(true);
-            fondLabelCs.setVisible(false);
-            fondLabelMs.setVisible(false);
             fundcostM.setVisible(false);
             fundcostC.setVisible(false);
             fundcostD.setVisible(true);

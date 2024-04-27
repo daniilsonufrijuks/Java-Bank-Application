@@ -1,6 +1,7 @@
 package view;
 
 import javax.swing.*;
+import javax.swing.text.*;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 
@@ -38,17 +39,18 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JTabbedPane tabPanel = new JTabbedPane(); 
     ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); 
     ImageIcon imageIcon2 = new ImageIcon("resources/monolithad.jpg"); 
-    ImageIcon imageIcon3 = new ImageIcon("resources/monolithenjoyer.jpg");
+    //ImageIcon imageIcon3 = new ImageIcon("resources/monolithenjoyer.jpg");
     JLabel imageLabel = new JLabel(imageIcon);
     JLabel imageLabel2 = new JLabel(imageIcon2);
-    JLabel imageLabel3 = new JLabel(imageIcon3);
+    //JLabel imageLabel3 = new JLabel(imageIcon3);
     JPanel panel1 = new JPanel();
     JPanel panel2 = new JPanel();
     JPanel panel3 = new JPanel();
     JPanel panel4 = new JPanel();
     JPanel panel5 = new JPanel();
 
-    JTextArea textaboutusB;
+    // Pane for Panel5
+    JTextPane textAboutUsPane = new JTextPane();
 
     // for SendMoney
     JLabel userPCodeLabel;
@@ -159,14 +161,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     // =================================================== Editor panes ===================================================
 
     //For Panel about us
-    String textaboutus = "Finanšu pasaules miglainajās vietās pastāv banka, kas pazīstama kā Monolīts. \n" +
-    "Tās dīvainības un mistikas reputācija piesaista uzmanību. Daži saka, ka šai bankai \n" +
-    "ir tiesības parastos ieguldījumus pārveidot par kaut ko vērtīgāku, piemēram, \n" +
-    "artefaktus no citas dimensijas. Ne visi uzdrošinās ienākt tās durvīm, baidoties \n" +
-    "no negaidītiem pārbaudījumiem un sarežģītiem apstākļiem. Tomēr tie, kas ir drosmīgi \n" +
-    "iegājuši iekšā, saka, ka atlīdzība par risku var būt ievērojama. Nav skaidrs, \n" +
-    "vai Monolīts ir mīts vai realitāte, taču daudzi finanšu piedzīvojumu meklētāji \n" +
-    "turpina pētīt tā noslēpumainās iespējas. \n\n";
+    String textaboutus = "Finanšu pasaules miglainajās vietās pastāv banka, kas pazīstama kā Monolīts." +
+    "Tās dīvainības un mistikas reputācija piesaista uzmanību. Daži saka, ka šai bankai " +
+    "ir tiesības parastos ieguldījumus pārveidot par kaut ko vērtīgāku, piemēram, " +
+    "artefaktus no citas dimensijas. Ne visi uzdrošinās ienākt tās durvīm, baidoties " +
+    "no negaidītiem pārbaudījumiem un sarežģītiem apstākļiem. Tomēr tie, kas ir drosmīgi " +
+    "iegājuši iekšā, saka, ka atlīdzība par risku var būt ievērojama. Nav skaidrs, " +
+    "vai Monolīts ir mīts vai realitāte, taču daudzi finanšu piedzīvojumu meklētāji " +
+    "turpina pētīt tā noslēpumainās iespējas.";
 
     
     JButton sendButton = new JButton("Submit"); // button for send panel
@@ -176,9 +178,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JButton sellfond = new JButton("Sell stocks"); // button for sell panel stock exchange
     // ------------
 
-    JLabel fondLabelM = new JLabel("MONOLITH fund price:"); // label for fonds
-    JLabel fondLabelC = new JLabel("CLEAR SKY fund price:"); // label for fonds
-    JLabel fondLabelD = new JLabel("DUTY fund price:"); // label for fonds
+    JLabel fondLabelM = new JLabel(" MONOLITH fund price:"); // label for fonds
+    JLabel fondLabelC = new JLabel(" CLEAR SKY fund price:"); // label for fonds
+    JLabel fondLabelD = new JLabel(" DUTY fund price:"); // label for fonds
 
     Graphic slidingGraph = new Graphic(Color.BLUE); // create a new graph object
     Graphic slidingGraph2 = new Graphic(Color.BLACK);
@@ -237,7 +239,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         bankAccLabel = new JLabel(BankAccountManager.FindBankAccount(userPCode));
         userPCodeLabel = new JLabel(userPCode);     // for SendMoney, doesnt show up on screen
         userEmailLabel = new JLabel(userEmail);     // for SendMoney, doesnt show up on screen
-        //textaboutusB = new JLabel(textaboutus);
         
         userpCode = userPCode;
         username = userText;
@@ -250,11 +251,24 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         String[] data = {nickname, useremail, bankacc, pinkcode, pinkcode2}; // create a new string array
         comboBox = new JComboBox(data); // create a new combo box
 
-        textaboutusB = new JTextArea(textaboutus); // added textaboutus to text area
-        textaboutusB.setBackground(defaultColorForFrame);
-        textaboutusB.setLineWrap(true);
-        textaboutusB.setWrapStyleWord(true);
-        textaboutusB.setEditable(false);
+        // JTextPane with textaboutus for Panel5
+        StyledDocument docForTAUPane = textAboutUsPane.getStyledDocument();
+        Style tStyle = textAboutUsPane.addStyle("Style", null);     // Create a style for the text
+        StyleConstants.setFontFamily(tStyle, "Arial");              // set text font
+        StyleConstants.setFontSize(tStyle, 17);                     // set text size
+        StyleConstants.setBold(tStyle, true);                       // set bold text
+        StyleConstants.setLineSpacing(tStyle, 0.4f);                // set line spacing 1.4
+        StyleConstants.setAlignment(tStyle, StyleConstants.ALIGN_JUSTIFIED);    // line alignment Justify
+        docForTAUPane.setParagraphAttributes(0, docForTAUPane.getLength(), tStyle, false);
+        textAboutUsPane.setBackground(defaultColorForFrame);
+
+        // Add text using the created style
+        try {
+            docForTAUPane.insertString(docForTAUPane.getLength(), textaboutus, tStyle);
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
+        //
 
         // For panel Send
         recUsernameField = new RoundJTextField(20);
@@ -326,10 +340,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         
         tabPanel.setBounds(0, 0, 1200, 750); // tab position
 
-        imageLabel2.setBounds(389, 5, 400, 250);
+        imageLabel2.setBounds(375, 5, 450, 300);
 
-        textaboutusB.setBounds(290, 290, 600, 450); // text area position
-        textaboutusB.setFont(defaultTextFont);
+        textAboutUsPane.setBounds(285, 320, 630, 450);
 
         // For panel Credits lables
         newLoanLable.setBounds(375, 50, 450, 30);
@@ -404,7 +417,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         }
         arrPanel3Labels = null;  // set to null (delete) variable
 
-        editorPane.setBounds(500, 590, 200, 30); // set bounds for the link on Panel5
+        editorPane.setBounds(557, 550, 86, 30); // set bounds for the link on Panel5
         editorPane.setFont(defaultTextFont);
 
         // =================================================== Send money ===================================================
@@ -496,7 +509,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         editorPane.setEditable(false);
 
         // Add the text with the link
-        editorPane.setText("<html><a href='https://daniilsonufrijuks.github.io/MONOLITH.github.io/'>Link to us</a></html>");
+        editorPane.setText("<html><a href='https://daniilsonufrijuks.github.io/MONOLITH.github.io/'>LINK TO US</a></html>");
 
         // Add a hyperlink listener to handle click events
         editorPane.addHyperlinkListener(new HyperlinkListener() {
@@ -567,7 +580,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         panel2.add(sendButton);
 
-        panel5.add(textaboutusB); // add text area to the panel
+        panel5.add(textAboutUsPane, BorderLayout.CENTER);
 
         // For panel Credits
         panel3.add(TAKEButton);
@@ -666,9 +679,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         //System.out.println(data);
         receivedata = data;
         fundscost = receivedata;
-        fundcostM.setText(String.valueOf(receivedata/10*90)); // update balance
-        fundcostC.setText(String.valueOf(receivedata/10*100)); // update balance
-        fundcostD.setText(String.valueOf(receivedata/10*120)); // update balance
+        fundcostM.setText(" " + String.valueOf(receivedata/10*90)); // update balance
+        fundcostC.setText(" " + String.valueOf(receivedata/10*100)); // update balance
+        fundcostD.setText(" " + String.valueOf(receivedata/10*120)); // update balance
         //System.out.println(data);
     }
 
@@ -986,7 +999,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 }
 
                 //Panel 5
-                textaboutusB.setBackground(Color.DARK_GRAY);
+
 
             } else {
                 getContentPane().setBackground(defaultColorForFrame);
@@ -1036,7 +1049,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 }
 
                 // Panel 5
-                textaboutusB.setBackground(defaultColorForFrame);
+                
             }
         }
 

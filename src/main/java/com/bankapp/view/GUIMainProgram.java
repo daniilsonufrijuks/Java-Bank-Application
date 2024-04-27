@@ -151,7 +151,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     Color darkModeBackgroundColor = new Color(85, 77, 86);
     Color defaultTitleColor = new Color(203, 0, 0);
     Color titleColorDarkMode = new Color(211, 233, 252);
-    Color RadioButtonsColor = new Color(153, 204, 255);
+    Color radioButtonsColor = new Color(153, 204, 255);
     //
 
     // =================================================== Editor panes ===================================================
@@ -417,8 +417,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         }
         arrPanel3Labels = null;  // set to null (delete) variable
 
-        editorPane.setBounds(557, 550, 86, 30); // set bounds for the link on Panel5
+        editorPane.setBounds(557, 560, 86, 30); // set bounds for the link on Panel5
         editorPane.setFont(defaultTextFont);
+        editorPane.setBackground(radioButtonsColor);
 
         // =================================================== Send money ===================================================
         // For Panel2 lables
@@ -458,9 +459,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         fond1.setBounds(450, 10, 100, 30); // set bounds for the radio buttons
         fond2.setBounds(550, 10, 100, 30);
         fond3.setBounds(650, 10, 100, 30);
-        fond1.setBackground(RadioButtonsColor);
-        fond2.setBackground(RadioButtonsColor);
-        fond3.setBackground(RadioButtonsColor);
+        fond1.setBackground(radioButtonsColor);
+        fond2.setBackground(radioButtonsColor);
+        fond3.setBackground(radioButtonsColor);
 
         buyfond.setBounds(525, 495, 150, 30); // set bounds for the button for buying fonds
         sellfond.setBounds(525, 575, 150, 30); // set bounds for the button for selling fonds
@@ -483,7 +484,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         for (JLabel labelP4 : arrayPanel4Labels){
             labelP4.setOpaque(true);    // set Label background opaque
             labelP4.setFont(defaultTextFont);
-            labelP4.setBackground(RadioButtonsColor);
+            labelP4.setBackground(radioButtonsColor);
         }
         arrayPanel4Labels = null;  // set to null (delete) variable
         // =================================================== Stock exchange ===================================================
@@ -999,6 +1000,12 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 }
 
                 //Panel 5
+                StyledDocument docForTAUPaneDM = textAboutUsPane.getStyledDocument();
+                Style tStyleDM = textAboutUsPane.addStyle("Style", null);
+                StyleConstants.setForeground(tStyleDM, Color.WHITE);
+                docForTAUPaneDM.setCharacterAttributes(0, docForTAUPaneDM.getLength(), tStyleDM, false);
+                textAboutUsPane.setBackground(Color.DARK_GRAY);
+                editorPane.setBackground(titleColorDarkMode);
 
 
             } else {
@@ -1037,18 +1044,24 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 }
 
                 // Panel4
-                fond1.setBackground(RadioButtonsColor);
-                fond2.setBackground(RadioButtonsColor);
-                fond3.setBackground(RadioButtonsColor);
+                fond1.setBackground(radioButtonsColor);
+                fond2.setBackground(radioButtonsColor);
+                fond3.setBackground(radioButtonsColor);
                 buyfond.setBackground(defaultTitleColor);
                 buyfond.setForeground(Color.WHITE);
                 sellfond.setBackground(defaultTitleColor);
                 sellfond.setForeground(Color.WHITE);
                 for (JLabel labelP4 : arrayPanel4LabelsDMode){  // loop for all labels on Panel4
-                    labelP4.setBackground(RadioButtonsColor);
+                    labelP4.setBackground(radioButtonsColor);
                 }
 
                 // Panel 5
+                StyledDocument docForTAUPaneDM = textAboutUsPane.getStyledDocument();
+                Style tStyleDM = textAboutUsPane.addStyle("Style", null);
+                StyleConstants.setForeground(tStyleDM, Color.BLACK);
+                docForTAUPaneDM.setCharacterAttributes(0, docForTAUPaneDM.getLength(), tStyleDM, false);
+                textAboutUsPane.setBackground(defaultColorForFrame);
+                editorPane.setBackground(radioButtonsColor);
                 
             }
         }

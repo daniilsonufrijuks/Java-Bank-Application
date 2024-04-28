@@ -146,8 +146,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     String userpCode; // for SendMoney
 
     // Colors
-    JCheckBox darkModeChBox = new JCheckBox("Dark Mode");
+    JCheckBox darkModeChBox = new JCheckBox("Dark Mode");   // check box for dark mode
     Color defaultBackgroundColor = new Color(211, 233, 252);
+    Color secondaryMainColor = new Color(172, 217, 255);
     Color defaultColorForFrame = new Color(119, 203, 233);
     Color darkModeBackgroundColor = new Color(85, 77, 86);
     Color defaultTitleColor = new Color(203, 0, 0);
@@ -319,8 +320,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         userlastnameLabel.setBounds(920, 60, 100, 30);
         imageLabel.setBounds(850, 17, 50, 50); // image position
         darkModeChBox.setBounds(1000, 100, 150, 30); // color switch
+        darkModeChBox.setBackground(secondaryMainColor);
         exitButton.setBounds(1000, 140, 150, 30); // set bounds for the exit button
         comboBox.setBounds(900, 180, 250, 30); // set bounds for the combo box
+        comboBox.setBackground(secondaryMainColor);
         calendarApp.setBounds(760, 370, 400, 300); // set bounds for the calendar
 
         // Set font for the labels
@@ -420,7 +423,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
         editorPane.setBounds(557, 560, 86, 30); // set bounds for the link on Panel5
         editorPane.setFont(defaultTextFont);
-        editorPane.setBackground(radioButtonsColor);
+        editorPane.setBackground(secondaryMainColor);
 
         // =================================================== Send money ===================================================
         // For Panel2 lables
@@ -492,6 +495,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
 
         editorPaneT.setBounds(40, 200, 650, 490); // set bounds for the editor pane for Transactions
+        editorPaneT.setBackground(secondaryMainColor);
  
     }
 
@@ -969,6 +973,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 }
                 exitButton.setBackground(titleColorDarkMode);
                 exitButton.setForeground(Color.BLACK);
+                darkModeChBox.setBackground(titleColorDarkMode);
+                comboBox.setBackground(titleColorDarkMode);
+                editorPaneT.setBackground(Color.DARK_GRAY);
+                editorPaneT.setForeground(Color.WHITE);
 
                 // Panel 2
                 newPaymentLabel.setForeground(titleColorDarkMode);
@@ -1009,7 +1017,6 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 textAboutUsPane.setBackground(Color.DARK_GRAY);
                 editorPane.setBackground(titleColorDarkMode);
 
-
             } else {
                 getContentPane().setBackground(defaultColorForFrame);
                 panel1.setBackground(defaultBackgroundColor);
@@ -1025,6 +1032,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 }
                 exitButton.setBackground(defaultTitleColor);
                 exitButton.setForeground(Color.WHITE);
+                darkModeChBox.setBackground(secondaryMainColor);
+                comboBox.setBackground(secondaryMainColor);
+                editorPaneT.setBackground(secondaryMainColor);
+                editorPaneT.setForeground(Color.BLACK);
 
                 // Panel 2
                 newPaymentLabel.setForeground(defaultTitleColor);

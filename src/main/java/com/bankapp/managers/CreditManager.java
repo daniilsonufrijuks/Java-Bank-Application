@@ -122,19 +122,21 @@ public class CreditManager {
         }
     }
 
-    public static String[] FindCreditTransaction(String filepath, String recpcode) {
-        try (BufferedReader br = new BufferedReader(new FileReader(filepath))) { // create a new buffered reader object
+    // for money transaction/sending visualization , reads file sendmoneyTransactions.csv
+    public static ArrayList<String[]> FindMoneyTransaction(String filepath, String recpcode) {
+        ArrayList<String[]> transactions = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(filepath))) {
             String line;
-            while ((line = br.readLine()) != null) { // while there is a next line
-                String[] parts = line.split(", ");      // current line from csv file
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(", ");
                 if (parts.length == 5 && parts[0].equals(recpcode)) {
-                    return new String[]{parts[0], parts[1], parts[2], parts[3], parts[4]};
+                    transactions.add(new String[]{parts[0], parts[1], parts[2], parts[3], parts[4]});
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return transactions;
     }
 
     // public static void CheckForSimilarUserPcodeinFileandSumValues(String userpcode) {

@@ -26,7 +26,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.net.URI;
-import java.net.URISyntaxException; 
+import java.net.URISyntaxException;
+import java.util.ArrayList; 
 
 
 // Remove the unnecessary import statement
@@ -214,14 +215,14 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
     // Create a new JTextArea for transactions visualisation
     JTextArea textArea = new JTextArea();
-    String[] transactions;
+    ArrayList<String[]> transactions;
     
     // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail, String Nnickname) {
         // find data fro transaction visualisation
-        transactions = CreditManager.FindCreditTransaction("resources/sendmoneyTransactions.csv", userPCode);
+        transactions = CreditManager.FindMoneyTransaction("resources/sendmoneyTransactions.csv", userPCode);
         if (transactions != null) {
-            for (String elem : transactions) {
+            for (String[] elem : transactions) {
                 System.out.println(elem);
             }
         }
@@ -551,17 +552,17 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         // =================================================== Editor pane transactions viz ===================================================
         // Set the content type to text
         editorPaneT.setContentType("text/plain");
-
         // Make the JEditorPane uneditable
         editorPaneT.setEditable(false);
 
         // Iterate over transactions and append them to the JEditorPane
         if (transactions != null) {
-            for (String elem : transactions) {
-                editorPaneT.setText(editorPaneT.getText() + elem + " ");
+            for (String[] elem : transactions) {
+                for (String line : elem) {
+                    editorPaneT.setText(editorPaneT.getText() + line + " ");
+                }
             }
         }
-
         // Add the JEditorPaneT to panel1
         panel1.add(editorPaneT);
 

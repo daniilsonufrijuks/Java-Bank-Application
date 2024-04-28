@@ -561,6 +561,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 for (String line : elem) {
                     editorPaneT.setText(editorPaneT.getText() + line + " ");
                 }
+                editorPaneT.setText(editorPaneT.getText() + "\n");
             }
         }
         // Add the JEditorPaneT to panel1

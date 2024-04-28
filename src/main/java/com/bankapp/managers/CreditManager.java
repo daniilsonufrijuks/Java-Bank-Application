@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CreditManager {
+    // generate credit depending on money, percents and years
     public float GenCredit(float money, float percents, int years) {
         float credit = 0.0f;
         if (money > 0) {
@@ -22,6 +23,7 @@ public class CreditManager {
         return credit;
     }
 
+    // write taken credit to a file
     public static void WriteCredittoFile(String userpcode, float credit) {
         try {
             FileWriter writer = new FileWriter("resources/credits.csv", true);
@@ -32,6 +34,7 @@ public class CreditManager {
         }
     }
 
+    // find credit in a file
     public static Float FindCredit(String filepath, String userpcode) {
         try (BufferedReader br = new BufferedReader(new FileReader(filepath))) { // create a new buffered reader object
             String line;

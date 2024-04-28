@@ -30,52 +30,70 @@ import java.net.URISyntaxException;
 import java.util.ArrayList; 
 
 
-// Remove the unnecessary import statement
-// import view.GUILogReg.person;
-
-
 public class GUIMainProgram extends JFrame implements ActionListener{ 
     public static GUILogReg framelogreg;
     Container container = getContentPane();
     JTabbedPane tabPanel = new JTabbedPane(); 
+
+    // =================================================== Images for panels ===================================================
     ImageIcon imageIcon = new ImageIcon("resources/hamster.jpg"); 
     ImageIcon imageIcon2 = new ImageIcon("resources/monolithad.jpg"); 
-    //ImageIcon imageIcon3 = new ImageIcon("resources/monolithenjoyer.jpg");
+
     JLabel imageLabel = new JLabel(imageIcon);
     JLabel imageLabel2 = new JLabel(imageIcon2);
-    //JLabel imageLabel3 = new JLabel(imageIcon3);
+    // =================================================== Images for panels ===================================================
+
+
+    // =================================================== Panels ===================================================
     JPanel panel1 = new JPanel();
     JPanel panel2 = new JPanel();
     JPanel panel3 = new JPanel();
     JPanel panel4 = new JPanel();
     JPanel panel5 = new JPanel();
+    // =================================================== Panels ===================================================
 
+
+    // =================================================== Text area for about us info ===================================================
     // Pane for Panel5
     JTextPane textAboutUsPane = new JTextPane();
-
+    // =================================================== Text area for about us info ===================================================
+    
+    
+    // =================================================== Labels ===================================================
     // for SendMoney
     JLabel userPCodeLabel;
     JLabel userEmailLabel;
-    //
+    // =================================================== Labels ===================================================
 
+
+    // =================================================== Text fields for credit options ===================================================
     // For Panel Send
     RoundJTextField creditoptionfiled1;
     RoundJTextField creditoptionfiled2;
     RoundJTextField creditoptionfiled3;
     RoundJTextField creditoptionfiled4;
     RoundJTextField creditoptionfiled5;
+    // =================================================== Text fields for credit options ===================================================
 
+
+    // =================================================== Text fields for send panel =================================================== 
     // For Panel Send text fields
     RoundJTextField recUsernameField;
     RoundJTextField recBankAccountField;
     RoundJTextField moneyToSendField;
+    // =================================================== Text fields for send panel ===================================================
 
+
+    // =================================================== Labels for send money ===================================================
     // For Panel Send lables
     JLabel recUsernameLabel = new JLabel("Receiver username:");
     JLabel recBankAccountLabel = new JLabel("Receiver bank account:");
     JLabel moneyToSendLabel = new JLabel("Amount:");
     JLabel newPaymentLabel = new JLabel("New Payment");
+    // =================================================== Labels for send money ===================================================
 
+
+    // =================================================== Info about user lables =================================================== 
     // For Main Panel
     JLabel overviewLabel = new JLabel("Overview");
     JLabel accountLabel = new JLabel("Your account:");
@@ -86,18 +104,20 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel userlastnameLabel;
     JLabel userbalanceLabel;
     JLabel userCreditsLabel = new JLabel("placeholder for usercredits");
-    //
+    // =================================================== Info about user lables ===================================================
 
+
+    // ===================================================  R Buttons and goup for funds ===================================================
     // For Panel Stock exchange
     JRadioButton fond1 = new JRadioButton("MONOLITH"); // create a radio button
     JRadioButton fond2 = new JRadioButton("CLEAR SKY"); // create a radio button
     JRadioButton fond3 = new JRadioButton("DUTY"); // create a radio button
 
     ButtonGroup group = new ButtonGroup(); // create a button group
+    // =================================================== R Buttons and group for funds ===================================================
 
-    //JTextArea textArea = new JTextArea(20, 20); // Create a JTextArea
-    //JScrollPane scrollPane = new JScrollPane(textArea); // Create a JScrollPane and add the JTextArea to it
 
+    // =================================================== Credit options Lables ===================================================
     // For Panel Credits
     JLabel newLoanLable = new JLabel("Take a New Loan or Repay It");
     JLabel credit = new JLabel("Credit option 1");
@@ -142,9 +162,13 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JLabel creditsumtotal5 = new JLabel();
 
     JLabel creditsum; // for credits
+    // =================================================== Credit options Lables ===================================================
+
 
     String userpCode; // for SendMoney
 
+
+    // =================================================== Color changer ===================================================
     // Colors
     JCheckBox darkModeChBox = new JCheckBox("Dark Mode");
     Color defaultBackgroundColor = new Color(211, 233, 252);
@@ -153,7 +177,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     Color defaultTitleColor = new Color(203, 0, 0);
     Color titleColorDarkMode = new Color(211, 233, 252);
     Color radioButtonsColor = new Color(153, 204, 255);
-    //
+    // =================================================== Color changer ===================================================
+
+
 
     // =================================================== Editor panes ===================================================
     JEditorPane editorPane = new JEditorPane();
@@ -161,6 +187,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JEditorPane editorPaneT = new JEditorPane();
     // =================================================== Editor panes ===================================================
 
+
+    // =================================================== Text for about us ===================================================
     //For Panel about us
     String textaboutus = "Finanšu pasaules miglainajās vietās pastāv banka, kas pazīstama kā Monolīts." +
     "Tās dīvainības un mistikas reputācija piesaista uzmanību. Daži saka, ka šai bankai " +
@@ -170,15 +198,23 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     "iegājuši iekšā, saka, ka atlīdzība par risku var būt ievērojama. Nav skaidrs, " +
     "vai Monolīts ir mīts vai realitāte, taču daudzi finanšu piedzīvojumu meklētāji " +
     "turpina pētīt tā noslēpumainās iespējas.";
+    // =================================================== Text for about us ===================================================
 
-    
+
+    // =================================================== Button for sending money panel send ===================================================
     JButton sendButton = new JButton("Submit"); // button for send panel
+    // =================================================== Button for sending money panel send ===================================================
 
+
+    // =================================================== buttons for stock exchange buy,sell =================================================== 
     // ------------
     JButton buyfond = new JButton("Buy stocks"); // button for buy panel stock exchange
     JButton sellfond = new JButton("Sell stocks"); // button for sell panel stock exchange
     // ------------
+    // =================================================== buttons for stock exchange buy,sell ===================================================
 
+
+    // =================================================== Labels, graphics for funds ===================================================
     JLabel fondLabelM = new JLabel(" MONOLITH fund price:"); // label for fonds
     JLabel fondLabelC = new JLabel(" CLEAR SKY fund price:"); // label for fonds
     JLabel fondLabelD = new JLabel(" DUTY fund price:"); // label for fonds
@@ -187,18 +223,27 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     Graphic slidingGraph2 = new Graphic(Color.BLACK);
     Graphic slidingGraph3 = new Graphic(Color.RED);
 
+    // =================================================== Labels, graphics for funds ===================================================
+
+    
+    // =================================================== Exit button ===================================================
     JButton exitButton = new JButton("Exit"); // create a new exit button
+    // =================================================== Exit button ===================================================
+
+
 
     CalendarApp calendarApp = new CalendarApp(); // create a new calendar object
+
 
     String username; // person name
     String nickname; // person nickname
     String useremail; // person email
+    String pinkcode; // person pin code
 
-    String pinkcode;
 
-
+    // =================================================== Drop down menu about user ===================================================
     JComboBox comboBox; // drop down menu for panel 1 about user
+    // =================================================== Drop down menu about user ===================================================
 
 
     static int fundscost = 0; // fonds cost
@@ -217,6 +262,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     JTextArea textArea = new JTextArea();
     ArrayList<String[]> transactions;
     
+
+    
+    // =================================================== MAIN PROGRAMM START ===================================================
     // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail, String Nnickname) {
         // find data fro transaction visualisation

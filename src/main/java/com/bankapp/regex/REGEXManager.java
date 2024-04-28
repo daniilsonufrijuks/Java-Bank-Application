@@ -2,6 +2,7 @@ package regex;
 
 
 public class REGEXManager {
+    // regex class for regex expressions
 
     // regex for name/last name
     public static boolean NameRegex(String name) {

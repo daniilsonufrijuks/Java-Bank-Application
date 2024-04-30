@@ -178,6 +178,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     Color defaultTitleColor = new Color(203, 0, 0);
     Color titleColorDarkMode = new Color(211, 233, 252);
     Color radioButtonsColor = new Color(153, 204, 255);
+    Color calendarBGColorDarkM = new Color(104, 104, 104);
     // =================================================== Color changer ===================================================
 
 
@@ -302,6 +303,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         comboBox = new JComboBox(data); // create a new combo box
 
         // JTextPane with textaboutus for Panel5
+        textAboutUsPane.setEditable(false);
         StyledDocument docForTAUPane = textAboutUsPane.getStyledDocument();
         Style tStyle = textAboutUsPane.addStyle("Style", null);     // Create a style for the text
         StyleConstants.setFontFamily(tStyle, "Arial");              // set text font
@@ -373,6 +375,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         comboBox.setBounds(900, 180, 250, 30); // set bounds for the combo box
         comboBox.setBackground(secondaryMainColor);
         calendarApp.setBounds(760, 370, 400, 300); // set bounds for the calendar
+        calendarApp.changeColors(Color.WHITE, new Color(153, 204, 255), new Color(51, 153, 255), Color.BLACK);
 
         // Set font for the labels
         overviewLabel.setFont(titleFont);
@@ -1025,6 +1028,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 comboBox.setBackground(titleColorDarkMode);
                 editorPaneT.setBackground(Color.DARK_GRAY);
                 editorPaneT.setForeground(Color.WHITE);
+                calendarApp.changeColors(calendarBGColorDarkM, Color.GRAY, titleColorDarkMode, Color.WHITE);
 
                 // Panel 2
                 newPaymentLabel.setForeground(titleColorDarkMode);
@@ -1084,6 +1088,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 comboBox.setBackground(secondaryMainColor);
                 editorPaneT.setBackground(secondaryMainColor);
                 editorPaneT.setForeground(Color.BLACK);
+                calendarApp.changeColors(Color.WHITE, new Color(153, 204, 255), new Color(51, 153, 255), Color.BLACK);
 
                 // Panel 2
                 newPaymentLabel.setForeground(defaultTitleColor);

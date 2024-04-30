@@ -1,6 +1,5 @@
 package view;
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.time.LocalDate;
@@ -9,15 +8,18 @@ import java.time.format.DateTimeFormatter;
 public class CalendarApp extends JPanel {
     private JLabel monthLabel;
     private JPanel calendarPanel;
+    private JButton prevMonthButton;
+    private JButton nextMonthButton;
     private LocalDate currentDate;
+    private Color textColor;
 
     public CalendarApp() {
         setLayout(new BorderLayout());
         // Create components
         monthLabel = new JLabel("", JLabel.CENTER);
         calendarPanel = new JPanel(new GridLayout(0, 7));
-        JButton prevMonthButton = new JButton("<-");
-        JButton nextMonthButton = new JButton("->");
+        prevMonthButton = new JButton("<-");
+        nextMonthButton = new JButton("->");
 
         // Add action listeners to the buttons
         prevMonthButton.addActionListener(e -> displayCalendar(currentDate.minusMonths(1)));
@@ -55,7 +57,10 @@ public class CalendarApp extends JPanel {
         for (String day : dayNames) {
             //JLabel label = new JLabel(day, JLabel.CENTER);
             //calendarPanel.add(label);
-            calendarPanel.add(new JLabel(day, JLabel.CENTER));
+            JLabel dayLabel = new JLabel(day, JLabel.CENTER);
+            dayLabel.setForeground(textColor);              // set Label foreground color when a button is pressed
+            calendarPanel.add(dayLabel);
+            //calendarPanel.add(new JLabel(day, JLabel.CENTER));
         }
 
         // Calculate the start day of the month
@@ -68,12 +73,31 @@ public class CalendarApp extends JPanel {
         }
         for (int i = 1; i <= date.lengthOfMonth(); i++) {
             JLabel label = new JLabel(Integer.toString(i), JLabel.CENTER);
+            if (textColor != null) {    // if textcolor is set
+                label.setForeground(this.textColor);
+            }
             calendarPanel.add(label);
         }
 
         // Repaint the calendar
         calendarPanel.revalidate();
         calendarPanel.repaint();
+    }
+
+    public void changeColors(Color backgroundColor, Color buttonColor, Color headingColor, Color txtColor) {    // method to change Calendar colors
+        this.textColor = txtColor;
+        this.monthLabel.setOpaque(true);
+        this.monthLabel.setBackground(backgroundColor);
+        this.monthLabel.setForeground(headingColor);
+        this.calendarPanel.setOpaque(true);
+        this.calendarPanel.setBackground(backgroundColor);
+        for (Component component : this.calendarPanel.getComponents()){    // get all components from calendarPanel and change their color
+            component.setForeground(this.textColor);
+        }
+        this.prevMonthButton.setBackground(buttonColor);
+        this.prevMonthButton.setForeground(txtColor);
+        this.nextMonthButton.setBackground(buttonColor);
+        this.nextMonthButton.setForeground(txtColor);
     }
 
     // public static void main(String[] args) {

@@ -18,7 +18,7 @@
     <img src="resources/visualstudio_code.svg" alt="html" style="vertical-align:top; margin:6px 4px">
 </a>  
 
-[![Naereen's github stats](https://github-readme-stats.vercel.app/api?username=Naereen&theme=blue-green)](https://github.com/anuraghazra/github-readme-stats)
+[![Naereen's github stats](https://github-readme-stats.vercel.app/api?daniilsonufrijuks=Naereen&theme=blue-green)](https://github.com/anuraghazra/github-readme-stats)
 
 
 **[LV]**

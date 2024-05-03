@@ -18,6 +18,8 @@
     <img src="resources/visualstudio_code.svg" alt="html" style="vertical-align:top; margin:6px 4px">
 </a>  
 
+[![Naereen's github stats](https://github-readme-stats.vercel.app/api?username=Naereen&theme=blue-green)](https://github.com/anuraghazra/github-readme-stats)
+
 
 **[LV]**
 *"Internet banka" aplikācija, kurā būs lietotāja reģistrācijas un pieteikšanās iespējas. Pēc reģistrācijas lietotājs (bankas klients) varēs papildināt, noņemt naudu no sava konta, arī ņemt kredītu un nopirkt akcijas.*

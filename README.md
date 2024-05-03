@@ -1,6 +1,8 @@
 # Java-Bank-Application
 
 [![PyPI status](https://img.shields.io/pypi/status/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
+[![git](https://badgen.net/badge/icon/git?icon=git&label)](https://git-scm.com)
+[![GitHub](https://img.shields.io/badge/--181717?logo=github&logoColor=ffffff)](https://github.com/)
 
 <p align="center">
   <img src="resources/program_logo.jpg" alt="html">
@@ -17,8 +19,6 @@
 <a href="#">
     <img src="resources/visualstudio_code.svg" alt="html" style="vertical-align:top; margin:6px 4px">
 </a>  
-
-[![Naereen's github stats](https://github-readme-stats.vercel.app/api?username=daniilsonufrijuks&theme=blue-green)](https://github.com/anuraghazra/github-readme-stats)
 
 
 **[LV]**

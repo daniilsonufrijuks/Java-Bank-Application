@@ -1,5 +1,8 @@
 # Java-Bank-Application
 
+[![PyPI status](https://img.shields.io/pypi/status/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
+[![GitHub latest commit](https://badgen.net/github/last-commit/Naereen/Strapdown.js)](https://GitHub.com/Naereen/StrapDown.js/commit/)
+
 <p align="center">
   <img src="resources/program_logo.jpg" alt="html">
 </p>

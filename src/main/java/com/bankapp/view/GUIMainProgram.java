@@ -184,9 +184,9 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
 
     // =================================================== Editor panes ===================================================
-    JEditorPane editorPane = new JEditorPane();
+    JEditorPane editorPane = new JEditorPane(); // for about us
     // Create a JEditorPane
-    JEditorPane editorPaneT = new JEditorPane();
+    JEditorPane editorPaneT = new JEditorPane(); // create a new editor pane for transactions
     // =================================================== Editor panes ===================================================
 
 

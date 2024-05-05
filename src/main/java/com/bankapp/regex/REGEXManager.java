@@ -26,4 +26,26 @@ public class REGEXManager {
     public static boolean isValidFloat(String input) {
         return input.matches("^\\d+(\\.\\d{1,2})?$");
     }
+
+    public static boolean isNumber(String input){   // check if user input is number
+        if (input == null){
+            return false;
+        }
+        try{
+            int intValue = Integer.parseInt(input);
+            return true;
+        } catch (NumberFormatException e){
+            try{
+                float floatValue = Float.parseFloat(input);
+                return true;
+            } catch (NumberFormatException e2) {
+                try{
+                    double doubleValue = Double.parseDouble(input);
+                    return true;
+                } catch (NumberFormatException e3){
+                    return false;
+                }
+            }
+        }
+    }
 }

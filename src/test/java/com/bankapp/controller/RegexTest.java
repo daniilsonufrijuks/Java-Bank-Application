@@ -27,7 +27,7 @@ public class RegexTest {
     }
 
     @Test
-    public void RegexIsValidFloat(){
+    public void RegexIsValidFloatTest(){
         assertEquals(true, REGEXManager.isValidFloat("20"));
         assertEquals(true, REGEXManager.isValidFloat("20.00"));
         assertEquals(true, REGEXManager.isValidFloat("20.01"));
@@ -39,5 +39,14 @@ public class RegexTest {
         assertEquals(false, REGEXManager.isValidFloat("-2"));
         assertEquals(false, REGEXManager.isValidFloat("-2.02"));
         assertEquals(false, REGEXManager.isValidFloat("-2.22"));
+    }
+
+    @Test
+    public void RegexIsNumberTest(){
+        assertEquals(true, REGEXManager.isNumber("1"));
+        assertEquals(true, REGEXManager.isNumber("1.0"));
+        assertEquals(true, REGEXManager.isNumber("1.01"));
+        assertEquals(false, REGEXManager.isNumber("a"));
+        assertEquals(false, REGEXManager.isNumber("1,0"));
     }
 }

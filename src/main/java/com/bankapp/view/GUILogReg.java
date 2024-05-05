@@ -18,11 +18,11 @@ import generator.PinKontGen;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.Console;   
+//import java.io.Console;   
 //import main.java.com.bankapp.Main;
 import java.io.File;
 import java.io.IOException;
-import view.RoundJTextField;
+//import view.RoundJTextField;
 
 public class GUILogReg extends JFrame implements ActionListener {  
     Container container = getContentPane();

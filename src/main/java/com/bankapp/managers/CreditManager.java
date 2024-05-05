@@ -14,7 +14,7 @@ import java.util.List;
 
 public class CreditManager {
     // generate credit depending on money, percents and years
-    public float GenCredit(float money, float percents, int years) {
+    public static float GenCredit(float money, float percents, int years) {
         float credit = 0.0f;
         if (money > 0) {
             credit = (float) (money * Math.pow(1 + percents / 100, years));

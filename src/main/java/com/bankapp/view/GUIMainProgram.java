@@ -4,28 +4,20 @@ import javax.swing.*;
 import javax.swing.text.*;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
-
-import org.w3c.dom.events.MouseEvent;
-
-import controller.AutoSendonYourEmail;
 import date.DateGen;
-import logreg.Login;
 import managers.BankAccountManager;
 import managers.CreditManager;
 import managers.FundsManager;
 import model.Credits;
-import model.Person;
 import model.Transaction;
 import regex.REGEXManager;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.Console;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList; 
 
@@ -333,8 +325,8 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         } else {
             userCreditsLabel = new JLabel(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userPCode)));
         }
-        BankAccountManager bankAccountManager = new BankAccountManager();
-        CreditManager genCredit = new CreditManager();
+        // BankAccountManager bankAccountManager = new BankAccountManager();
+        // CreditManager genCredit = new CreditManager();
 
 
         //genCredit.GenCredit(bankAccountManager.GetBalance(userText), 25, 1);
@@ -1225,10 +1217,10 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         if (e.getSource() == sellfond) {
             BigDecimal balance = BankAccountManager.GetBalance(userpCode); // get balance in big decimal
             
-            String recUsername = "MONOLITH"; // get receiver username MONOLITH account
+            //String recUsername = "MONOLITH"; // get receiver username MONOLITH account
             String bankpcode = "000000-00000";
             String bankemail = "monolith@gmail.com";
-            String recBankAccount = "7m493791o0684f1nof5fl8it80626123"; // get receiver bank account MONOLITH account            
+            //String recBankAccount = "7m493791o0684f1nof5fl8it80626123"; // get receiver bank account MONOLITH account            
 
             
             System.out.println("----------------------------> " + FundsManager.FindFund(userpCode, fundname) + " ---- " + BankAccountManager.FindBankAccount(userpCode) + " -------- " + username);

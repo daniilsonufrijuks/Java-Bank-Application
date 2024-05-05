@@ -3,14 +3,10 @@ package managers;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
-
 import model.Transaction;
-
 import java.math.BigDecimal;
 // BigDecimal is datatype for money
 import java.math.RoundingMode;

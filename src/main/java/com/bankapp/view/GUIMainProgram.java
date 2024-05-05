@@ -750,27 +750,33 @@ public class GUIMainProgram extends JFrame implements ActionListener{
             //AutoSendonYourEmail.SendEmail();
             String recUsername = recUsernameField.getText(); // get receiver username
             String recBankAccount = recBankAccountField.getText(); // get receiver bank account
-            float moneyToSend = Float.valueOf(moneyToSendField.getText()); // get money to send
-
-            Transaction transaction = new Transaction(moneyToSend, recBankAccount, recUsername); // create a new transaction object
-
-            //if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend) && REGEXManager.isValidFloat(String.valueOf(moneyToSend))){
-            if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend, userpCode)){
-                float balanceuser = BankAccountManager.GetBalance(userpCode).floatValue();
-                if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend != 0 && moneyToSend <= balanceuser){
-                    BankAccountManager.SendMoney(transaction); // send money to another account
-                    System.out.println(username + " - " + " - " + useremail + " - " + moneyToSend);
-                    BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, moneyToSend);   // take money from sender account after sending money
-                    BankAccountManager.ShowMessagewhenMoneysent(userpCode, moneyToSend, BankAccountManager.FindPersonPcode(recBankAccount));
-                    CreditManager.WriteMoneyTransactionsToafile(BankAccountManager.FindPersonPcode(recBankAccount), username, BankAccountManager.FindBankAccount(userpCode), moneyToSend, DateGen.GetDate()); // write credit to files
-                    JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
+            if (!REGEXManager.isNumber(moneyToSendField.getText())){    // check if input is a number
+                JOptionPane.showMessageDialog(this, "Invalid money input!");
+            } else{
+                float moneyToSend = Float.valueOf(moneyToSendField.getText()); // get money to send            
+                Transaction transaction = new Transaction(moneyToSend, recBankAccount, recUsername); // create a new transaction object
+                
+                if (BankAccountManager.CheckSendData(recUsername, recBankAccount, moneyToSend, userpCode)){
+                    float balanceuser = BankAccountManager.GetBalance(userpCode).floatValue();
+                    if (REGEXManager.isValidFloat(String.valueOf(moneyToSend)) && moneyToSend > 0){ // check if money input is correct
+                        if (moneyToSend <= balanceuser){    // check if sender has enough money
+                        BankAccountManager.SendMoney(transaction); // send money to another account
+                        System.out.println(username + " - " + " - " + useremail + " - " + moneyToSend);
+                        BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, moneyToSend);   // take money from sender account after sending money
+                        BankAccountManager.ShowMessagewhenMoneysent(userpCode, moneyToSend, BankAccountManager.FindPersonPcode(recBankAccount));
+                        CreditManager.WriteMoneyTransactionsToafile(BankAccountManager.FindPersonPcode(recBankAccount), username, BankAccountManager.FindBankAccount(userpCode), moneyToSend, DateGen.GetDate()); // write credit to files
+                        JOptionPane.showMessageDialog(this, "Successful transaction!"); // show success message
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Insufficient funds!");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Invalid money input!"); // show error message
+                    }
                 } else {
-                    JOptionPane.showMessageDialog(this, "Invalid money input!"); // show error message
+                    JOptionPane.showMessageDialog(this, "Invalid Data"); // show error message
                 }
-            } else {
-                JOptionPane.showMessageDialog(this, "Invalid Data"); // show error message
-            }
-            userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+                userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
+        }
         }
 
         // =================================================== Take credits ===================================================
@@ -982,7 +988,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, moneyToSend);   // take money from sender account after sending money
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
                 CreditManager.DeleteMessage(userpCode);
-                JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
+                JOptionPane.showMessageDialog(this, "Successful transaction!"); // show success message
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid money input! You can not pay fewer or more than your loan! :)"); // show error message
             }
@@ -1209,7 +1215,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, fundscost);   // take money from sender account after sending money
                 FundsManager.WriteBoughtFunds(userpCode, fundscost, fundname); // write bought funds to file 
                 userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
-                JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
+                JOptionPane.showMessageDialog(this, "Successful transaction!"); // show success message
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid money input!"); // show error message
             }
@@ -1241,7 +1247,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
                     FundsManager.DeleteSimilarUserpcodeAndFundnamesinFile(userpCode, fundname);
                     userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
-                    JOptionPane.showMessageDialog(this, "Success transaction!"); // show success message
+                    JOptionPane.showMessageDialog(this, "Successful transaction!"); // show success message
                 } else {
                     JOptionPane.showMessageDialog(this, "Invalid money input!"); // show error message
                 }

@@ -18,15 +18,17 @@ public class CalendarApp extends JPanel {
         // Create components
         monthLabel = new JLabel("", JLabel.CENTER);
         calendarPanel = new JPanel(new GridLayout(0, 7));
-        prevMonthButton = new JButton("<-");
-        nextMonthButton = new JButton("->");
-
+        prevMonthButton = new JButton("<");
+        nextMonthButton = new JButton(">");
+        prevMonthButton.setFont(new Font("Arial", Font.PLAIN, 10));
+        nextMonthButton.setFont(new Font("Arial", Font.PLAIN, 10));
+        
         // Add action listeners to the buttons
         prevMonthButton.addActionListener(e -> displayCalendar(currentDate.minusMonths(1)));
         nextMonthButton.addActionListener(e -> displayCalendar(currentDate.plusMonths(1)));
 
         // Set the bounds of the buttons
-        Dimension buttonSize = new Dimension(25, 25); // Adjust as needed
+        Dimension buttonSize = new Dimension(40, 25); // Adjust as needed
         prevMonthButton.setPreferredSize(buttonSize);
         nextMonthButton.setPreferredSize(buttonSize);
 
@@ -53,7 +55,7 @@ public class CalendarApp extends JPanel {
         calendarPanel.removeAll();
 
         // Add day names
-        String[] dayNames = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+        String[] dayNames = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
         for (String day : dayNames) {
             //JLabel label = new JLabel(day, JLabel.CENTER);
             //calendarPanel.add(label);

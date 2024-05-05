@@ -74,6 +74,7 @@ public class BankAccountManager implements DeleteFileData {       // Class for m
         return balance;
     }   
 
+    // method to check sender's and receiver's bank accounts (used to send money to other accounts)
     public static boolean CheckSendData(String recUsername, String recBankAcc, float moneyToSend, String userpCode) {
         boolean result = false;
         Float money = 0.0f;
@@ -94,6 +95,7 @@ public class BankAccountManager implements DeleteFileData {       // Class for m
             }
         } catch (IOException e) {
             e.printStackTrace();
+            return result;
         }
         try(BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) {
             // ---------------------------------------------------------------------
@@ -103,15 +105,7 @@ public class BankAccountManager implements DeleteFileData {       // Class for m
                 for (String string : parts) {
                     System.out.println("CheckSendData results parts: " + string);
                 }
-                // ?????
-                //Float money = 0.0f;
-                // if (parts.length == 10 && parts[3].equals(userpCode)) {    // find the needed account
-                //     money = Float.parseFloat(parts[9]);
-                //     //System.out.println(moneyToSend);
-                //     System.out.println(money);
-                //     System.out.println(userpCode);
-                // }
-                if (parts.length == 10 && parts[4].equals(recBankAcc) && parts[6].equals(recUsername) && money >= moneyToSend) {    // find the needed account
+                if (parts.length == 10 && parts[4].equals(recBankAcc) && parts[6].equals(recUsername)) {    // find the needed account and check their balance
                     System.out.println(Float.parseFloat(parts[9]) + " >= " + moneyToSend);
                     result = true;
                     break;
@@ -141,7 +135,7 @@ public class BankAccountManager implements DeleteFileData {       // Class for m
                     String duplPartsStr = String.join(", ", duplParts);
                     BigDecimal sentMoneyBD = new BigDecimal(sentMoney);               // sent money (aka money that have to be taken) convert to BigDecimal
                     BigDecimal receiverCurrentCapital = new BigDecimal(parts[9]);           // current receiver's capital convert to BigDecimal
-                    receiverCurrentCapital = receiverCurrentCapital.subtract(sentMoneyBD).setScale(2, RoundingMode.DOWN);     // new receiver's capital rounded down to 2 decimal places
+                    receiverCurrentCapital = receiverCurrentCapital.subtract(sentMoneyBD).setScale(2, RoundingMode.HALF_UP);     // new receiver's capital rounded down to 2 decimal places
                     parts[9] = receiverCurrentCapital.toString();                           // new capital value for receiver
                     String partsStr = String.join(", ", parts);
 
@@ -183,25 +177,25 @@ public class BankAccountManager implements DeleteFileData {       // Class for m
     }
 
     // method to take money from the account
-    public static float TakeMoney(Transaction transaction) {
-        float money = 0.0f;
-        try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object
-            String line;
-            while ((line = br.readLine()) != null) { // while there is a next line
-                String[] parts = line.split(", ");      // current line from csv file
-                if (parts.length == 10) {
-                    if (parts[3].equals(transaction.getUsername())) {
-                        money = Float.parseFloat(parts[9]);         
-                        return money;         
-                    }   // balance is the 10th part of the csv line
-                }
-            }
+    // public static float TakeMoney(Transaction transaction) {
+    //     float money = 0.0f;
+    //     try (BufferedReader br = new BufferedReader(new FileReader("resources/person.csv"))) { // create a new buffered reader object
+    //         String line;
+    //         while ((line = br.readLine()) != null) { // while there is a next line
+    //             String[] parts = line.split(", ");      // current line from csv file
+    //             if (parts.length == 10) {
+    //                 if (parts[3].equals(transaction.getUsername())) {
+    //                     money = Float.parseFloat(parts[9]);         
+    //                     return money;         
+    //                 }   // balance is the 10th part of the csv line
+    //             }
+    //         }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return money;
-    }
+    //     } catch (IOException e) {
+    //         e.printStackTrace();
+    //     }
+    //     return money;
+    // }
 
     // method to show message when money is sent
     public static void ShowMessagewhenMoneysent(String senderuserpcode, Float money, String userpcode) {

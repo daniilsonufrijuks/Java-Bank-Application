@@ -597,6 +597,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
 
 
         // =================================================== Editor pane transactions viz ===================================================
+        editorPaneT.setFont(new Font("Arial", Font.BOLD, 16));
         // Set the content type to text
         editorPaneT.setContentType("text/plain");
         // Make the JEditorPane uneditable
@@ -606,7 +607,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         if (transactions != null) {
             for (String[] elem : transactions) {
                 for (String line : elem) {
-                    editorPaneT.setText(editorPaneT.getText() + line + " ");
+                    editorPaneT.setText(editorPaneT.getText() + line + " - ");
                 }
                 editorPaneT.setText(editorPaneT.getText() + "\n");
             }

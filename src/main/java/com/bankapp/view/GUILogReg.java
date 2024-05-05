@@ -10,7 +10,6 @@ import managers.CreditManager;
 import model.Numbers;
 import model.Person;
 import regex.REGEXManager;
-// Remove the unnecessary import statement
 // import Main;
 import controller.PersCode_Email_Controller;
 import generator.PinKontGen;
@@ -18,7 +17,6 @@ import generator.PinKontGen;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener; 
-//import main.java.com.bankapp.Main;
 import java.io.File;
 import java.io.IOException;
 

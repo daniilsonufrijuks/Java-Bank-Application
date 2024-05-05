@@ -8,11 +8,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CreditManager {
+public class CreditManager {   // Class for operations with credits
     // generate credit depending on money, percents and years
     public static float GenCredit(float money, float percents, int years) {
         float credit = 0.0f;
@@ -50,6 +49,7 @@ public class CreditManager {
         return null;
     }
 
+    // method to delete an entry from file
     public static void DeleteMessage(String userpcode) {
         File inputFile = new File("resources/credits.csv");
         File tempFile = new File("resources/creditsTemp.csv");
@@ -79,7 +79,7 @@ public class CreditManager {
         }
     }
 
-    // Check for similar user pcode in file and sum values and delete similar mess
+    // Check for similar user pcode in file and sum values and delete similar entries
     public static void CheckForSimilarUserPcodeinFileandSumValues(String userpcode) {
         try {
             File file = new File("resources/credits.csv");
@@ -112,34 +112,6 @@ public class CreditManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    // Write credit transactions to a file
-    public static void WriteMoneyTransactionsToafile(String recpcode, String sennickname, String senbankacc, Float money, LocalDate date) {
-        try {
-            FileWriter writer = new FileWriter("resources/sendmoneyTransactions.csv", true);
-            writer.write(recpcode + ", " + sennickname + ", " + senbankacc + ", " + money + ", " + date + "\n");
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    // for money transaction/sending visualization , reads file sendmoneyTransactions.csv
-    public static ArrayList<String[]> FindMoneyTransaction(String filepath, String recpcode) {
-        ArrayList<String[]> transactions = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(filepath))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] parts = line.split(", ");
-                if (parts.length == 5 && parts[0].equals(recpcode)) {
-                    transactions.add(new String[]{parts[0], parts[1], parts[2], parts[3], parts[4]});
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return transactions;
     }
 
     // public static void CheckForSimilarUserPcodeinFileandSumValues(String userpcode) {

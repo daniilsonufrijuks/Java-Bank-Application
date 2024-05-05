@@ -8,6 +8,7 @@ import date.DateGen;
 import managers.BankAccountManager;
 import managers.CreditManager;
 import managers.FundsManager;
+import managers.SendMoneyTransactionsManager;
 import model.Credits;
 import model.Transaction;
 import regex.REGEXManager;
@@ -262,7 +263,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
     // Constructor
     public GUIMainProgram(String userText, String userlnameText, String userPCode, String userEmail, String Nnickname) {
         // find data fro transaction visualisation
-        transactions = CreditManager.FindMoneyTransaction("resources/sendmoneyTransactions.csv", userPCode);
+        transactions = SendMoneyTransactionsManager.FindMoneyTransaction("resources/sendmoneyTransactions.csv", userPCode);
         if (transactions != null) {
             for (String[] elem : transactions) {
                 System.out.println(elem);
@@ -757,7 +758,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                         System.out.println(username + " - " + " - " + useremail + " - " + moneyToSend);
                         BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney(userpCode, useremail, moneyToSend);   // take money from sender account after sending money
                         BankAccountManager.ShowMessagewhenMoneysent(userpCode, moneyToSend, BankAccountManager.FindPersonPcode(recBankAccount));
-                        CreditManager.WriteMoneyTransactionsToafile(BankAccountManager.FindPersonPcode(recBankAccount), username, BankAccountManager.FindBankAccount(userpCode), moneyToSend, DateGen.GetDate()); // write credit to files
+                        SendMoneyTransactionsManager.WriteMoneyTransactionsToafile(BankAccountManager.FindPersonPcode(recBankAccount), username, BankAccountManager.FindBankAccount(userpCode), moneyToSend, DateGen.GetDate()); // write credit to files
                         JOptionPane.showMessageDialog(this, "Successful transaction!"); // show success message
                         } else {
                             JOptionPane.showMessageDialog(this, "Insufficient funds!");

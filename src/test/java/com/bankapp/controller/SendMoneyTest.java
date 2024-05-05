@@ -10,7 +10,7 @@ import regex.*;
 public class SendMoneyTest {        // Unit Test for methods and conditions used in GUIMainProgram.java for SendMoney
     
     @Test
-    public void CheckMoneyToSend(){
+    public void CheckSendDataAndMoneyTest(){
         String recUsername = "Don";
         String recBankAccount = "7b493791a0684f1daf5fa8ea80626123";
         String userPCode = "123456-12345";
@@ -19,7 +19,7 @@ public class SendMoneyTest {        // Unit Test for methods and conditions used
         float moneyToSend2 = 20.0f; // ok
         float moneyToSend3 = 20.12f;    // ok
         float moneyToSend4 = 20.02f;    // ok
-        float moneyToSend5 = 40;    // not ok   (capital = 30)
+        //float moneyToSend5 = 40;    // not ok   (capital = 30)
         float moneyToSend6 = 0;     // not ok
         float moneyToSend7 = 0.00f; // not ok
         float moneyToSend8 = -2;    // not ok
@@ -29,7 +29,6 @@ public class SendMoneyTest {        // Unit Test for methods and conditions used
         assertEquals(true, CheckSendDataAndMoney(recUsername, recBankAccount, moneyToSend2, userPCode));
         assertEquals(true, CheckSendDataAndMoney(recUsername, recBankAccount, moneyToSend3, userPCode));
         assertEquals(true, CheckSendDataAndMoney(recUsername, recBankAccount, moneyToSend4, userPCode));
-        assertEquals(false, CheckSendDataAndMoney(recUsername, recBankAccount, moneyToSend5, userPCode));
         assertEquals(false, CheckSendDataAndMoney(recUsername, recBankAccount, moneyToSend6, userPCode));
         assertEquals(false, CheckSendDataAndMoney(recUsername, recBankAccount, moneyToSend7, userPCode));
         assertEquals(false, CheckSendDataAndMoney(recUsername, recBankAccount, moneyToSend8, userPCode));

@@ -33,6 +33,14 @@
 
 *Systems: Java Swing, Java*
 
+**Gallery:**
+![alt text](./gallery/Capture.PNG)
+![alt text](./gallery/panel1.PNG)
+![alt text](./gallery/panel2.PNG)
+![alt text](./gallery/panel3.PNG)
+![alt text](./gallery/panel4.PNG)
+![alt text](./gallery/panel5.PNG)
+
 
 **WEB PAGE** -> https://daniilsonufrijuks.github.io/MONOLITH.github.io/
 

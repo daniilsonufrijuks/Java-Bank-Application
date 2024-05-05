@@ -10,19 +10,15 @@ import managers.CreditManager;
 import model.Numbers;
 import model.Person;
 import regex.REGEXManager;
-// Remove the unnecessary import statement
 // import Main;
 import controller.PersCode_Email_Controller;
 import generator.PinKontGen;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-//import java.io.Console;   
-//import main.java.com.bankapp.Main;
+import java.awt.event.ActionListener; 
 import java.io.File;
 import java.io.IOException;
-//import view.RoundJTextField;
 
 public class GUILogReg extends JFrame implements ActionListener {  
     Container container = getContentPane();

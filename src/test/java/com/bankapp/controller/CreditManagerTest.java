@@ -1,6 +1,9 @@
 package test.java.com.bankapp.controller;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
+import managers.CreditManager;
 
 public class CreditManagerTest {
     @Test
@@ -8,10 +11,6 @@ public class CreditManagerTest {
         float money = 1000.0f;
         float percents = 10.0f;
         int years = 1;
-        float credit = 0.0f;
-        if (money > 0) {
-            credit = (float) (money * Math.pow(1 + percents / 100, years));
-        }
-        assert credit == 1100.0f;
+        assertEquals(1100.0f, CreditManager.GenCredit(money, percents, years), 0);
     }
 }

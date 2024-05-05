@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
 
 public class FundsManager implements DeleteFileData {
     public static void WriteBoughtFunds(String userpcode, float amount, String fundname) {

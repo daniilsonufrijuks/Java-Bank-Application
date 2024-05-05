@@ -3,14 +3,10 @@ package managers;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
-
 import model.Transaction;
-
 import java.math.BigDecimal;
 // BigDecimal is datatype for money
 import java.math.RoundingMode;
@@ -215,13 +211,9 @@ public class BankAccountManager implements DeleteFileData {       // Class for m
             String line;
             while ((line = br.readLine()) != null) { // while there is a next line
                 String[] parts = line.split(", ");      // current line from csv file
-                // for (String string : parts) {
-                //     System.out.println("GetBalance results parts: " + string);
-                // }
                 if (parts.length == 10) {
                     if (parts[4].equals(bankacc)) {
                         pcode = parts[3];         
-                        //return pcode;         
                     }   // balance is the 10th part of the csv line
                 }
             }
@@ -230,7 +222,7 @@ public class BankAccountManager implements DeleteFileData {       // Class for m
             e.printStackTrace();
         }
         return pcode;
-    } 
+    }
 
     // method to show message when money is received
     public static boolean IfSomebodySentMoney(String userpcode) {

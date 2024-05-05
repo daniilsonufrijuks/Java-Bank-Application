@@ -215,13 +215,9 @@ public class BankAccountManager implements DeleteFileData {       // Class for m
             String line;
             while ((line = br.readLine()) != null) { // while there is a next line
                 String[] parts = line.split(", ");      // current line from csv file
-                // for (String string : parts) {
-                //     System.out.println("GetBalance results parts: " + string);
-                // }
                 if (parts.length == 10) {
                     if (parts[4].equals(bankacc)) {
                         pcode = parts[3];         
-                        //return pcode;         
                     }   // balance is the 10th part of the csv line
                 }
             }
@@ -230,7 +226,7 @@ public class BankAccountManager implements DeleteFileData {       // Class for m
             e.printStackTrace();
         }
         return pcode;
-    } 
+    }
 
     // method to show message when money is received
     public static boolean IfSomebodySentMoney(String userpcode) {

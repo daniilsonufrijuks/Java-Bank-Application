@@ -1,13 +1,8 @@
 package test.java.com.bankapp.controller;
 
 import static org.junit.Assert.assertEquals;
-
-import java.math.BigDecimal;
-
 import org.junit.Test;
-
 import managers.BankAccountManager;
-import model.Transaction;
 
 public class BankAccountManagerTest {
     
@@ -44,5 +39,23 @@ public class BankAccountManagerTest {
     public void FindBankAccountTest(){
         assertEquals("be39b4477c234e22bde26189493cd0bc", BankAccountManager.FindBankAccount("123456-12345"));
         assertEquals("65f644d5dfd77654334d5f677df76554", BankAccountManager.FindBankAccount("123457-12345"));
+    }
+
+    @Test
+    public void FindPersonPcodeTest(){
+        assertEquals("123456-12345", BankAccountManager.FindPersonPcode("be39b4477c234e22bde26189493cd0bc"));
+        assertEquals("123457-12345", BankAccountManager.FindPersonPcode("65f644d5dfd77654334d5f677df76554"));
+    }
+
+    @Test
+    public void FindPinCodesTest(){
+        assertEquals("4556066", BankAccountManager.FindPinCodes("123456-12345"));
+        assertEquals("1234567", BankAccountManager.FindPinCodes("123457-12345"));
+    }
+
+    @Test
+    public void FindPinCodesSecondTest(){
+        assertEquals("8717721", BankAccountManager.FindPinCodesSecond("123456-12345"));
+        assertEquals("1234566", BankAccountManager.FindPinCodesSecond("123457-12345"));
     }
 }

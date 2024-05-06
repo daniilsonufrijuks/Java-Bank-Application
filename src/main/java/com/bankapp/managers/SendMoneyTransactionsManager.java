@@ -27,7 +27,7 @@ public class SendMoneyTransactionsManager {     // Class for operations with sen
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(", ");
                 if (parts.length == 5 && parts[0].equals(recpcode)) {
-                    transactions.add(new String[]{parts[0], parts[1], parts[2], parts[3], parts[4]});
+                    transactions.add(new String[]{parts[4], parts[1], parts[2], parts[3]});
                 }
             }
         } catch (IOException e) {

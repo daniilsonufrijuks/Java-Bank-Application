@@ -608,7 +608,7 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         if (transactions != null) {
             for (String[] elem : transactions) {
                 for (String line : elem) {
-                    editorPaneT.setText(editorPaneT.getText() + line + " - ");
+                    editorPaneT.setText(editorPaneT.getText() + line + "....");
                 }
                 editorPaneT.setText(editorPaneT.getText() + "\n");
             }

@@ -778,15 +778,15 @@ public class GUIMainProgram extends JFrame implements ActionListener{
         if (e.getSource() == TAKEButton) {
             Float filedcredit1;
             filedcredit1 = Float.parseFloat(creditoptionfiled1.getText()); // get credit option 1
-            Credits credits = new Credits(filedcredit1); // create a new credits object
+            Credits credits = new Credits(filedcredit1); // create a new credits object to wrok through it
             BigDecimal balance = BankAccountManager.GetBalance(userpCode); // get balance in big decimal  
-            BigDecimal filedcredit1BigDecimal = BigDecimal.valueOf(filedcredit1);
+            BigDecimal filedcredit1BigDecimal = BigDecimal.valueOf(filedcredit1); // get credit option 1 field in big decimal
 
-            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0 && credits.getTotal() <= 100) {
+            if (balance.compareTo(BigDecimal.ZERO) > 0 && balance.compareTo(filedcredit1BigDecimal) >= 0 && credits.getTotal() <= 100) { // if balance > 0 and balance <= 100
                 // creating and initializing
-                CreditManager genCredit = new CreditManager(); // create a new credit manager object
+                CreditManager genCredit = new CreditManager(); // create a new credit manager object to use methods from this class
                 Transaction transaction = new Transaction(Float.valueOf(credits.getTotal()), BankAccountManager.FindBankAccount(userpCode), nickname); // create a new transaction object
-                System.out.println(BankAccountManager.FindBankAccount(userpCode) + " ," +username);
+                System.out.println(BankAccountManager.FindBankAccount(userpCode) + " ," +username); // to see what happens
                 BigDecimal finalCreditToPay = new BigDecimal(genCredit.GenCredit(credits.getTotal(), 25, 1));   // generate final credit that user should repay
                 //
                 // maths and sending
@@ -795,20 +795,19 @@ public class GUIMainProgram extends JFrame implements ActionListener{
                 BankAccountManager.RemoveMoneyFromSenderInCSVAfterSendMoney("000000-00000", "monolith@gmail.com", credits.getTotal());  // take money from acc of the bank
                 BankAccountManager.SendMoney(transaction); // send money to user's acc
                 CreditManager.WriteCredittoFile(userpCode, finalCreditToPay.floatValue()); // write credit to file
-                System.out.println("   balance ---> " + String.valueOf(BankAccountManager.GetBalance(userpCode)));
-                //
+                System.out.println("   balance ---> " + String.valueOf(BankAccountManager.GetBalance(userpCode))); // to see what happens
                 // work with credits
-                userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance
-                CreditManager.CheckForSimilarUserPcodeinFileandSumValues(userpCode);
-                JOptionPane.showMessageDialog(this, "Success credit!");
+                userbalanceLabel.setText(String.valueOf(BankAccountManager.GetBalance(userpCode))); // update balance in the main panel 1
+                CreditManager.CheckForSimilarUserPcodeinFileandSumValues(userpCode); // to check for similar user pcode in file and sum values and delete similar entries
+                JOptionPane.showMessageDialog(this, "Success credit!"); // show if succes transaction
             } else {
-                JOptionPane.showMessageDialog(this, "Invalid Data");
+                JOptionPane.showMessageDialog(this, "Invalid Data"); // if not valid data
             }
             // check credits to display it on panel1
             if (CreditManager.FindCredit("resources/credits.csv", userpCode) == null){  // if user doesnt have credits (to prevent from writing 'null')
-                userCreditsLabel.setText("none");
+                userCreditsLabel.setText("none"); // to prevent from writing 'null', will write 'none' <---------
             } else {
-                userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode)));
+                userCreditsLabel.setText(String.valueOf(CreditManager.FindCredit("resources/credits.csv", userpCode))); // update credit label panel 1
             }
         }
         if (e.getSource() == TAKE2Button) {

@@ -59,8 +59,8 @@ public class FundsManager implements DeleteFileData {
             while ((currentLine = reader.readLine()) != null) {
                 // trim newline when comparing with userpcode
                 String trimmedLine = currentLine.trim();
-                if (trimmedLine.contains(userpcode)) continue;
-                writer.write(currentLine + System.getProperty("line.separator"));
+                if (trimmedLine.contains(userpcode)) continue; // if line contains the string userpcode, skips if line contains this userpcode and it will not be written to the temp file
+                writer.write(currentLine + System.getProperty("line.separator")); // writes current line from read file to temp file, line.separator used to provide correct newline char
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -105,8 +105,8 @@ public class FundsManager implements DeleteFileData {
                 // trim newline when comparing with userpcode
                 String trimmedLine = currentLine.trim();
                 String[] parts = currentLine.split(", ");
-                if (parts.length == 3 && parts[0].equals(userpcode) && parts[2].equals(fundname)) continue;
-                writer.write(currentLine + System.getProperty("line.separator"));
+                if (parts.length == 3 && parts[0].equals(userpcode) && parts[2].equals(fundname)) continue; // if line contains the string userpcode, skips if line contains this userpcode and it will not be written to the temp file
+                writer.write(currentLine + System.getProperty("line.separator")); // writes current line from read file to temp file, line.separator used to provide correct newline char
             }
         } catch (IOException e) {
             e.printStackTrace();

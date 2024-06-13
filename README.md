@@ -4,7 +4,7 @@
 [![git](https://badgen.net/badge/icon/git?icon=git&label)](https://git-scm.com)
 [![GitHub](https://img.shields.io/badge/--181717?logo=github&logoColor=ffffff)](https://github.com/)
 [![Visual Studio Code](https://img.shields.io/badge/--007ACC?logo=visual%20studio%20code&logoColor=ffffff)](https://code.visualstudio.com/)
-**Authors: Daniils Onufrijuks aka daniilsonufrijuks | Daņila Vasiļjevs aka 22DP1DVasi**
+
 
 <p align="center">
   <img src="resources/program_logo.jpg" alt="html">
@@ -22,7 +22,7 @@
     <img src="resources/visualstudio_code.svg" alt="html" style="vertical-align:top; margin:6px 4px">
 </a>  
 
-
+**Authors: Daniils Onufrijuks aka daniilsonufrijuks | Daņila Vasiļjevs aka 22DP1DVasi**
 **[LV]**
 *"Internet banka" aplikācija, kurā būs lietotāja reģistrācijas un pieteikšanās iespējas. Pēc reģistrācijas lietotājs (bankas klients) varēs papildināt, noņemt naudu no sava konta, arī ņemt kredītu un nopirkt akcijas.*
 

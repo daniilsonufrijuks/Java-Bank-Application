@@ -22,7 +22,7 @@
     <img src="resources/visualstudio_code.svg" alt="html" style="vertical-align:top; margin:6px 4px">
 </a>  
 
-**Authors: Daniils Onufrijuks aka daniilsonufrijuks | Daņila Vasiļjevs aka 22DP1DVasi**
+**Authors: Daniils Onufrijuks aka daniilsonufrijuks | Daņila Vasiļjevs aka danilavasiljevs**
 
 
 **[LV]**
